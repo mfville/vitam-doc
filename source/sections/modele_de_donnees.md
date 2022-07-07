@@ -472,8 +472,7 @@ de l’initialisation de l’opération.
 
 **« evDateTime » (event DateTime):** date de lancement de l’opération.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3
-    > digits de millisecondes\]
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:[3 digits de millisecondes]
 
 -   Elle est renseignée par le client LogBook.
 
@@ -487,12 +486,9 @@ de l’initialisation de l’opération.
 
 -   Donne plus de détails sur l’événement ou son résultat.
 
--   Par exemple, pour l’étape ATR\_NOTIFICATION, ce champ détaille le
-    > nom de l’ArchiveTransferReply, son empreinte et l’algorithme
-    > utilisé pour calculer l’empreinte.
+-   Par exemple, pour l’étape ATR_NOTIFICATION, ce champ détaille le nom de l’ArchiveTransferReply, son empreinte et l’algorithme utilisé pour calculer l’empreinte.
 
--   Sur la structure incluante d’une opération d’entrée, il contient un
-    > objet JSON composé des champs suivants :
+-   Sur la structure incluante d’une opération d’entrée, il contient un objet JSON composé des champs suivants :
 
     -   EvDetailReq : précisions sur la demande de transfert.
 
@@ -500,25 +496,21 @@ de l’initialisation de l’opération.
 
         -   Reprend le champ « Comment » du message ArchiveTransfer.
 
-    -   EvDateTimeReq : date de la demande de transfert inscrit dans le
-        > champ evDetData.
+    -   EvDateTimeReq : date de la demande de transfert inscrit dans le champ evDetData.
 
-        -   Date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3 digits
-            > de millisecondes\].
+        -   Date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:[3 digits de millisecondes].
 
         -   Cardinalité 1-1.
 
     -   ArchivalAgreement : identifiant du contrat d’entrée utilisé.
 
-        -   Reprend le champ « ArchivalAgreement » du message
-            > ArchiveTransfer.
+        -   Reprend le champ « ArchivalAgreement » du message ArchiveTransfer.
 
         -   Cardinalité 1-1.
 
     -   ArchiveProfile : identifiant du profil d’archivage utilisé.
 
-        -   Reprend le champ « ArchiveProfile » du message
-            > ArchiveTransfer.
+        -   Reprend le champ « ArchiveProfile » du message ArchiveTransfer.
 
         -   Cardinalité 0-1.
 
@@ -534,8 +526,7 @@ de l’initialisation de l’opération.
 
         -   Chaîne de caractères.
 
-        -   Reprend le champ AcquisitionInformation du message
-            > ArchiveTransfer.
+        -   Reprend le champ AcquisitionInformation du message ArchiveTransfer.
 
         -   Cardinalité 0-1.
 
