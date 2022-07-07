@@ -9893,6 +9893,8 @@ métadonnées de l’unité archivistiques. Il est composé comme suit :
 
 -   Cardinalité : 1-1
 
+## Annexe 6.3 Collection EliminationActionObjectGroup
+
     []{#__RefHeading___Toc29601_1669085364 .anchor}8.3. Collection
     EliminationActionObjectGroup
 
