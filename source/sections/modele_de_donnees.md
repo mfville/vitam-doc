@@ -77,8 +77,7 @@ nommés de deux manières :
 
 Il existe plusieurs types d’identifiants :
 
--   GUID : identifiant unique de 36 caractères généré par la solution
-    > logicielle Vitam,
+-   GUID : identifiant unique de 36 caractères généré par la solution logicielle Vitam,
 
 -   PUID : identifiant des formats dans le référentiel Pronom,
 
@@ -130,18 +129,17 @@ les certificats utilisés par les contextes applicatifs.
     "_id": "aeaaaaaaaahkcaqqaa4v4alj7kxofsqaaaaq",
     "SubjectDN": "CN=ihm-demo, O=vitam, L=paris, ST=idf, C=fr",
     "ContextId": "CT-000001",
-    "SerialNumber": 302,\
-    "Certificate":
-    "Q2VydGlmaWNhdGU6CiAgICBEYXRhOgogICAgICAgIFZlcnNpb246IDMgKDB4MikKICA\
+    "SerialNumber": 302,
+    "Certificate": "Q2VydGlmaWNhdGU6CiAgICBEYXRhOgogICAgICAgIFZlcnNpb246IDMgKDB4MikKICA
  
     [...]
  
-    kbE4KM08yV1dIRlJMWnpQRWZ4eXlxMm1TbVdsaUUvUzZUbzJVVEswamxobStpbThPa29mZmlLbXlodVpWS3\
+    kbE4KM08yV1dIRlJMWnpQRWZ4eXlxMm1TbVdsaUUvUzZUbzJVVEswamxobStpbThPa29mZmlLbXlodVpWS3
     S0tRU5EIENFUlRJRklDQVRFLS0tLS0=",
 
-    "IssuerDN": "CN=ca\_intermediate\_client-external, OU=authorities,O=vitam, L=paris, ST=idf, C=fr",
+    "IssuerDN": "CN=ca_intermediate_client-external, OU=authorities,O=vitam, L=paris, ST=idf, C=fr",
     "Status": "VALID",
-    "ExpirationDate": "2025-01-02T11:35:35.000"\
+    "ExpirationDate": "2025-01-02T11:35:35.000"
 }
 ```
 
@@ -335,6 +333,7 @@ détaillées dans [l’annexe 6.3](#annexe-6-3-collection-eliminationactionobjec
 
 Extrait d’un enregistrement JSON correspondant à une opération d’entrée terminée avec succès.
 
+```
 {
     "_id": "aeeaaaaabchgzebuaafzaalj4nng5paaaaaq",
     "evId": "aeeaaaaabchgzebuaafzaalj4nng5paaaaaq",
@@ -345,10 +344,9 @@ Extrait d’un enregistrement JSON correspondant à une opération d’entrée t
     "evIdProc": "aeeaaaaabchgzebuaafzaalj4nng5paaaaaq",
     "evTypeProc": "INGEST",
     "outcome": "STARTED",
-    "outDetail": "PROCESS\_SIP\_UNITARY.STARTED",
+    "outDetail": "PROCESS_SIP_UNITARY.STARTED",
     "outMessg": "Début du processus d'entrée du SIP : aeeaaaaabchgzebuaafzaalj4nng5paaaaaq",
-    "agId":
-    "{\"Name\":\"vitam-env-int-external-01.vitam-env\",\"Role\":\"ingest-external\",\"ServerId\":1047302196,\"SiteId\":1,\"GlobalPlatformId\":241995828}",
+    "agId": "{\"Name\":\"vitam-env-int-external-01.vitam-env\",\"Role\":\"ingest-external\",\"ServerId\":1047302196,\"SiteId\":1,\"GlobalPlatformId\":241995828}",
     "agIdApp": "CT-000001",
     "agIdPers": null,
     "evIdAppSession": "MyApplicationId-ChangeIt",
@@ -415,6 +413,7 @@ Extrait d’un enregistrement JSON correspondant à une opération d’entrée t
       "_v": 25,
       "_lastPersistedDate": "2019-04-03T13:19:28.832"
 }
+```
 
 #### Détail des champs du JSON stocké dans la collection
 

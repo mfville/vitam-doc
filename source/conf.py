@@ -21,13 +21,13 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = u'Documentation utilisateur Vitam'
-copyright = u'2021, Programme Vitam'
+copyright = u'2022, Programme Vitam'
 author = u'Programme Vitam'
 
 # The short X.Y version
-version = u'5.0'
+version = u'6.rc'
 # The full version, including alpha/beta/rc tags
-release = u'5.0.0'
+release = u'6.rc.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -213,5 +213,5 @@ smv_tag_whitelist = r'^v\d+\.\d+.*$|latest'  # all tags of form v*.*.x and lates
 # Whitelist pattern for branches (set to '' to ignore all branches)
 smv_branch_whitelist = ''
 smv_released_pattern = r'v.*'
-smv_latest_version = 'v5.0'
+smv_latest_version = 'v6.rc'
 smv_remote_whitelist = None

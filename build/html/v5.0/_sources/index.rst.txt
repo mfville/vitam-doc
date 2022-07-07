@@ -7,7 +7,6 @@ Documentation Vitam
 ===================
 
 .. toctree::
-   :maxdepth: 1
    :caption: Table des matières
    :numbered:
 
