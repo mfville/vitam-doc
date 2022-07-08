@@ -10073,7 +10073,7 @@ documentation Modèle de workflow.
 L’ensemble des étapes, tâches et traitements sont détaillées dans la
 documentation Modèle de workflow.
 
-## Annexe 3 Valeurs possibles pour le champ evTypeProc type de processus
+## Annexe 3 Valeurs possibles pour le champ evTypeProc (type de processus)
 1.  []{#__RefHeading___Toc29613_1669085364 .anchor}Annexe 3 : Valeurs
     possibles pour le champ evTypeProc (type de processus)
 
