@@ -1204,7 +1204,7 @@ opération.
 
 -   Ce champ existe uniquement pour la structure incluante.
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
@@ -1212,7 +1212,7 @@ opération.
 
 -   Ce champ existe uniquement pour la structure incluante.
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
@@ -1222,7 +1222,7 @@ opération.
 
 -   Ce champ existe uniquement pour la structure incluante.
 
-**« \_lastPersistedDate » :** date technique de sauvegarde en base.
+**« _lastPersistedDate » :** date technique de sauvegarde en base.
 
 -   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes].
 
@@ -1237,63 +1237,37 @@ opération.
 #### Champs présents dans les events
 
 -   evId
-
 -   evParentId
-
 -   evType
-
 -   evDateTime
-
 -   evIdProc
-
 -   evTypeProc
-
 -   outcome
-
 -   outDetail
-
 -   outMessg
-
 -   agId
-
 -   obId
-
 -   evDetData
-
 -   lastPersistedDate
 
-    []{#__RefHeading___Toc29395_1669085364 .anchor}3.2.5. Détail des
-    champs du JSON stocké en base spécifiques à une mise à jour
+#### Détail des champs du JSON stocké en base spécifiques à une mise à jour
 
 Exemple de données stockées dans le champ evDetData :
 
-> "evDetData": "{"diff": "- \\"Title\_.en\\" : \\"Reboisement du mont
-> Ventoux - Enqu\\\\u00EAtes photographiques de l'Inspection des Eaux et
-> for\\\\u00EAts d'Avignon\\"\\n+ \\"Title\_.en\\" : \\"Title
-> Anglais\\"\\n- \\"\_ops\\" : \[
-> \\"aeeaaaaaachprzmjab7xealwm2wyc5yaaaaq\\" \]\\n+ \\"\_ops\\" : \[
-> \\"aeeaaaaaachprzmjab7xealwm2wyc5yaaaaq\\",
-> \\"aeeaaaaaachprzmjabpaualwnpe7vpiaaaaq\\" \]\\n- \\"\_v\\" : 0\\n-
-> \\"\_av\\" : 0\\n+ \\"\_v\\" : 1\\n+ \\"\_av\\" : 1",\
-> "version": 1}",
+```json
+"evDetData": "{"diff": "- \"Title_.en\" : \"Reboisement du montVentoux - Enqu\\u00EAtes photographiques de l'Inspection des Eaux et for\\u00EAts d'Avignon\"\n+ \"Title_.en\" : \"Title Anglais\"\n- \"_ops\" : [
+    \"aeeaaaaaachprzmjab7xealwm2wyc5yaaaaq\" ]\n+ \"_ops\" : [
+        \"aeeaaaaaachprzmjab7xealwm2wyc5yaaaaq\",
+        \"aeeaaaaaachprzmjabpaualwnpe7vpiaaaaq\" ]\n- \"_v\" : 0\n-"_av\" : 0\n+ \"_v\" : 1\n+ \"_av\" : 1", "version": 1}",
+```
 
-Dans le cas d’une mise à jour de métadonnées d’une unité archivistique
-(ArchiveUnit), le champ **« evDetData »** de l’événement final est
-composé du champ suivant :
+Dans le cas d’une mise à jour de métadonnées d’une unité archivistique (ArchiveUnit), le champ **« evDetData »** de l’événement final est composé du champ suivant :
 
 **« diff » :** historisation des modifications de métadonnées.
 
--   Son contenu doit respecter la forme suivante : les anciennes valeurs
-    > sont précédées d’un « - » (-\[champ(s) menant à champ 1.\]champ1 :
-    > valeur1) et les nouvelles valeurs sont précédées d’un « + »
-    > (+\[champ(s) menant à champ 1.\]champ1 : valeur2). Le changement
-    > d’un champ entraîne forcément l’ajout d’une nouvelle opération (le
-    > champ \_ops de l’unité est modifié) et d’une nouvelle version de
-    > l’unité (le champ \_v est modifié). Ces changements apparaissent
-    > également dans le « diff ».
+-   Son contenu doit respecter la forme suivante : les anciennes valeurs sont précédées d’un « - » (-[champ(s) menant à champ 1.]champ1 : valeur1) et les nouvelles valeurs sont précédées d’un « + » (+[champ(s) menant à champ 1.]champ1 : valeur2). Le changement d’un champ entraîne forcément l’ajout d’une nouvelle opération (le champ _ops de l’unité est modifié) et d’une nouvelle version de l’unité (le champ _v est modifié). Ces changements apparaissent également dans le « diff ».
 
-    []{#__RefHeading___Toc29397_1669085364 .anchor}3.3. Collection
-    LogbookLifeCycleObjectGroup
+### Collection LogbookLifeCycleObjectGroup
 
     []{#__RefHeading___Toc29399_1669085364 .anchor}3.3.1. Utilisation de
     la collection LogbookLifeCycleObjectGroup
@@ -1723,8 +1697,7 @@ l’événement.
 
 -   LastPersistedDate
 
-    []{#__RefHeading___Toc46126_1367996966 .anchor}3.4. Collection
-    Offset
+### Collection Offset
 
     []{#__RefHeading___Toc46128_1367996966 .anchor}3.4.1. Utilisation de
     la collection
