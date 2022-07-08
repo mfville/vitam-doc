@@ -10077,39 +10077,33 @@ documentation Modèle de workflow.
 | Process Type                                     | Valeur                    | Description                                       |
 |:-------------------------------------------------|:--------------------------|:--------------------------------------------------|
 | Archive Transfer process                         | ARCHIVE_TRANSFER          | Transfert                                         |
+| Audit Type process                               | AUDIT                     | Audit                                             |
+| Bulk Update process                              | BULK_UPDATE               | Mise à jour unitaire en masse                     |
+| Check type process                               | CHECK                     | Vérification                                      |
+| ComputedInheritedRules process                   | COMPUTE_INHERITED_RULES   | Calcul des règles de gestion applicables          |
+| Migration                                        | DATA_MIGRATION            | Migration                                         |
+| Delete GOT versions process                      | DELETE_GOT_VERSIONS       | Suppression de versions d’objets                  |
+| Destruction type process                         | ELIMINATION               | Élimination                                       |
+| Evidence Audit type process                      | EVIDENCEAUDIT             | Audit de traçabilité                              |
+| DIP export                                       | EXPORT_DIP                | Export de DIP                                     |
+| Evidence probativevalue export                   | EXPORT_PROBATIVE_VALUE    | Export d’un relevé de valeur probante             |
+| External                                         | EXTERNAL                  | Opération Externe à VITAM                         |
+| Filing scheme type process                       | FILINGSCHEME              | Import de plan de classement                      |
+| Holding scheme type process (tree)               | HOLDINGSCHEME             | Entrée de plan                                    |
+| Ingest type process                              | INGEST                    | Entrée                                            |
+| Ingest test type process                         | INGEST_TEST               | Entrée à blanc                                    |
+| Mass update of archive units                     | MASS_UPDATE               | Modification de masse                             |
+| Rules Manager process                            | MASTERDATA                | Données de base                                   |
+| Preservation type process                        | PRESERVATION              | Préservation                                      |
 | Reclassification process (attachment/detachment) | RECLASSIFICATION          | Modification d’arborescence                       |
+| Storage Backup type process                      | STORAGE_BACKUP            | Enregistrement du backup                          |
+| Storage Logbook type process                     | STORAGE_LOGBOOK           | Enregistrement des journaux                       |
+| Storage Angencies type process                   | STORAGE_RULE              | Enregistrement du référentiel des services agents |
+| Traceability type process                        | TRACEABILITY              | Sécurisation                                      |
+| Update process                                   | UPDATE                    | Mise à jour                                       | 
 
-  -------------------------------------------------- --------------------------- ---------------------------------------------------
-  Process Type                                       Valeur                      Description
-  Archive Transfer process                           ARCHIVE\_TRANSFER           Transfert
-  Audit type process                                 AUDIT                       Audit
-  Bulk Update process                                BULK\_UPDATE                Mise à jour unitaire en masse
-  Check type process                                 CHECK                       Vérification
-  ComputedInheritedRules process                     COMPUTE\_INHERITED\_RULES   Calcul des règles de gestion applicables
-  Migration                                          DATA\_MIGRATION             Migration
-  Delete GOT versions process                        DELETE\_GOT\_VERSIONS       Suppression de versions d’objets
-  Destruction type process                           ELIMINATION                 Élimination
-  Evidence Audit type process                        EVIDENCEAUDIT               Audit de traçabilité
-  DIP export                                         EXPORT\_DIP                 Export de DIP
-  Evidence probativevalue export                     EXPORT\_PROBATIVE\_VALUE    Export d’un relevé de valeur probante
-  External                                           > EXTERNAL                  Opération Externe à VITAM
-  Filing scheme type process                         FILINGSCHEME                Import de plan de classement
-  Holding scheme type process (tree)                 HOLDINGSCHEME               Entrée de plan
-  Ingest type process                                INGEST                      Entrée
-  Ingest test type process                           INGEST\_TEST                Entrée à blanc
-  Mass update of archive units                       MASS\_UPDATE                Modification de masse
-  Rules Manager process                              MASTERDATA                  Données de base
-  Preservation type process                          PRESERVATION                Préservation
-  Reclassification process (attachment/detachment)   RECLASSIFICATION            Modification d’arborescence
-  Storage Backup type process                        STORAGE\_BACKUP             Enregistrement du backup »
-  Storage logbook type process                       STORAGE\_LOGBOOK            Enregistrement des journaux
-  Storage Angencies type process                     STORAGE\_RULE               Enregistrement du référentiel des services agents
-  Traceability type process                          TRACEABILITY                Sécurisation
-  Update process                                     UPDATE                      Mise à jour
-  -------------------------------------------------- --------------------------- ---------------------------------------------------
 
-1.  []{#__RefHeading___Toc29615_1669085364 .anchor}Annexe 4 : Catégories
-    de règles possibles
+## Annexe 4 : Catégories de règles possibles
 
   ----------------------------- ------------------------------ --------------------------------------------------------------------------------------------------
   Prefixe (Peut être modifié)   Type de règle correspondante   Description du type de règle
