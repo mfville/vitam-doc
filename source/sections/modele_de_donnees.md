@@ -326,8 +326,7 @@ Ces opérations sont :
 
 -   Journalisation externe (enregistrement d’opérations extérieures dans la solution logicielle Vitam)
 
-Les valeurs correspondant à ces opérations dans les journaux sont
-détaillées dans [l’annexe 3](#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus)
+Les valeurs correspondant à ces opérations dans les journaux sont détaillées dans [l’annexe 3](#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus)
 
 #### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection LogbookOperation
 
@@ -9880,7 +9879,7 @@ métadonnées de l’unité archivistiques. Il est composé comme suit :
 
 -   Cardinalité : 1-1
 
-## Annexe 6.3 Collection EliminationActionObjectGroup
+### Collection EliminationActionObjectGroup
 
     []{#__RefHeading___Toc29601_1669085364 .anchor}8.3. Collection
     EliminationActionObjectGroup
@@ -10074,8 +10073,11 @@ L’ensemble des étapes, tâches et traitements sont détaillées dans la
 documentation Modèle de workflow.
 
 ## Annexe 3 Valeurs possibles pour le champ evTypeProc (type de processus)
-1.  []{#__RefHeading___Toc29613_1669085364 .anchor}Annexe 3 : Valeurs
-    possibles pour le champ evTypeProc (type de processus)
+
+| Process Type                                     | Valeur                    | Description                                       |
+|:-------------------------------------------------|:--------------------------|:--------------------------------------------------|
+| Archive Transfer process                         | ARCHIVE_TRANSFER          | Transfert                                         |
+| Reclassification process (attachment/detachment) | RECLASSIFICATION          | Modification d’arborescence                       |
 
   -------------------------------------------------- --------------------------- ---------------------------------------------------
   Process Type                                       Valeur                      Description
