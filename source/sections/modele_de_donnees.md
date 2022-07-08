@@ -197,7 +197,7 @@ de certification.
 
 **« ExpirationDate » :** date d’expiration du certificat.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:\[3
     > digits de millisecondes\]
 
     Exemple : "2016-08-17T08:26:04.227"
@@ -471,7 +471,7 @@ de l’initialisation de l’opération.
 
 **« evDateTime » (event DateTime):** date de lancement de l’opération.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:[3 digits de millisecondes]
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes]
 
 -   Elle est renseignée par le client LogBook.
 
@@ -558,8 +558,7 @@ de l’initialisation de l’opération.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Nom du processus, parmi une liste de processus possibles fixée.
-    > Cette liste est disponible en annexe 6.3.
+-   Nom du processus, parmi une liste de processus possibles fixée. Cette liste est disponible en [l’annexe 3](#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus)
 
 -   Cardinalité : 1-1
 
@@ -567,8 +566,7 @@ de l’initialisation de l’opération.
 
 **« outcome » :** statut de l’événement.
 
--   Il s’agit d’une chaîne de caractères devant correspondre à une
-    > valeur de la liste suivante :
+-   Il s’agit d’une chaîne de caractères devant correspondre à une valeur de la liste suivante :
 
     -   STARTED (Début de l’événement)
 
@@ -584,23 +582,17 @@ de l’initialisation de l’opération.
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« outDetail » (outcome Detail):** code correspondant au résultat de
-l’événement.
+**« outDetail » (outcome Detail):** code correspondant au résultat de l’événement.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Il contient le code correspondant au résultat de l’événement,
-    > incluant le statut. La liste des valeurs possibles pour ce champ
-    > se trouve en annexe. Seul le code doit être stocké dans ce champ,
-    > la traduction doit se faire via un fichier properties
-    > (vitam-logbook-message-fr.properties)
+-   Il contient le code correspondant au résultat de l’événement, incluant le statut. La liste des valeurs possibles pour ce champ se trouve en annexe. Seul le code doit être stocké dans ce champ, la traduction doit se faire via un fichier properties (vitam-logbook-message-fr.properties).
 
 -   Cardinalité : 1-1
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« outMessg » (outcome Detail Message):** détail du résultat de
-l’événement.
+**« outMessg » (outcome Detail Message):** détail du résultat de l’événement.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -614,8 +606,7 @@ l’événement.
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« agId » (agent Identifier):** identifiant de l’agent interne
-réalisant l’évènement.
+**« agId » (agent Identifier):** identifiant de l’agent interne réalisant l’évènement.
 
 -   Il s’agit de plusieurs chaînes de caractères indiquant le nom, le
     > rôle et l’identifiant du serveur, du site et de la plateforme. Ce
@@ -623,20 +614,17 @@ réalisant l’évènement.
     > en s’appuyant sur des fichiers de configuration.
 
     Exemple :
-    "{\\"Name\\":\\"vitam-env-itrec-external-01.vitam-env\\",\\"Role\\":\\"ingest-external\\",\\"ServerId\\":1045466546,\\"SiteId\\":1,\\"GlobalPlatformId\\":240160178}",
-
+    ```
+    "{\"Name\":\"vitam-env-itrec-external-01.vitam-env\",\"Role\":\"ingest-external\",\"ServerId\":1045466546,\"SiteId\":1,\"GlobalPlatformId\":240160178}",
+    ``` 
 -   Cardinalité : 1-1
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« agIdApp » (agent Identifier Application):** identifiant de
-l’application externe qui appelle la solution logicielle Vitam pour
-effectuer une opération.
+**« agIdApp » (agent Identifier Application):** identifiant de l’application externe qui appelle la solution logicielle Vitam pour effectuer une opération.
 
 -   Cet identifiant est celui du contexte applicatif utilisé par
     l’application.
-
-<!-- -->
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -654,13 +642,9 @@ effectuer une opération.
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« evIdAppSession » (event Identifier Application Session):**
-identifiant de la transaction qui a entraîné le lancement d’une
-opération dans la solution logicielle Vitam.
+**« evIdAppSession » (event Identifier Application Session):** identifiant de la transaction qui a entraîné le lancement d’une opération dans la solution logicielle Vitam.
 
--   L’application externe est responsable de la gestion de cet
-    > identifiant. Il correspond à un identifiant pour une session
-    > donnée côté application externe.
+-   L’application externe est responsable de la gestion de cet identifiant. Il correspond à un identifiant pour une session donnée côté application externe.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -668,16 +652,13 @@ opération dans la solution logicielle Vitam.
 
 -   Ce champ existe uniquement pour la structure incluante.
 
-**« evIdReq » (event Identifier Request):** identifiant de la requête
-déclenchant l’opération.
+**« evIdReq » (event Identifier Request):** identifiant de la requête déclenchant l’opération.
 
 -   Il s’agit d’une chaîne de 36 caractères.
 
--   Une requestId est créée pour chaque nouvelle requête http venant de
-    > l’extérieur.
+-   Une requestId est créée pour chaque nouvelle requête http venant de l’extérieur.
 
--   Dans le cas du processus d’entrée, il devrait s’agir du numéro de
-    > l’opération (EvIdProc).
+-   Dans le cas du processus d’entrée, il devrait s’agir du numéro de l’opération (EvIdProc).
 
 -   Il s’agit du X-Application-Id.
 
@@ -685,101 +666,77 @@ déclenchant l’opération.
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« agIdExt » (agent Identifier External):** identifiant de l’agent
-externe mentionné dans le message ArchiveTransfer.
+**« agIdExt » (agent Identifier External):** identifiant de l’agent externe mentionné dans le message ArchiveTransfer.
 
--   Pour une opération d’INGEST, il s’agit d’un objet JSON comprenant
-    > les champs suivants :
+-   Pour une opération d’INGEST, il s’agit d’un objet JSON comprenant les champs suivants :
 
     -   OriginatingAgency : identifiant du service producteur.
 
         -   Il s’agit d’une chaîne de caractères.
 
-        -   Reprend le contenu du champ OriginatingAgencyIdentifier du
-            > message ArchiveTransfer.
+        -   Reprend le contenu du champ OriginatingAgencyIdentifier du message ArchiveTransfer.
 
     -   TransferringAgency : identifiant du service de transfert.
 
         -   Il s’agit d’une chaîne de caractères.
 
-        -   Reprend le contenu du champ TransferringAgencyIdentifier du
-            > message ArchiveTransfer.
+        -   Reprend le contenu du champ TransferringAgencyIdentifier du message ArchiveTransfer.
 
     -   ArchivalAgency : identifiant du service d’archivage.
 
         -   Il s’agit d’une chaîne de caractères.
 
-        -   Reprend le contenu du champ ArchivalAgencyIdentifier du
-            > message ArchiveTransfer.
+        -   Reprend le contenu du champ ArchivalAgencyIdentifier du message ArchiveTransfer.
 
     -   SubmissionAgency : identifiant du service versant.
 
         -   Il s’agit d’une chaîne de caractères.
 
-        -   Reprend le contenu du champ SubmissionAgencyIdentifier du
-            > message ArchiveTransfer.
+        -   Reprend le contenu du champ SubmissionAgencyIdentifier du message ArchiveTransfer.
 
 -   Cardinalité : 1-1
 
 -   Ce champ existe uniquement pour la structure incluante.
 
-**« rightsStatementIdentifier » :** identifiant des données
-référentielles en vertu desquelles l’opération peut s’exécuter.
+**« rightsStatementIdentifier » :** identifiant des données référentielles en vertu desquelles l’opération peut s’exécuter.
 
--   Pour une opération d’INGEST, il s’agit d’un objet JSON comprenant
-    > les champs suivants :
+-   Pour une opération d’INGEST, il s’agit d’un objet JSON comprenant les champs suivants :
 
-    -   ArchivalAgreement: identifiant du contrat d’entrée utilisé pour
-        > réaliser l’entrée.
+    -   ArchivalAgreement: identifiant du contrat d’entrée utilisé pour réaliser l’entrée.
 
         -   Il s’agit d’une chaîne de caractères.
 
-        -   Reprend le contenu du champ ArchivalAgreement du message
-            > ArchiveTransfer.
+        -   Reprend le contenu du champ ArchivalAgreement du message ArchiveTransfer.
 
         -   Cardinalité 1-1.
 
-    <!-- -->
+    -   Profil : identifiant du profil d’archivage utilisé pour réaliser l’entrée.Il s’agit d’une chaîne de caractères.
 
-    -   Profil : identifiant du profil d’archivage utilisé pour réaliser
-        > l’entrée.Il s’agit d’une chaîne de caractères.
-
-        -   Reprend le contenu du champ ArchiveProfile du message
-            > ArchiveTransfer.
+        -   Reprend le contenu du champ ArchiveProfile du message ArchiveTransfer.
 
         -   Cardinalité 0-1.
 
-<!-- -->
+-   Pour une opération d’UPDATE, il s’agit d’un objet JSON comprenant les champs suivants :
 
--   Pour une opération d’UPDATE, il s’agit d’un objet JSON comprenant
-    > les champs suivants :
-
-    -   AccessContract : identifiant du contrat d’accès utilisé pour
-        > réaliser une mise à jour.
+    -   AccessContract : identifiant du contrat d’accès utilisé pour réaliser une mise à jour.
 
 -   Cardinalité : 1-1
 
--   Ce champ existe pour la structure incluante et certaines structures
-    > incluses
+-   Ce champ existe pour la structure incluante et certaines structures incluses
 
-**« obId » (object Identifier):** identifiant du lot d’objets auquel
-s’applique l’opération (lot correspondant à une liste).
+**« obId » (object Identifier):** identifiant du lot d’objets auquel s’applique l’opération (lot correspondant à une liste).
 
 -   Identifiant peuplé par la solution logicielle Vitam.
 
 -   Il s’agit d’une chaîne de 36 caractères.
 
--   Dans le cas d’une opération d’entrée, il s’agit du GUID de l’entrée
-    > (evIdProc).
+-   Dans le cas d’une opération d’entrée, il s’agit du GUID de l’entrée (evIdProc).
 
--   Dans le cas d’une opération d’audit, il s’agit par exemple du nom
-    > d’un lot d’archives prédéfini.
+-   Dans le cas d’une opération d’audit, il s’agit par exemple du nom d’un lot d’archives prédéfini.
 
--   Dans le cas d’une opération de mise à jour, il s’agit du GUID de
-    > l’unité archivistique mise à jour.
+-   Dans le cas d’une opération de mise à jour, il s’agit du GUID de l’unité archivistique mise à jour.
 
--   Dans le cas d’une opération de données de base, il s’agit de
-    > l’identifiant de l’opération.
+-   Dans le cas d’une opération de données de base, il s’agit de l’identifiant de l’opération.
 
 -   Cardinalité pour les structures incluantes : 1-1
 
@@ -787,14 +744,11 @@ s’applique l’opération (lot correspondant à une liste).
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« obIdReq » (object Identifier Request):** identifiant de la requête
-caractérisant un lot d’objets auquel s’applique l’opération.
+**« obIdReq » (object Identifier Request):** identifiant de la requête caractérisant un lot d’objets auquel s’applique l’opération.
 
 -   Identifiant peuplé par la solution logiciele Vitam.
 
--   Ne concerne que les lots d’objets dynamiques, c’est-à-dire obtenus
-    > par la présente requête. Ne concerne pas les lots ayant un
-    > identifiant défini.
+-   Ne concerne que les lots d’objets dynamiques, c’est-à-dire obtenus par la présente requête. Ne concerne pas les lots ayant un identifiant défini.
 
 -   Actuellement, la valeur est toujours “null”.
 
@@ -802,16 +756,11 @@ caractérisant un lot d’objets auquel s’applique l’opération.
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« obIdIn » (Object Identifier Income):** identifiant externe du lot
-d’objets auquel s’applique l’opération, utilisé pour les opérations
-d’entrée.
+**« obIdIn » (Object Identifier Income):** identifiant externe du lot d’objets auquel s’applique l’opération, utilisé pour les opérations d’entrée.
 
--   Il s’agit d’une chaîne de caractères intelligible pour un humain qui
-    > permet de comprendre à quel SIP ou quel lot d’archives se rapporte
-    > l’événement.
+-   Il s’agit d’une chaîne de caractères intelligible pour un humain qui permet de comprendre à quel SIP ou quel lot d’archives se rapporte l’événement.
 
--   La structure incluante et les structures incluses reprennent le
-    > contenu du champ MessageIdentifier du message ArchiveTransfer.
+-   La structure incluante et les structures incluses reprennent le contenu du champ MessageIdentifier du message ArchiveTransfer.
 
 -   Cardinalité pour les structures incluantes : 1-1
 
@@ -822,17 +771,15 @@ d’entrée.
 **« events » :** tableau de structures listant des événements liés à
 l’opération.
 
--   Pour la structure incluante, le tableau contient n structures
-    > incluses dans l’ordre des événements (date)
+-   Pour la structure incluante, le tableau contient n structures incluses dans l’ordre des événements (date)
 
 -   Cardinalité : 1-1
 
--   S’agissant d’un tableau, les structures incluses ont pour
-    > cardinalité 1-n.
+-   S’agissant d’un tableau, les structures incluses ont pour cardinalité 1-n.
 
 -   Ce champ existe uniquement pour la structure incluante.
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
@@ -840,13 +787,11 @@ l’opération.
 
 -   Ce champ existe uniquement pour la structure incluante.
 
-**« \_v » :** version de l’enregistrement décrit
+**« _v » :** version de l’enregistrement décrit
 
 -   Il s’agit d’un entier.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
@@ -854,92 +799,62 @@ l’opération.
 
 **« \_lastPersistedDate » :** date technique de sauvegarde en base.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3
-    > digits de millisecondes\]
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes]
 
 -   Elle est renseignée par le serveur Logbook.
 
-    Exemple : "2016-08-17T08:26:04.227"
+    Exemple : ```"2016-08-17T08:26:04.227"```
 
 -   Cardinalité : 1-1
 
 -   Ce champ existe uniquement pour la structure incluante.
 
-    []{#__RefHeading___Toc29381_1669085364 .anchor}3.1.4. Champs
-    présents dans les events
+#### Champs présents dans les events
 
 Les events sont, au minimum, composés des champs suivants :
 
 -   evId
-
 -   evParentId
-
 -   evType
-
 -   evDateTime
-
 -   evDetData
-
 -   evIdProc
-
 -   evTypeProc
-
 -   outcome
-
 -   outDetail
-
 -   outMessg
-
 -   agId
-
 -   AgIdPers
-
 -   evIdReq
-
 -   obId
 
 D’autres champs peuvent apparaître dans certains events lorsqu’ils
 mettent à jour le master.
 
-[]{#__RefHeading___Toc29383_1669085364 .anchor}3.1.5. Détail des champs
-du JSON stocké en base spécifiques à une opération de sécurisation des
-journaux d’opération et de cycle de vie
+#### Détail des champs du JSON stocké en base spécifiques à une opération de sécurisation des journaux d’opération et de cycle de vie
 
-Ceci ne concerne aujourd’hui que les sécurisations des journaux
-d’opération et la sécurisation des journaux de cycle de vie.
+Ceci ne concerne aujourd’hui que les sécurisations des journaux d’opération et la sécurisation des journaux de cycle de vie.
 
-Exemple de données stockées par l’opération de sécurisation des journaux
-d’opération pour le champ evDetData :
+Exemple de données stockées par l’opération de sécurisation des journaux d’opération pour le champ evDetData :
 
+```json
 "evDetData":
 
-> "{\\"LogType\\":\\"OPERATION\\",
->
-> \\"StartDate\\":\\"2019-04-08T05:55:17.366\\",
->
-> \\"EndDate\\":\\"2019-04-08T07:55:22.684\\",
->
-> \\"Hash\\":\\"eeQxnrhZgOwpbCz9m5yT9Z9pQVzJlEJAbZcmGAOs/d1gwU67I69JmaJbkJF3sc0rBtlyWZyItQnaF0+AtENMGw==\\",
->
-> \\"TimeStampToken\\":\\"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\\",
->
-> \\"PreviousLogbookTraceabilityDate\\":\\"2019-04-08T03:55:17.980\\",
->
-> \\"MinusOneMonthLogbookTraceabilityDate\\":\\"2019-03-21T13:55:11.575\\",
->
-> \\"MinusOneYearLogbookTraceabilityDate\\":\\"2019-03-21T13:55:11.575\\",
->
-> \\"NumberOfElements\\":4,
->
-> \\"FileName\\":\\"8\_LogbookOperation\_20190408\_075522.zip\\",
->
-> \\"Size\\":42261,
->
-> \\"SecurisationVersion\\":\\"V1\\",
->
-> \\"DigestAlgorithm\\":\\"SHA512\\",
->
-> \\"MaxEntriesReached\\":false}
+"{\"LogType\":\"OPERATION\",
+\"StartDate\":\"2019-04-08T05:55:17.366\",
+\"EndDate\\":\"2019-04-08T07:55:22.684\",
+\"Hash\":\"eeQxnrhZgOwpbCz9m5yT9Z9pQVzJlEJAbZcmGAOs/d1gwU67I69JmaJbkJF3sc0rBtlyWZyItQnaF0+AtENMGw==\",
+\"TimeStampToken\":\"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\",
+\"PreviousLogbookTraceabilityDate\":\"2019-04-08T03:55:17.980\",
+\"MinusOneMonthLogbookTraceabilityDate\":\"2019-03-21T13:55:11.575\",
+\"MinusOneYearLogbookTraceabilityDate\":\"2019-03-21T13:55:11.575\",
+\"NumberOfElements\":4,
+\"FileName\":\"8_LogbookOperation_20190408_075522.zip\",
+\"Size\":42261,
+\"SecurisationVersion\":\"V1\",
+\"DigestAlgorithm\":\"SHA512\",
+\"MaxEntriesReached\":false}
+```
 
 **« LogType » :** type de logbook sécurisé.
 
@@ -950,32 +865,24 @@ d’opération pour le champ evDetData :
 -   La valeur de ce champ est :
 
     -   soit OPERATION pour le journal des opérations,
-
     -   soit LIFECYCLE pour les journaux de cycle de vie,
-
     -   soit STORAGE pour le journal des écritures.
 
 -   Cardinalité : 1-1
 
-**« StartDate » :** date de début de la période de couverture de
-l’opération de sécurisation.
+**« StartDate » :** date de début de la période de couverture de l’opération de sécurisation.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3
-    > digits de millisecondes\] (correspond à la date de la première
-    > sécurisation).
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes] (correspond à la date de la première sécurisation).
 
-    Exemple : "2016-08-17T08:26:04.227"
+    ```Exemple : "2016-08-17T08:26:04.227"```
 
 -   Cardinalité : 1-1
 
-**« EndDate » :** date de fin de la période de couverture de l’opération
-de sécurisation.
+**« EndDate » :** date de fin de la période de couverture de l’opération de sécurisation.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3
-    > digits de millisecondes\] (correspond à la date de la dernière
-    > opération sécurisée par la précédente sécurisation).
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes] (correspond à la date de la dernière opération sécurisée par la précédente sécurisation).
 
-    Exemple : "2016-08-17T08:26:04.227"
+    ```Exemple : "2016-08-17T08:26:04.227"``` 
 
 -   Cardinalité : 1-1
 
@@ -995,37 +902,27 @@ de sécurisation.
 
 -   Cardinalité : 1-1
 
-**« PreviousLogbookTraceabilityDate » :** date de la précédente
-opération de sécurisation de ce type de journal.
+**« PreviousLogbookTraceabilityDate » :** date de la précédente opération de sécurisation de ce type de journal.
 
--   Il s’agit de la date de début de la précédente opération de
-    > sécurisation du même type au format ISO8601
-    > AAAA-MM-JJ+ »T »+hh:mm:ss:\[3 digits de millisecondes\]
-    > (correspond à la date de début de la sécurisation précédente).
+-   Il s’agit de la date de début de la précédente opération de sécurisation du même type au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes] (correspond à la date de début de la sécurisation précédente).
 
-    Exemple : "2016-08-17T08:26:04.227"
+    ```Exemple : "2016-08-17T08:26:04.227"``` 
 
 -   Cardinalité : 1-1
 
-**« MinusOneMonthLogbookTraceabilityDate » :** date de l’opération de
-sécurisation passée d’un mois.
+**« MinusOneMonthLogbookTraceabilityDate » :** date de l’opération de sécurisation passée d’un mois.
 
--   Il s’agit de la date de début de la précédente opération de
-    > sécurisation du même type réalisée un mois avant au format ISO8601
-    > AAAA-MM-JJ+ »T »+hh:mm:ss:\[3 digits de millisecondes\].
+-   Il s’agit de la date de début de la précédente opération de sécurisation du même type réalisée un mois avant au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes].
 
-    Exemple : "2016-08-17T08:26:04.227"
+    ```Exemple : "2016-08-17T08:26:04.227"```
 
 -   Cardinalité : 1-1
 
-**« MinusOneYearLogbookTraceabilityDate » :** date de l’opération de
-sécurisation passée d’un an.
+**« MinusOneYearLogbookTraceabilityDate » :** date de l’opération de sécurisation passée d’un an.
 
--   Il s’agit de la date de début de la précédente opération de
-    > sécurisation du même type réalisée un an avant au format ISO8601
-    > AAAA-MM-JJ+ »T »+hh:mm:ss:\[3 digits de millisecondes\].
+-   Il s’agit de la date de début de la précédente opération de sécurisation du même type réalisée un an avant au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes].
 
-    Exemple : "2016-08-17T08:26:04.227"
+    ```Exemple : "2016-08-17T08:26:04.227"```
 
 -   Cardinalité : 1-1
 
@@ -1041,10 +938,9 @@ sécurisation passée d’un an.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Nom du fichier sécurisé sur les offres de stockage au format
-    > {tenant}\_LogbookOperation\_{AAAAMMJJ\_HHMMSS}.zip.
+-   Nom du fichier sécurisé sur les offres de stockage au format {tenant}_LogbookOperation_{AAAAMMJJ_HHMMSS}.zip.
 
-    Exemple : "0\_LogbookOperation\_20170127\_141136.zip"
+    ```Exemple : "0_LogbookOperation_20170127_141136.zip"```
 
 -   Cardinalité : 1-1
 
@@ -1068,34 +964,21 @@ sécurisation passée d’un an.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Il s’agit du nom de l’algorithme de hachage utilisé pour réaliser le
-    > tampon d’horodatage.
+-   Il s’agit du nom de l’algorithme de hachage utilisé pour réaliser le tampon d’horodatage.
 
 -   Cardinalité : 1-1
 
-**« MaxEntriesReached » :** permet de savoir si l’ensemble de la
-sécurisation est terminée.
+**« MaxEntriesReached » :** permet de savoir si l’ensemble de la sécurisation est terminée.
 
 -   Il s’agit d’un booléen « true » ou « false »
 
--   Lorsqu’il y a un ensemble trop grand d’éléments à sécuriser, la
-    > solution logicielle Vitam divise le travail pour manipuler des
-    > ensembles de fichiers techniquement gérables. Par défaut le nombre
-    > maximum d’élément sécurisable dans un lot est de 100.000. Si ce
-    > nombre dépasse le seuil, alors la valeur de MaxEntriesReached est
-    > « true » et une deuxième sécurisation est lancée là où s’est
-    > arrêté la première, puis on regarde à nouveau si le seuil est
-    > atteint pour lancer un troisième lot, un quatrième, etc. Lorsque
-    > le nombre d’éléments sécurisés est inférieur au seuil, alors la
-    > valeur de MaxEntriesReached est « false ».
+-   Lorsqu’il y a un ensemble trop grand d’éléments à sécuriser, la solution logicielle Vitam divise le travail pour manipuler des ensembles de fichiers techniquement gérables. Par défaut le nombre maximum d’élément sécurisable dans un lot est de 100.000. Si ce nombre dépasse le seuil, alors la valeur de MaxEntriesReached est « true » et une deuxième sécurisation est lancée là où s’est arrêté la première, puis on regarde à nouveau si le seuil est atteint pour lancer un troisième lot, un quatrième, etc. Lorsque le nombre d’éléments sécurisés est inférieur au seuil, alors la valeur de MaxEntriesReached est « false ».
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc29385_1669085364 .anchor}3.2. Collection
-    LogbookLifeCycleUnit
+### Collection LogbookLifeCycleUnit
 
-    []{#__RefHeading___Toc29387_1669085364 .anchor}3.2.1. Utilisation de
-    la collection LogbookLifeCycleUnit
+#### Utilisation de la collection LogbookLifeCycleUnit
 
 Le journal du cycle de vie d’une unité archivistique (ArchiveUnit) trace
 tous les événements qui impactent celle-ci dès sa prise en charge dans
@@ -1252,7 +1135,7 @@ parent.
 
 **« evDateTime » (event DateTime):** date de l’événement.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:\[3
     > digits de millisecondes\]
 
 -   Exemple : "2016-08-17T08:26:04.227"
@@ -1414,7 +1297,7 @@ opération.
 
 **« \_lastPersistedDate » :** date technique de sauvegarde en base.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:\[3
     > digits de millisecondes\].
 
 -   Elle est renseignée par le serveur Logbook.
@@ -1704,7 +1587,7 @@ parent.
 
 **« evDateTime » (event DateTime):** date de l’événement.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:\[3
     > digits de millisecondes\]
 
 -   Ce champ est positionné par le client LogBook.
@@ -1875,7 +1758,7 @@ l’événement.
 
 **« \_lastPersistedDate » :** date technique de sauvegarde en base.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:\[3
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:\[3
     > digits de millisecondes\]
 
 -   Elle est renseignée par le serveur Logbook.
@@ -10060,19 +9943,17 @@ préservation.
 
 -   Cardinalité : 1-1
 
-1.  []{#__RefHeading___Toc29607_1669085364 .anchor}Annexe 1 : Valeurs
-    possibles pour le champ evType du LogBook Operation
+## Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation
 
 L’ensemble des étapes, tâches et traitements sont détaillés dans la
 documentation Modèle de workflow.
 
-1.  []{#__RefHeading___Toc29611_1669085364 .anchor}Annexe 2 : Valeurs
-    possibles pour le champ evType du LogBook LifeCycle
+## Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle
 
 L’ensemble des étapes, tâches et traitements sont détaillées dans la
 documentation Modèle de workflow.
 
-## Annexe 3 Valeurs possibles pour le champ evTypeProc (type de processus)
+## Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)
 
 | Process Type                                     | Valeur                    | Description                                       |
 |:-------------------------------------------------|:--------------------------|:--------------------------------------------------|
