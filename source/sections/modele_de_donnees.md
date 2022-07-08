@@ -327,7 +327,7 @@ Ces opérations sont :
 -   Journalisation externe (enregistrement d’opérations extérieures dans la solution logicielle Vitam)
 
 Les valeurs correspondant à ces opérations dans les journaux sont
-détaillées dans [l’annexe 6.3](#annexe-6-3-collection-eliminationactionobjectgroup)
+détaillées dans [l’annexe 3](#annexe-6-3-collection-eliminationactionobjectgroup)(#annexe-3-valeurs-possibles-pour-le-champ-evTypeProc-type-de-processus)
 
 #### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection LogbookOperation
 
@@ -498,7 +498,7 @@ de l’initialisation de l’opération.
 
     -   EvDateTimeReq : date de la demande de transfert inscrit dans le champ evDetData.
 
-        -   Date au format ISO8601 AAAA-MM-JJ+ »T »+hh:mm:ss:[3 digits de millisecondes].
+        -   Date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes].
 
         -   Cardinalité 1-1.
 
@@ -548,12 +548,8 @@ de l’initialisation de l’opération.
 
 -   Il s’agit d’une chaîne de 36 caractères.
 
--   Lorsqu’il s’agit d’une opération indépendante d’autres opérations,
-    > tous les événements identiques d’un document dans cette collection
-    > reprennent pour ce champ la valeur du champ « \_id ». Dans le cas
-    > où une opération en déclenche d’autres, les opérations déclenchées
-    > utilisent toutes le même evIdProc, qui permet alors de suivre une
-    > suite de processus.
+-   Lorsqu’il s’agit d’une opération indépendante d’autres opérations, tous les événements identiques d’un document dans cette collection
+    reprennent pour ce champ la valeur du champ « _id ». Dans le cas où une opération en déclenche d’autres, les opérations déclenchées utilisent toutes le même evIdProc, qui permet alors de suivre une suite de processus.
 
 -   Cardinalité : 1-1
 
@@ -10077,6 +10073,7 @@ documentation Modèle de workflow.
 L’ensemble des étapes, tâches et traitements sont détaillées dans la
 documentation Modèle de workflow.
 
+## Annexe 3 Valeurs possibles pour le champ evTypeProc type de processus
 1.  []{#__RefHeading___Toc29613_1669085364 .anchor}Annexe 3 : Valeurs
     possibles pour le champ evTypeProc (type de processus)
 
