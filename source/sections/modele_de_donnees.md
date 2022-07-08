@@ -1254,12 +1254,10 @@ opération.
 
 Exemple de données stockées dans le champ evDetData :
 
-```json
 "evDetData": "{"diff": "- \"Title_.en\" : \"Reboisement du montVentoux - Enqu\\u00EAtes photographiques de l'Inspection des Eaux et for\\u00EAts d'Avignon\"\n+ \"Title_.en\" : \"Title Anglais\"\n- \"_ops\" : [
     \"aeeaaaaaachprzmjab7xealwm2wyc5yaaaaq\" ]\n+ \"_ops\" : [
         \"aeeaaaaaachprzmjab7xealwm2wyc5yaaaaq\",
         \"aeeaaaaaachprzmjabpaualwnpe7vpiaaaaq\" ]\n- \"_v\" : 0\n-"_av\" : 0\n+ \"_v\" : 1\n+ \"_av\" : 1", "version": 1}",
-```
 
 Dans le cas d’une mise à jour de métadonnées d’une unité archivistique (ArchiveUnit), le champ **« evDetData »** de l’événement final est composé du champ suivant :
 
@@ -1269,162 +1267,88 @@ Dans le cas d’une mise à jour de métadonnées d’une unité archivistique (
 
 ### Collection LogbookLifeCycleObjectGroup
 
-    []{#__RefHeading___Toc29399_1669085364 .anchor}3.3.1. Utilisation de
-    la collection LogbookLifeCycleObjectGroup
+#### Utilisation de la collection LogbookLifeCycleObjectGroup
 
-Le journal du cycle de vie du groupe d’objets (ObjectGroup) trace tous
-les événements qui impactent le groupe d’objets (et les objets associés)
-dès sa prise en charge dans le système. Il doit être conservé aussi
-longtemps que les objets sont gérés dans le système.
+Le journal du cycle de vie du groupe d’objets (ObjectGroup) trace tous les événements qui impactent le groupe d’objets (et les objets associés) dès sa prise en charge dans le système. Il doit être conservé aussi longtemps que les objets sont gérés dans le système.
 
--   Dès la réception des objets, on trace les opérations effectuées sur
-    > les groupes d’objets et objets qui sont dans le SIP.
+-   Dès la réception des objets, on trace les opérations effectuées sur les groupes d’objets et objets qui sont dans le SIP.
 
--   Les journaux du cycle de vie sont « committés » une fois le stockage
-    > des objets effectué et l’indexation des métadonnées effectuée,
-    > avant l’envoi d’une notification au service versant.
+-   Les journaux du cycle de vie sont « committés » une fois le stockage des objets effectué et l’indexation des métadonnées effectuée, avant l’envoi d’une notification au service versant.
 
-Chaque groupe d’objets possède une et une seule entrée dans la
-collection LogbookLifeCycleObjectGroup.
+Chaque groupe d’objets possède une et une seule entrée dans la collection *LogbookLifeCycleObjectGroup*.
 
-[]{#__RefHeading___Toc29401_1669085364 .anchor}3.3.2. Extrait d’un JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Extrait d’un JSON stocké en base comprenant l’exhaustivité des champs
 
-> {
->
-> "\_id": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
->
-> "evId": "aedqaaaabchf4qxrab2nualjtkuyetyaaaaq",
->
-> "evParentId": null,
->
-> "evType": "LFC.LFC\_CREATION",
->
-> "evDateTime": "2019-03-20T10:33:14.063",
->
-> "evIdProc": "aeeaaaaabchgzebuaaeckaljtkuxtjqaaaaq",
->
-> "evTypeProc": "INGEST",
->
-> "outcome": "OK",
->
-> "outDetail": "LFC.LFC\_CREATION.OK",
->
-> "outMessg": "Succès de l'alimentation du journal du cycle de vie",
->
-> "agId":
-> "{\\"Name\\":\\"vitam-env-int-worker-01.vitam-env\\",\\"Role\\":\\"worker\\",\\"ServerId\\":1046364913,\\"SiteId\\":1,\\"GlobalPlatformId\\":241058545}",
->
-> "obId": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
->
-> "evDetData": null,
->
-> "events": \[
->
-> {
->
-> "evId": "aedqaaaabchf4qxrab2nualjtkuyetyaaaba",
->
-> "evParentId": null,
->
-> "evType": "LFC.CHECK\_MANIFEST",
->
-> "evDateTime": "2019-03-20T10:33:14.063",
->
-> "evIdProc": "aeeaaaaabchgzebuaaeckaljtkuxtjqaaaaq",
->
-> "evTypeProc": "INGEST",
->
-> "outcome": "OK",
->
-> "outDetail": "LFC.CHECK\_MANIFEST.OK",
->
-> "outMessg": "Succès de la vérification de la cohérence du bordereau de
-> transfert",
->
-> "agId":
-> "{\\"Name\\":\\"vitam-env-int-worker-01.vitam-env\\",\\"Role\\":\\"worker\\",\\"ServerId\\":1046364913,\\"SiteId\\":1,\\"GlobalPlatformId\\":241058545}",
->
-> "obId": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
->
-> "evDetData": null,
->
-> "\_lastPersistedDate": "2019-03-20T10:33:28.028"
->
-> },
->
-> {
->
-> "evId": "aedqaaaabchf4qxrab2nualjtkuyetyaaabq",
->
-> "evParentId": "aedqaaaabchf4qxrab2nualjtkuyetyaaaba",
->
-> "evType": "LFC.CHECK\_MANIFEST.LFC\_CREATION",
->
-> "evDateTime": "2019-03-20T10:33:14.063",
->
-> "evIdProc": "aeeaaaaabchgzebuaaeckaljtkuxtjqaaaaq",
->
-> "evTypeProc": "INGEST",
->
-> "outcome": "OK",
->
-> "outDetail": "LFC.CHECK\_MANIFEST.LFC\_CREATION.OK",
->
-> "outMessg": "Succès de la création du journal du cycle de vie",
->
-> "agId":
-> "{\\"Name\\":\\"vitam-env-int-worker-01.vitam-env\\",\\"Role\\":\\"worker\\",\\"ServerId\\":1046364913,\\"SiteId\\":1,\\"GlobalPlatformId\\":241058545}",
->
-> "obId": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
->
-> "evDetData": null,
->
-> "\_lastPersistedDate": "2019-03-20T10:33:28.028"
->
-> },
->
-> {
->
-> "evId": "aedqaaaaachf4qxrab2nualjtkuygqaaaaaq",
->
-> "evParentId": null,
->
-> "evType": "LFC.CHECK\_CONSISTENCY",
->
-> "evDateTime": "2019-03-20T10:33:14.304",
->
-> "evIdProc": "aeeaaaaabchgzebuaaeckaljtkuxtjqaaaaq",
->
-> "evTypeProc": "INGEST",
->
-> "outcome": "OK",
->
-> "outDetail": "LFC.CHECK\_CONSISTENCY.OK",
->
-> "outMessg": "Succès de la vérification de la cohérence entre objets,
-> groupes d'objets et unités archivistiques",
->
-> "agId":
-> "{\\"Name\\":\\"vitam-env-int-worker-01.vitam-env\\",\\"Role\\":\\"worker\\",\\"ServerId\\":1046364913,\\"SiteId\\":1,\\"GlobalPlatformId\\":241058545}",
->
-> "obId": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
->
-> "evDetData": null,
->
-> "\_lastPersistedDate": "2019-03-20T10:33:28.028"
->
-> },\
-> \
-> \[...\]\
-> \
-> \],
->
-> "\_tenant": 8,
->
-> "\_v": 5,
->
-> "\_lastPersistedDate": "2019-03-20T10:33:28.028"
+```json
+{
+"_id": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
+"evId": "aedqaaaabchf4qxrab2nualjtkuyetyaaaaq",
+"evParentId": null,
+"evType": "LFC.LFC_CREATION",
+"evDateTime": "2019-03-20T10:33:14.063",
+"evIdProc": "aeeaaaaabchgzebuaaeckaljtkuxtjqaaaaq",
+"evTypeProc": "INGEST",
+"outcome": "OK",
+"outDetail": "LFC.LFC\_CREATION.OK",
+"outMessg": "Succès de l'alimentation du journal du cycle de vie",
+"agId":
+"{\"Name\":\"vitam-env-int-worker-01.vitam-env\",\"Role\":\"worker\",\"ServerId\":1046364913,\"SiteId\":1,\"GlobalPlatformId\":241058545}",
+"obId": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
+"evDetData": null,
+"events": [
+   {
+      "evId": "aedqaaaabchf4qxrab2nualjtkuyetyaaaba",
+      "evParentId": null,
+      "evType": "LFC.CHECK_MANIFEST",
+      "evDateTime": "2019-03-20T10:33:14.063",
+      "evIdProc": "aeeaaaaabchgzebuaaeckaljtkuxtjqaaaaq",
+      "evTypeProc": "INGEST",
+      "outcome": "OK",
+      "outDetail": "LFC.CHECK_MANIFEST.OK",
+      "outMessg": "Succès de la vérification de la cohérence du bordereau de transfert",
+      "agId":"{\"Name\":\"vitam-env-int-worker-01.vitam-env\",\"Role\":\"worker\",\"ServerId\":1046364913,\"SiteId\":1,\"GlobalPlatformId\":241058545}",
+      "obId": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
+      "evDetData": null,
+      "_lastPersistedDate": "2019-03-20T10:33:28.028"
+   },
+   {
+      "evId": "aedqaaaabchf4qxrab2nualjtkuyetyaaabq",
+      "evParentId": "aedqaaaabchf4qxrab2nualjtkuyetyaaaba",
+      "evType": "LFC.CHECK_MANIFEST.LFC_CREATION",
+      "evDateTime": "2019-03-20T10:33:14.063",
+      "evIdProc": "aeeaaaaabchgzebuaaeckaljtkuxtjqaaaaq",
+      "evTypeProc": "INGEST",
+      "outcome": "OK",
+      "outDetail": "LFC.CHECK_MANIFEST.LFC_CREATION.OK",
+      "outMessg": "Succès de la création du journal du cycle de vie",
+      "agId": "{\"Name\":\"vitam-env-int-worker-01.vitam-env\",\"Role\":\"worker\",\"ServerId\":1046364913,\"SiteId\":1,\"GlobalPlatformId\":241058545}",
+      "obId": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
+      "evDetData": null,
+      "_lastPersistedDate": "2019-03-20T10:33:28.028"
+   },
+   {
+      "evId": "aedqaaaaachf4qxrab2nualjtkuygqaaaaaq",
+      "evParentId": null,
+      "evType": "LFC.CHECK_CONSISTENCY",
+      "evDateTime": "2019-03-20T10:33:14.304",
+      "evIdProc": "aeeaaaaabchgzebuaaeckaljtkuxtjqaaaaq",
+      "evTypeProc": "INGEST",
+      "outcome": "OK",
+      "outDetail": "LFC.CHECK_CONSISTENCY.OK",
+      "outMessg": "Succès de la vérification de la cohérence entre objets, groupes d'objets et unités archivistiques",
+      "agId": "{\"Name\":\"vitam-env-int-worker-01.vitam-env\",\"Role\":\"worker\",\"ServerId\":1046364913,\"SiteId\":1,\"GlobalPlatformId\":241058545}",
+      "obId": "aebaaaaabahf4qxrab2nualjtkuydyyaaaaq",
+      "evDetData": null,
+      "_lastPersistedDate": "2019-03-20T10:33:28.028"
+   },
+ 
+   [...]
+ 
+],
+"_tenant": 8,
+"_v": 5,
+"_lastPersistedDate": "2019-03-20T10:33:28.028"
+```
 
 []{#__RefHeading___Toc29403_1669085364 .anchor}3.3.3. Détail des champs
 du JSON stocké en base
