@@ -840,7 +840,7 @@ Exemple de données stockées par l’opération de sécurisation des journaux d
 ```json
 "evDetData":
 
-"{\"LogType\":\"OPERATION\",
+{\"LogType\":\"OPERATION\",
 \"StartDate\":\"2019-04-08T05:55:17.366\",
 \"EndDate\\":\"2019-04-08T07:55:22.684\",
 \"Hash\":\"eeQxnrhZgOwpbCz9m5yT9Z9pQVzJlEJAbZcmGAOs/d1gwU67I69JmaJbkJF3sc0rBtlyWZyItQnaF0+AtENMGw==\",
@@ -874,7 +874,7 @@ Exemple de données stockées par l’opération de sécurisation des journaux d
 
 -   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes] (correspond à la date de la première sécurisation).
 
-    ```Exemple : "2016-08-17T08:26:04.227"```
+    Exemple : ```"2016-08-17T08:26:04.227"```
 
 -   Cardinalité : 1-1
 
@@ -882,7 +882,7 @@ Exemple de données stockées par l’opération de sécurisation des journaux d
 
 -   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes] (correspond à la date de la dernière opération sécurisée par la précédente sécurisation).
 
-    ```Exemple : "2016-08-17T08:26:04.227"``` 
+    Exemple : ```"2016-08-17T08:26:04.227"``` 
 
 -   Cardinalité : 1-1
 
@@ -906,7 +906,7 @@ Exemple de données stockées par l’opération de sécurisation des journaux d
 
 -   Il s’agit de la date de début de la précédente opération de sécurisation du même type au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes] (correspond à la date de début de la sécurisation précédente).
 
-    ```Exemple : "2016-08-17T08:26:04.227"``` 
+    Exemple : ```"2016-08-17T08:26:04.227"``` 
 
 -   Cardinalité : 1-1
 
@@ -914,7 +914,7 @@ Exemple de données stockées par l’opération de sécurisation des journaux d
 
 -   Il s’agit de la date de début de la précédente opération de sécurisation du même type réalisée un mois avant au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes].
 
-    ```Exemple : "2016-08-17T08:26:04.227"```
+    Exemple : ```"2016-08-17T08:26:04.227"```
 
 -   Cardinalité : 1-1
 
@@ -922,7 +922,7 @@ Exemple de données stockées par l’opération de sécurisation des journaux d
 
 -   Il s’agit de la date de début de la précédente opération de sécurisation du même type réalisée un an avant au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes].
 
-    ```Exemple : "2016-08-17T08:26:04.227"```
+    Exemple : ```"2016-08-17T08:26:04.227"```
 
 -   Cardinalité : 1-1
 
@@ -940,7 +940,7 @@ Exemple de données stockées par l’opération de sécurisation des journaux d
 
 -   Nom du fichier sécurisé sur les offres de stockage au format {tenant}_LogbookOperation_{AAAAMMJJ_HHMMSS}.zip.
 
-    ```Exemple : "0_LogbookOperation_20170127_141136.zip"```
+    Exemple : ```"0_LogbookOperation_20170127_141136.zip"```
 
 -   Cardinalité : 1-1
 
@@ -976,7 +976,10 @@ Exemple de données stockées par l’opération de sécurisation des journaux d
 
 -   Cardinalité : 1-1
 
+
+
 ### Collection LogbookLifeCycleUnit
+
 
 #### Utilisation de la collection LogbookLifeCycleUnit
 
@@ -1003,7 +1006,7 @@ Extrait d’un enregistrement JSON correspondant au journal de cycle de vie d’
 "_id": "aeaqaaaabahf4qxrab2nualjtkuyd6yaaabq",
 "evId": "aedqaaaabchf4qxrab2nualjtkuyfaaaaabq",
 "evParentId": null,
-"evType": "LFC.LFC\_CREATION",
+"evType": "LFC.LFC_CREATION",
 "evDateTime": "2019-03-20T10:33:14.112",
 "evIdProc": "aeeaaaaabchgzebuaaeckaljtkuxtjqaaaaq",
 "evTypeProc": "INGEST",
@@ -1041,15 +1044,12 @@ Extrait d’un enregistrement JSON correspondant au journal de cycle de vie d’
 
 #### Détail des champs du JSON stocké en base
 
-**« \_id » :** identifiant donné par le système lors de l’initialisation
+**« _id » :** identifiant donné par le système lors de l’initialisation
 du journal du cycle de vie.
 
--   Il est constitué d’une chaîne de 36 caractères correspondant à un
-    > GUID.
+-   Il est constitué d’une chaîne de 36 caractères correspondant à un GUID.
 
--   Cet identifiant constitue la clé primaire du journal du cycle de vie
-    > de l’unité archivistique. Il reprend la valeur du champ \_id d’une
-    > unité archivistique enregistré dans la collection Unit.
+-   Cet identifiant constitue la clé primaire du journal du cycle de vie de l’unité archivistique. Il reprend la valeur du champ \_id d’une unité archivistique enregistré dans la collection Unit.
 
 -   Cardinalité : 1-1
 
@@ -1057,8 +1057,7 @@ du journal du cycle de vie.
 
 **« evId » (event Identifier):** identifiant de l’événement.
 
--   Il est constitué d’une chaîne de 36 caractères correspondant à un
-    > GUID.
+-   Il est constitué d’une chaîne de 36 caractères correspondant à un GUID.
 
 -   Il identifie l’événement de manière unique dans la base.
 
@@ -1069,15 +1068,11 @@ du journal du cycle de vie.
 **« evParentId » (event Parent Identifier):** identifiant de l’événement
 parent.
 
--   Il est constitué d’une chaîne de 36 caractères correspondant à un
-    > GUID.
+-   Il est constitué d’une chaîne de 36 caractères correspondant à un GUID.
 
--   Il identifie l’événement parent. Par exemple pour l’événement
-    > LFC.CHECK\_MANIFEST.LFC\_CREATION, ce champ fera référence au GUID
-    > de l’évènement LFC.CHECK\_MANIFEST.
+-   Il identifie l’événement parent. Par exemple pour l’événement LFC.CHECK_MANIFEST.LFC_CREATION, ce champ fera référence au GUID de l’évènement LFC.CHECK_MANIFEST.
 
--   La valeur est toujours « null » pour la structure incluante et les
-    > tâches principales.
+-   La valeur est toujours « null » pour la structure incluante et les tâches principales.
 
 -   Cardinalité : 1-1
 
@@ -1087,9 +1082,7 @@ parent.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   La liste des valeurs possibles pour ce champ se trouve en annexe.
-    > Seul le code est stocké dans ce champ, la traduction se fait via
-    > un fichier properties (vitam-logbook-message-fr.properties).
+-   La liste des valeurs possibles pour ce champ se trouve en annexe. Seul le code est stocké dans ce champ, la traduction se fait via un fichier properties (vitam-logbook-message-fr.properties).
 
 -   Cardinalité : 1-1
 
@@ -1097,8 +1090,7 @@ parent.
 
 **« evDateTime » (event DateTime):** date de l’événement.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:\[3
-    > digits de millisecondes\]
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes]
 
 -   Exemple : "2016-08-17T08:26:04.227"
 
@@ -1113,9 +1105,7 @@ parent.
 -   Il s’agit d’une chaîne de 36 caractères.
 
 -   Toutes les occurrences de ce champ pour un même document dans le
-    > journal du cycle de vie partagent la même valeur, qui est celle du
-    > champ « \_id » d’une opération enregistrée dans la collection
-    > LogbookOperation.
+     journal du cycle de vie partagent la même valeur, qui est celle du champ « _id » d’une opération enregistrée dans la collection LogbookOperation.
 
 -   Cardinalité : 1-1
 
@@ -1125,8 +1115,7 @@ parent.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Nom du processus parmi une liste de processus possibles fixée. Cette
-    > liste est disponible en annexe.
+-   Nom du processus parmi une liste de processus possibles fixée. Cette liste est disponible en annexe.
 
 -   Cardinalité : 1-1
 
@@ -1134,17 +1123,12 @@ parent.
 
 **« outcome » :** statut de l’événement.
 
--   Il s’agit d’une chaîne de caractères devant correspondre à une
-    > valeur de la liste suivante :
+-   Il s’agit d’une chaîne de caractères devant correspondre à une valeur de la liste suivante :
 
     -   STARTED (Début de l’événement)
-
     -   OK (Succès de l’événement)
-
     -   KO (Echec de l’événement)
-
     -   WARNING (Succès de l’événement comportant des alertes)
-
     -   FATAL (Erreur technique)
 
 -   Cardinalité : 1-1
@@ -1156,48 +1140,38 @@ l’événement.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Il contient le code correspondant au résultat de l’événement,
-    > incluant le statut. La liste des valeurs possibles pour ce champ
-    > se trouve en annexe. Seul le code est stocké dans ce champ, la
-    > traduction se fait via le fichier properties
-    > (vitam-logbook-message-fr.properties).
+-   Il contient le code correspondant au résultat de l’événement, incluant le statut. La liste des valeurs possibles pour ce champ se trouve en annexe. Seul le code est stocké dans ce champ, la traduction se fait via le fichier properties (vitam-logbook-message-fr.properties).
 
 -   Cardinalité : 1-1
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« outMessg » (outcome Detail Message):** détail du résultat de
-l’événement.
+**« outMessg » (outcome Detail Message):** détail du résultat de l’événement.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   C’est un message intelligible destiné à être lu par un être humain
-    > en tant que détail de l’événement.
+-   C’est un message intelligible destiné à être lu par un être humain en tant que détail de l’événement.
 
--   Traduction du code présent dans outDetail issue du fichier
-    > vitam-logbook-message-fr.properties.
+-   Traduction du code présent dans outDetail issue du fichier vitam-logbook-message-fr.properties.
 
 -   Cardinalité : 1-1
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« agId » (agent Identifier):** identifiant de l’agent réalisant
-l’événement.
+**« agId » (agent Identifier):** identifiant de l’agent réalisant l’événement.
 
--   Il s’agit d’un objet JSON, comprenant une suite de chaînes de
-    > caractères indiquant le nom, le rôle et le PID de l’agent. Ce
-    > champ est calculé par le journal à partir de ServerIdentifier.
+-   Il s’agit d’un objet JSON, comprenant une suite de chaînes de caractères indiquant le nom, le rôle et le PID de l’agent. Ce champ est calculé par le journal à partir de ServerIdentifier.
 
-    Exemple : "agId":
-    "{\\"Name\\":\\"vitam-env-int-worker-01.vitam-env\\",\\"Role\\":\\"worker\\",\\"ServerId\\":1044139788,\\"SiteId\\":1,\\"GlobalPlatformId\\":238833420}"
+    Exemple : 
+    ```json
+    "agId": "{\"Name\":\"vitam-env-int-worker-01.vitam-env\",\"Role\":\"worker\",\"ServerId\":1044139788,\"SiteId\":1,\"GlobalPlatformId\":238833420}"
+    ```
 
 -   Cardinalité : 1-1
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-**« obId » (object Identifier):** identifiant de la solution logicielle
-Vitam correspondant au GUID de l’unité archivistique sur laquelle
-s’applique l’opération.
+**« obId » (object Identifier):** identifiant de la solution logicielle Vitam correspondant au GUID de l’unité archivistique sur laquelle s’applique l’opération.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -1205,20 +1179,15 @@ s’applique l’opération.
 
 -   Ce champ existe pour les structures incluantes et incluses
 
-**« evDetData » (event Detail Data):** détails des données de
-l’événement.
+**« evDetData » (event Detail Data):** détails des données de l’événement.
 
--   Il s’agit d’un objet JSON pouvant contenir des informations ou être
-    > vide.
+-   Il s’agit d’un objet JSON pouvant contenir des informations ou être vide.
 
 -   Donne plus de détails sur l’événement ou son résultat.
 
--   Par exemple, l’historisation de métadonnées lors d’une modification
-    > se fait dans ce champ. Dans la structure incluse correspondant à
-    > cet événement, il est, par exemple, composé du champ suivant :
+-   Par exemple, l’historisation de métadonnées lors d’une modification se fait dans ce champ. Dans la structure incluse correspondant à cet événement, il est, par exemple, composé du champ suivant :
 
-    -   diff : contient la différence entre les métadonnées d’origine et
-        > les métadonnées modifiées. Chaîne de caractères.
+    -   diff : contient la différence entre les métadonnées d’origine et les métadonnées modifiées. Chaîne de caractères.
 
 -   Cardinalité : 1-1
 
@@ -1227,13 +1196,11 @@ l’événement.
 **« events » :** tableau de structure listant les événements liés à une
 opération.
 
--   Pour la structure incluante, le tableau contient n structures
-    > incluses dans l’ordre des événements (date).
+-   Pour la structure incluante, le tableau contient n structures incluses dans l’ordre des événements (date).
 
 -   Cardinalité : 1-1
 
--   S’agissant d’un tableau, les structures incluses ont pour
-    > cardinalité 1-n.
+-   S’agissant d’un tableau, les structures incluses ont pour cardinalité 1-n.
 
 -   Ce champ existe uniquement pour la structure incluante.
 
@@ -1249,9 +1216,7 @@ opération.
 
 -   Il s’agit d’un entier.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
@@ -1259,19 +1224,17 @@ opération.
 
 **« \_lastPersistedDate » :** date technique de sauvegarde en base.
 
--   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:\[3
-    > digits de millisecondes\].
+-   Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+"T"+hh:mm:ss:[3 digits de millisecondes].
 
 -   Elle est renseignée par le serveur Logbook.
 
-    Exemple : "2016-08-17T08:26:04.227"
+    Exemple : ```"2016-08-17T08:26:04.227"```
 
 -   Cardinalité : 1-1
 
 -   Ce champ existe pour les structures incluantes et incluses.
 
-    []{#__RefHeading___Toc29393_1669085364 .anchor}3.2.4. Champs
-    présents dans les events
+#### Champs présents dans les events
 
 -   evId
 
@@ -1825,7 +1788,8 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Cardinalité : 1-1
 
-1.  []{#__RefHeading___Toc29415_1669085364 .anchor}4. Base MetaData
+Base MetaData
+-------------
 
 La base Metadata contient les collections relatives aux métadonnées des
 unités archivistiques (collection Unit) et des groupes d’objets
@@ -4378,8 +4342,6 @@ stocké en base comprenant l’exhaustivité des champs
 
     **« strategyId »** : identifiant de la stratégie de stockage.
 
-<!-- -->
-
 -   Il s’agit d’une chaîne de caractère.
 
 **« \_tenant » :** identifiant du tenant.
@@ -4390,8 +4352,8 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Cardinalité : 1-1
 
-1.  []{#__RefHeading___Toc245574_2901473962 .anchor}5. Base
-    metadataCollect
+Base metadataCollect
+--------------------
 
 La base metadataCollect contient les collections relatives aux
 métadonnées des unités archivistiques (collection Unit) et des groupes
@@ -5238,7 +5200,8 @@ automatiquement en cas de modification de tout champ de la collection.
 
 -   Cardinalité : 1-1
 
-1.  []{#__RefHeading___Toc245576_2901473962 .anchor}6. Base collect
+Base collect
+------------
 
 La base collect contient la collection relative aux métadonnées
 correspondant au contexte de versement (collection Collect) attendu dans
@@ -5398,7 +5361,8 @@ réaliser l’entrée.
 
 -   Cardinalité : 1-1
 
-1.  []{#__RefHeading___Toc29445_1669085364 .anchor}7. Base MasterData
+Base MasterData
+---------------
 
 La base Masterdata contient les collections relatives aux référentiels
 utilisés par la solution logicielle Vitam. Ceux-ci sont :
@@ -9570,7 +9534,8 @@ champs
 
 -   Cardinalité : 1-1
 
-1.  []{#__RefHeading___Toc29591_1669085364 .anchor}8. Base Report
+Base Report
+-----------
 
 La base Report contient des collections remplies temporairement,
 utilisées pour construire des rapports d’opérations dans la solution
