@@ -1003,6 +1003,7 @@ collection LogbookLifeCycleUnit.
 Extrait d’un enregistrement JSON correspondant au journal de cycle de vie d’une unité archivistique.
 
 ```json
+{
 "_id": "aeaqaaaabahf4qxrab2nualjtkuyd6yaaabq",
 "evId": "aedqaaaabchf4qxrab2nualjtkuyfaaaaabq",
 "evParentId": null,
