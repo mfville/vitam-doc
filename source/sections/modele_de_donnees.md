@@ -1350,8 +1350,7 @@ Chaque groupe d’objets possède une et une seule entrée dans la collection *L
 "_lastPersistedDate": "2019-03-20T10:33:28.028"
 ```
 
-[]{#__RefHeading___Toc29403_1669085364 .anchor}3.3.3. Détail des champs
-du JSON stocké en base
+#### Détail des champs du JSON stocké en base
 
 **« \_id » :** identifiant donné par le système lors de l’initialisation
 du journal du cycle de vie.
@@ -1623,12 +1622,9 @@ l’événement.
 
 ### Collection Offset
 
-    []{#__RefHeading___Toc46128_1367996966 .anchor}3.4.1. Utilisation de
-    la collection
+#### Utilisation de la collection
 
-Cette collection, optionnelle, permet de persister les offsets des
-dernières données reconstruites des offres de stockage lors de la
-reconstruction au fil de l’eau pour les collections :
+Cette collection, optionnelle, permet de persister les offsets des dernières données reconstruites des offres de stockage lors de la reconstruction au fil de l’eau pour les collections :
 
 -   LogbookOperation
 
@@ -1642,22 +1638,23 @@ reconstruction au fil de l’eau pour les collections :
 
 Il y a une valeur d’offset par couple tenant/collection.
 
-[]{#__RefHeading___Toc46130_1367996966 .anchor}3.4.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-{\
-"\_id": ObjectId("507f191e810c19729de860ea"),\
-"offset": 1357,\
-"collection": "logbook",\
-"\_tenant": 1\
+```json
+{
+   "_id": ObjectId("507f191e810c19729de860ea"),
+   "offset": 1357,
+   "collection": "logbook",
+   "_tenant": 1
 }
+```
 
-[]{#__RefHeading___Toc46132_1367996966 .anchor}3.4.3. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique mongo.
+**« _id » :** identifiant unique mongo.
 
 -   Il s’agit d’un champ de type mongo composé comme suit :
-    > ObjectId(&lt;hexadecimal&gt;).
+     ObjectId(&lt;hexadecimal&gt;).
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -9771,6 +9768,8 @@ préservation.
 
 L’ensemble des étapes, tâches et traitements sont détaillés dans la
 documentation Modèle de workflow.
+
+
 
 ## Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle
 

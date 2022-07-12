@@ -211,7 +211,7 @@ extensions = [
 # Multi-version configuration
 smv_tag_whitelist = r'^v\d+\.\d+.*$|latest'  # all tags of form v*.*.x and latest
 # Whitelist pattern for branches (set to '' to ignore all branches)
-smv_branch_whitelist = ''
+smv_branch_whitelist = 'Update'
 smv_released_pattern = r'v.*'
 smv_latest_version = 'v6.rc'
 smv_remote_whitelist = None
