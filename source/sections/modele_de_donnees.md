@@ -1696,7 +1696,7 @@ La collection Unit contient les informations relatives aux unités archivistique
 
 #### Exemple de XML en entrée
 
-Ci-après, la portion d’un bordereau de transfert (manifest.xml) utilisée pour compléter les champs du JSON. Il s’agit des informations situées entre les balises <ArchiveUnit>.
+Ci-après, la portion d’un bordereau de transfert (manifest.xml) utilisée pour compléter les champs du JSON. Il s’agit des informations situées entre les balises \<ArchiveUniti\>.
 
 ```xml
 > &lt;?xml version="1.0" encoding="UTF-8"?&gt;\
