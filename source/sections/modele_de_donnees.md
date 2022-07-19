@@ -1696,36 +1696,33 @@ La collection Unit contient les informations relatives aux unités archivistique
 
 #### Exemple de XML en entrée
 
-Ci-après, la portion d’un bordereau de transfert (manifest.xml) utilisée pour compléter les champs du JSON. Il s’agit des informations situées entre les balises \<ArchiveUniti\>.
+Ci-après, la portion d’un bordereau de transfert (manifest.xml) utilisée pour compléter les champs du JSON. Il s’agit des informations situées entre les balises \<ArchiveUnit\>.
 
 ```xml
-> &lt;?xml version="1.0" encoding="UTF-8"?&gt;\
-> &lt;ArchiveUnit id="ID3"&gt;\
-> &lt;Management&gt;\
-> &lt;AccessRule&gt;\
-> &lt;Rule&gt;ACC-00002&lt;/Rule&gt;\
-> &lt;StartDate&gt;2015-11-19&lt;/StartDate&gt;\
-> &lt;/AccessRule&gt;\
-> &lt;/Management&gt;\
-> &lt;Content&gt;\
-> &lt;DescriptionLevel&gt;RecordGrp&lt;/DescriptionLevel&gt;\
-> &lt;Title&gt;Liste des Métros de Tokyo&lt;/Title&gt;\
-> &lt;Description&gt;Le métro de Tokyo (東京の地下Tōkyō no chikatetsu)
-> est un des systèmes de transport en commun desservant l'agglomération
-> de Tokyo au Japon. Il se compose des lignes de deux compagnies : Tokyo
-> Metro et Toei.\
-> La première ligne du métro de Tokyo, la ligne Ginza, a été ouverte en
-> 1927.&lt;/Description&gt;\
-> &lt;AcquiredDate&gt;2015-12-04T09:02:25&lt;/AcquiredDate&gt;\
-> &lt;StartDate&gt;2015-12-04T09:02:25&lt;/StartDate&gt;\
-> &lt;EndDate&gt;2016-06-02T15:32:29&lt;/EndDate&gt;\
-> &lt;Event&gt;\
-> &lt;EventDateTime&gt;2013-11-04T09:02:25&lt;/EventDateTime&gt;\
-> &lt;/Event&gt;\
-> &lt;/Content&gt;\
-> &lt;ArchiveUnit id="ID5"&gt;\
-> &lt;ArchiveUnitRefId&gt;ID4&lt;/ArchiveUnitRefId&gt;\
-> &lt;/ArchiveUnit&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<ArchiveUnit id="ID3">
+                <Management>
+                    <AccessRule>
+                        <Rule>ACC-00002</Rule>
+                        <StartDate>2015-11-19</StartDate>
+                    </AccessRule>
+                </Management>
+                <Content>
+                    <DescriptionLevel>RecordGrp</DescriptionLevel>
+                    <Title>Liste des Métros de Tokyo</Title>
+                    <Description>Le métro de Tokyo (東京の地下Tōkyō no chikatetsu) est un des systèmes de transport en commun desservant l'agglomération de Tokyo au Japon. Il se compose des lignes de deux compagnies : Tokyo Metro et Toei.
+                       La première ligne du métro de Tokyo, la ligne Ginza, a été ouverte en 1927.</Description>
+                    <AcquiredDate>2015-12-04T09:02:25</AcquiredDate>
+                    <StartDate>2015-12-04T09:02:25</StartDate>
+                    <EndDate>2016-06-02T15:32:29</EndDate>
+                    <Event>
+                        <EventDateTime>2013-11-04T09:02:25</EventDateTime>
+                    </Event>
+                </Content>
+                <ArchiveUnit id="ID5">
+                    <ArchiveUnitRefId>ID4</ArchiveUnitRefId>
+                </ArchiveUnit>
+
 ```
 []{#__RefHeading___Toc29423_1669085364 .anchor}4.1.3. Exemple de JSON
 stocké dans la collection Unit
