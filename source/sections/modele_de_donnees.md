@@ -1673,7 +1673,7 @@ Il y a une valeur d’offset par couple tenant/collection.
 
 -   La seule valeur possible est *logbook.*
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit de l’identifiant du tenant utilisant l’enregistrement.
 
@@ -1686,26 +1686,19 @@ Il y a une valeur d’offset par couple tenant/collection.
 Base MetaData
 -------------
 
-La base Metadata contient les collections relatives aux métadonnées des
-unités archivistiques (collection Unit) et des groupes d’objets
-(collection ObjectGroup). Une collection technique Offset liée à la
-reconstruction existe également.
+La base Metadata contient les collections relatives aux métadonnées des unités archivistiques (collection Unit) et des groupes d’objets (collection ObjectGroup). Une collection technique Offset liée à la reconstruction existe également.
 
-[]{#__RefHeading___Toc29417_1669085364 .anchor}4.1. Collection Unit
+### Collection Unit
 
-[]{#__RefHeading___Toc29419_1669085364 .anchor}4.1.1. Utilisation de la
-collection Unit
+#### Utilisation de la collection Unit
 
-La collection Unit contient les informations relatives aux unités
-archivistiques.
+La collection Unit contient les informations relatives aux unités archivistiques.
 
-[]{#__RefHeading___Toc29421_1669085364 .anchor}4.1.2. Exemple de XML en
-entrée
+#### Exemple de XML en entrée
 
-Ci-après, la portion d’un bordereau de transfert (manifest.xml) utilisée
-pour compléter les champs du JSON. Il s’agit des informations situées
-entre les balises &lt;ArchiveUnit&gt;.
+Ci-après, la portion d’un bordereau de transfert (manifest.xml) utilisée pour compléter les champs du JSON. Il s’agit des informations situées entre les balises <ArchiveUnit>.
 
+```xml
 > &lt;?xml version="1.0" encoding="UTF-8"?&gt;\
 > &lt;ArchiveUnit id="ID3"&gt;\
 > &lt;Management&gt;\
@@ -1733,7 +1726,7 @@ entre les balises &lt;ArchiveUnit&gt;.
 > &lt;ArchiveUnit id="ID5"&gt;\
 > &lt;ArchiveUnitRefId&gt;ID4&lt;/ArchiveUnitRefId&gt;\
 > &lt;/ArchiveUnit&gt;
-
+```
 []{#__RefHeading___Toc29423_1669085364 .anchor}4.1.3. Exemple de JSON
 stocké dans la collection Unit
 
