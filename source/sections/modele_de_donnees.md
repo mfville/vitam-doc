@@ -1724,121 +1724,114 @@ Ci-après, la portion d’un bordereau de transfert (manifest.xml) utilisée pou
                 </ArchiveUnit>
 
 ```
-[]{#__RefHeading___Toc29423_1669085364 .anchor}4.1.3. Exemple de JSON
-stocké dans la collection Unit
 
-Les champs présentés dans l’exemple ci-après ne font pas état de
-l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont
-référencés dans la documentation SEDA disponible au lien suivant :
+#### Exemple de JSON stocké dans la collection Unit
+
+Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant :
 https://redirect.francearchives.fr/seda/api\_v2-1/seda-2.1-main.html
 
-> {\
-> "\_id": "aeaqaaaaamhad455abcwsalep4lzf2iaaaea",\
-> "\_og": "aebaaaaaamhad455abcwsalep4lzfvaaaaca",\
-> "\_mgt": {\
-> "AccessRule": {\
-> "Rules": \[\
-> {\
-> "Rule": "ACC-00002",\
-> "StartDate": "2000-01-01",\
-> "EndDate": "2025-01-01"\
-> }\
-> \]\
-> }\
-> },\
-> "DescriptionLevel": "Item",\
-> "Title": "Stalingrad.txt",\
-> "TransactedDate": "2017-04-04T08:07:06",\
-> "SedaVersion": "2.1",\
-> "ImplementationVersion": "1.7.0-SNAPSHOT",\
-> "\_storage": {\
-> "strategyId": "default"\
-> },\
-> "\_sps": \[\
-> "RATP"\
-> \],\
-> "\_sp": "RATP",\
-> "\_ops": \[\
-> "aeeaaaaaaohi422caa4paalep4lxwoyaaaaq",\
-> "aeeaaaaaaohi422caaieaalesqjo5hqaaaaq",\
-> "aeeaaaaaaohi422caaieaalesqkbhnaaaaaq",\
-> "aeeaaaaaaohi422caaieaalesqml2vyaaaaq"\
-> \],\
-> "\_opi": "aeeaaaaaaohi422caa4paalep4lxwoyaaaaq",\
-> "\_unitType": "INGEST",\
-> "\_up": \[\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaada"\
-> \],\
-> "\_us": \[\
-> "aeaqaaaaamhad455abcwsalep4lzf2aaaaeq",\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaada",\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaabq"\
-> \],\
-> "\_graph": \[\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaabq/aeaqaaaaamhad455abcwsalep4lzf2aaaaeq",\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaaea/aeaqaaaaamhad455abcwsalep4lzf2iaaada",\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaada/aeaqaaaaamhad455abcwsalep4lzf2iaaabq"\
-> \],\
-> "\_uds": {\
-> "1": \[\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaada"\
-> \],\
-> "2": \[\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaabq"\
-> \],\
-> "3": \[\
-> "aeaqaaaaamhad455abcwsalep4lzf2aaaaeq"\
-> \]\
-> },\
-> "\_min": 1,\
-> "\_max": 4,\
-> "\_glpd": "2018-07-09T12:50:30.733",\
-> "\_v": 3,
->
-> "\_av": 0,\
-> "\_tenant": 3,
->
-> "\_acd": "2020-04-04T08:07:06",
->
-> "\_aud": "2020-07-21T08:07:06",\
-> "Description": "",\
-> "\_history": \[\
-> {\
-> "ud": "2018-07-25T15:28:49.040",\
-> "data": {\
-> "\_v": 0,\
-> "\_mgt": {\
-> "ClassificationRule": {\
-> "ClassificationAudience": "ClassificationAudience0",\
-> "ClassificationLevel": "Secret Défense",\
-> "ClassificationOwner": "ClassificationOwner0",\
-> "ClassificationReassessingDate": "2016-06-03",\
-> "NeedReassessingAuthorization": true,\
-> "Rules": \[\
-> {\
-> "Rule": "CLASS-00001",\
-> "StartDate": "2015-06-03",\
-> "EndDate": "2025-06-03"\
-> }\
-> \]\
-> }\
-> }\
-> }\
-> }\
-> \]\
-> }
+```json
+{
+    "_id": "aeaqaaaaamhad455abcwsalep4lzf2iaaaea",
+    "_og": "aebaaaaaamhad455abcwsalep4lzfvaaaaca",
+    "_mgt": {
+        "AccessRule": {
+            "Rules": [
+                {
+                    "Rule": "ACC-00002",
+                    "StartDate": "2000-01-01",
+                    "EndDate": "2025-01-01"
+                }
+            ]
+        }
+    },
+    "DescriptionLevel": "Item",
+    "Title": "Stalingrad.txt",
+    "TransactedDate": "2017-04-04T08:07:06",
+    "SedaVersion": "2.1",
+    "ImplementationVersion": "1.7.0-SNAPSHOT",
+    "_storage": {
+        "strategyId": "default"
+    },
+    "_sps": [
+        "RATP"
+    ],
+    "_sp": "RATP",
+    "_ops": [
+        "aeeaaaaaaohi422caa4paalep4lxwoyaaaaq",
+        "aeeaaaaaaohi422caaieaalesqjo5hqaaaaq",
+        "aeeaaaaaaohi422caaieaalesqkbhnaaaaaq",
+        "aeeaaaaaaohi422caaieaalesqml2vyaaaaq"
+    ],
+    "_opi": "aeeaaaaaaohi422caa4paalep4lxwoyaaaaq",
+    "_unitType": "INGEST",
+    "_up": [
+        "aeaqaaaaamhad455abcwsalep4lzf2iaaada"
+    ],
+    "_us": [
+        "aeaqaaaaamhad455abcwsalep4lzf2aaaaeq",
+        "aeaqaaaaamhad455abcwsalep4lzf2iaaada",
+        "aeaqaaaaamhad455abcwsalep4lzf2iaaabq"
+    ],
+    "_graph": [
+        "aeaqaaaaamhad455abcwsalep4lzf2iaaabq/aeaqaaaaamhad455abcwsalep4lzf2aaaaeq",
+        "aeaqaaaaamhad455abcwsalep4lzf2iaaaea/aeaqaaaaamhad455abcwsalep4lzf2iaaada",
+        "aeaqaaaaamhad455abcwsalep4lzf2iaaada/aeaqaaaaamhad455abcwsalep4lzf2iaaabq"
+    ],
+    "_uds": {
+        "1": [
+            "aeaqaaaaamhad455abcwsalep4lzf2iaaada"
+        ],
+        "2": [
+            "aeaqaaaaamhad455abcwsalep4lzf2iaaabq"
+        ],
+        "3": [
+            "aeaqaaaaamhad455abcwsalep4lzf2aaaaeq"
+        ]
+    },
+    "_min": 1,
+    "_max": 4,
+    "_glpd": "2018-07-09T12:50:30.733",
+    "_v": 3,
+    "_av": 0,
+    "_tenant": 3,
+    "_acd": "2020-04-04T08:07:06",
+    "_aud": "2020-07-21T08:07:06",
+    "Description": "",
+    "_history": [
+     {
+       "ud": "2018-07-25T15:28:49.040",
+       "data": {
+         "_v": 0,
+         "_mgt": {
+           "ClassificationRule": {
+             "ClassificationAudience": "ClassificationAudience0",
+             "ClassificationLevel": "Secret Défense",
+             "ClassificationOwner": "ClassificationOwner0",
+             "ClassificationReassessingDate": "2016-06-03",
+             "NeedReassessingAuthorization": true,
+             "Rules": [
+               {
+                 "Rule": "CLASS-00001",
+                 "StartDate": "2015-06-03",
+                 "EndDate": "2025-06-03"
+               }
+             ]
+           }
+         }
+       }
+     }
+   ]
+}
+```
 
-[]{#__RefHeading___Toc29425_1669085364 .anchor}4.1.4. Détail du JSON
+#### Détail du JSON
 
-La structure de la collection Unit est composée de la transposition JSON
-de toutes les balises XML contenues dans la balise
-&lt;DescriptiveMetadata&gt; du bordereau de transfert conforme au
-standard SEDA v.2.1., c’est-à-dire toutes les balises se rapportant aux
-unités archivistiques.
+La structure de la collection Unit est composée de la transposition JSON de toutes les balises XML contenues dans la balise &lt;DescriptiveMetadata&gt; du bordereau de transfert conforme au standard SEDA v.2.1., c’est-à-dire toutes les balises se rapportant aux unités archivistiques.
 
 Cette transposition se fait comme suit :
 
-**« \_id » :** identifiant unique de l’unité archivistique.
+**« _id » :** identifiant unique de l’unité archivistique.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -1846,18 +1839,13 @@ Cette transposition se fait comme suit :
 
 -   Cardinalité : 1-1
 
-**« \_og » (objectGroup):** identifiant du groupe d’objets représentant
-cette unité archivistique.
+**« _og » (objectGroup):** identifiant du groupe d’objets représentant cette unité archivistique.
 
--   Il s’agit d’une chaîne de 36 caractères correspondant au champ \_id
-    > du groupe d’objets de la collection objectGroup, soit au GUID du
-    > groupe d’objets techniques.
+-   Il s’agit d’une chaîne de 36 caractères correspondant au champ _id du groupe d’objets de la collection objectGroup, soit au GUID du groupe d’objets techniques.
 
 -   Cardinalité : 0-1
 
-**« \_mgt » :** contient les balises contenues dans le bloc
-&lt;Management&gt; du bordereau de transfert pour cette unité
-archivistique (le champ peut donc être vide).
+**« _mgt » :** contient les balises contenues dans le bloc &lt;Management&gt; du bordereau de transfert pour cette unité archivistique (le champ peut donc être vide).
 
 -   Cardinalité : 1-1
 
@@ -1871,11 +1859,9 @@ archivistique (le champ peut donc être vide).
 
         -   Cardinalité : 0-1
 
-    -   une liste de catégories de règles de gestion appliquées à cette
-        > unité archivistique.
+    -   une liste de catégories de règles de gestion appliquées à cette unité archivistique.
 
-        Les catégories pouvant être incluses dans cet objet sont,
-        exhaustivement :
+        Les catégories pouvant être incluses dans cet objet sont, exhaustivement :
 
         -   AccessRule (délai de communicabilité)
 
@@ -1901,38 +1887,27 @@ archivistique (le champ peut donc être vide).
 
             -   Cardinalité : 0-1
 
-            -   Chacune des règles de ce tableau est elle-même composée
-                > de plusieurs informations :
+            -   Chacune des règles de ce tableau est elle-même composée de plusieurs informations :
 
                 -   **« Rule » :** identifiant de la règle
 
-                    -   Correspond à une valeur du champ RuleId de la
-                        > collection FileRules.
+                    -   Correspond à une valeur du champ RuleId de la collection FileRules.
 
                     -   Cardinalité : 0-1
 
-                -   **« StartDate »** : date de début du calcul de
-                    > l’échéance.
+                -   **« StartDate »** : date de début du calcul de l’échéance.
 
                     -   Il s’agit d’une date.
 
-                    -   Cette date est déclarée dans le message
-                        > ArchiveTransfer ou ajoutée *a posteriori* par
-                        > une modification de l’unité archivistique.
+                    -   Cette date est déclarée dans le message ArchiveTransfer ou ajoutée *a posteriori* par une modification de l’unité archivistique.
 
                     -   Cardinalité : 0-1
 
-                -   **« EndDate** » : date de fin d’application de la
-                    > règle.
+                -   **« EndDate** » : date de fin d’application de la règle.
 
                     -   Il s’agit d’une date.
 
-                    -   Cette valeur est issue d’un calcul réalisé par
-                        > la solution logicielle Vitam. Celui-ci
-                        > consiste en l’ajout du délai correspondant à
-                        > la règle dans la collection FileRules à la
-                        > valeur du champ startDate (EndDate =
-                        > StartDate + Durée)
+                    -   Cette valeur est issue d’un calcul réalisé par la solution logicielle Vitam. Celui-ci consiste en l’ajout du délai correspondant à la règle dans la collection FileRules à la valeur du champ startDate (EndDate = StartDate + Durée)
 
                     -   Cardinalité : 0-1
 
