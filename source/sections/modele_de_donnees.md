@@ -1913,39 +1913,29 @@ Cette transposition se fait comme suit :
 
         -   Des données spécifiques aux catégories :
 
-            -   Pour les catégories « StorageRule » et « AppraisalRule »
-                > uniquement :
+            -   Pour les catégories « StorageRule » et « AppraisalRule » uniquement :
 
-                -   **« FinalAction » :** sort final des règles dans ces
-                    > catégories.
+                -   **« FinalAction » :** sort final des règles dans ces catégories.
 
                     -   Cardinalité : 1-1
 
                     -   La valeur contenue dans le champ peut être :
 
-                        -   Pour StorageRule : « Transfer », « Copy » ou
-                            > « RestrictAccess » (énumération issue du
-                            > FinalActionStorageCodeType du SEDA 2.1)
+                        -   Pour StorageRule : « Transfer », « Copy » ou « RestrictAccess » (énumération issue du FinalActionStorageCodeType du SEDA 2.1)
 
-                        -   Pour AppraisalRule : « Keep » ou « Destroy »
-                            > (énumération issue du
-                            > FinalActionAppraisalCodeType du SEDA 2.1)
+                        -   Pour AppraisalRule : « Keep » ou « Destroy » (énumération issue FinalActionAppraisalCodeType du SEDA 2.1)
 
             -   Pour la catégorie ClassificationRule uniquement :
 
-                -   **« ClassificationLevel »** : niveau de
-                    > classification.
+                -   **« ClassificationLevel »** : niveau de classification.
 
-                    -   Il s’agit d’une chaîne de caractères, dont les
-                        > valeurs sont paramétrables au niveau de la
-                        > plateforme.
+                    -   Il s’agit d’une chaîne de caractères, dont les valeurs sont paramétrables au niveau de la plateforme.
 
                     -   Champ obligatoire et systématiquement renseigné
 
                     -   Cardinalité : 1-1
 
-                -   **« ClassificationOwner » :** propriétaire de la
-                    > classification.
+                -   **« ClassificationOwner » :** propriétaire de la classification.
 
                     -   Il s’agit d’une chaîne de caractères.
 
@@ -1953,9 +1943,7 @@ Cette transposition se fait comme suit :
 
                     -   Cardinalité : 1-1
 
-                -   **« ClassificationAudience »** : permet de gérer les
-                    > mentions additionnelles de limitation du champ de
-                    > diffusion (exemple : « spécial France »)
+                -   **« ClassificationAudience »** : permet de gérer les mentions additionnelles de limitation du champ de diffusion (exemple : « spécial France »)
 
                     -   Il s’agit d’une chaîne de caractères.
 
@@ -1963,8 +1951,7 @@ Cette transposition se fait comme suit :
 
                     -   Cardinalité : 0-1
 
-                -   **« ClassificationReassessingDate »** : date de
-                    > réévaluation de la classification.
+                -   **« ClassificationReassessingDate »** : date de réévaluation de la classification.
 
                     -   Il s’agit d’une date.
 
@@ -1972,13 +1959,9 @@ Cette transposition se fait comme suit :
 
                     -   Cardinalité : 0-1
 
-                -   **« NeedReassessingAuthorization »** : indique si
-                    > une autorisation humaine est nécessaire pour
-                    > réévaluer la classification.
+                -   **« NeedReassessingAuthorization »** : indique si une autorisation humaine est nécessaire pour réévaluer la classification.
 
-                    -   Il s’agit d’un booléen. Si la valeur est à
-                        > « true », une autorisation humaine sera
-                        > nécessaire pour réévaluer la classification.
+                    -   Il s’agit d’un booléen. Si la valeur est à « true », une autorisation humaine sera nécessaire pour réévaluer la classification.
 
                     -   Champoptionnel
 
@@ -1998,8 +1981,7 @@ Cette transposition se fait comme suit :
 
                     -   Cardinalité : 0-1
 
-                -   **« HoldReassessingDate »** : date de réévaluation
-                    > du gel.
+                -   **« HoldReassessingDate »** : date de réévaluation du gel.
 
                     -   Il s’agit d’une date.
 
@@ -2013,13 +1995,9 @@ Cette transposition se fait comme suit :
 
                     -   Cardinalité : 0-1
 
-                -   **« PreventRearrangement »** : indique s’il est
-                    > possible de déplacer une unité archivistique gelée
-                    > dans une arborescence.
+                -   **« PreventRearrangement »** : indique s’il est possible de déplacer une unité archivistique gelée dans une arborescence.
 
-                    -   Il s’agit d’un booléen. Si la valeur est à
-                        > « true », l’unité archivistique portant la
-                        > règle ne pourra être reclassée.
+                    -   Il s’agit d’un booléen. Si la valeur est à « true », l’unité archivistique portant la règle ne pourra être reclassée.
 
                     -   Champ optionnel
 
@@ -2035,83 +2013,76 @@ Cette transposition se fait comme suit :
 
                 -   Cet objet peut avoir comme valeur :
 
-                    -   **« PreventInheritance »** : utilisé pour
-                        > bloquer l’héritage de toutes les règles de
-                        > gestion de la même catégorie
+                    -   **« PreventInheritance »** : utilisé pour bloquer l’héritage de toutes les règles de gestion de la même catégorie
 
-                        -   Il s’agit d’un booléen, dont la valeur peut
-                            > être « true » ou « false »,
+                        -   Il s’agit d’un booléen, dont la valeur peut être « true » ou « false »,
 
-                        -   Cardinalité : 1-1 à partir du moment où le
-                            > champ Inheritance existe
+                        -   Cardinalité : 1-1 à partir du moment où le champ Inheritance existe
 
-                    -   **« PreventRulesId »** : règle(s) de gestion qui
-                        > ne doivent pas être héritées d’un parent.
+                    -   **« PreventRulesId »** : règle(s) de gestion qui ne doivent pas être héritées d’un parent.
 
-                        -   Il s’agit d’un tableau d’identifiants de
-                            > règles de gestion.
+                        -   Il s’agit d’un tableau d’identifiants de règles de gestion.
 
-                        -   A l’entrée, il s’agit de la valeur de la
-                            > balise &lt;RefNonRuleId&gt; du SEDA
+                        -   A l’entrée, il s’agit de la valeur de la balise &lt;RefNonRuleId&gt; du SEDA
 
-                        -   Cardinalité : 1-1 à partir du moment où le
-                            > champ Inheritance existe.
+                        -   Cardinalité : 1-1 à partir du moment où le champ Inheritance existe.
 
-Extrait d’une unité archivistique ayant un bloc « \_mgt » possédant des
-règles de gestion :
+Extrait d’une unité archivistique ayant un bloc « _mgt » possédant des règles de gestion :
 
-> "\_mgt": {\
-> "AppraisalRule": {\
-> "Rules": \[\
-> {\
-> "Rule": "APP-00001",\
-> "StartDate": "2015-01-01",\
-> "EndDate": "2095-01-01"\
-> },\
-> {\
-> "Rule": "APP-00002"\
-> }\
-> \],\
-> "Inheritance": {\
-> "PreventInheritance": true,\
-> "PreventRulesId": \[\]\
-> },\
-> "FinalAction": "Keep"\
-> },\
-> "AccessRule": {\
-> "Rules": \[\
-> {\
-> "Rule": "ACC-00001",\
-> "StartDate": "2016-06-03",\
-> "EndDate": "2016-06-03"\
-> }\
-> \]\
-> },\
-> "DisseminationRule": {\
-> "Inheritance": {\
-> "PreventInheritance": true,\
-> "PreventRulesId": \[\]\
-> }\
-> },\
-> "ReuseRule": {\
-> "Inheritance": {\
-> "PreventRulesId": \[\
-> "REU-00001", "REU-00002"\
-> \]\
-> }\
-> },\
-> "ClassificationRule": {\
-> "ClassificationLevel": "Secret Défense",\
-> "ClassificationOwner": "Projet\_Vitam",\
-> "Rules": \[\
-> {\
-> "ClassificationReassessingDate": "2025-06-03",\
-> "NeedReassessingAuthorization": true,\
-> "Rule": "CLASS-00001"\
-> }\
-> \]\
-> }\
-> },
+```json
+"_mgt": {
+        "AppraisalRule": {
+            "Rules": [
+                {
+                    "Rule": "APP-00001",
+                    "StartDate": "2015-01-01",
+                    "EndDate": "2095-01-01"
+                },
+                {
+                    "Rule": "APP-00002"
+                }
+            ],
+            "Inheritance": {
+                "PreventInheritance": true,
+                "PreventRulesId": []
+            },
+            "FinalAction": "Keep"
+        },
+        "AccessRule": {
+            "Rules": [
+                {
+                    "Rule": "ACC-00001",
+                    "StartDate": "2016-06-03",
+                    "EndDate": "2016-06-03"
+                }
+            ]
+        },
+        "DisseminationRule": {
+            "Inheritance": {
+                "PreventInheritance": true,
+                "PreventRulesId": []
+            }
+        },
+        "ReuseRule": {
+            "Inheritance": {
+                "PreventRulesId": [
+                    "REU-00001", "REU-00002"
+                ]
+            }
+        },
+        "ClassificationRule": {
+            "ClassificationLevel": "Secret Défense",
+            "ClassificationOwner": "Projet_Vitam",
+            "Rules": [
+                {
+                    "ClassificationReassessingDate": "2025-06-03",
+                    "NeedReassessingAuthorization": true,
+                    "Rule": "CLASS-00001"
+                }
+            ]
+        }
+    },
+```
 
 **« DescriptionLevel » :** niveau de description archivistique de
 l’unité archivistique.
