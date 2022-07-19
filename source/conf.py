@@ -175,8 +175,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Vitam-UI', u'Vitam-UI Documentation',
-     author, 'Vitam-UI', 'One line description of project.',
+    (master_doc, 'Vitam', u'Vitam documentation métier',
+     author, 'Programme Vitam', 'Vitam documentation métier',
      'Miscellaneous'),
 ]
 
