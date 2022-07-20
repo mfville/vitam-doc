@@ -3130,49 +3130,6 @@ Les champs présentés dans l’exemple ci-après ne font pas état de l’exhau
 https://redirect.francearchives.fr/seda/api\_v2-1/seda-2.1-main.html
 
 ```json
-<DataObjectGroupId id="ID0009">
-  <PhysicalDataObject id="ID109">
-      <DataObjectVersion>PhysicalMaster</DataObjectVersion>
-      <PhysicalId>1 Num 1/191-3</PhysicalId>
-      <PhysicalDimensions>
-          <Height unit="centimetre">10.5</Height>
-          <Length unit="centimetre">14.8</Length>
-          <Thickness unit="micrometre">350</Thickness>
-          <Weight unit="gram">3</Weight>
-      </PhysicalDimensions>
-      <Extent>1 carte imprimée</Extent>
-      <Dimensions>10,5cm x 14,8cm</Dimensions>
-      <Color>Noir et blanc</Color>
-      <Framing>Paysage</Framing>
-      <Technique>Phototypie</Technique>
-  </PhysicalDataObject>
-  <BinaryDataObject id="ID9">
-      <DataObjectVersion>BinaryMaster</DataObjectVersion>
-      <Uri>Content/1NUM_9.JPG</Uri>
-      <MessageDigest algorithm="SHA-512">0e0cec05a1d72ee5610eaa5afbc904c012d190037cbc827d08272102cdecf0226efcad122b86e7699f767c661c9f3702379b8c2cb01c4f492f69deb200661bb9</MessageDigest>
-      <Size>7702</Size>
-      <FormatIdentification>
-          <FormatLitteral>JPEG File Interchange Format</FormatLitteral>
-          <MimeType>image/jpeg</MimeType>
-          <FormatId>fmt/43</FormatId>
-      </FormatIdentification>
-      <FileInfo>
-          <Filename>1NUM_9.JPG</Filename>
-      </FileInfo>
-      <Metadata>
-          <Image>
-              <Dimensions>117x76</Dimensions>
-              <Width>117px</Width>
-              <Height>76px</Height>
-              <VerticalResolution>96ppp</VerticalResolution>
-              <HorizontalResolution>96ppp</HorizontalResolution>
-              <ColorDepth>24</ColorDepth>
-          </Image>
-      </Metadata>
-  </BinaryDataObject>
-</DataObjectGroupId>
-4.2.3.	Exemple de JSON stocké en base
-Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant : https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html
 {
     "_id": "aebaaaaaaafgsz3wabcugak7ube6dxyaaabq",
     "_tenant": 0,
