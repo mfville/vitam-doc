@@ -2084,13 +2084,11 @@ Extrait d’une unité archivistique ayant un bloc « _mgt » possédant des r
     },
 ```
 
-**« DescriptionLevel » :** niveau de description archivistique de
-l’unité archivistique.
+**« DescriptionLevel » :** niveau de description archivistique de l’unité archivistique.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Ce champ est renseigné avec les valeurs situées entre les balises
-    > &lt;DescriptionLevel&gt; présentes dans le bordereau de transfert.
+-   Ce champ est renseigné avec les valeurs situées entre les balises &lt;DescriptionLevel&gt; présentes dans le bordereau de transfert.
 
 -   Cardinalité : 1-1
 
@@ -2098,113 +2096,81 @@ l’unité archivistique.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Ce champ est renseigné avec les valeurs situées entre les balises
-    > &lt;Title&gt; dans le bordereau de transfert, si ces balises ne
-    > comportent pas d’attribut @lang.
+-   Ce champ est renseigné avec les valeurs situées entre les balises &lt;Title&gt; dans le bordereau de transfert, si ces balises ne comportent pas d’attribut @lang.
 
--   Cardinalité : 0-1, le modèle d’une unité archivistique doit
-    > comporter au moins un champ Title et/ou au moins un champ Title\_
+-   Cardinalité : 0-1, le modèle d’une unité archivistique doit comporter au moins un champ Title et/ou au moins un champ Title_
 
-**« Title\_ » :** titres de l’unité archivistique par langue
+**« Title_ » :** titres de l’unité archivistique par langue
 
 -   Il s’agit d’un tableau JSON.
 
--   Ce champ est renseigné avec les valeurs situées entre les balises
-    > &lt;Title&gt; dans le bordereau de transfert, si ces balises
-    > comportent un attribut @lang.
+-   Ce champ est renseigné avec les valeurs situées entre les balises &lt;Title&gt; dans le bordereau de transfert, si ces balises comportent un attribut @lang.
 
--   Les titres sont organisés sous la forme de clef : valeur, la clef
-    > étant l’indicatif de la langue en xml:lang et la valeur le titre.
-    > Par exemple : « fr » : « Ceci est un titre. »
+-   Les titres sont organisés sous la forme de clef : valeur, la clef étant l’indicatif de la langue en xml:lang et la valeur le titre. Par exemple : « fr » : « Ceci est un titre. »
 
--   Cardinalité : 0-1, le modèle d’une unité archivistique doit
-    > comporter au moins un champ Title et/ou au moins un champ Title\_
+-   Cardinalité : 0-1, le modèle d’une unité archivistique doit comporter au moins un champ Title et/ou au moins un champ Title_
 
-> {\
-> "fr": "FrenchMySIP",\
-> "en": "EnglishMySIP"\
-> },
+```json
+{
+   "fr": "FrenchMySIP",
+   "en": "EnglishMySIP"
+},
+```
 
 Il est possible d’utiliser les champs « Title » de la manière suivante :
 
--   utilisation d’une balise « Title » unique sans attribut, alimentant
-    > le champ « Title »,
+-   utilisation d’une balise « Title » unique sans attribut, alimentant le champ « Title »,
 
--   utilisation d’une balise « Title » avec attribut, alimentant le
-    > champ « Title\_ »,
+-   utilisation d’une balise « Title » avec attribut, alimentant le champ « Title_ »,
 
--   utilisation d’une balise « Title » unique sans attribut et d’au
-    > moins une balise avec attribut, qui alimenteront respectivement
-    > Title pour l’un et Title\_ pour l’autre.
+-   utilisation d’une balise « Title » unique sans attribut et d’au moins une balise avec attribut, qui alimenteront respectivement Title pour l’un et Title_ pour l’autre.
 
 **« Description » :** description de l’unité archivistique.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Ce champ est renseigné avec les informations situées entre les
-    > balises &lt;Description&gt; de l’unité archivistique concernée
-    > dans le bordereau de transfert, si ces balises ne comportent pas
-    > d’attribut @lang.
+-   Ce champ est renseigné avec les informations situées entre les balises &lt;Description&gt; de l’unité archivistique concernée dans le bordereau de transfert, si ces balises ne comportent pas d’attribut @lang.
 
--   Cardinalité : 0-1, le modèle d’une unité archivistique doit
-    > comporter au moins un champ Description et/ou au moins un champ
-    > Description\_
+-   Cardinalité : 0-1, le modèle d’une unité archivistique doit comporter au moins un champ Description et/ou au moins un champ Description_
 
-**« Description\_ » :** description de l’unité archivistique par langue.
+**« Description_ » :** description de l’unité archivistique par langue.
 
 -   Il s’agit d’un tableau JSON
 
--   Ce champ est renseigné avec les valeurs situées entre les balises
-    > &lt;Description&gt; dans le bordereau de transfert, si ces balises
-    > comportent un attribut @lang.
+-   Ce champ est renseigné avec les valeurs situées entre les balises &lt;Description&gt; dans le bordereau de transfert, si ces balises comportent un attribut @lang.
 
--   Les titres sont organisés sous la forme de clef : valeur, la clef
-    > étant l’indicatif de la langue en xml:lang et la valeur la
-    > description. Par exemple : « fr » : « Ceci est une description. »
+-   Les titres sont organisés sous la forme de clef : valeur, la clef étant l’indicatif de la langue en xml:lang et la valeur la description. Par exemple : « fr » : « Ceci est une description. »
 
--   Cardinalité : 0-1, le modèle d’une unité archivistique doit
-    > comporter au moins un champ Description et/ou au moins un champ
-    > Description\_
+-   Cardinalité : 0-1, le modèle d’une unité archivistique doit comporter au moins un champ Description et/ou au moins un champ Description_
 
-> "Description\_": {\
-> "fr": "Une autre description",\
-> "en": "another description"\
-> },
+```json
+"Description_": {
+   "fr": "Une autre description",
+   "en": "another description"
+},
+```
 
-Il est possible d’utiliser les champs « Description » de la manière
-suivante :
+Il est possible d’utiliser les champs « Description » de la manière suivante :
 
--   utilisation d’une balise « Description » unique sans attribut,
-    > alimentant le champ « Title »,
+-   utilisation d’une balise « Description » unique sans attribut, alimentant le champ « Title »,
 
--   utilisation d’une balise « Description » avec attribut, alimentant
-    > le champ « Title\_ »,
+-   utilisation d’une balise « Description » avec attribut, alimentant le champ « Title_ »,
 
--   utilisation d’une balise « Description » unique sans attribut et
-    > d’au moins une balise avec attribut, qui alimenteront
-    > respectivement Description pour l’un et Description\_ pour
-    > l’autre.
+-   utilisation d’une balise « Description » unique sans attribut et d’au moins une balise avec attribut, qui alimenteront respectivement Description pour l’un et Description_ pour l’autre.
 
-**« XXXXX » :** des champs facultatifs peuvent être contenus dans
-l’enregistrement JSON lorsqu’ils sont renseignés dans le bordereau de
-transfert au niveau du Content de chaque unité archivistique.
+**« XXXXX » :** des champs facultatifs peuvent être contenus dans l’enregistrement JSON lorsqu’ils sont renseignés dans le bordereau de transfert au niveau du Content de chaque unité archivistique.
 
--   Se reporter à la documentation descriptive du SEDA 2.1 et notamment
-    > le schéma ontology.xsd pour connaître la liste des métadonnées
-    > facultatives.
+-   Se reporter à la documentation descriptive du SEDA 2.1 et notamment le schéma ontology.xsd pour connaître la liste des métadonnées facultatives.
 
-**ArchiveUnitProfile:** profil d’archivage de l’unité archivistique
-utilisé lors de l’entrée.
+**ArchiveUnitProfile:** profil d’archivage de l’unité archivistique utilisé lors de l’entrée.
 
--   Correspond à l’identifiant du profil d’archivage associé à l’unité
-    > archivistique
+-   Correspond à l’identifiant du profil d’archivage associé à l’unité archivistique
 
 -   Chaîne de caractères.
 
 -   Cardinalité : 0-1
 
-**« \_sedaVersion » :** version du SEDA utilisé lors de l’entrée de
-cette unité archivistique.
+**« _sedaVersion » :** version du SEDA utilisé lors de l’entrée de cette unité archivistique.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -2212,8 +2178,7 @@ cette unité archivistique.
 
 -   Cardinalité : 1-1
 
-**« \_implementationVersion » :** version du modèle de donnée
-actuellement utilisé par l’unité archivistique.
+**« _implementationVersion » :** version du modèle de donnée actuellement utilisé par l’unité archivistique.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -2221,11 +2186,9 @@ actuellement utilisé par l’unité archivistique.
 
 -   Cardinalité : 1-1
 
-**« \_history »** : données historiques de l’unité archivistique
+**« _history »** : données historiques de l’unité archivistique
 
--   Champ peuplé par la solution logicielle Vitam au moment d’une mise à
-    > jour d’une unité archivistique, uniquement si la mise à jour
-    > déclenche une historisation.
+-   Champ peuplé par la solution logicielle Vitam au moment d’une mise à jour d’une unité archivistique, uniquement si la mise à jour déclenche une historisation.
 
 -   Cardinalité : 0-1
 
@@ -2235,112 +2198,100 @@ actuellement utilisé par l’unité archivistique.
 
         -   Champ peuplé par la solution logicielle Vitam.
 
-        -   Il s’agit d’une date au format ISO 8601 YYY-MM-DD + “T” +
-            > hh:mm:ss.millisecondes « + » timezone hh:mm.
+        -   Il s’agit d’une date au format ISO 8601 YYY-MM-DD + “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.
 
-            Exemple : 2016-08-19T16:36:07.942+02:00
+            Exemple : ```2016-08-19T16:36:07.942+02:00```
 
         -   Cardinalité : 1-1
 
     -   **« data »** : données historisées.
 
-        -   Il s’agit d’un objet, peuplé par la solution logicielle
-            > Vitam.
+        -   Il s’agit d’un objet, peuplé par la solution logicielle Vitam.
 
         -   Cardinalité : 1-1
 
         -   Le champ « data » contient les champs suivants :
 
-            -   Il s’agit d’un entier, peuplé par la solution logicielle
-                > Vitam.
+            -   Il s’agit d’un entier, peuplé par la solution logicielle Vitam.
 
-            -   **« \_v » **: version de l’enregistrement de l’unité
-                > archivistique avant modification. Ce champ est repris
-                > du champ « \_v » à la racine du modèle de données de
-                > l’unité archivistique.
+            -   **« _v » **: version de l’enregistrement de l’unité archivistique avant modification. Ce champ est repris du champ « _v » à la racine du modèle de données de l’unité archivistique.
 
-            -   **« \_mgt »** : règle de gestion historicisée.
+            -   **« _mgt »** : règle de gestion historicisée.
 
-                -   Ce champ reprend le contenu de la version
-                    > précédemment modifiée d’une règle de gestion.
+                -   Ce champ reprend le contenu de la version précédemment modifiée d’une règle de gestion.
 
-                -   Dans l’exemple ci-dessous, on constate qu’au 25
-                    > juillet 2018, l’unité archivistique a historisé
-                    > une règle de classification située dans le bloc
-                    > Management (\_mgt) de son modèle.
+                -   Dans l’exemple ci-dessous, on constate qu’au 25 juillet 2018, l’unité archivistique a historisé une règle de classification située dans le bloc Management (_mgt) de son modèle.
 
                 -   Peut être vide.
 
                 -   Cardinalité : 1-1.
-
-> "\_history": \[\
-> {\
-> "ud": "2018-07-25T15:28:49.040",\
-> "data": {\
-> "\_v": 0,\
-> "\_mgt": {\
-> "ClassificationRule": {\
-> "ClassificationAudience": "ClassificationAudience0",\
-> "ClassificationLevel": "Secret Défense",\
-> "ClassificationOwner": "ClassificationOwner0",\
-> "ClassificationReassessingDate": "2016-06-03",\
-> "NeedReassessingAuthorization": true,\
-> "Rules": \[\
-> {\
-> "Rule": "CLASS-00001",\
-> "StartDate": "2015-06-03",\
-> "EndDate": "2025-06-03"\
-> }\
-> \]\
-> }\
-> }\
-> }\
-> }\
-> \]
-
+```json
+"_history": [
+ {
+   "ud": "2018-07-25T15:28:49.040",
+   "data": {
+     "_v": 0,
+     "_mgt": {
+       "ClassificationRule": {
+         "ClassificationAudience": "ClassificationAudience0",
+         "ClassificationLevel": "Secret Défense",
+         "ClassificationOwner": "ClassificationOwner0",
+         "ClassificationReassessingDate": "2016-06-03",
+         "NeedReassessingAuthorization": true,
+         "Rules": [
+           {
+             "Rule": "CLASS-00001",
+             "StartDate": "2015-06-03",
+             "EndDate": "2025-06-03"
+           }
+         ]
+       }
+     }
+   }
+ }
+]
+``` 
 Le champ **\_history** peut également être créé depuis les données
 contenues dans un bordereau de transfert, contenues dans le bloc Content
 d’une unité archivistique :
 
-> &lt;History&gt;\
-> &lt;UpdateDate&gt;2018-08-02T14:06:23.374&lt;/UpdateDate&gt;\
-> &lt;Data&gt;\
-> &lt;Version&gt;0&lt;/Version&gt;\
-> &lt;Management&gt;\
-> &lt;ClassificationRule&gt;\
-> &lt;ClassificationLevel&gt;Secret Défense&lt;/ClassificationLevel&gt;\
-> &lt;ClassificationOwner&gt;ClassificationOwner0&lt;/ClassificationOwner&gt;\
-> &lt;/ClassificationRule&gt;\
-> &lt;/Management&gt;\
-> &lt;/Data&gt;\
-> &lt;/History&gt;\
-> &lt;History&gt;\
-> &lt;UpdateDate&gt;2018-08-02T14:30:20.137&lt;/UpdateDate&gt;\
-> &lt;Data&gt;\
-> &lt;Version&gt;1&lt;/Version&gt;\
-> &lt;Management&gt;\
-> &lt;ClassificationRule&gt;\
-> &lt;ClassificationLevel&gt;Confidentiel
-> Défense&lt;/ClassificationLevel&gt;\
-> &lt;ClassificationOwner&gt;ClassificationOwner0&lt;/ClassificationOwner&gt;\
-> &lt;/ClassificationRule&gt;\
-> &lt;/Management&gt;\
-> &lt;/Data&gt;\
-> &lt;/History&gt;
-
+```json
+<History>
+              <UpdateDate>2018-08-02T14:06:23.374</UpdateDate>
+              <Data>
+                  <Version>0</Version>
+                  <Management>
+                      <ClassificationRule>
+                          <ClassificationLevel>Secret Défense</ClassificationLevel>
+                          <ClassificationOwner>ClassificationOwner0</ClassificationOwner>
+                      </ClassificationRule>
+                  </Management>
+              </Data>
+          </History>
+          <History>
+              <UpdateDate>2018-08-02T14:30:20.137</UpdateDate>
+              <Data>
+                  <Version>1</Version>
+                  <Management>
+                      <ClassificationRule>
+                          <ClassificationLevel>Confidentiel Défense</ClassificationLevel>
+                          <ClassificationOwner>ClassificationOwner0</ClassificationOwner>
+                      </ClassificationRule>
+                  </Management>
+              </Data>
+</History>
+```
 Le mapping est le suivant :
 
--   La balise &lt;History&gt; du bordereau devient le tableau
-    > « \_history » dans la base de données
+-   La balise &lt;History&gt; du bordereau devient le tableau« _history » dans la base de données
 
 -   &lt;Data&gt; devient « data »
 
--   &lt;Version&gt; devient « \_v »
+-   &lt;Version&gt; devient « _v »
 
--   &lt;Management&gt; devient « \_mgt »
+-   &lt;Management&gt; devient « _mgt »
 
-**« \_storage » :** contient les champs qui permettent d’identifier les
-offres de stockage.
+**« _storage » :** contient les champs qui permettent d’identifier les offres de stockage.
 
 -   Il s’agit d’un objet constitué du champ :
 
@@ -2352,81 +2303,61 @@ offres de stockage.
 
 -   Cardinalité : 1-1
 
-**« \_sps » :** services producteurs auxquels l’unité archivistique a
-été rattachée (au titre de leurs fonds symboliques)
+**« _sps » :** services producteurs auxquels l’unité archivistique a été rattachée (au titre de leurs fonds symboliques)
 
--   Il s’agit d’un tableau contenant les identifiants de tous les
-    > services producteurs référençant l’unité archivistique.
+-   Il s’agit d’un tableau contenant les identifiants de tous les services producteurs référençant l’unité archivistique.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
--   Correspond à une valeur valide du champ « Identifier » de la
-    > collection Agencies.
+-   Correspond à une valeur valide du champ « Identifier » de la collection Agencies.
 
 -   Ne peut être vide.
 
 -   Cardinalité : 1-1
 
-**« \_sp » :** service producteur responsable de l’unité archivistique,
-qui appartient à son fond propre.
+**« _sp » :** service producteur responsable de l’unité archivistique, qui appartient à son fond propre.
 
--   Il s’agit du service producteur inscrit dans le bordereau de
-    > transfert lié au transfert de l’unité archivistique et déclaré
-    > dans la balise &lt;OriginatingAgencyIdentifier&gt; du message
-    > ArchiveTransfer.
+-   Il s’agit du service producteur inscrit dans le bordereau de transfert lié au transfert de l’unité archivistique et déclaré dans la balise &lt;OriginatingAgencyIdentifier&gt; du message ArchiveTransfer.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Correspond à une valeur valide du champ « Identifier » de la
-    > collection Agencies.
+-   Correspond à une valeur valide du champ « Identifier » de la collection Agencies.
 
 -   Cardinalité : 1-1
 
-**« \_ops » (operations)**: tableau contenant les identifiants
-d’opérations auxquelles cette unité archivistique a participé.
+**« _ops » (operations)**: tableau contenant les identifiants d’opérations auxquelles cette unité archivistique a participé.
 
--   Il s’agit d’un tableau contenant une à plusieurs chaînes de 36
-    > caractères correspondant au champ \_id de l’opération ou GUID de
-    > l’opération, enregistré dans la collection LogbookOperation.
+-   Il s’agit d’un tableau contenant une à plusieurs chaînes de 36 caractères correspondant au champ \_id de l’opération ou GUID de l’opération, enregistré dans la collection LogbookOperation.
 
 -   Ne peut être vide.
 
 -   Cardinalité : 1-1
 
-**« \_opi »** : identifiant de l’opération à l’origine de la création de
-cette unité archivistique.
+**« _opi »** : identifiant de l’opération à l’origine de la création de cette unité archivistique.
 
--   Il s’agit d’une chaîne de 36 caractères correspondant au champ \_id
-    > de l’opération d’entrée ou GUID de cette opération, enregistré
-    > dans la collection LogbookOperation.
+-   Il s’agit d’une chaîne de 36 caractères correspondant au champ _id de l’opération d’entrée ou GUID de cette opération, enregistré dans la collection LogbookOperation.
 
 -   Ne peut être vide.
 
 -   Cardinalité : 1-1
 
-**« \_unitType » :** champ indiquant le type d’unité archivistique
-concerné.
+**« _unitType » :** champ indiquant le type d’unité archivistique concerné.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   La valeur contenue doit être conforme à l’énumération UnitType.
-    > Celle-ci peut être :
+-   La valeur contenue doit être conforme à l’énumération UnitType. Celle-ci peut être :
 
     -   INGEST : unité archivistique issue d’un SIP
 
-    -   FILING\_UNIT : unité archivistique issue d’un plan de classement
+    -   FILING_UNIT : unité archivistique issue d’un plan de classement
 
-    -   HOLDING\_UNIT : unité archivistique issue d’un arbre de
-        > positionnement
+    -   HOLDING_UNIT : unité archivistique issue d’un arbre de positionnement
 
 -   Cardinalité : 1-1
 
-**« \_up » (unit up):** tableau recensant les \_id des unités
-archivistiques parentes (parents immédiats).
+**« _up » (unit up):** tableau recensant les _id des unités archivistiques parentes (parents immédiats).
 
--   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
-    > Valeur du champ \_id d’une unité archivistique (ou GUID)
-    > enregistré dans la collection Unit.
+-   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID. Valeur du champ _id d’une unité archivistique (ou GUID) enregistré dans la collection Unit.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -2438,40 +2369,27 @@ archivistiques parentes (parents immédiats).
 des unités archivistiques parentes, indexé de la manière suivante :
 \[GUID1, GUID2…\].
 
--   Tableau listant une à plusieurs chaînes de 36 caractères
-    > correspondant à un GUID. Valeur du champ \_id d’une unité
-    > archivistique (ou GUID) enregistré dans la collection Unit.
+-   Tableau listant une à plusieurs chaînes de 36 caractères correspondant à un GUID. Valeur du champ _id d’une unité archivistique (ou GUID) enregistré dans la collection Unit.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   Tableau pouvant être vide pour l’unité archivistique racine
-    > uniquement
+-   Tableau pouvant être vide pour l’unité archivistique racine uniquement
 
 -   Cardinalité : 1-1
 
-**« \_graph » :** Tableau des chemins de l’unité archivistique
+**« _graph » :** Tableau des chemins de l’unité archivistique
 
--   Il s’agit d’un tableau contenant tous les chemins pour accéder à
-    > l’unité archivistique depuis les racines. Ces chemins sont
-    > composés sous la forme id1/id2/id3/…/idn Où chaque id est un
-    > identifiant d’unité archivistique. id1 étant l’unité courante et
-    > où idn est l’identifiant de l’unité de plus haut niveau.
+-   Il s’agit d’un tableau contenant tous les chemins pour accéder à l’unité archivistique depuis les racines. Ces chemins sont composés sous la forme id1/id2/id3/…/idn Où chaque id est un identifiant d’unité archivistique. id1 étant l’unité courante et où idn est l’identifiant de l’unité de plus haut niveau.
 
 -   Tableau pouvant être vide.
 
 -   Cardinalité 1-1
 
-**« \_uds » :** objet contenant la parentalité, c’est-à-dire l’ensemble
-des unités archivistiques parentes, ainsi que le niveau de profondeur
-relative.
+**« _uds » :** objet contenant la parentalité, c’est-à-dire l’ensemble des unités archivistiques parentes, ainsi que le niveau de profondeur relative.
 
 -   Il s’agit d’un objet contenant une liste de tableaux JSON.
 
--   Ces informations sont réunies dans cet objet sous la forme de
-    > clef/valeur, la clé étant la profondeur du parent (de type
-    > entier), la valeur étant elle-même un tableau d’identifiant
-    > d’unité archivistique. Exemple d’une unité qui a un parent direct,
-    > lui-même ayant deux parents.
+-   Ces informations sont réunies dans cet objet sous la forme de clef/valeur, la clé étant la profondeur du parent (de type entier), la valeur étant elle-même un tableau d’identifiant d’unité archivistique. Exemple d’une unité qui a un parent direct, lui-même ayant deux parents.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -2479,43 +2397,40 @@ relative.
 
 -   Cardinalité : 1-1
 
-> "1": \[\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaada"\
-> \],\
-> "2": \[\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaabq",\
-> "aeaqaaaaamhad455abcwsalep4lzf2iaaabq"\
-> \],
+```json
+"1": [
+    "aeaqaaaaamhad455abcwsalep4lzf2iaaada"
+],
+"2": [
+    "aeaqaaaaamhad455abcwsalep4lzf2iaaabq",
+    "aeaqaaaaamhad455abcwsalep4lzf2iaaabq"
+],
+```
 
-**« \_min » :** profondeur minimum de l’unité archivistique par rapport
-à une racine.
+**« _min » :** profondeur minimum de l’unité archivistique par rapport à une racine.
 
 -   Il s’agit d’un entier.
 
--   Calculée, cette profondeur correspond au minimum des profondeurs,
-    > quels que soient les racines concernées et les chemins possibles.
+-   Calculée, cette profondeur correspond au minimum des profondeurs, quels que soient les racines concernées et les chemins possibles.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 1-1
 
-**« \_max » :** profondeur maximale de l’unité archivistique par rapport
-à une racine.
+**« _max » :** profondeur maximale de l’unité archivistique par rapport à une racine.
 
 -   Il s’agit d’un entier.
 
--   Calculée, cette profondeur correspond au maximum des profondeurs,
-    > quels que soient les racines concernées et les chemins possibles.
+-   Calculée, cette profondeur correspond au maximum des profondeurs, quels que soient les racines concernées et les chemins possibles.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 1-1
 
-**« \_glpd » :** Date de la dernière modification du graph dont l’unité
+**« _glpd » :** Date de la dernière modification du graph dont l’unité
 dépend
 
--   Il s’agit d’une date au format ISO 8601 YYY-MM-DD + “T” +
-    > hh:mm:ss.millisecondes « + » timezone hh:mm.
+-   Il s’agit d’une date au format ISO 8601 YYY-MM-DD + “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.
 
     Exemple : 2016-08-19T16:36:07.942+02:00
 
@@ -2523,33 +2438,27 @@ dépend
 
 -   Cardinalité : 1-1
 
-**« \_av » :** version atomique de l’enregistrement décrit, incrémentée
-automatiquement en cas de modification de tout champ de la collection.
+**« _av » :** version atomique de l’enregistrement décrit, incrémentée automatiquement en cas de modification de tout champ de la collection.
 
 -   Il s’agit d’un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit, incrémentée dans le
-seul cas de modification d’un champ descriptif.
+**« _v » :** version de l’enregistrement décrit, incrémentée dans le seul cas de modification d’un champ descriptif.
 
 -   Il s’agit d’un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
@@ -2557,39 +2466,31 @@ seul cas de modification d’un champ descriptif.
 
 -   Cardinalité : 1-1
 
-**« \_acd » :** Date de la création de l’unité archivistique
+**« _acd » :** Date de la création de l’unité archivistique
 
--   Il s’agit d’une date au format ISO 8601 YYY-MM-DD + “T” +
-    > hh:mm:ss.millisecondes « + » timezone hh:mm.
+-   Il s’agit d’une date au format ISO 8601 YYY-MM-DD + “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.
 
-    Exemple : 2016-08-19T16:36:07.942+02:00
-
--   Champ peuplé par la solution logicielle Vitam.
-
--   Cardinalité : 1-1
-
-**« \_aud » :** Date de la dernière modification de l’unité
-archivistique
-
--   Il s’agit d’une date au format ISO 8601 YYY-MM-DD + “T” +
-    > hh:mm:ss.millisecondes « + » timezone hh:mm.
-
-    Exemple : 2016-08-19T16:36:07.942+02:00
-
-<!-- -->
+    Exemple : ```2016-08-19T16:36:07.942+02:00```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 1-1
 
-**« \_elimination » :** tableau contenant les résultats pour l’unité
-archivistique lorsqu’une opération d’analyse d’élimination a été lancée.
+**« _aud » :** Date de la dernière modification de l’unité archivistique
 
--   Il s’agit d’un tableau, pouvant référencer plusieurs opérations
-    > d’analyse d’élimination.
+-   Il s’agit d’une date au format ISO 8601 YYY-MM-DD + “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.
 
--   Champ peuplé par la solution logicielle Vitam au moment d’une
-    > indexation réalisée lors d’une phase d’analyse d’élimination.
+    Exemple : ```2016-08-19T16:36:07.942+02:00```
+
+-   Champ peuplé par la solution logicielle Vitam.
+
+-   Cardinalité : 1-1
+
+**« _elimination » :** tableau contenant les résultats pour l’unité archivistique lorsqu’une opération d’analyse d’élimination a été lancée.
+
+-   Il s’agit d’un tableau, pouvant référencer plusieurs opérations d’analyse d’élimination.
+
+-   Champ peuplé par la solution logicielle Vitam au moment d’une indexation réalisée lors d’une phase d’analyse d’élimination.
 
 -   Cardinalité : 1-1
 
@@ -2603,8 +2504,7 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
 
         -   Cardinalité : 1-1
 
-    -   **« GlobalStatus »** : indique le statut de l’unité
-        > archivistique lors de son indexation
+    -   **« GlobalStatus »** : indique le statut de l’unité archivistique lors de son indexation
 
         -   les valeurs ne peuvent être que DESTROY ou CONFLICT
 
@@ -2612,32 +2512,23 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
 
         -   Cardinalité : 1-1
 
-    -   **« DestroyableOriginatingAgencies »** : Service(s)
-        > producteur(s) pour le(s)quel(s) l’unité archivistique est
-        > éliminable
+    -   **« DestroyableOriginatingAgencies »** : Service(s) producteur(s) pour le(s)quel(s) l’unité archivistique est éliminable
 
-        -   Il s’agit d’un tableau pouvant contenir une à plusieurs
-            > chaînes de caractères, correspondant à l’identifiant d’un
-            > service agent référencé dans la collection « Agencies ».
+        -   Il s’agit d’un tableau pouvant contenir une à plusieurs chaînes de caractères, correspondant à l’identifiant d’un service agent référencé dans la collection « Agencies ».
 
         -   Peut être vide.
 
         -   Cardinalité : 1-1
 
-    -   « **NonDestroyableOriginatingAgencies** » : Service(s)
-        > producteur(s) pour le(s)quel(s) l’unité archivistique n’est
-        > pas éliminable
+    -   « **NonDestroyableOriginatingAgencies** » : Service(s) producteur(s) pour le(s)quel(s) l’unité archivistique n’est pas éliminable
 
-        -   Il s’agit d’un tableau pouvant contenir une à plusieurs
-            > chaînes de caractères, correspondant à l’identifiant d’un
-            > service agent référencé dans la collection « Agencies ».
+        -   Il s’agit d’un tableau pouvant contenir une à plusieurs chaînes de caractères, correspondant à l’identifiant d’un service agent référencé dans la collection « Agencies ».
 
         -   Peut être vide.
 
         -   Cardinalité : 1-1
 
-    -   **« ExtendedInfo »** : tableau donnant des informations
-        > complémentaires dans les cas de CONFLICT
+    -   **« ExtendedInfo »** : tableau donnant des informations complémentaires dans les cas de CONFLICT
 
         -   Il s’agit d’un tableau d’objets.
 
@@ -2645,11 +2536,9 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
 
         -   Cardinalité : 1-1
 
-        -   Ce champ peut contenir une liste d’objets comprenant les
-            > éléments suivants :
+        -   Ce champ peut contenir une liste d’objets comprenant les éléments suivants :
 
-            -   **« ExtendedInfoType »** : ce champ indique les
-                > situations impliquant un CONFLICT.
+            -   **« ExtendedInfoType »** : ce champ indique les situations impliquant un CONFLICT.
 
                 -   Il s’agit d’une chaîne de caractères.
 
@@ -2657,166 +2546,95 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
 
                     Les valeurs attendues dans ce champ sont :
 
-                -   « KEEP\_ACCESS\_SP » : l’unité archivistique n’est
-                    > pas éliminable car l’accès est conservé pour un
-                    > service producteur autre que le service producteur
-                    > principal.
+                -   « KEEP_ACCESS_SP » : l’unité archivistique n’est pas éliminable car l’accès est conservé pour un service producteur autre que le service producteur principal.
 
-                -   « ACCESS\_LINK\_INCONSISTENCY » : l’unité
-                    > archivistique n’est pas éliminable, car sa
-                    > suppression occasionnerait une incohérence dans le
-                    > fonds d’archives.
+                -   « ACCESS_LINK_INCONSISTENCY » : l’unité archivistique n’est pas éliminable, car sa suppression occasionnerait une incohérence dans le fonds d’archives.
 
-                -   « FINAL\_ACTION\_INCONSISTENCY » : l’unité
-                    > archivistique a par héritage deux sorts finaux
-                    > différents pour un même service producteur.
+                -   « FINAL_ACTION_INCONSISTENCY » : l’unité archivistique a par héritage deux sorts finaux différents pour un même service producteur.
 
-                -   « BLOCKED\_BY\_HOLD\_RULE » : l’unité archivistique
-                    > a une règle de gel interdisant son élimination.
+                -   « BLOCKED_BY_HOLD_RULE » : l’unité archivistique a une règle de gel interdisant son élimination.
 
-            -   **« ExtendedInfoDetails »** : détails concernant les
-                > situations impliquant un CONFLICT.
+            -   **« ExtendedInfoDetails »** : détails concernant les situations impliquant un CONFLICT.
 
                 -   Il s’agit d’un objet.
 
-                -   Cet objet est présent dans les cas de
-                    > « ACCESS\_LINK\_INCONSISTENCY », de
-                    > « FINAL\_ACTION\_INCONSISTENCY » et de
-                    > « BLOCKED\_BY\_HOLD\_RULE ».
+                -   Cet objet est présent dans les cas de « ACCESS_LINK_INCONSISTENCY », de « FINAL_ACTION_INCONSISTENCY » et de « BLOCKED_BY_HOLD_RULE ».
 
                 -   Cardinalité : 0-1
 
-                -   Pour chaque cas de « ACCESS\_LINK\_INCONSISTENCY »,
-                    > l’unité parente est obligatoirement spécifiée avec
-                    > son GUID, ainsi que le service producteur
-                    > concerné.
+                -   Pour chaque cas de « ACCESS_LINK_INCONSISTENCY », l’unité parente est obligatoirement spécifiée avec son GUID, ainsi que le service producteur concerné.
 
-                    -   **« ParentUnitId »** : identifiant de l’unité
-                        > archivistique parente.
+                    -   **« ParentUnitId »** : identifiant de l’unité archivistique parente.
 
-                        -   Il s’agit d’une chaîne de caractères,
-                            > correspondant au GUID de l’unité
-                            > archivistique parente.
+                        -   Il s’agit d’une chaîne de caractères, correspondant au GUID de l’unité archivistique parente.
 
                         -   Cardinalité : 1-1
 
-                    -   **« DestroyableOriginatingAgencies »** :
-                        > Service(s) producteur(s) pour le(s)quel(s)
-                        > l’unité archivistique est éliminable.
+                    -   **« DestroyableOriginatingAgencies »** : Service(s) producteur(s) pour le(s)quel(s) l’unité archivistique est éliminable.
 
-                        -   Il s’agit d’un tableau pouvant contenir une
-                            > à plusieurs chaînes de caractères,
-                            > correspondant à l’identifiant d’un service
-                            > agent référencé dans la collection
-                            > « Agencies ».
+                        -   Il s’agit d’un tableau pouvant contenir une à plusieurs chaînes de caractères, correspondant à l’identifiant d’un service agent référencé dans la collection « Agencies ».
 
                         -   Cardinalité : 1-1
 
-                    -   **« NonDestroyableOriginatingAgencies »** :
-                        > Service(s) producteur(s) pour le(s)quel(s)
-                        > l’unité archivistique n’est pas éliminable
+                    -   **« NonDestroyableOriginatingAgencies »** : Service(s) producteur(s) pour le(s)quel(s) l’unité archivistique n’est pas éliminable
 
-                        -   Il s’agit d’un tableau pouvant contenir une
-                            > à plusieurs chaînes de caractères,
-                            > correspondant à l’identifiant d’un service
-                            > agent référencé dans la collection
-                            > « Agencies ».
+                        -   Il s’agit d’un tableau pouvant contenir une à plusieurs chaînes de caractères, correspondant à l’identifiant d’un service agent référencé dans la collection « Agencies ».
 
                         -   Cardinalité : 1-1
 
-            -   Pour chaque cas de « FINAL\_ACTION\_INCONSISTENCY », la
-                > solution logicielle indexe également le service
-                > producteur concerné.
+            -   Pour chaque cas de « FINAL_ACTION_INCONSISTENCY », la solution logicielle indexe également le service producteur concerné.
 
-                -   **« OriginatingAgenciesInConflict »** : Service(s)
-                    > producteur(s) pour le(s)quel(s) l’unité
-                    > archivistique ne peut être éliminée.
+                -   **« OriginatingAgenciesInConflict »** : Service(s) producteur(s) pour le(s)quel(s) l’unité archivistique ne peut être éliminée.
 
-                    -   Il s’agit d’un tableau pouvant contenir une à
-                        > plusieurs chaînes de caractères, correspondant
-                        > à l’identifiant d’un service agent référencé
-                        > dans la collection « Agencies ».
+                    -   Il s’agit d’un tableau pouvant contenir une à plusieurs chaînes de caractères, correspondant à l’identifiant d’un service agent référencé dans la collection « Agencies ».
 
                     -   Cardinalité : 0-1
 
-> "\_elimination": \[
->
-> {
->
-> "OperationId": "aeeaaaaabgho3tftabgyiallvvnhq2aaaaaq",
->
-> "GlobalStatus": "CONFLICT",
->
-> "DestroyableOriginatingAgencies": \[
->
-> "FRAN\_NP\_050634"
->
-> \],
->
-> "NonDestroyableOriginatingAgencies": \[
->
-> "FRAN\_NP\_051587"
->
-> \],
->
-> "ExtendedInfo": \[
->
-> {
->
-> "ExtendedInfoType": "KEEP\_ACCESS\_SP"
->
-> },
->
-> {
->
-> "ExtendedInfoType": "ACCESS\_LINK\_INCONSISTENCY",
->
-> "ExtendedInfoDetails": {
->
-> "ParentUnitId": "aeaqaaaabehducypaasryallvvmupmaaaada",
->
-> "DestroyableOriginatingAgencies": \[
->
-> "FRAN\_NP\_050634"
->
-> \],
->
-> "NonDestroyableOriginatingAgencies": \[
->
-> "FRAN\_NP\_051587"
->
-> \]
->
-> }
->
-> }
->
-> \]
->
-> }
->
-> \]
+```json
+"_elimination": [
+        {
+            "OperationId": "aeeaaaaabgho3tftabgyiallvvnhq2aaaaaq",
+            "GlobalStatus": "CONFLICT",
+            "DestroyableOriginatingAgencies": [
+                "FRAN_NP_050634"
+            ],
+            "NonDestroyableOriginatingAgencies": [
+                "FRAN_NP_051587"
+            ],
+            "ExtendedInfo": [
+                {
+                    "ExtendedInfoType": "KEEP_ACCESS_SP"
+                },
+                {
+                    "ExtendedInfoType": "ACCESS_LINK_INCONSISTENCY",
+                    "ExtendedInfoDetails": {
+                        "ParentUnitId": "aeaqaaaabehducypaasryallvvmupmaaaada",
+                        "DestroyableOriginatingAgencies": [
+                            "FRAN_NP_050634"
+                        ],
+                        "NonDestroyableOriginatingAgencies": [
+                            "FRAN_NP_051587"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+```
 
--   Pour chaque cas de BLOCKED\_BY\_HOLD\_RULE, la solution logicielle
-    > indexe la(les) règle(s) concernée(s).
+-   Pour chaque cas de BLOCKED_BY_HOLD_RULE, la solution logicielle indexe la(les) règle(s) concernée(s).
 
-    -   **« HoldRuleIds »** : Règle(s) de gel interdisant l’élimination
-        > de l’unité archivistique.
+    -   **« HoldRuleIds »** : Règle(s) de gel interdisant l’élimination de l’unité archivistique.
 
-        -   Il s’agit d’un tableau pouvant contenir une à plusieurs
-            > chaînes de caractères, correspondant à l’identifiant d’une
-            > règle de gestion référencé dans la collection
-            > « FileRules ».
+        -   Il s’agit d’un tableau pouvant contenir une à plusieurs chaînes de caractères, correspondant à l’identifiant d’une règle de gestion référencé dans la collection « FileRules ».
 
         -   Cardinalité : 1-1
 
-**« \_computedInheritedRule » :**
+**« _computedInheritedRule » :**
 
--   une liste de catégories de règles de gestion appliquées à cette
-    > unité archivistique.
+-   une liste de catégories de règles de gestion appliquées à cette unité archivistique.
 
-    Les catégories pouvant être incluses dans cet objet sont,
-    exhaustivement :
+    Les catégories pouvant être incluses dans cet objet sont exhaustivement :
 
     -   AccessRule (délai de communicabilité)
 
@@ -2842,8 +2660,7 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
 
         -   « InheritanceOrigin » : origine des règles calculées
 
-            -   il s’agit d’une chaîne de caractères, pouvant contenir
-                > une des valeurs suivantes :
+            -   il s’agit d’une chaîne de caractères, pouvant contenir une des valeurs suivantes :
 
                 -   « Local »
 
@@ -2855,24 +2672,17 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
 
         -   « InheritedRuleIds » : identifiant des règles héritées
 
-            -   il s’agit d’un tableau, pouvant contenir une à plusieurs
-                > valeurs correspondant au champ RuleId de la collection
-                > FileRules
+            -   il s’agit d’un tableau, pouvant contenir une à plusieurs valeurs correspondant au champ RuleId de la collection FileRules
 
             -   Cardinalité : 0-1
 
-        -   « EndDates » : Les dates de fin par règle de gestion hérités
-            > identifiés.
+        -   « EndDates » : Les dates de fin par règle de gestion hérités identifiés.
 
-            -   En clé il y a l’identifiant de la règle de gestion
-                > défini au niveau de l’unité archivistique ou hérités
-                > des unités archivistiques parents.
+            -   En clé il y a l’identifiant de la règle de gestion défini au niveau de l’unité archivistique ou hérités des unités archivistiques parents.
 
-            -   En valeur, il y a la date de fin de validité la plus
-                > longue en fonction des règles de gestion applicable.
+            -   En valeur, il y a la date de fin de validité la plus longue en fonction des règles de gestion applicable.
 
-                Ce champ est déprécié au profit de « Rules ». Il n’est
-                plus indexé.
+                Ce champ est déprécié au profit de « Rules ». Il n’est plus indexé.
 
         -   Rules : tableau de règle de gestion.
 
@@ -2880,64 +2690,47 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
 
             -   Cardinalité : 0-1
 
-            -   Chacun des objets de ce tableau est elle-même composée
-                > de plusieurs informations :
+            -   Chacun des objets de ce tableau est elle-même composée de plusieurs informations :
 
                 -   **« Rule » :** identifiant de la règle
 
-                    -   Correspond à une valeur du champ RuleId de la
-                        > collection FileRules.
+                    -   Correspond à une valeur du champ RuleId de la collection FileRules.
 
                     -   Cardinalité : 0-1
 
-                -   **« EndDate** » : date de fin d’application de la
-                    > règle.
+                -   **« EndDate** » : date de fin d’application de la règle.
 
                     -   Il s’agit d’une date.
 
-                    -   Cette valeur est issue d’un calcul réalisé par
-                        > la solution logicielle Vitam. Celui-ci
-                        > consiste en l’ajout du délai correspondant à
-                        > la règle dans la collection FileRules à la
-                        > valeur du champ StartDate (EndDate =
-                        > StartDate + Durée)
+                    -   Cette valeur est issue d’un calcul réalisé par la solution logicielle Vitam. Celui-ci consiste en l’ajout du délai correspondant à la règle dans la collection FileRules à la valeur du champ StartDate (EndDate = StartDate + Durée)
 
                     -   Cardinalité : 0-1
 
     -   Des données spécifiques aux catégories :
 
-        -   Pour les catégories « StorageRule » et « AppraisalRule »
-            > uniquement :
+        -   Pour les catégories « StorageRule » et « AppraisalRule » uniquement :
 
-            -   **« FinalAction » :** sort final des règles dans ces
-                > catégories.
+            -   **« FinalAction » :** sort final des règles dans ces catégories.
 
                 -   Cardinalité : 1-1
 
                 -   La valeur contenue dans le champ peut être :
 
-                    -   Pour StorageRule : « Transfer », « Copy » ou
-                        > « RestrictAccess » (énumération issue du
-                        > FinalActionStorageCodeType du SEDA 2.1)
+                    -   Pour StorageRule : « Transfer », « Copy » ou « RestrictAccess » (énumération issue du FinalActionStorageCodeType du SEDA 2.1)
 
-                    -   Pour AppraisalRule : « Keep » ou « Destroy »
-                        > (énumération issue du
-                        > FinalActionAppraisalCodeType du SEDA 2.1)
+                    -   Pour AppraisalRule : « Keep » ou « Destroy » (énumération issue du FinalActionAppraisalCodeType du SEDA 2.1)
 
         -   Pour la catégorie ClassificationRule uniquement :
 
             -   **« ClassificationLevel »** : niveau de classification.
 
-                -   Il s’agit d’une chaîne de caractères, dont les
-                    > valeurs sont paramétrables au niveau de la
-                    > plateforme.
+                -   Il s’agit d’une chaîne de caractères, dont les valeurs sont paramétrables au niveau de la plateforme.
 
                 -   Champ obligatoire et systématiquement renseigné
 
                 -   Cardinalité : 1-1
 
-            -   **« ClassificationOwner » :** propriétaire de la
-                > classification.
+            -   **« ClassificationOwner » :** propriétaire de la classification.
 
                 -   Il s’agit d’une chaîne de caractères.
 
@@ -2945,9 +2738,7 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
 
                 -   Cardinalité : 1-1
 
-            -   **« ClassificationAudience »** : permet de gérer les
-                > mentions additionnelles de limitation du champ de
-                > diffusion (exemple : « spécial France »)
+            -   **« ClassificationAudience »** : permet de gérer les mentions additionnelles de limitation du champ de diffusion (exemple : « spécial France »)
 
                 -   Il s’agit d’une chaîne de caractères.
 
@@ -2955,8 +2746,7 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
 
                 -   Cardinalité : 0-1
 
-            -   **« ClassificationReassessingDate »** : date de
-                > réévaluation de la classification.
+            -   **« ClassificationReassessingDate »** : date de réévaluation de la classification.
 
                 -   Il s’agit d’une date.
 
@@ -2968,19 +2758,15 @@ archivistique lorsqu’une opération d’analyse d’élimination a été lanc�
                 > autorisation humaine est nécessaire pour réévaluer la
                 > classification.
 
-                -   Il s’agit d’un booléen. Si la valeur est à « true »,
-                    > une autorisation humaine sera nécessaire pour
-                    > réévaluer la classification.
+                -   Il s’agit d’un booléen. Si la valeur est à « true », une autorisation humaine sera nécessaire pour réévaluer la classification.
 
                 -   Champ optionnel
 
                 -   Cardinalité : 0-1
 
-**« \_inheritedRulesAPIOutput » :**
+**« _inheritedRulesAPIOutput » :**
 
-Il contient les règles de gestion calculée applicable en prenant en
-compte les différents héritages de règles de gestion provenant des
-différents services producteurs.
+Il contient les règles de gestion calculée applicable en prenant en compte les différents héritages de règles de gestion provenant des différents services producteurs.
 
 -   Cardinalité : 0-1
 
@@ -2992,24 +2778,19 @@ différents services producteurs.
 
         -   Cardinalité : 0-1
 
-        -   Chaque propriété contient l’ensemble suivant
-            > d’informations :
+        -   Chaque propriété contient l’ensemble suivant d’informations :
 
-            -   **« UnitId » :**identifiant unique de l’unité
-                > archivistique.
+            -   **« UnitId » :**identifiant unique de l’unité archivistique.
 
-                -   Il s’agit d’une chaîne de 36 caractères
-                    > correspondant à un GUID.
+                -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
                 -   Champ peuplé par la solution logicielle Vitam.
 
                 -   Cardinalité : 1-1
 
-            -   **« OriginatingAgency » :** identifiant du service
-                > producteur
+            -   **« OriginatingAgency » :** identifiant du service producteur
 
-                -   Correspond à une valeur valide du champ
-                    > « Identifier » de la collection Agencies.
+                -   Correspond à une valeur valide du champ « Identifier » de la collection Agencies.
 
                 -   Il s’agit d’une chaîne de caractères.
 
@@ -3027,18 +2808,15 @@ différents services producteurs.
 
                 -   Cardinalité : 1-1
 
-            -   «** PropertyValue **» : Valeur de la propriété nommé
-                > ci-dessus.
+            -   «** PropertyValue **» : Valeur de la propriété nommé ci-dessus.
 
                 -   Le type varie en fonction de la propriété héritée.
 
                 -   Cardinalité : 1 -1
 
-    -   une liste de catégories de règles de gestion appliquées à cette
-        > unité archivistique.
+    -   une liste de catégories de règles de gestion appliquées à cette unité archivistique.
 
-        Les catégories pouvant être incluses dans cet objet sont,
-        exhaustivement :
+        Les catégories pouvant être incluses dans cet objet sont, exhaustivement :
 
         -   AccessRule (délai de communicabilité)
 
@@ -3064,24 +2842,19 @@ différents services producteurs.
 
             -   Cardinalité : 0-1
 
-            -   Chacun des objets de ce tableau est elle-même composée
-                > de plusieurs informations :
+            -   Chacun des objets de ce tableau est elle-même composée de plusieurs informations :
 
-                -   **« UnitId » :**identifiant unique de l’unité
-                    > archivistique.
+                -   **« UnitId » :**identifiant unique de l’unité archivistique.
 
-                    -   Il s’agit d’une chaîne de 36 caractères
-                        > correspondant à un GUID.
+                    -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
                     -   Champ peuplé par la solution logicielle Vitam.
 
                     -   Cardinalité : 1-1
 
-                -   **« OriginatingAgency » :** identifiant du service
-                    > producteur
+                -   **« OriginatingAgency » :** identifiant du service producteur
 
-                    -   Correspond à une valeur valide du champ
-                        > « Identifier » de la collection Agencies.
+                    -   Correspond à une valeur valide du champ « Identifier » de la collection Agencies.
 
                     -   Il s’agit d’une chaîne de caractères.
 
@@ -3095,33 +2868,23 @@ différents services producteurs.
 
                 -   **« Rule » :** identifiant de la règle
 
-                    -   Correspond à une valeur du champ RuleId de la
-                        > collection FileRules.
+                    -   Correspond à une valeur du champ RuleId de la collection FileRules.
 
                     -   Cardinalité : 0-1
 
-                -   **« StartDate »** : date de début du calcul de
-                    > l’échéance.
+                -   **« StartDate »** : date de début du calcul de l’échéance.
 
                     -   Il s’agit d’une date.
 
-                    -   Cette date est déclarée dans le message
-                        > ArchiveTransfer ou ajoutée *a posteriori* par
-                        > une modification de l’unité archivistique.
+                    -   Cette date est déclarée dans le message ArchiveTransfer ou ajoutée *a posteriori* par une modification de l’unité archivistique.
 
                     -   Cardinalité : 0-1
 
-                -   **« EndDate** » : date de fin d’application de la
-                    > règle.
+                -   **« EndDate** » : date de fin d’application de la règle.
 
                     -   Il s’agit d’une date.
 
-                    -   Cette valeur est issue d’un calcul réalisé par
-                        > la solution logicielle Vitam. Celui-ci
-                        > consiste en l’ajout du délai correspondant à
-                        > la règle dans la collection FileRules à la
-                        > valeur du champ startDate (EndDate =
-                        > StartDate + Durée)
+                    -   Cette valeur est issue d’un calcul réalisé par la solution logicielle Vitam. Celui-ci consiste en l’ajout du délai correspondant à la règle dans la collection FileRules à la valeur du champ startDate (EndDate = StartDate + Durée)
 
                     -   Cardinalité : 0-1
 
@@ -3129,24 +2892,19 @@ différents services producteurs.
 
             -   Cardinalité : 1-n
 
-            -   Chaque propriété contient l’ensemble suivant
-                > d’informations :
+            -   Chaque propriété contient l’ensemble suivant d’informations :
 
-                -   **« UnitId » :**identifiant unique de l’unité
-                    > archivistique.
+                -   **« UnitId » :**identifiant unique de l’unité archivistique.
 
-                    -   Il s’agit d’une chaîne de 36 caractères
-                        > correspondant à un GUID.
+                    -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
                     -   Champ peuplé par la solution logicielle Vitam.
 
                     -   Cardinalité : 1-1
 
-                -   **« OriginatingAgency » :** identifiant du service
-                    > producteur
+                -   **« OriginatingAgency » :** identifiant du service producteur
 
-                    -   Correspond à une valeur valide du champ
-                        > « Identifier » de la collection Agencies.
+                    -   Correspond à une valeur valide du champ « Identifier » de la collection Agencies.
 
                     -   Il s’agit d’une chaîne de caractères.
 
@@ -3164,286 +2922,155 @@ différents services producteurs.
 
                     -   Cardinalité : 1-1
 
-                -   «** PropertyValue **» : Valeur de la propriété nommé
-                    > ci-dessus.
+                -   «** PropertyValue **» : Valeur de la propriété nommé ci-dessus.
 
-                    -   Le type varie en fonction de la propriété
-                        > inhérité.
+                    -   Le type varie en fonction de la propriété inhérité.
 
                     -   Cardinalité : 1 -1
 
-    -   « \_**validComputedInheritedRules **» : validité des règles de
-        > gestion applicables sur ces unités archivistiques.
+    -   « _**validComputedInheritedRules **» : validité des règles de gestion applicables sur ces unités archivistiques.
 
-        -   Il s’agit d’un booléen. Si la valeur est à « true », les
-            > règles de gestion applicables sur cette unité
-            > archivistique était encore d’actualité.
+        -   Il s’agit d’un booléen. Si la valeur est à « true », les règles de gestion applicables sur cette unité archivistique était encore d’actualité.
 
         -   Cardinalité : 1-1
 
-> "inheritedRulesAPIOutput": {
->
-> "GlobalProperties": \[\],
->
-> "StorageRule": {
->
-> "Rules": \[\],
->
-> "Properties": \[\]
->
-> },
->
-> "AppraisalRule": {
->
-> "Rules": \[\],
->
-> "Properties": \[
->
-> {
->
-> "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeqaaada",
->
-> "OriginatingAgency": "RATP",
->
-> "Paths": \[
->
-> \[
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaafa",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeqaaada"
->
-> \],
->
-> \[
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeqaaaeq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeqaaada"
->
-> \]
->
-> \],
->
-> "PropertyName": "FinalAction",
->
-> "PropertyValue": "Keep"
->
-> }
->
-> \]
->
-> },
->
-> "DisseminationRule": {
->
-> "Rules": \[
->
-> {
->
-> "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeqaaada",
->
-> "OriginatingAgency": "RATP",
->
-> "Paths": \[
->
-> \[
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaafa",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeqaaada"
->
-> \],
->
-> \[
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeqaaaeq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeqaaada"
->
-> \]
->
-> \],
->
-> "Rule": "DIS-00001",
->
-> "StartDate": "2000-01-01",
->
-> "EndDate": "2025-01-01"
->
-> }
->
-> \],
->
-> "Properties": \[\]
->
-> },
->
-> "ReuseRule": {
->
-> "Rules": \[\],
->
-> "Properties": \[\]
->
-> },
->
-> "ClassificationRule": {
->
-> "Rules": \[\],
->
-> "Properties": \[\]
->
-> },
->
-> "AccessRule": {
->
-> "Rules": \[
->
-> {
->
-> "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
->
-> "OriginatingAgency": "RATP",
->
-> "Paths": \[
->
-> \[
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba"
->
-> \]
->
-> \],
->
-> "Rule": "ACC-00003",
->
-> "StartDate": "2002-01-01",
->
-> "EndDate": "2027-01-01"
->
-> },
->
-> {
->
-> "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeyaaafa",
->
-> "OriginatingAgency": "RATP",
->
-> "Paths": \[
->
-> \[
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaafa"
->
-> \]
->
-> \],
->
-> "Rule": "ACC-00001",
->
-> "StartDate": "2000-01-01",
->
-> "EndDate": "2000-01-01"
->
-> },
->
-> {
->
-> "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeqaaaeq",
->
-> "OriginatingAgency": "RATP",
->
-> "Paths": \[
->
-> \[
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
->
-> "aeaqaaaabaheaypqaahnialm6ht7jeqaaaeq"
->
-> \]
->
-> \],
->
-> "Rule": "ACC-00036",
->
-> "StartDate": "2000-01-01",
->
-> "EndDate": "2999-01-01"
->
-> }
->
-> \],
->
-> "Properties": \[\]
->
-> }
->
-> },
->
-> "indexationDate": "2019-09-02"
->
-> },
->
-> "\_validComputedInheritedRules": true
->
-> }
+```json
+      "inheritedRulesAPIOutput": {
+            "GlobalProperties": [],
+            "StorageRule": {
+                "Rules": [],
+                "Properties": []
+            },
+            "AppraisalRule": {
+                "Rules": [],
+                "Properties": [
+                    {
+                        "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeqaaada",
+                        "OriginatingAgency": "RATP",
+                        "Paths": [
+                            [
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaafa",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeqaaada"
+                            ],
+                            [
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeqaaaeq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeqaaada"
+                            ]
+                        ],
+                        "PropertyName": "FinalAction",
+                        "PropertyValue": "Keep"
+                    }
+                ]
+            },
+            "DisseminationRule": {
+                "Rules": [
+                    {
+                        "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeqaaada",
+                        "OriginatingAgency": "RATP",
+                        "Paths": [
+                            [
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaafa",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeqaaada"
+                            ],
+                            [
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeqaaaeq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeqaaada"
+                            ]
+                        ],
+                        "Rule": "DIS-00001",
+                        "StartDate": "2000-01-01",
+                        "EndDate": "2025-01-01"
+                    }
+                ],
+                "Properties": []
+            },
+            "ReuseRule": {
+                "Rules": [],
+                "Properties": []
+            },
+            "ClassificationRule": {
+                "Rules": [],
+                "Properties": []
+            },
+            "AccessRule": {
+                "Rules": [
+                    {
+                        "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
+                        "OriginatingAgency": "RATP",
+                        "Paths": [
+                            [
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba"
+                            ]
+                        ],
+                        "Rule": "ACC-00003",
+                        "StartDate": "2002-01-01",
+                        "EndDate": "2027-01-01"
+                    },
+                    {
+                        "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeyaaafa",
+                        "OriginatingAgency": "RATP",
+                        "Paths": [
+                            [
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaafa"
+                            ]
+                        ],
+                        "Rule": "ACC-00001",
+                        "StartDate": "2000-01-01",
+                        "EndDate": "2000-01-01"
+                    },
+                    {
+                        "UnitId": "aeaqaaaabaheaypqaahnialm6ht7jeqaaaeq",
+                        "OriginatingAgency": "RATP",
+                        "Paths": [
+                            [
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaadq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaacq",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeyaaaba",
+                                "aeaqaaaabaheaypqaahnialm6ht7jeqaaaeq"
+                            ]
+                        ],
+                        "Rule": "ACC-00036",
+                        "StartDate": "2000-01-01",
+                        "EndDate": "2999-01-01"
+                    }
+                ],
+                "Properties": []
+            }
+        },
+        "indexationDate": "2019-09-02"
+    },
+    "_validComputedInheritedRules": true
+}
+```
 
-**« \_opts » (operations de transfert)**: tableau contenant les
-identifiants d’opérations de transfert auxquelles cette unité
-archivistique est associée.
+**« _opts » (operations de transfert)**: tableau contenant les identifiants d’opérations de transfert auxquelles cette unité archivistique est associée.
 
--   Il s’agit d’un tableau contenant une à plusieurs chaînes de 36
-    > caractères correspondant au champ \_id de l’opération ou GUID de
-    > l’opération, enregistré dans la collection LogbookOperation.
+-   Il s’agit d’un tableau contenant une à plusieurs chaînes de 36 caractères correspondant au champ \_id de l’opération ou GUID de l’opération, enregistré dans la collection LogbookOperation.
 
--   Champ peuplé par la solution logicielle Vitam au moment d’une
-    > indexation réalisée lors d’une phase de transfert.
+-   Champ peuplé par la solution logicielle Vitam au moment d’une indexation réalisée lors d’une phase de transfert.
 
 -   Ne peut être vide.
 
 -   Cardinalité : 0-1
 
-    []{#__RefHeading___Toc29427_1669085364 .anchor}4.2. Collection
-    ObjectGroup
+### Collection ObjectGroup
 
     []{#__RefHeading___Toc29429_1669085364 .anchor}4.2.1. Utilisation de
     la collection ObjectGroup
