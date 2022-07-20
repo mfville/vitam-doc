@@ -3619,12 +3619,9 @@ représentées par ce groupe d’objets.
 
 ### Collection Offset
 
-    []{#__RefHeading___Toc29439_1669085364 .anchor}4.3.1. Utilisation de
-    la collection
+####  Utilisation de la collection
 
-Cette collection permet de persister les offsets des dernières données
-reconstruites des offres de stockage lors de la reconstruction au fil de
-l’eau pour les collections :
+Cette collection permet de persister les offsets des dernières données reconstruites des offres de stockage lors de la reconstruction au fil de l’eau pour les collections :
 
 -   LogbookOperation
 
@@ -3632,27 +3629,27 @@ l’eau pour les collections :
 
 -   ObjetGroup
 
--   UNIT\_GRAPH
+-   UNIT_GRAPH
 
--   OBJETGROUP\_GRAPH
+-   OBJETGROUP_GRAPH
 
 Il y a une valeur d’offset par couple tenant/collection.
 
-[]{#__RefHeading___Toc29441_1669085364 .anchor}4.3.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-> {\
-> "\_id": ObjectId("507f191e810c19729de860ea"),\
-> "offset": 1357,\
-> "collection": "UNIT",
->
-> "strategyId": "default",\
-> "\_tenant": 1\
-> }
+```json
+{
+  "_id": ObjectId("507f191e810c19729de860ea"),
+  "offset": 1357,
+  "collection": "UNIT",
+  "strategyId": "default",
+  "_tenant": 1
+}
+```
 
-[]{#__RefHeading___Toc29443_1669085364 .anchor}4.3.3. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique mongo.
+**« _id » :** identifiant unique mongo.
 
 -   Il s’agit d’un champ de type mongo : ObjectId(&lt;hexadecimal&gt;).
 
@@ -3676,7 +3673,7 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Il s’agit d’une chaîne de caractère.
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
@@ -3687,14 +3684,11 @@ stocké en base comprenant l’exhaustivité des champs
 Base metadataCollect
 --------------------
 
-La base metadataCollect contient les collections relatives aux
-métadonnées des unités archivistiques (collection Unit) et des groupes
-d’objets (collection ObjectGroup) utilisées par le module de collecte.
+La base metadataCollect contient les collections relatives aux métadonnées des unités archivistiques (collection Unit) et des groupes d’objets (collection ObjectGroup) utilisées par le module de collecte.
 
-[]{#__RefHeading___Toc29417_16690853641 .anchor}5.1. Collection Unit
+### Collection Unit
 
-[]{#__RefHeading___Toc29419_16690853641 .anchor}5.1.1. Utilisation de la
-collection Unit
+#### Utilisation de la collection Unit
 
 La collection Unit contient les informations relatives aux unités
 archivistiques enregistrées lors de la phase de collecte.
