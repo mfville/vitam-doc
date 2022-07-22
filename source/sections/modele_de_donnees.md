@@ -4611,7 +4611,6 @@ Un fichier d’import peut décrire plusieurs contrats.
 
 #### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection AccesContract
 
-#### Exemple de JSON
 
 ```json
 {
