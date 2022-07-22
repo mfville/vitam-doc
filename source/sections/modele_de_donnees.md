@@ -4946,7 +4946,7 @@ Les seuls éléments issus du message ArchiveTransfer utilisés ici sont ceux co
 
 Par exemple :
 
-``` &lt;OriginatingAgencyIdentifier&gt;FRAN_NP_051314&lt;/OriginatingAgencyIdentifier&gt;```
+``` <OriginatingAgencyIdentifier>FRAN_NP_051314</OriginatingAgencyIdentifier>```
 
 On récupère la valeur FRAN_NP_051314
 
@@ -4962,7 +4962,7 @@ On récupère la valeur FRAN_NP_051314
 
 Par exemple
 
-``` &lt;SubmissionAgencyIdentifier&gt;FRAN_NP_005761&lt;/SubmissionAgencyIdentifier&gt;```
+```<SubmissionAgencyIdentifier>FRAN_NP_005761</SubmissionAgencyIdentifier>```
 
 On récupère la valeur FRAN_NP_005761.
 
@@ -4984,7 +4984,7 @@ Ce champ est facultatif dans le bordereau. S’il” est absente ou vide, alors 
 
 Par exemple pour
 
-```&lt;ArchivalAgreement&gt;IC-000001&lt;/ArchivalAgreement&gt;```
+```<ArchivalAgreement>IC-000001</ArchivalAgreement>```
 
 On récupère la valeur IC-000001.
 
