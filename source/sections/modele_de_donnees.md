@@ -4686,7 +4686,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "CreationDate": "2017-04-10T11:30:33.798"
+    ```"CreationDate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -4696,7 +4696,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "LastUpdate": "2017-04-10T11:30:33.798"
+    ```"LastUpdate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -4706,7 +4706,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "ActivationDate": "2017-04-10T11:30:33.798"
+    ```"ActivationDate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -4716,7 +4716,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "DeactivationDate": "2017-04-10T11:30:33.798"
+    ```"DeactivationDate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -4835,159 +4835,89 @@ détenteur du contrat a accès.
 
 #### Utilisation de la collection AccessionRegisterDetail
 
-Cette collection a pour vocation de référencer l’ensemble des
-informations sur les opérations d’entrée ou de préservation réalisées
-pour un service producteur. À ce jour, il y a autant d’enregistrements
-que d’opérations d’entrées effectuées pour ce service producteur, ainsi
-que des enregistrements liés à la préservation. Cette collection reprend
-les éléments du bordereau de transfert, ainsi que les éléments
-correspondant à des opérations d’élimination, de transfert ou de
-préservation et de suppression de versions d’objets.
+Cette collection a pour vocation de référencer l’ensemble des informations sur les opérations d’entrée ou de préservation réalisées pour un service producteur. À ce jour, il y a autant d’enregistrements que d’opérations d’entrées effectuées pour ce service producteur, ainsi que des enregistrements liés à la préservation. Cette collection reprend les éléments du bordereau de transfert, ainsi que les éléments correspondant à des opérations d’élimination, de transfert ou de préservation et de suppression de versions d’objets.
 
-[]{#__RefHeading___Toc29465_1669085364 .anchor}7.2.2. Exemple de la
-description dans le XML d’entrée
+#### Exemple de la description dans le XML d’entrée
 
-Les seuls éléments issus du message ArchiveTransfer utilisés ici sont
-ceux correspondant à la déclaration des identifiants du service
-producteur et du service versant. Ils sont placés dans le bloc
-&lt;ManagementMetadata&gt;
+Les seuls éléments issus du message ArchiveTransfer utilisés ici sont ceux correspondant à la déclaration des identifiants du service producteur et du service versant. Ils sont placés dans le bloc &lt;ManagementMetadata&gt;
 
-> &lt;ManagementMetadata&gt;\
-> &lt;OriginatingAgencyIdentifier&gt;FRAN\_NP\_051314&lt;/OriginatingAgencyIdentifier&gt;\
-> &lt;SubmissionAgencyIdentifier&gt;FRAN\_NP\_005761&lt;/SubmissionAgencyIdentifier&gt;\
-> &lt;/ManagementMetadata&gt;
+```xml
+<ManagementMetadata>
+         <OriginatingAgencyIdentifier>FRAN_NP_051314</OriginatingAgencyIdentifier>
+         <SubmissionAgencyIdentifier>FRAN_NP_005761</SubmissionAgencyIdentifier>
+</ManagementMetadata>
+```
 
-[]{#__RefHeading___Toc29467_1669085364 .anchor}7.2.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-> {
->
-> "\_id": "aehaaaaaa4haffe6ab7yialiplg6plqaaaaq",
->
-> "ObjectSize": {
->
-> "ingested": 77256,
->
-> "deleted": 77256,
->
-> "remained": 0
->
-> },
->
-> "OriginatingAgency": "Vitam",
->
-> "SubmissionAgency": "Vitam",
->
-> "ArchivalAgreement": "IC-000001",
->
-> "EndDate": "2019-01-23T13:02:21.102",
->
-> "StartDate": "2019-01-23T13:02:21.102",
->
-> "LastUpdate": "2019-01-23T13:12:24.200",
->
-> "Status": "UNSTORED",
->
-> "TotalObjectGroups": {
->
-> "ingested": 2,
->
-> "deleted": 2,
->
-> "remained": 0
->
-> },
->
-> "TotalUnits": {
->
-> "ingested": 3,
->
-> "deleted": 3,
->
-> "remained": 0
->
-> },
->
-> "TotalObjects": {
->
-> "ingested": 2,
->
-> "deleted": 2,
->
-> "remained": 0
->
-> },
->
-> "Opc": "aeeaaaaaa6hfj4pcaaot2aliplg3kkiaaaaq",
->
-> "Opi": "aeeaaaaaa6hfj4pcaaot2aliplg3kkiaaaaq",
->
-> "OpType": "INGEST",
->
-> "Events": \[
->
-> {
->
-> "Opc": "aeeaaaaaa6hfj4pcaaot2aliplg3kkiaaaaq",
->
-> "OpType": "INGEST",
->
-> "Gots": 2,
->
-> "Units": 3,
->
-> "Objects": 2,
->
-> "ObjSize": 77256,
->
-> "CreationDate": "2019-01-23T13:02:21.102"
->
-> },
->
-> {
->
-> "Opc": "aeeaaaaaa6hfj4pcaafkkalipllqjxiaaaaq",
->
-> "OpType": "ELIMINATION",
->
-> "Gots": -2,
->
-> "Units": -3,
->
-> "Objects": -2,
->
-> "ObjSize": -77256,
->
-> "CreationDate": "2019-01-23T13:12:24.200"
->
-> }
->
-> \],
->
-> "OperationIds": \[
->
-> "aeeaaaaaa6hfj4pcaaot2aliplg3kkiaaaaq"
->
-> \],
->
-> "obIdIn": "Préfecture de police : archives bureautiques.",
->
-> "Comment": \[
->
-> "Arborescence bureautique émanant de la Préfecture de police et
-> produite entre 1990 et 2000. Le fonds est clos."
->
-> \],
->
-> "\_tenant": 7,
->
-> "\_v": 1
->
-> }
+```json
+{
+    "_id": "aehaaaaaa4haffe6ab7yialiplg6plqaaaaq",
+    "ObjectSize": {
+        "ingested": 77256,
+        "deleted": 77256,
+        "remained": 0
+    },
+    "OriginatingAgency": "Vitam",
+    "SubmissionAgency": "Vitam",
+    "ArchivalAgreement": "IC-000001",
+    "EndDate": "2019-01-23T13:02:21.102",
+    "StartDate": "2019-01-23T13:02:21.102",
+    "LastUpdate": "2019-01-23T13:12:24.200",
+    "Status": "UNSTORED",
+    "TotalObjectGroups": {
+        "ingested": 2,
+        "deleted": 2,
+        "remained": 0
+    },
+    "TotalUnits": {
+        "ingested": 3,
+        "deleted": 3,
+        "remained": 0
+    },
+    "TotalObjects": {
+        "ingested": 2,
+        "deleted": 2,
+        "remained": 0
+    },
+    "Opc": "aeeaaaaaa6hfj4pcaaot2aliplg3kkiaaaaq",
+    "Opi": "aeeaaaaaa6hfj4pcaaot2aliplg3kkiaaaaq",
+    "OpType": "INGEST",
+    "Events": [
+        {
+            "Opc": "aeeaaaaaa6hfj4pcaaot2aliplg3kkiaaaaq",
+            "OpType": "INGEST",
+            "Gots": 2,
+            "Units": 3,
+            "Objects": 2,
+            "ObjSize": 77256,
+            "CreationDate": "2019-01-23T13:02:21.102"
+        },
+        {
+            "Opc": "aeeaaaaaa6hfj4pcaafkkalipllqjxiaaaaq",
+            "OpType": "ELIMINATION",
+            "Gots": -2,
+            "Units": -3,
+            "Objects": -2,
+            "ObjSize": -77256,
+            "CreationDate": "2019-01-23T13:12:24.200"
+        }
+    ],
+    "OperationIds": [
+        "aeeaaaaaa6hfj4pcaaot2aliplg3kkiaaaaq"
+    ],
+    "obIdIn": "Préfecture de police : archives bureautiques.",
+    "Comment": [
+        "Arborescence bureautique émanant de la Préfecture de police et produite entre 1990 et 2000. Le fonds est clos."
+    ],
+    "_tenant": 7,
+    "_v": 1
+}
+```
 
-[]{#__RefHeading___Toc29469_1669085364 .anchor}7.2.4. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique.
+**« _id » :** identifiant unique.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -4995,21 +4925,13 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Cardinalité : 1-1
 
-**« ObjectSize » :** Contient la répartition du volume total des
-fichiers du fonds par état pour l’opération journalisée (ingested,
-deleted et remained) :
+**« ObjectSize » :** Contient la répartition du volume total des fichiers du fonds par état pour l’opération journalisée (ingested, deleted et remained) :
 
--   « ingested » : volume en octet des fichiers pris en charge dans le
-    > cadre de l’enregistrement concerné. La valeur contenue dans le
-    > champ est un entier.
+-   « ingested » : volume en octet des fichiers pris en charge dans le cadre de l’enregistrement concerné. La valeur contenue dans le champ est un entier.
 
--   « deleted » : volume en octet des fichiers supprimés ou sortis du
-    > système pour l’enregistrement concerné. La valeur contenue dans ce
-    > champ est un entier.
+-   « deleted » : volume en octet des fichiers supprimés ou sortis du système pour l’enregistrement concerné. La valeur contenue dans ce champ est un entier.
 
--   « remained » : volume en octet des fichiers conservés dans le
-    > système pour l’enregistrement concerné. La valeur contenue dans ce
-    > champ est un entier.
+-   « remained » : volume en octet des fichiers conservés dans le système pour l’enregistrement concerné. La valeur contenue dans ce champ est un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -5017,17 +4939,15 @@ deleted et remained) :
 
 **« OriginatingAgency » :** identifiant du service producteur.
 
--   Il reprend la valeur du champ &lt;OriginatinAgencyIdentifier&gt; du
-    > manifeste
+-   Il reprend la valeur du champ &lt;OriginatinAgencyIdentifier&gt; du manifeste
 
--   Correspond à une valeur valide du champ « Identifier » de la
-    > collection Agencies.
+-   Correspond à une valeur valide du champ « Identifier » de la collection Agencies.
 
 Par exemple :
 
-> &lt;OriginatingAgencyIdentifier&gt;FRAN\_NP\_051314&lt;/OriginatingAgencyIdentifier&gt;
+``` &lt;OriginatingAgencyIdentifier&gt;FRAN_NP_051314&lt;/OriginatingAgencyIdentifier&gt;```
 
-On récupère la valeur FRAN\_NP\_051314
+On récupère la valeur FRAN_NP_051314
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -5035,25 +4955,21 @@ On récupère la valeur FRAN\_NP\_051314
 
 **« SubmissionAgency » :** contient l’identifiant du service versant.
 
--   Il reprend la valeur du champ &lt;SubmissionAgencyIdentifier&gt; du
-    > manifeste
+-   Il reprend la valeur du champ &lt;SubmissionAgencyIdentifier&gt; du manifeste
 
--   Correspond à une valeur valide du champ « Identifier » de la
-    > collection Agencies.
+-   Correspond à une valeur valide du champ « Identifier » de la collection Agencies.
 
 Par exemple
 
-> &lt;SubmissionAgencyIdentifier&gt;FRAN\_NP\_005761&lt;/SubmissionAgencyIdentifier&gt;
+``` &lt;SubmissionAgencyIdentifier&gt;FRAN_NP_005761&lt;/SubmissionAgencyIdentifier&gt;```
 
-On récupère la valeur FRAN\_NP\_005761.
+On récupère la valeur FRAN_NP_005761.
 
 -   Il s’agit d’une chaîne de caractère.
 
 -   Cardinalité : 1-1
 
-Ce champ est facultatif dans le bordereau. S’il” est absente ou vide,
-alors la valeur contenue dans le champ
-&lt;OriginatingAgencyIdentifier&gt; est reportée dans ce champ.
+Ce champ est facultatif dans le bordereau. S’il” est absente ou vide, alors la valeur contenue dans le champ &lt;OriginatingAgencyIdentifier&gt; est reportée dans ce champ.
 
 **« ArchivalAgreement » :**
 
@@ -5063,12 +4979,11 @@ alors la valeur contenue dans le champ
 
 -   Uniquement présent pour les enregistrements de type « INGEST »
 
--   Il correspond à une valeur valide du champ « Identifier » de la
-    > collection IngestContract.
+-   Il correspond à une valeur valide du champ « Identifier » de la collection IngestContract.
 
 Par exemple pour
 
-> &lt;ArchivalAgreement&gt;IC-000001&lt;/ArchivalAgreement&gt;
+```&lt;ArchivalAgreement&gt;IC-000001&lt;/ArchivalAgreement&gt;```
 
 On récupère la valeur IC-000001.
 
@@ -5080,8 +4995,7 @@ On récupère la valeur IC-000001.
 
 -   Contient les modalités d’entrée des archives
 
--   Il reprend la valeur du champ &lt;AcquisitionInformation&gt; du
-    > manifeste
+-   Il reprend la valeur du champ &lt;AcquisitionInformation&gt; du manifeste
 
 -   Uniquement présent pour les enregistrements de type « INGEST »
 
@@ -5109,8 +5023,7 @@ On récupère la valeur IC-000001.
 
 -   Cardinalité : 0-1
 
-**« EndDate » :** date de la dernière opération d’entrée pour
-l’enregistrement concerné.
+**« EndDate » :** date de la dernière opération d’entrée pour l’enregistrement concerné.
 
 -   La date est au format ISO 8601
 
@@ -5118,21 +5031,9 @@ l’enregistrement concerné.
 
 -   Cardinalité : 1-1
 
-    "EndDate": "2017-04-10T11:30:33.798"
+    ```"EndDate": "2017-04-10T11:30:33.798"```
 
-**« StartDate » :** date de la première opération d’entrée pour
-l’enregistrement concerné.
-
--   La date est au format ISO 8601
-
--   Champ peuplé par la solution logicielle Vitam.
-
--   Cardinalité : 1-1
-
-    "StartDate": "2017-04-10T11:30:33.798"
-
-**« LastUpdate » :** Date de la dernière mise à jour pour
-l’enregistrement concerné.
+**« StartDate » :** date de la première opération d’entrée pour l’enregistrement concerné.
 
 -   La date est au format ISO 8601
 
@@ -5140,34 +5041,35 @@ l’enregistrement concerné.
 
 -   Cardinalité : 1-1
 
-    "LastUpdate": "2017-04-10T11:30:33.798"
+    ```"StartDate": "2017-04-10T11:30:33.798"```
+
+**« LastUpdate » :** Date de la dernière mise à jour pour l’enregistrement concerné.
+
+-   La date est au format ISO 8601
+
+-   Champ peuplé par la solution logicielle Vitam.
+
+-   Cardinalité : 1-1
+
+    ```"LastUpdate": "2017-04-10T11:30:33.798"```
 
 **« Status » :** état des archives concernées par l’enregistrement.
 
 -   Il s’agit d’une chaîne de caractères
 
--   Peut avoir comme valeur : STORED\_AND\_COMPLETED,
-    > STORED\_AND\_UPDATED, UNSTORED
+-   Peut avoir comme valeur : STORED_AND_COMPLETED, STORED_AND_UPDATED, UNSTORED
 
 -   Champ peuplé par Vitam.
 
 -   Cardinalité : 1-1
 
-**« TotalObjectGroups » :** Contient la répartition du nombre de groupes
-d’objets du fonds par état pour l’opération journalisée (ingested,
-deleted et remained) :
+**« TotalObjectGroups » :** Contient la répartition du nombre de groupes d’objets du fonds par état pour l’opération journalisée (ingested, deleted et remained) :
 
--   « ingested » : nombre de groupes d’objets pris en charge dans le
-    > cadre de l’enregistrement concerné. La valeur contenue dans le
-    > champ est un entier.
+-   « ingested » : nombre de groupes d’objets pris en charge dans le cadre de l’enregistrement concerné. La valeur contenue dans le champ est un entier.
 
--   « deleted » : nombre de groupes d’objets supprimés ou sortis du
-    > système pour l’enregistrement concerné. La valeur contenue dans ce
-    > champ est un entier.
+-   « deleted » : nombre de groupes d’objets supprimés ou sortis du système pour l’enregistrement concerné. La valeur contenue dans ce champ est un entier.
 
--   « remained » : nombre de groupes d’objets conservés dans le système
-    > pour l’enregistrement concerné. La valeur contenue dans ce champ
-    > est un entier.
+-   « remained » : nombre de groupes d’objets conservés dans le système pour l’enregistrement concerné. La valeur contenue dans ce champ est un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -5176,17 +5078,11 @@ deleted et remained) :
 **« TotalUnits » :** Il contient la répartition du nombre d’unités
 archivistiques du fonds par état pour l’opération journalisée :
 
--   « ingested » : nombre d’unités archivistiques prises en charge dans
-    > le cadre de l’enregistrement concerné. La valeur contenue dans le
-    > champ est un entier.
+-   « ingested » : nombre d’unités archivistiques prises en charge dans le cadre de l’enregistrement concerné. La valeur contenue dans le champ est un entier.
 
--   « deleted » : nombre d’unités archivistiques supprimées ou sorties
-    > du système pour l’enregistrement concerné. La valeur contenue dans
-    > ce champ est un entier.
+-   « deleted » : nombre d’unités archivistiques supprimées ou sorties du système pour l’enregistrement concerné. La valeur contenue dans ce champ est un entier.
 
--   « remained » : nombre d’unités archivistiques conservées dans le
-    > système pour l’enregistrement concerné. La valeur contenue dans ce
-    > champ est un entier.
+-   « remained » : nombre d’unités archivistiques conservées dans le système pour l’enregistrement concerné. La valeur contenue dans ce champ est un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -5195,17 +5091,11 @@ archivistiques du fonds par état pour l’opération journalisée :
 **« TotalObjects » :** Contient la répartition du nombre d’objets du
 fonds par état pour l’opération journalisée :
 
--   « ingested » : nombre d’objets pris en charge dans le cadre de
-    > l’enregistrement concerné. La valeur contenue dans le champ est un
-    > entier.
+-   « ingested » : nombre d’objets pris en charge dans le cadre de l’enregistrement concerné. La valeur contenue dans le champ est un entier.
 
--   « deleted » : nombre d’objets supprimés ou sorties du système pour
-    > l’enregistrement concerné. La valeur contenue dans ce champ est un
-    > entier.
+-   « deleted » : nombre d’objets supprimés ou sorties du système pour l’enregistrement concerné. La valeur contenue dans ce champ est un entier.
 
--   « remained » : nombre d’objets conservés dans le système pour
-    > l’enregistrement concerné. La valeur contenue dans ce champ est un
-    > entier.
+-   « remained » : nombre d’objets conservés dans le système pour l’enregistrement concerné. La valeur contenue dans ce champ est un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -5215,11 +5105,7 @@ fonds par état pour l’opération journalisée :
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
--   Il s’agit soit de l’identifiant de l’opération ayant provoqué la
-    > prise en charge dans le système des archives recensées dans ce
-    > détail du registre des fonds, soit d’une opération ayant modifié
-    > le fonds d’une opération d’ingest (Exemple : l’opération de
-    > l’élimination) ou de préservation.
+-   Il s’agit soit de l’identifiant de l’opération ayant provoqué la prise en charge dans le système des archives recensées dans ce détail du registre des fonds, soit d’une opération ayant modifié le fonds d’une opération d’ingest (Exemple : l’opération de l’élimination) ou de préservation.
 
 -   Opc peut être égal à :
 
@@ -5229,29 +5115,21 @@ fonds par état pour l’opération journalisée :
 
     -   l’id de l’opération de transfert dans le cas d’un transfert,
 
-    -   l’id de l’opération de préservation dans le cas d’une
-        > préservation,
+    -   l’id de l’opération de préservation dans le cas d’une préservation,
 
--   l’id de l’opération de suppression de versions d’objets dans le cas
-    > d’une suppression d’objets
+-   l’id de l’opération de suppression de versions d’objets dans le cas d’une suppression d’objets
 
 -   Cardinalité 1-1
 
-**« Opi » :** identifiant de l’opération d’entrée ou de préservation
-ayant provoqué la prise en charge dans le système des archives recensées
-dans ce détail du registre des fonds
+**« Opi » :** identifiant de l’opération d’entrée ou de préservation ayant provoqué la prise en charge dans le système des archives recensées dans ce détail du registre des fonds
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
--   Dans le cas de SIP faisant des rattachements (par exemple une
-    > nouvelle unité archivistique à une unité archivistique existante),
-    > il s’agira toujours de l’identifiant de l’opération de l’entrée en
-    > cours (celle générant ces documents Mongo)
+-   Dans le cas de SIP faisant des rattachements (par exemple une nouvelle unité archivistique à une unité archivistique existante), il s’agira toujours de l’identifiant de l’opération de l’entrée en cours (celle générant ces documents Mongo)
 
 -   Cardinalité 1-1
 
-**« OpType » :** type d’opération ayant provoqué la création de
-l’enregistrement (INGEST, PRESERVATION)
+**« OpType » :** type d’opération ayant provoqué la création de l’enregistrement (INGEST, PRESERVATION)
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -5260,8 +5138,7 @@ l’enregistrement (INGEST, PRESERVATION)
 **« Events » :** les détails des registres des fonds ayant modifié un
 lot d’ingest existant ou un lot préservé.
 
--   Le premier événement contient les remained de l’opération d’ingest
-    > ou de préservation.
+-   Le premier événement contient les remained de l’opération d’ingest ou de préservation.
 
 -   Les événements suivants concernent les opérations ayant modifié :
 
@@ -5283,16 +5160,13 @@ lot d’ingest existant ou un lot préservé.
 
     -   l’id de l’opération de transfert dans le cas d’un transfert,
 
-    -   l’id de l’opération de préservation dans le cas d’une
-        > préservation,
+    -   l’id de l’opération de préservation dans le cas d’une préservation,
 
-    -   l’id de l’opération de suppression de versions d’objets dans le
-        > cas d’une suppression d’objets
+    -   l’id de l’opération de suppression de versions d’objets dans le cas d’une suppression d’objets
 
 -   Cardinalité : 1-1
 
-**« Events.OpType » :** Le type de l’opération (INGEST, ELIMINATION,
-TRANSFER\_REPLY, PRESERVATION, DELETE\_GOT\_VERSIONS)
+**« Events.OpType » :** Le type de l’opération (INGEST, ELIMINATION,TRANSFER_REPLY, PRESERVATION, DELETE_GOT_VERSIONS)
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -5304,40 +5178,35 @@ TRANSFER\_REPLY, PRESERVATION, DELETE\_GOT\_VERSIONS)
 
         -   ELIMINATION dans le cas d’une opération d’élimination,
 
-        -   TRANSFER\_REPLY dans le cas d’une opération de transfert,
+        -   TRANSFER_REPLY dans le cas d’une opération de transfert,
 
     -   pour un enregistrement de type « PRESERVATION » :
 
         -   PRESERVATION dans le cas d’une opération de préservation,
 
-        -   DELETE\_GOT\_VERSIONS dans le cas d’une opération de
-            > suppression de versions d’objets.
+        -   DELETE_GOT_VERSIONS dans le cas d’une opération de suppression de versions d’objets.
 
 -   Cardinalité : 1-1
 
-**« Events.Gots » :** Nombre total de groupe d’objets impactés par
-l’opération de l’événement
+**« Events.Gots » :** Nombre total de groupe d’objets impactés par l’opération de l’événement
 
 -   Il s’agit d’un entier.
 
 -   Cardinalité : 1-1
 
-**« Events.Units » :** Nombre total d’unités archivistiques impactées
-par l’opération de l’événement
+**« Events.Units » :** Nombre total d’unités archivistiques impactées par l’opération de l’événement
 
 -   Il s’agit d’un entier.
 
 -   Cardinalité : 1-1
 
-**« Events.Objects » :** Nombre total d’objets impactés par l’opération
-de l’événement
+**« Events.Objects » :** Nombre total d’objets impactés par l’opération de l’événement
 
 -   Il s’agit d’un entier.
 
 -   Cardinalité : 1-1
 
-**« Events.ObjSize » :** Le poids total de tous les objets impactés par
-l’opération de l’événement.
+**« Events.ObjSize » :** Le poids total de tous les objets impactés par l’opération de l’événement.
 
 -   Il s’agit d’un entier.
 
@@ -5361,21 +5230,17 @@ l’opération de l’événement.
 
 -   Cardinalité : 1-n
 
-**« ObIdIn » :** identifiant externe du lot d’objets auquel s’applique
-l’opération, utilisé pour les opérations d’entrée.
+**« ObIdIn » :** identifiant externe du lot d’objets auquel s’applique l’opération, utilisé pour les opérations d’entrée.
 
--   Il s’agit d’une chaîne de caractères intelligible pour un humain qui
-    > permet de comprendre à quel SIP ou quel lot d’archives se rapporte
-    > l’événement.
+-   Il s’agit d’une chaîne de caractères intelligible pour un humain qui permet de comprendre à quel SIP ou quel lot d’archives se rapporte l’événement.
 
--   Il reprend la valeur du champ &lt;MessageIdentifier&gt; du
-    > manifeste.
+-   Il reprend la valeur du champ &lt;MessageIdentifier&gt; du manifeste.
 
 -   Ne peut être vide.
 
 -   Uniquement présent pour les enregistrements de type « INGEST »
 
--   .Cardinalité : 1-1
+-   Cardinalité : 1-1
 
 **« Comment » :** précisions sur la demande de transfert.
 
@@ -5387,7 +5252,7 @@ l’opération, utilisé pour les opérations d’entrée.
 
 -   Cardinalité : 0-n
 
-**« \_tenant » :** correspondant à l’identifiant du tenant.
+**« _tenant » :** correspondant à l’identifiant du tenant.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -5395,23 +5260,19 @@ l’opération, utilisé pour les opérations d’entrée.
 
 -   **Cardinalité : 1-1**
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc29471_1669085364 .anchor}7.3. Collection
-    AccessionRegisterSummary
+### Collection AccessionRegisterSummary
 
-    []{#__RefHeading___Toc29473_1669085364 .anchor}7.3.1. Utilisation de
-    la collection
+#### Utilisation de la collection
 
 Cette collection contient une vue macroscopique des fonds pris en charge
 dans la solution logicielle Vitam. Chaque service producteur possède un
