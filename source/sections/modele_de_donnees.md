@@ -4397,46 +4397,31 @@ La collection Collect contient les informations relatives à l’en-tête
 d’un bordereau de transfert, soit des métadonnées permettant de
 contextualiser un versement.
 
-[]{#__RefHeading___Toc29423_16690853642 .anchor}6.1.2. Exemple de JSON
-stocké dans la collection Collect
+#### Exemple de JSON stocké dans la collection Collect
 
-Les champs présentés dans l’exemple ci-après ne font pas état de
-l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont
-référencés dans la documentation SEDA disponible au lien suivant :
+Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant :
 https://redirect.francearchives.fr/seda/api\_v2-1/seda-2.1-main.html
 
-> {
->
-> "\_id": ObjectID("620a7a002d5a4059d5ccae10"),
->
-> "Id": "aeeaaaaaachfy24zabkoual67dwjhcqaaaaq",
->
-> "ArchivalAgencyIdentifier": "ArchivalAgencyIdentifier4",
->
-> "TransferingAgencyIdentifier": "TransferingAgencyIdentifier5",
->
-> "OriginatingAgencyIdentifier": "FRAN\_NP\_009913",
->
-> "ArchivalProfile": "ArchiveProfile",
->
-> "Comment": "Comments",
->
-> "Status": "SENT"
->
-> }
+```json
+{
+    "_id": ObjectID("620a7a002d5a4059d5ccae10"),
+    "Id": "aeeaaaaaachfy24zabkoual67dwjhcqaaaaq",
+    "ArchivalAgencyIdentifier": "ArchivalAgencyIdentifier4",
+    "TransferingAgencyIdentifier": "TransferingAgencyIdentifier5",
+    "OriginatingAgencyIdentifier": "FRAN_NP_009913",
+    "ArchivalProfile": "ArchiveProfile",
+    "Comment": "Comments",
+    "Status": "SENT"
+}
+```
 
-[]{#__RefHeading___Toc29425_16690853642 .anchor}6.1.3. Détail du JSON
+#### Détail du JSON
 
-La structure de la collection Collect est composée de la transposition
-JSON des balises XML de premier niveau du message « ArchiveTransfer »,
-ainsi que des balises contenues dans la balise
-&lt;ManagementMetadata&gt; du bordereau de transfert conforme au
-standard SEDA v.2.1.
+La structure de la collection Collect est composée de la transposition JSON des balises XML de premier niveau du message « ArchiveTransfer », ainsi que des balises contenues dans la balise &lt;ManagementMetadata&gt; du bordereau de transfert conforme au standard SEDA v.2.1.
 
 Cette transposition se fait comme suit :
 
-**« \_id » :** identifiant unique de la partie contextuelle du
-versement.
+**« _id » :** identifiant unique de la partie contextuelle du versement.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -4450,27 +4435,19 @@ versement.
 
 -   Cardinalité : 1-1
 
-**« ArchivalAgreement » :** identifiant du contrat d’entrée utilisé pour
-réaliser l’entrée.
+**« ArchivalAgreement » :** identifiant du contrat d’entrée utilisé pour réaliser l’entrée.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Destiné à alimenter le champ ArchivalAgreement du message
-    > ArchiveTransfer.
+-   Destiné à alimenter le champ ArchivalAgreement du message ArchiveTransfer.
 
 -   Cardinalité : 1-1
 
-**« MessageIdentifier » :** identifiant du lot d’objets, utilisé pour
-identifier les versements.
+**« MessageIdentifier » :** identifiant du lot d’objets, utilisé pour identifier les versements.
 
--   Il s’agit d’une chaîne de caractères intelligible pour un humain qui
-    permet de comprendre à quel SIP ou quel lot d’archives se rapporte
-    l’événement.
+-   Il s’agit d’une chaîne de caractères intelligible pour un humain qui permet de comprendre à quel SIP ou quel lot d’archives se rapporte l’événement.
 
-<!-- -->
-
--   Destiné à alimenter le champ MessageIdentifier du message
-    > ArchiveTransfer.
+-   Destiné à alimenter le champ MessageIdentifier du message ArchiveTransfer.
 
 -   Cardinalité : 1-1
 
@@ -4478,8 +4455,7 @@ identifier les versements.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Destiné à alimenter le champ ArchivalAgencyIdentifier du message
-    > ArchiveTransfer.
+-   Destiné à alimenter le champ ArchivalAgencyIdentifier du message ArchiveTransfer.
 
 -   Cardinalité : 1-1
 
@@ -4488,8 +4464,7 @@ transfert.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Destiné à alimenter le champ TransferringAgencyIdentifier du message
-    > ArchiveTransfer.
+-   Destiné à alimenter le champ TransferringAgencyIdentifier du message ArchiveTransfer.
 
 -   Cardinalité : 1-1
 
@@ -4497,8 +4472,7 @@ transfert.
 
 -   Il s’agit d’une chaîne de caractères
 
--   Destiné à alimenter le champ OriginatingAgencyIdentifier du message
-    > ArchiveTransfer.
+-   Destiné à alimenter le champ OriginatingAgencyIdentifier du message ArchiveTransfer.
 
 -   Cardinalité : 1-1
 
@@ -4506,22 +4480,17 @@ transfert.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Destiné à alimenter le champ SubmissionAgencyIdentifier du message
-    > ArchiveTransfer.
+-   Destiné à alimenter le champ SubmissionAgencyIdentifier du message ArchiveTransfer.
 
 -   Cardinalité : 1-1
 
--   Ce champ est facultatif dans le bordereau. S’il est absent ou vide,
-    > alors la valeur contenue dans le champ
-    > &lt;OriginatingAgencyIdentifier&gt; est reportée dans ce champ.
+-   Ce champ est facultatif dans le bordereau. S’il est absent ou vide, alors la valeur contenue dans le champ &lt;OriginatingAgencyIdentifier&gt; est reportée dans ce champ.
 
-**« ArchivalProfile » :** identifiant du profil d’archivage utilisé pour
-réaliser l’entrée.
+**« ArchivalProfile » :** identifiant du profil d’archivage utilisé pour réaliser l’entrée.
 
 -   Il s’agit d’une chaîne de caractères
 
--   Destiné à alimenter le champ ArchivalProfile du message
-    > ArchiveTransfer.
+-   Destiné à alimenter le champ ArchivalProfile du message ArchiveTransfer.
 
 -   Cardinalité : 0-1
 
@@ -4537,16 +4506,14 @@ réaliser l’entrée.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Les valeurs peuvent être : « OPEN », « CLOSE », « SEND »,
-    > « WAITING\_ACK », « ACK\_OK », « ACK\_KO ».
+-   Les valeurs peuvent être : « OPEN », « CLOSE », « SEND », « WAITING_ACK », « ACK_OK », « ACK_KO ».
 
 -   Cardinalité : 1-1
 
 Base MasterData
 ---------------
 
-La base Masterdata contient les collections relatives aux référentiels
-utilisés par la solution logicielle Vitam. Ceux-ci sont :
+La base Masterdata contient les collections relatives aux référentiels utilisés par la solution logicielle Vitam. Ceux-ci sont :
 
 -   AccessContract
 
@@ -4598,11 +4565,9 @@ s’agit des collections suivantes :
 
 Elles sont enregistrées sur le tenant d’administration.
 
-[]{#__RefHeading___Toc29451_1669085364 .anchor}7.1. Collection
-AccessContract
+### Collection AccessContract
 
-[]{#__RefHeading___Toc29453_1669085364 .anchor}7.1.1. Utilisation de la
-collection AccessContract
+#### Utilisation de la collection AccessContract
 
 La collection AccessContract permet de référencer et de décrire
 unitairement les contrats d’accès.
