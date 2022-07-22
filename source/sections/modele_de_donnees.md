@@ -4180,60 +4180,52 @@ Extrait d’une unité archivistique ayant un bloc « _mgt » possédant des r
 La collection ObjectGroup contient les informations relatives aux
 groupes d’objets traités dans le module de collecte.
 
-[]{#__RefHeading___Toc29433_16690853641 .anchor}5.2.2. Exemple de JSON
-stocké en base
+#### Exemple de JSON stocké en base
 
-Les champs présentés dans l’exemple ci-après ne font pas état de
-l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont
-référencés dans la documentation SEDA disponible au lien suivant :
+Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant :
 https://redirect.francearchives.fr/seda/api\_v2-1/seda-2.1-main.html
 
-> {\
-> "\_id": "aebaaaaaaafgsz3wabcugak7ube6dxyaaabq",\
-> "FileInfo": {\
-> "Filename": "1NUM\_9.JPG",
->
-> "LastModified": "2018-07-09T12:50:30.733",\
-> },\
-> "\_qualifiers": \[\
-> {\
-> "qualifier": "BinaryMaster",\
-> "versions": \[\
-> {\
-> "\_id": "aeaaaaaaaafgsz3wabcugak7ube6dxyaaaba",\
-> "DataObjectVersion": "BinaryMaster\_1",\
-> "FormatIdentification": {\
-> "FormatLitteral": "JPEG File Interchange Format",\
-> "MimeType": "image/jpeg",\
-> "FormatId": "fmt/43"\
-> },\
-> "FileInfo": {\
-> "Filename": "1NUM\_9.JPG",
->
-> "LastModified": "2018-07-09T12:50:30.733",\
-> },
->
-> "\_opi": "aeeaaaaaashi422cab3gyalenej2kcyaaaaq",\
-> "Size": 7702,\
-> "Uri": "Content/1NUM\_9.JPG",\
-> "MessageDigest":
-> "0e0cec05a1d72ee5610eaa5afbc904c012d190037cbc827d08272102cdecf0226efcad122b86e7699f767c661c9f3702379b8c2cb01c4f492f69deb200661bb9",\
-> "Algorithm": "SHA-512"\
-> }\
-> \]\
-> }\
-> \],\
-> "\_v": 1,
->
-> "\_av": 1,
->
-> "\_tenant": 0,\
-> }
+```json
+{
+    "_id": "aebaaaaaaafgsz3wabcugak7ube6dxyaaabq",
+    "FileInfo": {
+        "Filename": "1NUM_9.JPG",
+        "LastModified": "2018-07-09T12:50:30.733",
+    },
+    "_qualifiers": [
+        {
+            "qualifier": "BinaryMaster",
+            "versions": [
+                {
+                    "_id": "aeaaaaaaaafgsz3wabcugak7ube6dxyaaaba",
+                    "DataObjectVersion": "BinaryMaster_1",
+                    "FormatIdentification": {
+                        "FormatLitteral": "JPEG File Interchange Format",
+                        "MimeType": "image/jpeg",
+                        "FormatId": "fmt/43"
+                    },
+                    "FileInfo": {
+                        "Filename": "1NUM_9.JPG",
+                        "LastModified": "2018-07-09T12:50:30.733",
+                    },
+                    "_opi": "aeeaaaaaashi422cab3gyalenej2kcyaaaaq",
+                    "Size": 7702,
+                    "Uri": "Content/1NUM_9.JPG",
+                    "MessageDigest": "0e0cec05a1d72ee5610eaa5afbc904c012d190037cbc827d08272102cdecf0226efcad122b86e7699f767c661c9f3702379b8c2cb01c4f492f69deb200661bb9",
+                    "Algorithm": "SHA-512"
+                }
+            ]
+        }
+    ],
+    "_v": 1,
+    "_av": 1,
+    "_tenant": 0,
+}
+``` 
 
-[]{#__RefHeading___Toc29435_16690853641 .anchor}5.2.3. Détail des champs
-du JSON
+#### Détail des champs du JSON
 
-**« \_id » :** identifiant du groupe d’objets.
+**« _id » :** identifiant du groupe d’objets.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -4246,17 +4238,13 @@ l’objet-données numérique de référence.
 
 -   Reprend le bloc FileInfo du BinaryMaster tel que défini par le SEDA.
 
--   L’objet de ce bloc est de pouvoir conserver les informations
-    > initiales du premier BinaryMaster pour en faciliter la recherche
-    > et augmenter la qualité des résultats en cas de recherche multi
-    > critères ne portant que sur les BinaryMaster.
+-   L’objet de ce bloc est de pouvoir conserver les informations initiales du premier BinaryMaster pour en faciliter la recherche et augmenter la qualité des résultats en cas de recherche multi critères ne portant que sur les BinaryMaster.
 
 -   Peut être vide ou contenir la valeur « null ».
 
 -   Cardinalité : 1-1
 
-**« \_qualifiers » :** tableau de structures décrivant les objets inclus
-dans ce groupe d’objets.
+**« _qualifiers » :** tableau de structures décrivant les objets inclus dans ce groupe d’objets.
 
 -   Cardinalité : 1-1
 
@@ -4266,43 +4254,29 @@ dans ce groupe d’objets.
 
         -   II s’agit d’une chaîne de caractères.
 
-        -   Correspond à la valeur contenue dans le champ
-            > « DataObjectVersion ». Par exemple pour
-            > « DataObjectVersion » égal à « BinaryMaster\_1 », c’est la
-            > valeur « BinaryMaster » qui est reportée.
+        -   Correspond à la valeur contenue dans le champ « DataObjectVersion ». Par exemple pour « DataObjectVersion » égal à « BinaryMaster_1 », c’est la valeur « BinaryMaster » qui est reportée.
 
         -   Cardinalité : 1-1
 
-    -   **« versions » :** tableau des objets par version (une version =
-        > une entrée dans le tableau).
+    -   **« versions » :** tableau des objets par version (une version = une entrée dans le tableau).
 
-        -   **« \_id » :** identifiant de l’objet.
+        -   **« _id » :** identifiant de l’objet.
 
-            -   Il s’agit d’une chaîne de 36 caractères correspondant à
-                > un GUID, généré par la solution logicielle Vitam.
+            -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID, généré par la solution logicielle Vitam.
 
             -   Cardinalité : 1-n
 
-        -   **« DataObjectVersion » :** version de l’objet par rapport à
-            > son usage.
+        -   **« DataObjectVersion » :** version de l’objet par rapport à son usage.
 
             -   II s’agit d’une chaîne de caractères.
 
-            -   Par exemple, si on a *BinaryMaster* sur l’usage, on aura
-                > au moins un objet *BinaryMaster\_1*. Chaque ajout d’un
-                > objet du même usage incrémente de un le numéro de la
-                > version.
+            -   Par exemple, si on a *BinaryMaster* sur l’usage, on aura au moins un objet *BinaryMaster_1*. Chaque ajout d’un objet du même usage incrémente de un le numéro de la version.
 
             -   Cardinalité : 1-1
 
-        <!-- -->
+        -   **« FormatIdentification » :** contient trois champs qui permettent d’identifier le format du fichier.
 
-        -   **« FormatIdentification » :** contient trois champs qui
-            > permettent d’identifier le format du fichier.
-
-            -   Une vérification de la cohérence entre ce qui est
-                > déclaré dans le XML, ce qui existe dans le référentiel
-                > PRONOM et les valeurs que porte le document est faite.
+            -   Une vérification de la cohérence entre ce qui est déclaré dans le XML, ce qui existe dans le référentiel PRONOM et les valeurs que porte le document est faite.
 
             -   Cardinalité : 1-1
 
@@ -4310,29 +4284,19 @@ dans ce groupe d’objets.
 
                 -   **« FormatLitteral » :** nom du format.
 
-                    -   C’est une reprise de la valeur située entre les
-                        > balises &lt;FormatLitteral&gt; du message
-                        > ArchiveTransfer.
+                    -   C’est une reprise de la valeur située entre les balises &lt;FormatLitteral&gt; du message ArchiveTransfer.
 
                     -   Cardinalité : 1-1
 
                 -   **« MimeType » :** type Mime.
 
-                    -   C’est une reprise de la valeur située entre les
-                        > balises &lt;MimeType&gt; du message
-                        > ArchiveTransfer ou des valeurs correspondant
-                        > au format tel qu’identifié par la solution
-                        > logicielle Vitam.
+                    -   C’est une reprise de la valeur située entre les balises &lt;MimeType&gt; du message ArchiveTransfer ou des valeurs correspondant au format tel qu’identifié par la solution logicielle Vitam.
 
                     -   Cardinalité : 1-1
 
                 -   **« FormatId » :** PUID du format de l’objet.
 
-                    -   Il est défini par la solution logicielle Vitam à
-                        > l’aide du référentiel PRONOM maintenu par The
-                        > National Archives (UK) et correspondant à la
-                        > valeur du champ PUID de la collection
-                        > FileFormat.
+                    -   Il est défini par la solution logicielle Vitam à l’aide du référentiel PRONOM maintenu par The National Archives (UK) et correspondant à la valeur du champ PUID de la collection FileFormat.
 
                     -   Cardinalité : 1-1
 
@@ -4340,29 +4304,23 @@ dans ce groupe d’objets.
 
             -   **« Filename » :** nom de l’objet.
 
-                -   Ce champ est renseigné avec la métadonnée
-                    > correspondant au nom du fichier
+                -   Ce champ est renseigné avec la métadonnée correspondant au nom du fichier
 
                 -   Cardinalité : 0-1
 
-            -   **« LastModified » :** date de dernière modification de
-                > l’objet.
+            -   **« LastModified » :** date de dernière modification de l’objet.
 
-                -   Il s’agit d’une dateau format ISO 8601 YYY-MM-DD +
-                    > “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.
+                -   Il s’agit d’une dateau format ISO 8601 YYY-MM-DD + “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.
 
-                    Exemple : 2016-08-19T16:36:07.942+02:00
+                    Exemple : ```2016-08-19T16:36:07.942+02:00```
 
-                -   Ce champ est optionnel, et est renseigné avec la
-                    > métadonnée correspondante portée par le fichier.
+                -   Ce champ est optionnel, et est renseigné avec la métadonnée correspondante portée par le fichier.
 
                 -   Cardinalité : 0-1
 
-        -   **« \_opi » :** identifiant de l’opération à l’origine de la
-            > création de cet objet.
+        -   **« _opi » :** identifiant de l’opération à l’origine de la création de cet objet.
 
-            -   Il s’agit d’une chaîne de 36 caractères correspondant au
-                > GUID.
+            -   Il s’agit d’une chaîne de 36 caractères correspondant au GUID.
 
             -   Champ peuplé par la solution logicielle Vitam.
 
@@ -4376,15 +4334,13 @@ dans ce groupe d’objets.
 
             -   Cardinalité : 1-1
 
-        -   **« Uri » :** localisation du fichier correspondant à
-            > l’objet dans le SIP.
+        -   **« Uri » :** localisation du fichier correspondant à l’objet dans le SIP.
 
             -   Chaîne de caractères
 
             -   Cardinalité : 1-1
 
-        -   **« MessageDigest » :** empreinte du fichier correspondant à
-            > l’objet.
+        -   **« MessageDigest » :** empreinte du fichier correspondant à l’objet.
 
             -   Il s’agit d’une chaîne de caractères.
 
@@ -4392,39 +4348,33 @@ dans ce groupe d’objets.
 
             -   Cardinalité : 1-1
 
-        -   « Algorithm » : algorithme utilisé pour réaliser l’empreinte
-            > du fichier correspondant à l’objet.
+        -   « Algorithm » : algorithme utilisé pour réaliser l’empreinte du fichier correspondant à l’objet.
 
             -   Chaîne de caractères
 
             -   Cardinalité 1-1
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 1-1
 
-**« \_av » :** version atomique de l’enregistrement décrit, incrémentée
-automatiquement en cas de modification de tout champ de la collection.
+**« _av » :** version atomique de l’enregistrement décrit, incrémentée automatiquement en cas de modification de tout champ de la collection.
 
 -   Il s’agit d’un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
@@ -4439,10 +4389,9 @@ La base collect contient la collection relative aux métadonnées
 correspondant au contexte de versement (collection Collect) attendu dans
 le module de collecte.
 
-[]{#__RefHeading___Toc29417_16690853642 .anchor}6.1. Collection Collect
+### Collection Collect
 
-[]{#__RefHeading___Toc29419_16690853642 .anchor}6.1.1. Utilisation de la
-collection Collect
+#### Utilisation de la collection Collect
 
 La collection Collect contient les informations relatives à l’en-tête
 d’un bordereau de transfert, soit des métadonnées permettant de
