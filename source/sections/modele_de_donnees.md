@@ -4572,116 +4572,82 @@ Elles sont enregistrées sur le tenant d’administration.
 La collection AccessContract permet de référencer et de décrire
 unitairement les contrats d’accès.
 
-[]{#__RefHeading___Toc29455_1669085364 .anchor}7.1.2. Exemple d’un
-fichier d’import de contrat d’accès
+#### Exemple d’un fichier d’import de contrat d’accès
 
 Les contrats d’accès sont importés dans la solution logicielle Vitam
 sous la forme d’un fichier JSON.
 
-\[\
-\
-{\
-"Name": "ContratTNR",\
-"Identifier": "AC-000034",\
-"Description": "Contrat permettant de faire des opérations pour tous les
-services producteurs et sur tous les usages",\
-"Status": "ACTIVE",\
-"CreationDate": "2016-12-10T00:00:00.000",\
-"LastUpdate": "2017-11-07T07:57:10.581",\
-"ActivationDate": "2016-12-10T00:00:00.000",\
-"DeactivationDate": "2016-12-10T00:00:00.000",\
-"DataObjectVersion": \[\
-"PhysicalMaster",\
-"BinaryMaster",\
-"Dissemination",\
-"Thumbnail",\
-"TextContent"\
-\],\
-"WritingPermission": true,\
-"EveryOriginatingAgency": true,\
-"EveryDataObjectVersion": false\
-}\
-\]
+```json
+[
+  {
+      "Name": "ContratTNR",
+      "Identifier": "AC-000034",
+      "Description": "Contrat permettant de faire des opérations pour tous les services producteurs et sur tous les usages",
+      "Status": "ACTIVE",
+      "CreationDate": "2016-12-10T00:00:00.000",
+      "LastUpdate": "2017-11-07T07:57:10.581",
+      "ActivationDate": "2016-12-10T00:00:00.000",
+      "DeactivationDate": "2016-12-10T00:00:00.000",
+      "DataObjectVersion": [
+          "PhysicalMaster",
+          "BinaryMaster",
+          "Dissemination",
+          "Thumbnail",
+          "TextContent"
+      ],
+      "WritingPermission": true,
+      "EveryOriginatingAgency": true,
+      "EveryDataObjectVersion": false
+  }
+]
+```
 
-Les champs à renseigner obligatoirement à la création d’un contrat
-sont :
+Les champs à renseigner obligatoirement à la création d’un contrat sont :
 
 -   Name
 
--   Identifier (selon la configuration du tenant : Identifier n’est
-    > obligatoire que si l’identifiant du contrat d’accès n’est pas
-    > généré par la solution logicielle Vitam)
+-   Identifier (selon la configuration du tenant : Identifier n’est obligatoire que si l’identifiant du contrat d’accès n’est pas généré par la solution logicielle Vitam)
 
 Un fichier d’import peut décrire plusieurs contrats.
 
-[]{#__RefHeading___Toc29457_1669085364 .anchor}7.1.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-AccesContract
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection AccesContract
 
+```json
 {
-
-"\_id": "aefqaaaabahcd5ayaabdaaljtkulb2aaaaaq",
-
-"Name": "Contrat d'accès - Vitam",
-
-"Identifier": "AC-000001",
-
-"Description": "Contrat permettant de faire des opérations pour tous les
-services producteurs et sur tous les usages",
-
-"Status": "ACTIVE",
-
-"CreationDate": "1976-02-12T00:00:00.000",
-
-"LastUpdate": "2019-04-09T12:16:19.997",
-
-"ActivationDate": "2019-03-20T10:32:20.451",
-
-"WritingPermission": true,
-
-"WritingRestrictedDesc": true,
-
-"EveryOriginatingAgency": false,
-
-"EveryDataObjectVersion": false,
-
-"AccessLog": "ACTIVE",
-
-"\_tenant": 8,
-
-"\_v": 6,
-
-"OriginatingAgencies": \[
-
-"FRAN\_NP\_051587\_elim"
-
-\],
-
-"DataObjectVersion": \[
-
-"BinaryMaster",
-
-"Thumbnail"
-
-\],
-
-"RootUnits": \[
-
-"aeaqaaaabahf4qxrab4cialj7trrxzaaaaaq"
-
-\],
-
-"ExcludedRootUnits": \[
-
-"aeaqaaaabahf4qxrab4cialj7trrxzaaaaaq"
-
-\]
-
+    "_id": "aefqaaaabahcd5ayaabdaaljtkulb2aaaaaq",
+    "Name": "Contrat d'accès - Vitam",
+    "Identifier": "AC-000001",
+    "Description": "Contrat permettant de faire des opérations pour tous les services producteurs et sur tous les usages",
+    "Status": "ACTIVE",
+    "CreationDate": "1976-02-12T00:00:00.000",
+    "LastUpdate": "2019-04-09T12:16:19.997",
+    "ActivationDate": "2019-03-20T10:32:20.451",
+    "WritingPermission": true,
+    "WritingRestrictedDesc": true,
+    "EveryOriginatingAgency": false,
+    "EveryDataObjectVersion": false,
+    "AccessLog": "ACTIVE",
+    "_tenant": 8,
+    "_v": 6,
+    "OriginatingAgencies": [
+        "FRAN_NP_051587_elim"
+    ],
+    "DataObjectVersion": [
+        "BinaryMaster",
+        "Thumbnail"
+    ],
+    "RootUnits": [
+        "aeaqaaaabahf4qxrab4cialj7trrxzaaaaaq"
+    ],
+    "ExcludedRootUnits": [
+        "aeaqaaaabahf4qxrab4cialj7trrxzaaaaaq"
+    ]
 }
+```
 
-[]{#__RefHeading___Toc29459_1669085364 .anchor}7.1.4. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique du contrat pour un tenant donné.
+**« _id » :** identifiant unique du contrat pour un tenant donné.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -4697,11 +4663,7 @@ services producteurs et sur tous les usages",
 
 **« Identifier » :** identifiant signifiant donné au contrat.
 
--   Il est constitué du préfixe « AC- » suivi d’une suite de 6 chiffres
-    > s’il est peuplé par la solution logicielle Vitam. Par exemple :
-    > AC-001223. Si le référentiel est en position esclave, cet
-    > identifiant peut être géré par l’application à l’origine du
-    > contrat et est unique sur le tenant.
+-   Il est constitué du préfixe « AC- » suivi d’une suite de 6 chiffres s’il est peuplé par la solution logicielle Vitam. Par exemple : AC-001223. Si le référentiel est en position esclave, cet identifiant peut être géré par l’application à l’origine du contrat et est unique sur le tenant.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -4766,8 +4728,7 @@ le détenteur du contrat a accès.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
--   Peut avoir comme valeur : « PhysicalMaster », « BinaryMaster »,
-    > « Dissemination », « Thumbnail », « TextContent ».
+-   Peut avoir comme valeur : « PhysicalMaster », « BinaryMaster », « Dissemination », « Thumbnail », « TextContent ».
 
 -   Peut être vide.
 
@@ -4778,8 +4739,7 @@ contrat peut consulter les archives.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
--   Correspond à une valeur valide du champ « Identifier » de la
-    > collection Agencies.
+-   Correspond à une valeur valide du champ « Identifier » de la collection Agencies.
 
 -   Peut être vide.
 
@@ -4787,40 +4747,30 @@ contrat peut consulter les archives.
 
 **« WritingPermission » :** droit d’écriture.
 
--   Il s’agit d’un booléen. Si la valeur est à « true », le détenteur du
-    > contrat peut effectuer des mises à jour.
+-   Il s’agit d’un booléen. Si la valeur est à « true », le détenteur du contrat peut effectuer des mises à jour.
 
 -   Cardinalité : 1-1
 
 **« WritingRestrictedDesc » :** droit de modification des métadonnées
 descriptives seulement.
 
--   Il s’agit d’un booléen. Si la valeur est à « true », le détenteur du
-    > contrat peut effectuer des mises à jour seulement sur les
-    > métadonnées descriptives. Si la valeur est à « false », le
-    > détenteur du contrat peut effectuer des mises à jour sur les
-    > métadonnées descriptives, ainsi que sur les métadonnées de
-    > gestion.
+-   Il s’agit d’un booléen. Si la valeur est à « true », le détenteur du contrat peut effectuer des mises à jour seulement sur les métadonnées descriptives. Si la valeur est à « false », le détenteur du contrat peut effectuer des mises à jour sur les métadonnées descriptives, ainsi que sur les métadonnées de gestion.
 
 -   Cardinalité : 1-1
 
-**« EveryOriginatingAgency » :** droit de consultation sur tous les
-services producteurs.
+**« EveryOriginatingAgency » :** droit de consultation sur tous les services producteurs.
 
 -   Il s’agit d’un booléen.
 
--   Si la valeur est à « true », alors le détenteur du contrat peut
-    > accéder aux archives de tous les services producteurs.
+-   Si la valeur est à « true », alors le détenteur du contrat peut accéder aux archives de tous les services producteurs.
 
 -   Cardinalité : 1-1
 
-**« EveryDataObjectVersion » :** droit de consultation sur tous les
-usages.
+**« EveryDataObjectVersion » :** droit de consultation sur tous les usages.
 
 -   Il s’agit d’un booléen.
 
--   Si la valeur est à « true », alors le détenteur du contrat peut
-    > accéder à tous les types d’usages.
+-   Si la valeur est à « true », alors le détenteur du contrat peut accéder à tous les types d’usages.
 
 -   Cardinalité : 1-1
 
@@ -4830,18 +4780,17 @@ usages.
 
 -   Peut avoir comme valeur : « ACTIVE » ou « INACTIVE »
 
--   Si la valeur est à « ACTIVE », alors les téléchargements des objets
-    > sont enregistrés dans un fichier de log
+-   Si la valeur est à « ACTIVE », alors les téléchargements des objets sont enregistrés dans un fichier de log
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit
+**« _v » :** version de l’enregistrement décrit
 
 -   Il s’agit d’un entier.
 
@@ -4849,9 +4798,7 @@ usages.
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 **« RootUnits » :** Liste des nœuds de consultation auxquels le
 détenteur du contrat a accès.
@@ -4859,7 +4806,15 @@ détenteur du contrat a accès.
 -   Si aucun nœud n’est spécifié, alors l’utilisateur a accès à tous les
     nœuds.
 
-<!-- -->
+-   Il s’agit d’un tableau de chaînes de caractères.
+
+-   Peut être vide.
+
+-   Cardinalité : 0-1
+
+**« ExcludedRootUnits » :** Liste des nœuds de consultation à partir desquels le détenteur du contrat n’a pas accès.
+
+-   Si aucun nœud n’est spécifié, alors l’utilisateur a accès à tous les nœuds.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
@@ -4867,13 +4822,9 @@ détenteur du contrat a accès.
 
 -   Cardinalité : 0-1
 
-**« ExcludedRootUnits » :** Liste des nœuds de consultation à partir
-desquels le détenteur du contrat n’a pas accès.
+    **« RuleCategoryToFilter » :** Liste de catégories de règles pour lesquelles le détenteur du contrat n’a pas accès si ces règles ne sont pas échues.
 
--   Si aucun nœud n’est spécifié, alors l’utilisateur a accès à tous les
-    nœuds.
-
-<!-- -->
+-   Si aucune catégorie de règle n’est spécifiée, alors l’utilisateur a accès à toutes les archives, que leurs règles de gestion soient échues ou non.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
@@ -4881,27 +4832,9 @@ desquels le détenteur du contrat n’a pas accès.
 
 -   Cardinalité : 0-1
 
-    **« RuleCategoryToFilter » :** Liste de catégories de règles pour
-    lesquelles le détenteur du contrat n’a pas accès si ces règles ne
-    sont pas échues.
+### Collection AccessionRegisterDetail
 
-<!-- -->
-
--   Si aucune catégorie de règle n’est spécifiée, alors l’utilisateur a
-    accès à toutes les archives, que leurs règles de gestion soient
-    échues ou non.
-
--   Il s’agit d’un tableau de chaînes de caractères.
-
--   Peut être vide.
-
--   Cardinalité : 0-1
-
-    []{#__RefHeading___Toc29461_1669085364 .anchor}7.2. Collection
-    AccessionRegisterDetail
-
-    []{#__RefHeading___Toc29463_1669085364 .anchor}7.2.1. Utilisation de
-    la collection AccessionRegisterDetail
+#### Utilisation de la collection AccessionRegisterDetail
 
 Cette collection a pour vocation de référencer l’ensemble des
 informations sur les opérations d’entrée ou de préservation réalisées
