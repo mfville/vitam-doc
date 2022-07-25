@@ -5275,72 +5275,43 @@ lot d’ingest existant ou un lot préservé.
 
 #### Utilisation de la collection
 
-Cette collection contient une vue macroscopique des fonds pris en charge
-dans la solution logicielle Vitam. Chaque service producteur possède un
-et un seul document le concernant dans cette collection. Ce document est
-**calculé** à partir des données enregistrées dans la collection
-AccessionRegisterDetail pour ce service producteur.
+Cette collection contient une vue macroscopique des fonds pris en charge dans la solution logicielle Vitam. Chaque service producteur possède un et un seul document le concernant dans cette collection. Ce document est **calculé** à partir des données enregistrées dans la collection AccessionRegisterDetail pour ce service producteur.
 
-[]{#__RefHeading___Toc29475_1669085364 .anchor}7.3.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-> {
->
-> "\_id": "aefaaaaaaahlpvjiaablwalj7y632fyaaaaq",
->
-> "OriginatingAgency": "FRAN\_NP\_009913",
->
-> "TotalObjects": {
->
-> "ingested": 71,
->
-> "deleted": 0,
->
-> "remained": 71
->
-> },
->
-> "TotalObjectGroups": {
->
-> "ingested": 68,
->
-> "deleted": 0,
->
-> "remained": 68
->
-> },
->
-> "TotalUnits": {
->
-> "ingested": 205,
->
-> "deleted": 0,
->
-> "remained": 205
->
-> },
->
-> "ObjectSize": {
->
-> "ingested": 2406907,
->
-> "deleted": 0,
->
-> "remained": 2406907
->
-> },
->
-> "CreationDate": "2019-04-08T18:37:32.823",
->
-> "\_v": 25,
->
-> "\_tenant": 0
->
-> }
+```json
+{
+    "_id": "aefaaaaaaahlpvjiaablwalj7y632fyaaaaq",
+    "OriginatingAgency": "FRAN_NP_009913",
+    "TotalObjects": {
+        "ingested": 71,
+        "deleted": 0,
+        "remained": 71
+    },
+    "TotalObjectGroups": {
+        "ingested": 68,
+        "deleted": 0,
+        "remained": 68
+    },
+    "TotalUnits": {
+        "ingested": 205,
+        "deleted": 0,
+        "remained": 205
+    },
+    "ObjectSize": {
+        "ingested": 2406907,
+        "deleted": 0,
+        "remained": 2406907
+    },
+    "CreationDate": "2019-04-08T18:37:32.823",
+    "_v": 25,
+    "_tenant": 0
+}
+``` 
 
-[]{#__RefHeading___Toc29477_1669085364 .anchor}7.3.3. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique du fonds.
+**« _id » :** identifiant unique du fonds.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -5352,43 +5323,30 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   la valeur de ce champ est une chaîne de caractères.
 
--   Ce champ est la clef primaire pour un enregistrement dans le
-    > registre des fonds. Il permet l’agrégation de tous les documents
-    > de la collection AccessionRegisterDetail pour ce service
-    > producteur. Cette valeur correspond nécessairement à une valeur
-    > valide du champ « Identifier » de la collection Agencies.
+-   Ce champ est la clef primaire pour un enregistrement dans le registre des fonds. Il permet l’agrégation de tous les documents de la collection AccessionRegisterDetail pour ce service producteur. Cette valeur correspond nécessairement à une valeur valide du champ « Identifier » de la collection Agencies.
 
 -   Cardinalité : 1-1
 
 **« TotalObjects » :** Contient la répartition du nombre d’objets du
 service producteur par état
 
--   « ingested » : nombre total d’objets pris en charge dans le système
-    > pour ce service producteur. La valeur contenue dans ce champ est
-    > un entier.
+-   « ingested » : nombre total d’objets pris en charge dans le système pour ce service producteur. La valeur contenue dans ce champ est un entier.
 
--   « deleted » : nombre d’objets supprimés ou sortis du système. La
-    > valeur contenue dans ce champ est un entier.
+-   « deleted » : nombre d’objets supprimés ou sortis du système. La valeur contenue dans ce champ est un entier.
 
--   « remained » : nombre actualisé d’objets conservés dans le système.
-    > La valeur contenue dans ce champ est un entier.
+-   « remained » : nombre actualisé d’objets conservés dans le système. La valeur contenue dans ce champ est un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 1-1
 
-**« TotalObjectGroups » :** Contient la répartition du nombre de groupes
-d’objets du service producteur par état
+**« TotalObjectGroups » :** Contient la répartition du nombre de groupes d’objets du service producteur par état
 
--   « ingested » : nombre total de groupes d’objets pris en charge dans
-    > le système pour ce service producteur. La valeur contenue dans le
-    > champ est un entier.
+-   « ingested » : nombre total de groupes d’objets pris en charge dans le système pour ce service producteur. La valeur contenue dans le champ est un entier.
 
--   « deleted » : nombre de groupes d’objets supprimés ou sortis du
-    > système. La valeur contenue dans ce champ est un entier.
+-   « deleted » : nombre de groupes d’objets supprimés ou sortis du système. La valeur contenue dans ce champ est un entier.
 
--   « remained » : nombre actualisé de groupes d’objets conservés dans
-    > le système. La valeur contenue dans ce champ est un entier.
+-   « remained » : nombre actualisé de groupes d’objets conservés dans le système. La valeur contenue dans ce champ est un entier.
 
 -   Il s’agit d’un JSON
 
@@ -5399,15 +5357,11 @@ d’objets du service producteur par état
 **« TotalUnits » :** Contient la répartition du nombre d’unités
 archivistiques du service producteur par état.
 
--   « ingested » : nombre total d’unités archivistiques prises en charge
-    > dans le système pour ce service producteur. La valeur contenue
-    > dans le champ est un entier.
+-   « ingested » : nombre total d’unités archivistiques prises en charge dans le système pour ce service producteur. La valeur contenue dans le champ est un entier.
 
--   « deleted » : nombre d’unités archivistiques supprimées ou sorties
-    > du système. La valeur contenue dans ce champ est un entier.
+-   « deleted » : nombre d’unités archivistiques supprimées ou sorties du système. La valeur contenue dans ce champ est un entier.
 
--   « remained » : nombre actualisé d’unités archivistiques conservées.
-    > La valeur contenue dans ce champ est un entier.
+-   « remained » : nombre actualisé d’unités archivistiques conservées. La valeur contenue dans ce champ est un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -5416,15 +5370,11 @@ archivistiques du service producteur par état.
 **« ObjectSize » :** Contient la répartition du volume total des
 fichiers du service producteur par état.
 
--   « ingested » : volume total en octet des fichiers pris en charge
-    > dans le système pour ce service producteur. La valeur contenue
-    > dans le champ est un entier.
+-   « ingested » : volume total en octet des fichiers pris en charge dans le système pour ce service producteur. La valeur contenue dans le champ est un entier.
 
--   « deleted » : volume total en octet des fichiers supprimés ou sortis
-    > du système. La valeur contenue dans ce champ est un entier.
+-   « deleted » : volume total en octet des fichiers supprimés ou sortis du système. La valeur contenue dans ce champ est un entier.
 
--   « remained » : volume actualisé en octet des fichiers conservés dans
-    > le système. La valeur contenue dans ce champ est un entier.
+-   « remained » : volume actualisé en octet des fichiers conservés dans le système. La valeur contenue dans ce champ est un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -5437,21 +5387,19 @@ collection.
 
 -   Cardinalité : 1-1
 
-    "CreationDate": "2017-04-10T11:30:33.798"
+    ```"CreationDate": "2017-04-10T11:30:33.798"```
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** correspondant à l’identifiant du tenant.
+**« _tenant » :** correspondant à l’identifiant du tenant.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -5459,37 +5407,31 @@ collection.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc29479_1669085364 .anchor}7.4. Collection
-    AccessionRegisterSymbolic
+### Collection AccessionRegisterSymbolic
 
-    []{#__RefHeading___Toc29481_1669085364 .anchor}7.4.1. Utilisation de
-    la collection
+#### Utilisation de la collection
 
-Cette collection contient une vue macroscopique des fonds relatifs aux
-services producteurs symboliques. Ces documents sont calculés
-périodiquement à partir des métadonnées renseignées dans les unités
-archivistiques et les groupes d’objets.
+Cette collection contient une vue macroscopique des fonds relatifs aux services producteurs symboliques. Ces documents sont calculés périodiquement à partir des métadonnées renseignées dans les unités archivistiques et les groupes d’objets.
 
-Chaque document représente un instantané (snapshot) du stock symbolique
-pour un producteur, conservé pour l’historisation des fonds de ce
-dernier. Un nouveau document est donc créé à chaque fois que le registre
-des fonds symboliques est calculé.
+Chaque document représente un instantané (snapshot) du stock symbolique pour un producteur, conservé pour l’historisation des fonds de ce dernier. Un nouveau document est donc créé à chaque fois que le registre des fonds symboliques est calculé.
 
-> {\
-> "\_id": "aefaaaaaaae2tauiaak6ualgbn5dp5aaaaaq",\
-> "CreationDate": "2018-09-24T14:07:31.053",\
-> "\_tenant": 0,\
-> "OriginatingAgency": "RATP",\
-> "ArchiveUnit": 1,\
-> "ObjectGroup": 1,\
-> "BinaryObject": 1,\
-> "BinaryObjectSize": 6,\
-> "\_v": 0\
-> }
+```json
+{
+    "_id": "aefaaaaaaae2tauiaak6ualgbn5dp5aaaaaq",
+    "CreationDate": "2018-09-24T14:07:31.053",
+    "_tenant": 0,
+    "OriginatingAgency": "RATP",
+    "ArchiveUnit": 1,
+    "ObjectGroup": 1,
+    "BinaryObject": 1,
+    "BinaryObjectSize": 6,
+    "_v": 0
+}
+```
 
-[]{#__RefHeading___Toc29483_1669085364 .anchor}7.4.2. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique du fonds.
+**« _id » :** identifiant unique du fonds.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -5503,17 +5445,15 @@ des fonds symboliques est calculé.
 
 -   Cardinalité : 1-1
 
-    Exemple : "CreationDate": "2017-04-10T11:30:33.798"
+    Exemple : ```"CreationDate": "2017-04-10T11:30:33.798"```
 
-**« OriginatingAgency » :** identifiant du service producteur
-symbolique.
+**« OriginatingAgency » :** identifiant du service producteur symbolique.
 
 -   La valeur de ce champ est une chaîne de caractères.
 
 -   Cardinalité : 1-1
 
-**« ArchiveUnit » :** Nombre actualisé d’unités archivistiques
-conservées.
+**« ArchiveUnit » :** Nombre actualisé d’unités archivistiques conservées.
 
 -   Il s’agit d’un entier
 
@@ -5521,8 +5461,7 @@ conservées.
 
 -   Cardinalité : 1-1
 
-**« ObjectGroup » :** Nombre actualisé de groupes d’objets conservés
-dans le système.
+**« ObjectGroup » :** Nombre actualisé de groupes d’objets conservés dans le système.
 
 -   Il s’agit d’un JSON
 
@@ -5530,8 +5469,7 @@ dans le système.
 
 -   Cardinalité : 0-1
 
-**« BinaryObject » :** nombre actualisé d’objets conservés dans le
-système.
+**« BinaryObject » :** nombre actualisé d’objets conservés dans le système.
 
 -   Il s’agit d’un entier
 
@@ -5539,9 +5477,7 @@ système.
 
 -   Cardinalité : 0-1
 
-**« BinaryObjectSize » :** Volume actualisé en octet des fichiers
-conservés dans le système. La valeur contenue dans ce champ est un
-entier.
+**« BinaryObjectSize » :** Volume actualisé en octet des fichiers conservés dans le système. La valeur contenue dans ce champ est un entier.
 
 -   Il s’agit d’un entier
 
@@ -5549,21 +5485,17 @@ entier.
 
 -   Cardinalité : 0-1
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement. Un document dans le registre des fonds
-    > symbolique n’est pas censé être modifié et donc avoir une version
-    > supérieure à 0
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement. Un document dans le registre des fonds symbolique n’est pas censé être modifié et donc avoir une version supérieure à 0
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** correspondant à l’identifiant du tenant.
+**« _tenant » :** correspondant à l’identifiant du tenant.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -5571,33 +5503,29 @@ entier.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc29485_1669085364 .anchor}7.5. Collection
-    ArchiveUnitProfile
+### Collection ArchiveUnitProfile
 
-    []{#__RefHeading___Toc29487_1669085364 .anchor}7.5.1. Utilisation de
-    la collection
+#### Utilisation de la collection
 
-La collection ArchiveUnitProfile permet de référencer et décrire
-unitairement les profils d’unité archivistique.
+La collection ArchiveUnitProfile permet de référencer et décrire unitairement les profils d’unité archivistique.
 
-[]{#__RefHeading___Toc29489_1669085364 .anchor}7.5.2. Exemple d’un
-fichier d’import de profils d’unité archivistique
+#### Exemple d’un fichier d’import de profils d’unité archivistique
 
-Les profils d’unité archivistique sont importés dans la solution
-logicielle Vitam sous la forme d’un fichier JSON.
+Les profils d’unité archivistique sont importés dans la solution logicielle Vitam sous la forme d’un fichier JSON.
 
-> {\
-> "Name":"Facture",\
-> "Description":"profil d'unité archivistique d''une facture associée à
-> un dossier de marché",\
-> "Identifier":"AUP\_IDENTIFIER\_0",\
-> "Status":"ACTIVE",\
-> "ControlSchema":"{}",\
-> "LastUpdate":"10/12/2016",\
-> "CreationDate":"10/12/2016",\
-> "ActivationDate":"10/12/2016",\
-> "DeactivationDate":"10/12/2016"\
-> }
+```json
+{
+    "Name":"Facture",
+    "Description":"profil d'unité archivistique d''une facture associée à un dossier de marché",
+    "Identifier":"AUP_IDENTIFIER_0",
+    "Status":"ACTIVE",
+    "ControlSchema":"{}",
+    "LastUpdate":"10/12/2016",
+    "CreationDate":"10/12/2016",
+    "ActivationDate":"10/12/2016",
+    "DeactivationDate":"10/12/2016"
+}
+```
 
 Les champs à renseigner obligatoirement à l’import d’un profil d’unité
 archivistique sont :
@@ -5610,31 +5538,29 @@ archivistique sont :
 
 Un fichier JSON peut décrire plusieurs profils d’unité archivistique.
 
-[]{#__RefHeading___Toc29491_1669085364 .anchor}7.5.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-ArchiveUnitProfile
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection ArchiveUnitProfile
 
-> {\
-> "\_id": "aegaaaaabmhdh434aapnqalcd7mufiyaaaaq",\
-> "Identifier": "AUP\_IDENTIFIER\_0",\
-> "Name":"Facture",\
-> "Description":"profil d'unité archivistique d''une facture associée à
-> un dossier de marché",\
-> "Status":"ACTIVE",\
-> "ControlSchema":"{}",\
-> "Fields":\[\],\
-> "LastUpdate":"10/12/2016",\
-> "CreationDate":"10/12/2016",\
-> "ActivationDate":"10/12/2016",\
-> "DeactivationDate":"10/12/2016"\
-> "\_tenant": 11,\
-> "\_v": 0\
-> }
+```json
+{
+  "_id": "aegaaaaabmhdh434aapnqalcd7mufiyaaaaq",
+  "Identifier": "AUP_IDENTIFIER_0",
+  "Name":"Facture",
+  "Description":"profil d'unité archivistique d''une facture associée à un dossier de marché",
+  "Status":"ACTIVE",
+  "ControlSchema":"{}",
+  "Fields":[],
+  "LastUpdate":"10/12/2016",
+  "CreationDate":"10/12/2016",
+  "ActivationDate":"10/12/2016",
+  "DeactivationDate":"10/12/2016"
+  "_tenant": 11,
+  "_v": 0
+}
+```
 
-[]{#__RefHeading___Toc29493_1669085364 .anchor}7.5.4. Détail des champs
-de la collection ArchiveUnitProfile
+#### Détail des champs de la collection ArchiveUnitProfile
 
-**« \_id » :** identifiant unique du profil d’unité archivistique.
+**« _id » :** identifiant unique du profil d’unité archivistique.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -5648,14 +5574,9 @@ de la collection ArchiveUnitProfile
 
 -   Cardinalité : 1-1
 
-**« Identifier » :** identifiant signifiant donné au profil d’unité
-archivistique.
+**« Identifier » :** identifiant signifiant donné au profil d’unité archivistique.
 
--   Il est constitué du préfixe « AUP- » suivi d’une suite de 6 chiffres
-    > dans le cas où la solution logicielle Vitam peuple l’identifiant.
-    > Par exemple : AUP-007485. Si le référentiel est en position
-    > esclave, cet identifiant peut être géré par l’application à
-    > l’origine du profil d’unité archivistique.
+-   Il est constitué du préfixe « AUP- » suivi d’une suite de 6 chiffres dans le cas où la solution logicielle Vitam peuple l’identifiant. Par exemple : AUP-007485. Si le référentiel est en position esclave, cet identifiant peut être géré par l’application à l’origine du profil d’unité archivistique.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -5681,37 +5602,33 @@ archivistique.
 
 -   Cardinalité : 1-1
 
-    Exemple : "CreationDate": "2017-04-10T11:30:33.798"
+    Exemple : ```"CreationDate": "2017-04-10T11:30:33.798"```
 
-**« LastUpdate » :** date de dernière mise à jour du profil d’unité
-archivistique dans la collection ArchiveUnitProfile.
+**« LastUpdate » :** date de dernière mise à jour du profil d’unité archivistique dans la collection ArchiveUnitProfile.
 
 -   La date est au format ISO 8601
 
 -   Cardinalité : 1-1
 
-    Exemple : "LastUpdate": "2017-04-10T11:30:33.798"
+    Exemple : ```"LastUpdate": "2017-04-10T11:30:33.798"```
 
-**« ActivationDate » :** date d’activation du profil d’unité
-archivistique.
-
--   La date est au format ISO 8601
-
--   Cardinalité : 0-1
-
-    Exemple : "ActivationDate": "2017-04-10T11:30:33.798"
-
-**« DeactivationDate » :** date de désactivation du profil d’unité
-archivistique.
+**« ActivationDate » :** date d’activation du profil d’unité archivistique.
 
 -   La date est au format ISO 8601
 
 -   Cardinalité : 0-1
 
-    Exemple : "DeactivationDate": "2017-04-10T11:30:33.798"
+    Exemple : ```"ActivationDate": "2017-04-10T11:30:33.798"```
 
-**« ControlSchema » :** schéma de contrôle du profil d’unité
-archivistique
+**« DeactivationDate » :** date de désactivation du profil d’unité archivistique.
+
+-   La date est au format ISO 8601
+
+-   Cardinalité : 0-1
+
+    Exemple : ```"DeactivationDate": "2017-04-10T11:30:33.798"```
+
+**« ControlSchema » :** schéma de contrôle du profil d’unité archivistique
 
 -   Il s’agit d’un bloc JSON.
 
@@ -5719,57 +5636,28 @@ archivistique
 
 -   Cardinalité : 1-1
 
-> {
->
-> "\_id": "aegaaaaaaehk2lclaaf5ialisr6tklaaaaaq",
->
-> "Identifier": "AUP\_CUSTOM\_SCHEMA",
->
-> "Name": "ArchiveUnitProfileWithCustomSchema",
->
-> "Description": "Test d'import d'un document type avec schéma",
->
-> "Status": "ACTIVE",
->
-> "CreationDate": "2016-12-10T00:00:00.000",
->
-> "LastUpdate": "2019-01-28T12:44:20.135",
->
-> "ActivationDate": "2016-12-10T00:00:00.000",
->
-> "DeactivationDate": "2016-12-10T00:00:00.000",
->
-> "ControlSchema": "{\\r\\n \\"\$schema\\":
-> \\"http://vitam-json-schema.org/draft-04/schema\#\\",\\r\\n \\"id\\":
-> \\"http://example.com/root.json\\",\\r\\n \\"type\\":
-> \\"object\\",\\r\\n \\"additionalProperties\\": true,\\r\\n
-> \\"properties\\": {\\r\\n \\"\_id\\": {\\r\\n \\"type\\":
-> \\"string\\"\\r\\n },\\r\\n \\"\_og\\": {\\r\\n \\"type\\":
-> \\"string\\"\\r\\n },\\r\\n \\"DescriptionLevel\\": {\\r\\n
-> \\"type\\": \\"string\\",\\r\\n \\"enum\\": \[\\r\\n \\"Item\\",\\r\\n
-> \\"SubGrp\\",\\r\\n \\"File\\"\\r\\n \]\\r\\n },\\r\\n \\"Title\\":
-> {\\r\\n \\"description\\": \\"All TitleGroup\\",\\r\\n \\"type\\":
-> \[\\r\\n \\"string\\",\\r\\n \\"array\\",\\r\\n \\"number\\"\\r\\n
-> \],\\r\\n \\"minLength\\": 1,\\r\\n \\"minItems\\": 1\\r\\n }\\r\\n
-> }\\r\\n}",
->
-> "Fields": \[
->
-> "\_id",
->
-> "\_og",
->
-> "DescriptionLevel",
->
-> "Title"
->
-> \],
->
-> "\_tenant": 1,
->
-> "\_v": 0
->
-> }
+```json
+{
+    "_id": "aegaaaaaaehk2lclaaf5ialisr6tklaaaaaq",
+    "Identifier": "AUP_CUSTOM_SCHEMA",
+    "Name": "ArchiveUnitProfileWithCustomSchema",
+    "Description": "Test d'import d'un document type avec schéma",
+    "Status": "ACTIVE",
+    "CreationDate": "2016-12-10T00:00:00.000",
+    "LastUpdate": "2019-01-28T12:44:20.135",
+    "ActivationDate": "2016-12-10T00:00:00.000",
+    "DeactivationDate": "2016-12-10T00:00:00.000",
+    "ControlSchema": "{\r\n  \"$schema\": \"http://vitam-json-schema.org/draft-04/schema#\",\r\n  \"id\": \"http://example.com/root.json\",\r\n  \"type\": \"object\",\r\n  \"additionalProperties\": true,\r\n  \"properties\": {\r\n    \"_id\": {\r\n      \"type\": \"string\"\r\n    },\r\n    \"_og\": {\r\n      \"type\": \"string\"\r\n    },\r\n    \"DescriptionLevel\": {\r\n      \"type\": \"string\",\r\n      \"enum\": [\r\n        \"Item\",\r\n        \"SubGrp\",\r\n        \"File\"\r\n      ]\r\n    },\r\n    \"Title\": {\r\n      \"description\": \"All TitleGroup\",\r\n      \"type\": [\r\n        \"string\",\r\n        \"array\",\r\n        \"number\"\r\n      ],\r\n      \"minLength\": 1,\r\n      \"minItems\": 1\r\n    }\r\n  }\r\n}",
+    "Fields": [
+        "_id",
+        "_og",
+        "DescriptionLevel",
+        "Title"
+    ],
+    "_tenant": 1,
+    "_v": 0
+}
+```
 
 **« Fields »** : liste des champs déclarés dans le schéma de contrôle
 
@@ -5779,7 +5667,7 @@ archivistique
 
 -   Cardinalité 0-1
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
@@ -5787,7 +5675,7 @@ archivistique
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
@@ -5795,45 +5683,38 @@ archivistique
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-    []{#__RefHeading___Toc29495_1669085364 .anchor}7.6. Collection
-    Agencies
+### Collection Agencies
 
-    []{#__RefHeading___Toc29497_1669085364 .anchor}7.6.1. Utilisation de
-    la collection Agencies
+#### Utilisation de la collection Agencies
 
-La collection Agencies permet de référencer et décrire unitairement les
-services agents.
+La collection Agencies permet de référencer et décrire unitairement les services agents.
 
-Cette collection est alimentée par l’import d’un fichier CSV contenant
-l’ensemble des services agents. Celui doit être structuré comme ceci :
+Cette collection est alimentée par l’import d’un fichier CSV contenant l’ensemble des services agents. Celui doit être structuré comme ceci :
 
-  ------------------------------ ---------------------- ------------------------------
-  Identifier                     Name                   Description
-  Identifiant du service agent   Nom du service agent   Description du service agent
-  ------------------------------ ---------------------- ------------------------------
+| Identifier | Name | Description |
+| :-: | :-: | :-:|
+| Identifiant du service agent | Nom du service agent | Description du service agent |
 
 Le fichier .csv doit avoir comme séparateur de champ la virgule.
 
-[]{#__RefHeading___Toc29499_1669085364 .anchor}7.6.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-Agencies
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Agencies
 
-> {\
-> "\_id": "aeaaaaaaaaevq6lcaamxsak7psyd2uyaaadq",\
-> "Identifier": "Identifier5",\
-> "Name": "Identifier5",\
-> "Description": "une description de service agent",\
-> "\_tenant": 2,\
-> "\_v": 1\
-> }
+```json
+{
+    "_id": "aeaaaaaaaaevq6lcaamxsak7psyd2uyaaadq",
+    "Identifier": "Identifier5",
+    "Name": "Identifier5",
+    "Description": "une description de service agent",
+    "_tenant": 2,
+    "_v": 1
+}
+```
 
-[]{#__RefHeading___Toc29501_1669085364 .anchor}7.6.3. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique du service agent.
+**« _id » :** identifiant unique du service agent.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -5855,17 +5736,13 @@ Agencies
 
 **« Identifier » :** identifiant signifiant donné au service agent.
 
--   Le contenu de ce champ est obligatoirement renseigné dans le fichier
-    > CSV permettant de créer le service agent. En aucun cas la solution
-    > logicielle Vitam ne peut être maître sur la création de cet
-    > identifiant comme cela peut être le cas pour d’autres données
-    > référentielles.
+-   Le contenu de ce champ est obligatoirement renseigné dans le fichier CSV permettant de créer le service agent. En aucun cas la solution logicielle Vitam ne peut être maître sur la création de cet identifiant comme cela peut être le cas pour d’autres données référentielles.
 
 -   Il s’agit d’une chaîne de caractères.
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit de l’identifiant du tenant utilisant l’enregistrement
 
@@ -5875,7 +5752,7 @@ Agencies
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
@@ -5883,15 +5760,11 @@ Agencies
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-    []{#__RefHeading___Toc29503_1669085364 .anchor}7.7. Collection
-    Context
+### Collection Context
 
-    []{#__RefHeading___Toc29505_1669085364 .anchor}7.7.1. Utilisation de
-    la collection
+#### Utilisation de la collection
 
 La collection Context permet de référencer et décrire unitairement les
 contextes applicatifs.
