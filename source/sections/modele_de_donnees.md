@@ -5766,131 +5766,123 @@ Le fichier .csv doit avoir comme séparateur de champ la virgule.
 
 #### Utilisation de la collection
 
-La collection Context permet de référencer et décrire unitairement les
-contextes applicatifs.
+La collection Context permet de référencer et décrire unitairement les contextes applicatifs.
 
-[]{#__RefHeading___Toc29507_1669085364 .anchor}7.7.2. Exemple d’un
-fichier d’import de contexte applicatif
+#### Exemple d’un fichier d’import de contexte applicatif
 
-Les contextes applicatifs sont importés dans la solution logicielle
-Vitam sous la forme d’un fichier JSON.
+Les contextes applicatifs sont importés dans la solution logicielle Vitam sous la forme d’un fichier JSON.
 
-> {\
-> "Name": "My\_Context\_5",\
-> "Status": "ACTIVE",\
-> "SecurityProfile": "admin-security-profile",\
-> "Permissions": \[\
-> {\
-> "tenant": 1,\
-> "AccessContracts": \[\
-> "AccessContracts\_1",\
-> "AccessContracts\_2"\
-> \],\
-> "IngestContracts": \[\
-> "IngestContracts\_1",\
-> "IngestContracts\_2"\
-> \]\
-> },\
-> {\
-> "tenant": 0,\
-> "AccessContracts": \[\
-> "AccessContracts\_5",\
-> "AccessContracts\_6"\
-> \],\
-> "IngestContracts": \[\
-> "IngestContracts\_9",\
-> "IngestContracts\_10"\
-> \]\
-> }\
-> \]\
-> }
+```json
+{
+    "Name": "My_Context_5",
+    "Status": "ACTIVE",
+    "SecurityProfile": "admin-security-profile",
+    "Permissions": [
+      {
+        "tenant": 1,
+        "AccessContracts": [
+          "AccessContracts_1",
+          "AccessContracts_2"
+        ],
+        "IngestContracts": [
+          "IngestContracts_1",
+          "IngestContracts_2"
+        ]
+      },
+      {
+        "tenant": 0,
+        "AccessContracts": [
+          "AccessContracts_5",
+          "AccessContracts_6"
+        ],
+        "IngestContracts": [
+          "IngestContracts_9",
+          "IngestContracts_10"
+        ]
+      }
+    ]
+  }
+```
 
-[]{#__RefHeading___Toc29509_1669085364 .anchor}7.7.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-Context
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Context
 
-> {\
-> "\_id": "aegqaaaaaaevq6lcaamxsak7psqdcmqaaaaq",\
-> "Name": "admin-context",\
-> "Status": "ACTIVE",\
-> "EnableControl": false,\
-> "Identifier": "CT-000001",\
-> "SecurityProfile": "admin-security-profile",\
-> "Permissions": \[\
-> {\
-> "tenant": 0,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> },\
-> {\
-> "tenant": 1,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> },\
-> {\
-> "tenant": 2,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> },\
-> {\
-> "tenant": 3,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> },\
-> {\
-> "tenant": 4,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> },\
-> {\
-> "tenant": 5,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> },\
-> {\
-> "tenant": 6,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> },\
-> {\
-> "tenant": 7,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> },\
-> {\
-> "tenant": 8,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> },\
-> {\
-> "tenant": 9,\
-> "AccessContracts": \[\],\
-> "IngestContracts": \[\]\
-> }\
-> \],\
-> "CreationDate": "2017-11-02T12:06:34.034",\
-> "LastUpdate": "2017-11-02T12:06:34.036",\
-> "\_v": 0\
-> }
+```json
+{
+    "_id": "aegqaaaaaaevq6lcaamxsak7psqdcmqaaaaq",
+    "Name": "admin-context",
+    "Status": "ACTIVE",
+    "EnableControl": false,
+    "Identifier": "CT-000001",
+    "SecurityProfile": "admin-security-profile",
+    "Permissions": [
+        {
+            "tenant": 0,
+            "AccessContracts": [],
+            "IngestContracts": []
+        },
+        {
+            "tenant": 1,
+            "AccessContracts": [],
+            "IngestContracts": []
+        },
+        {
+            "tenant": 2,
+            "AccessContracts": [],
+            "IngestContracts": []
+        },
+        {
+            "tenant": 3,
+            "AccessContracts": [],
+            "IngestContracts": []
+        },
+        {
+            "tenant": 4,
+            "AccessContracts": [],
+            "IngestContracts": []
+        },
+        {
+            "tenant": 5,
+            "AccessContracts": [],
+            "IngestContracts": []
+        },
+        {
+            "tenant": 6,
+            "AccessContracts": [],
+            "IngestContracts": []
+        },
+        {
+            "tenant": 7,
+            "AccessContracts": [],
+            "IngestContracts": []
+        },
+        {
+            "tenant": 8,
+            "AccessContracts": [],
+            "IngestContracts": []
+        },
+        {
+            "tenant": 9,
+            "AccessContracts": [],
+            "IngestContracts": []
+        }
+    ],
+    "CreationDate": "2017-11-02T12:06:34.034",
+    "LastUpdate": "2017-11-02T12:06:34.036",
+    "_v": 0
+}
+```
 
-Il est possible de mettre plusieurs contextes applicatifs dans un même
-fichier, sur le même modèle que les contrats d’entrée ou d’accès par
-exemple. On pourra noter que le contexte est multi-tenant et définit
-chaque tenant de manière indépendante. Il doit être enregistré dans le
-tenant d’administration.
+Il est possible de mettre plusieurs contextes applicatifs dans un même fichier, sur le même modèle que les contrats d’entrée ou d’accès par exemple. On pourra noter que le contexte est multi-tenant et définit chaque tenant de manière indépendante. Il doit être enregistré dans le tenant d’administration.
 
-Les champs à renseigner obligatoirement à la création d’un contexte
-applicatif sont :
+Les champs à renseigner obligatoirement à la création d’un contexte applicatif sont :
 
 -   Name
 
--   Permissions. La valeur de Permissions peut cependant être vide :
-    > « Permissions : \[\] »
+-   Permissions. La valeur de Permissions peut cependant être vide : « Permissions : [] »
 
-    []{#__RefHeading___Toc29511_1669085364 .anchor}7.7.4. Détail des
-    champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique du contexte applicatif.
+**« _id » :** identifiant unique du contexte applicatif.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -5912,26 +5904,21 @@ applicatif sont :
 
 -   Cardinalité : 1-1
 
-**« Identifier » :** identifiant signifiant donné au contexte
-applicatif.
+**« Identifier » :** identifiant signifiant donné au contexte applicatif.
 
--   Il est constitué du préfixe « CT- » suivi d’une suite de 6 chiffres.
-    > Par exemple : CT-001573.
+-   Il est constitué du préfixe « CT- » suivi d’une suite de 6 chiffres. Par exemple : ```CT-001573```.
 
 -   Il s’agit d’une chaîne de caractères.
 
 -   Cardinalité : 1-1
 
-**« SecurityProfile » :** nom du profil de sécurité utilisé par le
-contexte applicatif.
+**« SecurityProfile » :** nom du profil de sécurité utilisé par le contexte applicatif.
 
--   Il s’agit d’une chaîne de caractères correspondant à une valeur
-    > valide du champ « \_id » de la collection SecurityProfile.
+-   Il s’agit d’une chaîne de caractères correspondant à une valeur valide du champ « _id » de la collection SecurityProfile.
 
 -   Cardinalité : 1-1
 
-**« Permissions » :** début du bloc appliquant les permissions à chaque
-tenant.
+**« Permissions » :** début du bloc appliquant les permissions à chaque tenant.
 
 -   C’est un mot clé qui n’a pas de valeur associée.
 
@@ -5941,35 +5928,29 @@ tenant.
 
 -   Cardinalité : 1-1
 
--   pour un tenant donné, il contient un objet JSON contenant les champs
-    > suivants :
+-   pour un tenant donné, il contient un objet JSON contenant les champs suivants :
 
-    -   **« tenant » :** tenant sur lequel sont appliquées les
-        > permissions.
+    -   **« tenant » :** tenant sur lequel sont appliquées les permissions.
 
         -   Il s’agit d’un entier.
 
         -   Cardinalité : 1-1
 
-    -   **« AccessContracts » :** tableau d’identifiants de contrats
-        > d’accès appliqués sur le tenant.
+    -   **« AccessContracts » :** tableau d’identifiants de contrats d’accès appliqués sur le tenant.
 
         -   Il s’agit d’un tableau de chaînes de caractères.
 
-        -   Les identifiants valides correspondent au champ Identifier
-            > des documents de la collection AccessContract.
+        -   Les identifiants valides correspondent au champ Identifier des documents de la collection AccessContract.
 
         -   Peut être vide.
 
         -   Cardinalité : 0-1
 
-    -   **« IngestContracts » :** tableau d’identifiants de contrats
-        > d’entrées appliqués sur le tenant.
+    -   **« IngestContracts » :** tableau d’identifiants de contrats d’entrées appliqués sur le tenant.
 
         -   Il s’agit d’un tableau de chaînes de caractères.
 
-        -   Les identifants valides correspondent au champ Identifier
-            > des documents de la collection IngestContract.
+        -   Les identifants valides correspondent au champ Identifier des documents de la collection IngestContract.
 
         -   Peut être vide.
 
@@ -5981,26 +5962,23 @@ tenant.
 
 -   Cardinalité : 1-1
 
-    Exemple : "CreationDate": "2017-04-10T11:30:33.798",
+    Exemple : ```"CreationDate": "2017-04-10T11:30:33.798"```,
 
-**« LastUpdate » :** date de dernière modification du contexte
-applicatif.
+**« LastUpdate » :** date de dernière modification du contexte applicatif.
 
 -   Il s’agit d’une date au format ISO 8601.
 
 -   Cardinalité : 1-1
 
--   Exemple : "LastUpdate": "2017-04-10T11:30:33.798",
+-   Exemple : ```"LastUpdate": "2017-04-10T11:30:33.798"```,
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
@@ -6008,8 +5986,7 @@ applicatif.
 
 -   Il s’agit d’un booléen
 
--   Il peut avoir pour valeur « true » ou « false » et a la valeur par
-    > défaut : « false ».
+-   Il peut avoir pour valeur « true » ou « false » et a la valeur par défaut : « false ».
 
     -   « true » : le contrôle est actif
 
@@ -6017,11 +5994,9 @@ applicatif.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc29513_1669085364 .anchor}7.8. Collection
-    FileFormat
+### Collection FileFormat
 
-    []{#__RefHeading___Toc29515_1669085364 .anchor}7.8.1. Utilisation de
-    la collection FileFormat
+#### Utilisation de la collection FileFormat
 
 La collection FileFormat permet de référencer et décrire unitairement
 les différents formats de fichiers ainsi que leur description. La
