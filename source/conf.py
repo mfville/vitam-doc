@@ -203,7 +203,7 @@ epub_exclude_files = ['search.html']
 extensions = [
    'sphinx.ext.autodoc',
    'sphinx_rtd_theme',
-   'sphinx_markdown_tables',
+#   'sphinx_markdown_tables',
    'myst_parser',
    'sphinx_multiversion',
 ]
