@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="fr" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4. Modèle de données &mdash; Vitam documentation fonctionnelle</title>
@@ -14,7 +14,6 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -193,6 +192,13 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#collection-context">4.7.7. Collection Context</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id30">4.7.7.1. Utilisation de la collection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exemple-dun-fichier-dimport-de-contexte-applicatif">4.7.7.2. Exemple d’un fichier d’import de contexte applicatif</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-context">4.7.7.3. Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id31">4.7.7.4. Détail des champs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-fileformat">4.7.8. Collection FileFormat</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-fileformat">4.7.8.1. Utilisation de la collection FileFormat</a></li>
 </ul>
 </li>
 </ul>
@@ -235,17 +241,17 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="modele-de-donnees">
-<h1><span class="section-number">4. </span>Modèle de données<a class="headerlink" href="#modele-de-donnees" title="Lien permanent vers cette rubrique"></a></h1>
+<h1><span class="section-number">4. </span>Modèle de données<a class="headerlink" href="#modele-de-donnees" title="Lien permanent vers ce titre"></a></h1>
 <section id="introduction">
-<h2><span class="section-number">4.1. </span>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.1. </span>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre"></a></h2>
 <section id="avertissement">
-<h3><span class="section-number">4.1.1. </span>Avertissement<a class="headerlink" href="#avertissement" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.1.1. </span>Avertissement<a class="headerlink" href="#avertissement" title="Lien permanent vers ce titre"></a></h3>
 <p>Ce document fait état du travail en cours. Il est susceptible de changer
 de manière conséquente au fur et à mesure de l’avancée des
 développements.</p>
 </section>
 <section id="objectif-du-document">
-<h3><span class="section-number">4.1.2. </span>Objectif du document<a class="headerlink" href="#objectif-du-document" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.1.2. </span>Objectif du document<a class="headerlink" href="#objectif-du-document" title="Lien permanent vers ce titre"></a></h3>
 <p>Ce document a pour objectif de présenter la structure générale des
 collections utilisées dans la solution logicielle Vitam. Il est destiné
 principalement aux développeurs, afin de leur présenter l’organisation
@@ -268,28 +274,28 @@ itération donnée. Cette indication différant de la cible finale, le
 numéro de l’itération de cet usage est mentionné.</p>
 </section>
 <section id="creation-des-index">
-<h3><span class="section-number">4.1.3. </span>Création des index<a class="headerlink" href="#creation-des-index" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.1.3. </span>Création des index<a class="headerlink" href="#creation-des-index" title="Lien permanent vers ce titre"></a></h3>
 <p>Les différents index sont créés par ansible, plate-forme logicielle
 libre. Les fichiers à renseigner pour rajouter un nouvel index sont
 stockés dans le répertoire
 deployment/ansible-vitam/roles/mongo_configure/templates/init-{nom-base}-database.js.j2</p>
 </section>
 <section id="generalites">
-<h3><span class="section-number">4.1.4. </span>Généralités<a class="headerlink" href="#generalites" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.1.4. </span>Généralités<a class="headerlink" href="#generalites" title="Lien permanent vers ce titre"></a></h3>
 <section id="collections-et-bases">
-<h4><span class="section-number">4.1.4.1. </span>Collections et bases<a class="headerlink" href="#collections-et-bases" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.1.4.1. </span>Collections et bases<a class="headerlink" href="#collections-et-bases" title="Lien permanent vers ce titre"></a></h4>
 <p>Les bases Mongo sont organisées en bases et collections.</p>
 <p>Les bases contiennent différentes collections. Les collections peuvent être rapprochées du concept de tables en SQL.</p>
 </section>
 <section id="cardinalite">
-<h4><span class="section-number">4.1.4.2. </span>Cardinalité<a class="headerlink" href="#cardinalite" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.1.4.2. </span>Cardinalité<a class="headerlink" href="#cardinalite" title="Lien permanent vers ce titre"></a></h4>
 <p>La cardinalité présentée pour chacun des champs correspond aux exigences
 de la base de données Mongo.</p>
 <p>Certains champs ayant une cardinalité 1-1 sont directement renseignés par la solution logicielle Vitam et sont donc obligatoirement présents dans la base de données, mais ne le sont pas forcément dans les données
 envoyées.</p>
 </section>
 <section id="nommage-des-champs">
-<h4><span class="section-number">4.1.4.3. </span>Nommage des champs<a class="headerlink" href="#nommage-des-champs" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.1.4.3. </span>Nommage des champs<a class="headerlink" href="#nommage-des-champs" title="Lien permanent vers ce titre"></a></h4>
 <p>Les champs des fichiers JSON présents dans les collections peuvent être
 nommés de deux manières :</p>
 <ul>
@@ -305,7 +311,7 @@ l’extérieur.</p>
 </ul>
 </section>
 <section id="identifiants">
-<h4><span class="section-number">4.1.4.4. </span>Identifiants<a class="headerlink" href="#identifiants" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.1.4.4. </span>Identifiants<a class="headerlink" href="#identifiants" title="Lien permanent vers ce titre"></a></h4>
 <p>Il existe plusieurs types d’identifiants :</p>
 <ul class="simple">
 <li><p>GUID : identifiant unique de 36 caractères généré par la solution logicielle Vitam,</p></li>
@@ -314,18 +320,18 @@ l’extérieur.</p>
 </ul>
 </section>
 <section id="dates">
-<h4><span class="section-number">4.1.4.5. </span>Dates<a class="headerlink" href="#dates" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.1.4.5. </span>Dates<a class="headerlink" href="#dates" title="Lien permanent vers ce titre"></a></h4>
 <p>Toutes les dates décrites dans ce document sont au format ISO 8601.</p>
 <p>Exemple : « 2017-11-02T13:50:28.922 ».</p>
 </section>
 <section id="limite-de-caracteres-acceptes-dans-les-champs">
-<h4><span class="section-number">4.1.4.6. </span>Limite de caractères acceptés dans les champs<a class="headerlink" href="#limite-de-caracteres-acceptes-dans-les-champs" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.1.4.6. </span>Limite de caractères acceptés dans les champs<a class="headerlink" href="#limite-de-caracteres-acceptes-dans-les-champs" title="Lien permanent vers ce titre"></a></h4>
 <p>Mongo est un type de base de données dite « schemaless », soit sans
 schéma. Ainsi, les champs contenus dans les collections décrites dans ce
 document sont, sauf mention contraire, sans limite de caractères.</p>
 </section>
 <section id="type-dindexation-dans-elasticsearch">
-<h4><span class="section-number">4.1.4.7. </span>Type d’indexation dans ElasticSearch<a class="headerlink" href="#type-dindexation-dans-elasticsearch" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.1.4.7. </span>Type d’indexation dans ElasticSearch<a class="headerlink" href="#type-dindexation-dans-elasticsearch" title="Lien permanent vers ce titre"></a></h4>
 <p>Les champs peuvent être indexés de deux façons différentes dans
 ElasticSearch :</p>
 <ul>
@@ -347,18 +353,18 @@ uniquement. Par exemple, les champs <em>Identifier</em> ou
 </section>
 </section>
 <section id="base-identity">
-<h2><span class="section-number">4.2. </span>Base Identity<a class="headerlink" href="#base-identity" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.2. </span>Base Identity<a class="headerlink" href="#base-identity" title="Lien permanent vers ce titre"></a></h2>
 <p>La base Identity contient les collections relatives aux certificats
 applicatifs et personnels utilisés par la solution logicielle Vitam.</p>
 <section id="collection-certificate">
-<h3><span class="section-number">4.2.1. </span>Collection Certificate<a class="headerlink" href="#collection-certificate" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.2.1. </span>Collection Certificate<a class="headerlink" href="#collection-certificate" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-certificate">
-<h4><span class="section-number">4.2.1.1. </span>Utilisation de la collection Certificate<a class="headerlink" href="#utilisation-de-la-collection-certificate" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.2.1.1. </span>Utilisation de la collection Certificate<a class="headerlink" href="#utilisation-de-la-collection-certificate" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection Certificate permet de référencer et décrire unitairement
 les certificats utilisés par les contextes applicatifs.</p>
 </section>
 <section id="exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs">
-<h4><span class="section-number">4.2.1.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.2.1.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs" title="Lien permanent vers ce titre"></a></h4>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeaaaaaaaahkcaqqaa4v4alj7kxofsqaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;SubjectDN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CN=ihm-demo, O=vitam, L=paris, ST=idf, C=fr&quot;</span><span class="p">,</span><span class="w"></span>
@@ -379,7 +385,7 @@ les certificats utilisés par les contextes applicatifs.</p>
 </div>
 </section>
 <section id="detail-des-champs-du-json-stocke-dans-la-collection">
-<h4><span class="section-number">4.2.1.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#detail-des-champs-du-json-stocke-dans-la-collection" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.2.1.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#detail-des-champs-du-json-stocke-dans-la-collection" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique du certificat applicatif.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -444,14 +450,14 @@ de certification.</p>
 </section>
 </section>
 <section id="collection-personalcertificate">
-<h3><span class="section-number">4.2.2. </span>Collection PersonalCertificate<a class="headerlink" href="#collection-personalcertificate" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.2.2. </span>Collection PersonalCertificate<a class="headerlink" href="#collection-personalcertificate" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-personalcertificate">
-<h4><span class="section-number">4.2.2.1. </span>Utilisation de la collection PersonalCertificate<a class="headerlink" href="#utilisation-de-la-collection-personalcertificate" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.2.2.1. </span>Utilisation de la collection PersonalCertificate<a class="headerlink" href="#utilisation-de-la-collection-personalcertificate" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection PersonalCertificate permet de référencer et décrire unitairement les certificats personnels utilisés pour l’authentification
 de personae.</p>
 </section>
 <section id="id1">
-<h4><span class="section-number">4.2.2.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id1" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.2.2.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id1" title="Lien permanent vers ce titre"></a></h4>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeaaaaaaaahkcaqqaabxealjtiuxsziaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w"> </span><span class="nt">&quot;SubjectDN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;O=VITAM, L=Paris, C=FR&quot;</span><span class="p">,</span><span class="w"></span>
@@ -466,7 +472,7 @@ de personae.</p>
 </div>
 </section>
 <section id="id2">
-<h4><span class="section-number">4.2.2.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id2" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.2.2.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id2" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique du certificat personnel.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -522,13 +528,13 @@ de certification.</p>
 </section>
 </section>
 <section id="base-logbook">
-<h2><span class="section-number">4.3. </span>Base Logbook<a class="headerlink" href="#base-logbook" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.3. </span>Base Logbook<a class="headerlink" href="#base-logbook" title="Lien permanent vers ce titre"></a></h2>
 <p>La base Logbook contient les collections relatives aux journaux d’opérations et de cycles de vie des unités archivistiques et des groupes d’objets de la solution logicielle Vitam. Une collection technique Offset liée à la reconstruction existe également.</p>
 <p>L’ensemble des champs est peuplé automatiquement par la solution logicielle Vitam.</p>
 <section id="collection-logbookoperation">
-<h3><span class="section-number">4.3.1. </span>Collection LogbookOperation<a class="headerlink" href="#collection-logbookoperation" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.3.1. </span>Collection LogbookOperation<a class="headerlink" href="#collection-logbookoperation" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-logbookoperation">
-<h4><span class="section-number">4.3.1.1. </span>Utilisation de la collection LogbookOperation<a class="headerlink" href="#utilisation-de-la-collection-logbookoperation" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.1.1. </span>Utilisation de la collection LogbookOperation<a class="headerlink" href="#utilisation-de-la-collection-logbookoperation" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection LogbookOperation comporte toutes les informations de traitement liées aux opérations effectuées dans la solution logicielle Vitam, chaque opération faisant l’objet d’un enregistrement distinct.</p>
 <p>Ces opérations sont :</p>
 <ul class="simple">
@@ -548,7 +554,7 @@ de certification.</p>
 <p>Les valeurs correspondant à ces opérations dans les journaux sont détaillées dans <a class="reference external" href="#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus">l’annexe 3</a></p>
 </section>
 <section id="exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-logbookoperation">
-<h4><span class="section-number">4.3.1.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection LogbookOperation<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-logbookoperation" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.1.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection LogbookOperation<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-logbookoperation" title="Lien permanent vers ce titre"></a></h4>
 <p>Extrait d’un enregistrement JSON correspondant à une opération d’entrée terminée avec succès.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;aeeaaaaabchgzebuaafzaalj4nng5paaaaaq&quot;</span><span class="p">,</span>
@@ -633,7 +639,7 @@ de certification.</p>
 </div>
 </section>
 <section id="id3">
-<h4><span class="section-number">4.3.1.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id3" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.1.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id3" title="Lien permanent vers ce titre"></a></h4>
 <p>Chaque enregistrement de cette collection est composé d’une structure auto-imbriquée : la structure possède une première instanciation « incluante » et contient un tableau de n structures identiques, dont seules les valeurs contenues dans les champs changent.</p>
 <p>La structure est décrite ci-dessous. Pour certains champs, on indiquera s’il s’agit de la structure incluante ou d’une structure incluse dans celle-ci.</p>
 <p><strong>« _id » (identifier):</strong> identifiant unique donné par le système lors
@@ -954,7 +960,7 @@ l’opération.</p>
 </ul>
 </section>
 <section id="champs-presents-dans-les-events">
-<h4><span class="section-number">4.3.1.4. </span>Champs présents dans les events<a class="headerlink" href="#champs-presents-dans-les-events" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.1.4. </span>Champs présents dans les events<a class="headerlink" href="#champs-presents-dans-les-events" title="Lien permanent vers ce titre"></a></h4>
 <p>Les events sont, au minimum, composés des champs suivants :</p>
 <ul class="simple">
 <li><p>evId</p></li>
@@ -976,7 +982,7 @@ l’opération.</p>
 mettent à jour le master.</p>
 </section>
 <section id="detail-des-champs-du-json-stocke-en-base-specifiques-a-une-operation-de-securisation-des-journaux-doperation-et-de-cycle-de-vie">
-<h4><span class="section-number">4.3.1.5. </span>Détail des champs du JSON stocké en base spécifiques à une opération de sécurisation des journaux d’opération et de cycle de vie<a class="headerlink" href="#detail-des-champs-du-json-stocke-en-base-specifiques-a-une-operation-de-securisation-des-journaux-doperation-et-de-cycle-de-vie" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.1.5. </span>Détail des champs du JSON stocké en base spécifiques à une opération de sécurisation des journaux d’opération et de cycle de vie<a class="headerlink" href="#detail-des-champs-du-json-stocke-en-base-specifiques-a-une-operation-de-securisation-des-journaux-doperation-et-de-cycle-de-vie" title="Lien permanent vers ce titre"></a></h4>
 <p>Ceci ne concerne aujourd’hui que les sécurisations des journaux d’opération et la sécurisation des journaux de cycle de vie.</p>
 <p>Exemple de données stockées par l’opération de sécurisation des journaux d’opération pour le champ evDetData :</p>
 <p>« evDetData »:</p>
@@ -1098,7 +1104,7 @@ mettent à jour le master.</p>
 </section>
 </section>
 <section id="collection-logbooklifecycleunit">
-<h3><span class="section-number">4.3.2. </span>Collection LogbookLifeCycleUnit<a class="headerlink" href="#collection-logbooklifecycleunit" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.3.2. </span>Collection LogbookLifeCycleUnit<a class="headerlink" href="#collection-logbooklifecycleunit" title="Lien permanent vers ce titre"></a></h3>
 <p>#### Utilisation de la collection LogbookLifeCycleUnit</p>
 <p>Le journal du cycle de vie d’une unité archivistique (ArchiveUnit) trace
 tous les événements qui impactent celle-ci dès sa prise en charge dans
@@ -1120,7 +1126,7 @@ avant l’envoi d’une notification au service versant.</p>
 <p>Chaque unité archivistique possède une et une seule entrée dans la
 collection LogbookLifeCycleUnit.</p>
 <section id="exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-logbooklifecycleunit">
-<h4><span class="section-number">4.3.2.1. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection LogbookLifeCycleUnit<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-logbooklifecycleunit" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.2.1. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection LogbookLifeCycleUnit<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-logbooklifecycleunit" title="Lien permanent vers ce titre"></a></h4>
 <p>Extrait d’un enregistrement JSON correspondant au journal de cycle de vie d’une unité archivistique.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span> &quot;_id&quot;: &quot;aeaqaaaabahf4qxrab2nualjtkuyd6yaaabq&quot;,
     &quot;evId&quot;: &quot;aedqaaaabchf4qxrab2nualjtkuyfaaaaabq&quot;,
@@ -1164,7 +1170,7 @@ collection LogbookLifeCycleUnit.</p>
 </div>
 </section>
 <section id="detail-des-champs-du-json-stocke-en-base">
-<h4><span class="section-number">4.3.2.2. </span>Détail des champs du JSON stocké en base<a class="headerlink" href="#detail-des-champs-du-json-stocke-en-base" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.2.2. </span>Détail des champs du JSON stocké en base<a class="headerlink" href="#detail-des-champs-du-json-stocke-en-base" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant donné par le système lors de l’initialisation
 du journal du cycle de vie.</p>
 <ul class="simple">
@@ -1310,7 +1316,7 @@ opération.</p>
 </ul>
 </section>
 <section id="id4">
-<h4><span class="section-number">4.3.2.3. </span>Champs présents dans les events<a class="headerlink" href="#id4" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.2.3. </span>Champs présents dans les events<a class="headerlink" href="#id4" title="Lien permanent vers ce titre"></a></h4>
 <ul class="simple">
 <li><p>evId</p></li>
 <li><p>evParentId</p></li>
@@ -1328,7 +1334,7 @@ opération.</p>
 </ul>
 </section>
 <section id="detail-des-champs-du-json-stocke-en-base-specifiques-a-une-mise-a-jour">
-<h4><span class="section-number">4.3.2.4. </span>Détail des champs du JSON stocké en base spécifiques à une mise à jour<a class="headerlink" href="#detail-des-champs-du-json-stocke-en-base-specifiques-a-une-mise-a-jour" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.2.4. </span>Détail des champs du JSON stocké en base spécifiques à une mise à jour<a class="headerlink" href="#detail-des-champs-du-json-stocke-en-base-specifiques-a-une-mise-a-jour" title="Lien permanent vers ce titre"></a></h4>
 <p>Exemple de données stockées dans le champ evDetData :</p>
 <p>« evDetData »: « {« diff »: « - « Title_.en » : « Reboisement du montVentoux - Enqu\u00EAtes photographiques de l’Inspection des Eaux et for\u00EAts d’Avignon »\n+ « Title_.en » : « Title Anglais »\n- « _ops » : [
 « aeeaaaaaachprzmjab7xealwm2wyc5yaaaaq » ]\n+ « _ops » : [
@@ -1342,9 +1348,9 @@ opération.</p>
 </section>
 </section>
 <section id="collection-logbooklifecycleobjectgroup">
-<h3><span class="section-number">4.3.3. </span>Collection LogbookLifeCycleObjectGroup<a class="headerlink" href="#collection-logbooklifecycleobjectgroup" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.3.3. </span>Collection LogbookLifeCycleObjectGroup<a class="headerlink" href="#collection-logbooklifecycleobjectgroup" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-logbooklifecycleobjectgroup">
-<h4><span class="section-number">4.3.3.1. </span>Utilisation de la collection LogbookLifeCycleObjectGroup<a class="headerlink" href="#utilisation-de-la-collection-logbooklifecycleobjectgroup" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.3.1. </span>Utilisation de la collection LogbookLifeCycleObjectGroup<a class="headerlink" href="#utilisation-de-la-collection-logbooklifecycleobjectgroup" title="Lien permanent vers ce titre"></a></h4>
 <p>Le journal du cycle de vie du groupe d’objets (ObjectGroup) trace tous les événements qui impactent le groupe d’objets (et les objets associés) dès sa prise en charge dans le système. Il doit être conservé aussi longtemps que les objets sont gérés dans le système.</p>
 <ul class="simple">
 <li><p>Dès la réception des objets, on trace les opérations effectuées sur les groupes d’objets et objets qui sont dans le SIP.</p></li>
@@ -1353,7 +1359,7 @@ opération.</p>
 <p>Chaque groupe d’objets possède une et une seule entrée dans la collection <em>LogbookLifeCycleObjectGroup</em>.</p>
 </section>
 <section id="extrait-dun-json-stocke-en-base-comprenant-lexhaustivite-des-champs">
-<h4><span class="section-number">4.3.3.2. </span>Extrait d’un JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#extrait-dun-json-stocke-en-base-comprenant-lexhaustivite-des-champs" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.3.2. </span>Extrait d’un JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#extrait-dun-json-stocke-en-base-comprenant-lexhaustivite-des-champs" title="Lien permanent vers ce titre"></a></h4>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
 &quot;_id&quot;: &quot;aebaaaaabahf4qxrab2nualjtkuydyyaaaaq&quot;,
 &quot;evId&quot;: &quot;aedqaaaabchf4qxrab2nualjtkuyetyaaaaq&quot;,
@@ -1426,7 +1432,7 @@ opération.</p>
 </div>
 </section>
 <section id="id5">
-<h4><span class="section-number">4.3.3.3. </span>Détail des champs du JSON stocké en base<a class="headerlink" href="#id5" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.3.3. </span>Détail des champs du JSON stocké en base<a class="headerlink" href="#id5" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant donné par le système lors de l’initialisation
 du journal du cycle de vie.</p>
 <ul>
@@ -1706,9 +1712,9 @@ présents dans les events</p>
 </section>
 </section>
 <section id="collection-offset">
-<h3><span class="section-number">4.3.4. </span>Collection Offset<a class="headerlink" href="#collection-offset" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.3.4. </span>Collection Offset<a class="headerlink" href="#collection-offset" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection">
-<h4><span class="section-number">4.3.4.1. </span>Utilisation de la collection<a class="headerlink" href="#utilisation-de-la-collection" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.4.1. </span>Utilisation de la collection<a class="headerlink" href="#utilisation-de-la-collection" title="Lien permanent vers ce titre"></a></h4>
 <p>Cette collection, optionnelle, permet de persister les offsets des dernières données reconstruites des offres de stockage lors de la reconstruction au fil de l’eau pour les collections :</p>
 <ul class="simple">
 <li><p>LogbookOperation</p></li>
@@ -1720,7 +1726,7 @@ présents dans les events</p>
 <p>Il y a une valeur d’offset par couple tenant/collection.</p>
 </section>
 <section id="id6">
-<h4><span class="section-number">4.3.4.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id6" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.4.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id6" title="Lien permanent vers ce titre"></a></h4>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
    &quot;_id&quot;: ObjectId(&quot;507f191e810c19729de860ea&quot;),
    &quot;offset&quot;: 1357,
@@ -1731,7 +1737,7 @@ présents dans les events</p>
 </div>
 </section>
 <section id="detail-des-champs">
-<h4><span class="section-number">4.3.4.3. </span>Détail des champs<a class="headerlink" href="#detail-des-champs" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.3.4.3. </span>Détail des champs<a class="headerlink" href="#detail-des-champs" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique mongo.</p>
 <ul class="simple">
 <li><p>Il s’agit d’un champ de type mongo composé comme suit :
@@ -1760,16 +1766,16 @@ ObjectId(&lt;hexadecimal&gt;).</p></li>
 </section>
 </section>
 <section id="base-metadata">
-<h2><span class="section-number">4.4. </span>Base MetaData<a class="headerlink" href="#base-metadata" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.4. </span>Base MetaData<a class="headerlink" href="#base-metadata" title="Lien permanent vers ce titre"></a></h2>
 <p>La base Metadata contient les collections relatives aux métadonnées des unités archivistiques (collection Unit) et des groupes d’objets (collection ObjectGroup). Une collection technique Offset liée à la reconstruction existe également.</p>
 <section id="collection-unit">
-<h3><span class="section-number">4.4.1. </span>Collection Unit<a class="headerlink" href="#collection-unit" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.4.1. </span>Collection Unit<a class="headerlink" href="#collection-unit" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-unit">
-<h4><span class="section-number">4.4.1.1. </span>Utilisation de la collection Unit<a class="headerlink" href="#utilisation-de-la-collection-unit" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.1.1. </span>Utilisation de la collection Unit<a class="headerlink" href="#utilisation-de-la-collection-unit" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection Unit contient les informations relatives aux unités archivistiques.</p>
 </section>
 <section id="exemple-de-xml-en-entree">
-<h4><span class="section-number">4.4.1.2. </span>Exemple de XML en entrée<a class="headerlink" href="#exemple-de-xml-en-entree" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.1.2. </span>Exemple de XML en entrée<a class="headerlink" href="#exemple-de-xml-en-entree" title="Lien permanent vers ce titre"></a></h4>
 <p>Ci-après, la portion d’un bordereau de transfert (manifest.xml) utilisée pour compléter les champs du JSON. Il s’agit des informations situées entre les balises &lt;ArchiveUnit&gt;.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;ArchiveUnit</span> <span class="na">id=</span><span class="s">&quot;ID3&quot;</span><span class="nt">&gt;</span>
@@ -1798,7 +1804,7 @@ ObjectId(&lt;hexadecimal&gt;).</p></li>
 </div>
 </section>
 <section id="exemple-de-json-stocke-dans-la-collection-unit">
-<h4><span class="section-number">4.4.1.3. </span>Exemple de JSON stocké dans la collection Unit<a class="headerlink" href="#exemple-de-json-stocke-dans-la-collection-unit" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.1.3. </span>Exemple de JSON stocké dans la collection Unit<a class="headerlink" href="#exemple-de-json-stocke-dans-la-collection-unit" title="Lien permanent vers ce titre"></a></h4>
 <p>Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant :
 https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
@@ -1897,7 +1903,7 @@ https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 </div>
 </section>
 <section id="detail-du-json">
-<h4><span class="section-number">4.4.1.4. </span>Détail du JSON<a class="headerlink" href="#detail-du-json" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.1.4. </span>Détail du JSON<a class="headerlink" href="#detail-du-json" title="Lien permanent vers ce titre"></a></h4>
 <p>La structure de la collection Unit est composée de la transposition JSON de toutes les balises XML contenues dans la balise &lt;DescriptiveMetadata&gt; du bordereau de transfert conforme au standard SEDA v.2.1., c’est-à-dire toutes les balises se rapportant aux unités archivistiques.</p>
 <p>Cette transposition se fait comme suit :</p>
 <p><strong>« _id » :</strong> identifiant unique de l’unité archivistique.</p>
@@ -3051,13 +3057,13 @@ classification.</p>
 </section>
 </section>
 <section id="collection-objectgroup">
-<h3><span class="section-number">4.4.2. </span>Collection ObjectGroup<a class="headerlink" href="#collection-objectgroup" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.4.2. </span>Collection ObjectGroup<a class="headerlink" href="#collection-objectgroup" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-objectgroup">
-<h4><span class="section-number">4.4.2.1. </span>Utilisation de la collection ObjectGroup<a class="headerlink" href="#utilisation-de-la-collection-objectgroup" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.2.1. </span>Utilisation de la collection ObjectGroup<a class="headerlink" href="#utilisation-de-la-collection-objectgroup" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection ObjectGroup contient les informations relatives aux groupes d’objets.</p>
 </section>
 <section id="exemple-de-xml">
-<h4><span class="section-number">4.4.2.2. </span>Exemple de XML<a class="headerlink" href="#exemple-de-xml" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.2.2. </span>Exemple de XML<a class="headerlink" href="#exemple-de-xml" title="Lien permanent vers ce titre"></a></h4>
 <p>Ci-après, un extrait d’un bordereau de transfert (manifest.xml) utilisé pour compléter les champs du JSON correspondant à un groupe d’objets.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DataObjectGroupId</span> <span class="na">id=</span><span class="s">&quot;ID0009&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;PhysicalDataObject</span> <span class="na">id=</span><span class="s">&quot;ID109&quot;</span><span class="nt">&gt;</span>
@@ -3104,7 +3110,7 @@ classification.</p>
 </div>
 </section>
 <section id="exemple-de-json-stocke-en-base">
-<h4><span class="section-number">4.4.2.3. </span>Exemple de JSON stocké en base<a class="headerlink" href="#exemple-de-json-stocke-en-base" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.2.3. </span>Exemple de JSON stocké en base<a class="headerlink" href="#exemple-de-json-stocke-en-base" title="Lien permanent vers ce titre"></a></h4>
 <p>Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant :
 https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
@@ -3216,7 +3222,7 @@ https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 </div>
 </section>
 <section id="detail-des-champs-du-json">
-<h4><span class="section-number">4.4.2.4. </span>Détail des champs du JSON<a class="headerlink" href="#detail-des-champs-du-json" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.2.4. </span>Détail des champs du JSON<a class="headerlink" href="#detail-des-champs-du-json" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant du groupe d’objets.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -3568,9 +3574,9 @@ représentées par ce groupe d’objets.</p>
 </section>
 </section>
 <section id="id7">
-<h3><span class="section-number">4.4.3. </span>Collection Offset<a class="headerlink" href="#id7" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.4.3. </span>Collection Offset<a class="headerlink" href="#id7" title="Lien permanent vers ce titre"></a></h3>
 <section id="id8">
-<h4><span class="section-number">4.4.3.1. </span>Utilisation de la collection<a class="headerlink" href="#id8" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.3.1. </span>Utilisation de la collection<a class="headerlink" href="#id8" title="Lien permanent vers ce titre"></a></h4>
 <p>Cette collection permet de persister les offsets des dernières données reconstruites des offres de stockage lors de la reconstruction au fil de l’eau pour les collections :</p>
 <ul class="simple">
 <li><p>LogbookOperation</p></li>
@@ -3582,7 +3588,7 @@ représentées par ce groupe d’objets.</p>
 <p>Il y a une valeur d’offset par couple tenant/collection.</p>
 </section>
 <section id="id9">
-<h4><span class="section-number">4.4.3.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id9" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.3.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id9" title="Lien permanent vers ce titre"></a></h4>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
   &quot;_id&quot;: ObjectId(&quot;507f191e810c19729de860ea&quot;),
   &quot;offset&quot;: 1357,
@@ -3594,7 +3600,7 @@ représentées par ce groupe d’objets.</p>
 </div>
 </section>
 <section id="id10">
-<h4><span class="section-number">4.4.3.3. </span>Détail des champs<a class="headerlink" href="#id10" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.4.3.3. </span>Détail des champs<a class="headerlink" href="#id10" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique mongo.</p>
 <ul class="simple">
 <li><p>Il s’agit d’un champ de type mongo : ObjectId(&lt;hexadecimal&gt;).</p></li>
@@ -3624,17 +3630,17 @@ représentées par ce groupe d’objets.</p>
 </section>
 </section>
 <section id="base-metadatacollect">
-<h2><span class="section-number">4.5. </span>Base metadataCollect<a class="headerlink" href="#base-metadatacollect" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.5. </span>Base metadataCollect<a class="headerlink" href="#base-metadatacollect" title="Lien permanent vers ce titre"></a></h2>
 <p>La base metadataCollect contient les collections relatives aux métadonnées des unités archivistiques (collection Unit) et des groupes d’objets (collection ObjectGroup) utilisées par le module de collecte.</p>
 <section id="id11">
-<h3><span class="section-number">4.5.1. </span>Collection Unit<a class="headerlink" href="#id11" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.5.1. </span>Collection Unit<a class="headerlink" href="#id11" title="Lien permanent vers ce titre"></a></h3>
 <section id="id12">
-<h4><span class="section-number">4.5.1.1. </span>Utilisation de la collection Unit<a class="headerlink" href="#id12" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.5.1.1. </span>Utilisation de la collection Unit<a class="headerlink" href="#id12" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection Unit contient les informations relatives aux unités
 archivistiques enregistrées lors de la phase de collecte.</p>
 </section>
 <section id="id13">
-<h4><span class="section-number">4.5.1.2. </span>Exemple de JSON stocké dans la collection Unit<a class="headerlink" href="#id13" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.5.1.2. </span>Exemple de JSON stocké dans la collection Unit<a class="headerlink" href="#id13" title="Lien permanent vers ce titre"></a></h4>
 <p>Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant :
 https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
@@ -3691,7 +3697,7 @@ https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 </div>
 </section>
 <section id="id14">
-<h4><span class="section-number">4.5.1.3. </span>Détail du JSON<a class="headerlink" href="#id14" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.5.1.3. </span>Détail du JSON<a class="headerlink" href="#id14" title="Lien permanent vers ce titre"></a></h4>
 <p>La structure de la collection Unit a vocation à être composée de la transposition JSON de toutes les balises XML contenues dans la balise &lt;DescriptiveMetadata&gt; du bordereau de transfert conforme au standard SEDA v.2.1., c’est-à-dire toutes les balises se rapportant aux unités archivistiques.</p>
 <p>Cette transposition se fait comme suit :</p>
 <p><strong>« _id » :</strong> identifiant unique de l’unité archivistique.</p>
@@ -4069,14 +4075,14 @@ l’enregistrement.</p>
 </section>
 </section>
 <section id="id15">
-<h3><span class="section-number">4.5.2. </span>Collection ObjectGroup<a class="headerlink" href="#id15" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.5.2. </span>Collection ObjectGroup<a class="headerlink" href="#id15" title="Lien permanent vers ce titre"></a></h3>
 <section id="id16">
-<h4><span class="section-number">4.5.2.1. </span>Utilisation de la collection ObjectGroup<a class="headerlink" href="#id16" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.5.2.1. </span>Utilisation de la collection ObjectGroup<a class="headerlink" href="#id16" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection ObjectGroup contient les informations relatives aux
 groupes d’objets traités dans le module de collecte.</p>
 </section>
 <section id="id17">
-<h4><span class="section-number">4.5.2.2. </span>Exemple de JSON stocké en base<a class="headerlink" href="#id17" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.5.2.2. </span>Exemple de JSON stocké en base<a class="headerlink" href="#id17" title="Lien permanent vers ce titre"></a></h4>
 <p>Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant :
 https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
@@ -4118,7 +4124,7 @@ https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 </div>
 </section>
 <section id="id18">
-<h4><span class="section-number">4.5.2.3. </span>Détail des champs du JSON<a class="headerlink" href="#id18" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.5.2.3. </span>Détail des champs du JSON<a class="headerlink" href="#id18" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant du groupe d’objets.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -4269,20 +4275,20 @@ l’objet-données numérique de référence.</p>
 </section>
 </section>
 <section id="base-collect">
-<h2><span class="section-number">4.6. </span>Base collect<a class="headerlink" href="#base-collect" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.6. </span>Base collect<a class="headerlink" href="#base-collect" title="Lien permanent vers ce titre"></a></h2>
 <p>La base collect contient la collection relative aux métadonnées
 correspondant au contexte de versement (collection Collect) attendu dans
 le module de collecte.</p>
 <section id="collection-collect">
-<h3><span class="section-number">4.6.1. </span>Collection Collect<a class="headerlink" href="#collection-collect" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.6.1. </span>Collection Collect<a class="headerlink" href="#collection-collect" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-collect">
-<h4><span class="section-number">4.6.1.1. </span>Utilisation de la collection Collect<a class="headerlink" href="#utilisation-de-la-collection-collect" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.6.1.1. </span>Utilisation de la collection Collect<a class="headerlink" href="#utilisation-de-la-collection-collect" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection Collect contient les informations relatives à l’en-tête
 d’un bordereau de transfert, soit des métadonnées permettant de
 contextualiser un versement.</p>
 </section>
 <section id="exemple-de-json-stocke-dans-la-collection-collect">
-<h4><span class="section-number">4.6.1.2. </span>Exemple de JSON stocké dans la collection Collect<a class="headerlink" href="#exemple-de-json-stocke-dans-la-collection-collect" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.6.1.2. </span>Exemple de JSON stocké dans la collection Collect<a class="headerlink" href="#exemple-de-json-stocke-dans-la-collection-collect" title="Lien permanent vers ce titre"></a></h4>
 <p>Les champs présentés dans l’exemple ci-après ne font pas état de l’exhaustivité des champs disponibles dans le SEDA. Ceux-ci sont référencés dans la documentation SEDA disponible au lien suivant :
 https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
@@ -4299,7 +4305,7 @@ https://redirect.francearchives.fr/seda/api_v2-1/seda-2.1-main.html</p>
 </div>
 </section>
 <section id="id19">
-<h4><span class="section-number">4.6.1.3. </span>Détail du JSON<a class="headerlink" href="#id19" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.6.1.3. </span>Détail du JSON<a class="headerlink" href="#id19" title="Lien permanent vers ce titre"></a></h4>
 <p>La structure de la collection Collect est composée de la transposition JSON des balises XML de premier niveau du message « ArchiveTransfer », ainsi que des balises contenues dans la balise &lt;ManagementMetadata&gt; du bordereau de transfert conforme au standard SEDA v.2.1.</p>
 <p>Cette transposition se fait comme suit :</p>
 <p><strong>« _id » :</strong> identifiant unique de la partie contextuelle du versement.</p>
@@ -4373,7 +4379,7 @@ transfert.</p>
 </section>
 </section>
 <section id="base-masterdata">
-<h2><span class="section-number">4.7. </span>Base MasterData<a class="headerlink" href="#base-masterdata" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.7. </span>Base MasterData<a class="headerlink" href="#base-masterdata" title="Lien permanent vers ce titre"></a></h2>
 <p>La base Masterdata contient les collections relatives aux référentiels utilisés par la solution logicielle Vitam. Ceux-ci sont :</p>
 <ul class="simple">
 <li><p>AccessContract</p></li>
@@ -4406,14 +4412,14 @@ s’agit des collections suivantes :</p>
 </ul>
 <p>Elles sont enregistrées sur le tenant d’administration.</p>
 <section id="collection-accesscontract">
-<h3><span class="section-number">4.7.1. </span>Collection AccessContract<a class="headerlink" href="#collection-accesscontract" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.7.1. </span>Collection AccessContract<a class="headerlink" href="#collection-accesscontract" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-accesscontract">
-<h4><span class="section-number">4.7.1.1. </span>Utilisation de la collection AccessContract<a class="headerlink" href="#utilisation-de-la-collection-accesscontract" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.1.1. </span>Utilisation de la collection AccessContract<a class="headerlink" href="#utilisation-de-la-collection-accesscontract" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection AccessContract permet de référencer et de décrire
 unitairement les contrats d’accès.</p>
 </section>
 <section id="exemple-dun-fichier-dimport-de-contrat-dacces">
-<h4><span class="section-number">4.7.1.2. </span>Exemple d’un fichier d’import de contrat d’accès<a class="headerlink" href="#exemple-dun-fichier-dimport-de-contrat-dacces" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.1.2. </span>Exemple d’un fichier d’import de contrat d’accès<a class="headerlink" href="#exemple-dun-fichier-dimport-de-contrat-dacces" title="Lien permanent vers ce titre"></a></h4>
 <p>Les contrats d’accès sont importés dans la solution logicielle Vitam
 sous la forme d’un fichier JSON.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
@@ -4481,7 +4487,7 @@ sous la forme d’un fichier JSON.</p>
 </div>
 </section>
 <section id="id20">
-<h4><span class="section-number">4.7.1.3. </span>Détail des champs<a class="headerlink" href="#id20" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.1.3. </span>Détail des champs<a class="headerlink" href="#id20" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique du contrat pour un tenant donné.</p>
 <ul>
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -4624,13 +4630,13 @@ nœuds.</p></li>
 </section>
 </section>
 <section id="collection-accessionregisterdetail">
-<h3><span class="section-number">4.7.2. </span>Collection AccessionRegisterDetail<a class="headerlink" href="#collection-accessionregisterdetail" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.7.2. </span>Collection AccessionRegisterDetail<a class="headerlink" href="#collection-accessionregisterdetail" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-accessionregisterdetail">
-<h4><span class="section-number">4.7.2.1. </span>Utilisation de la collection AccessionRegisterDetail<a class="headerlink" href="#utilisation-de-la-collection-accessionregisterdetail" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.2.1. </span>Utilisation de la collection AccessionRegisterDetail<a class="headerlink" href="#utilisation-de-la-collection-accessionregisterdetail" title="Lien permanent vers ce titre"></a></h4>
 <p>Cette collection a pour vocation de référencer l’ensemble des informations sur les opérations d’entrée ou de préservation réalisées pour un service producteur. À ce jour, il y a autant d’enregistrements que d’opérations d’entrées effectuées pour ce service producteur, ainsi que des enregistrements liés à la préservation. Cette collection reprend les éléments du bordereau de transfert, ainsi que les éléments correspondant à des opérations d’élimination, de transfert ou de préservation et de suppression de versions d’objets.</p>
 </section>
 <section id="exemple-de-la-description-dans-le-xml-dentree">
-<h4><span class="section-number">4.7.2.2. </span>Exemple de la description dans le XML d’entrée<a class="headerlink" href="#exemple-de-la-description-dans-le-xml-dentree" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.2.2. </span>Exemple de la description dans le XML d’entrée<a class="headerlink" href="#exemple-de-la-description-dans-le-xml-dentree" title="Lien permanent vers ce titre"></a></h4>
 <p>Les seuls éléments issus du message ArchiveTransfer utilisés ici sont ceux correspondant à la déclaration des identifiants du service producteur et du service versant. Ils sont placés dans le bloc &lt;ManagementMetadata&gt;</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ManagementMetadata&gt;</span>
          <span class="nt">&lt;OriginatingAgencyIdentifier&gt;</span>FRAN_NP_051314<span class="nt">&lt;/OriginatingAgencyIdentifier&gt;</span>
@@ -4640,7 +4646,7 @@ nœuds.</p></li>
 </div>
 </section>
 <section id="id21">
-<h4><span class="section-number">4.7.2.3. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id21" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.2.3. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id21" title="Lien permanent vers ce titre"></a></h4>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aehaaaaaa4haffe6ab7yialiplg6plqaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;ObjectSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -4707,7 +4713,7 @@ nœuds.</p></li>
 </div>
 </section>
 <section id="id22">
-<h4><span class="section-number">4.7.2.4. </span>Détail des champs<a class="headerlink" href="#id22" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.2.4. </span>Détail des champs<a class="headerlink" href="#id22" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -4977,13 +4983,13 @@ lot d’ingest existant ou un lot préservé.</p>
 </section>
 </section>
 <section id="collection-accessionregistersummary">
-<h3><span class="section-number">4.7.3. </span>Collection AccessionRegisterSummary<a class="headerlink" href="#collection-accessionregistersummary" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.7.3. </span>Collection AccessionRegisterSummary<a class="headerlink" href="#collection-accessionregistersummary" title="Lien permanent vers ce titre"></a></h3>
 <section id="id23">
-<h4><span class="section-number">4.7.3.1. </span>Utilisation de la collection<a class="headerlink" href="#id23" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.3.1. </span>Utilisation de la collection<a class="headerlink" href="#id23" title="Lien permanent vers ce titre"></a></h4>
 <p>Cette collection contient une vue macroscopique des fonds pris en charge dans la solution logicielle Vitam. Chaque service producteur possède un et un seul document le concernant dans cette collection. Ce document est <strong>calculé</strong> à partir des données enregistrées dans la collection AccessionRegisterDetail pour ce service producteur.</p>
 </section>
 <section id="id24">
-<h4><span class="section-number">4.7.3.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id24" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.3.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id24" title="Lien permanent vers ce titre"></a></h4>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aefaaaaaaahlpvjiaablwalj7y632fyaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;OriginatingAgency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FRAN_NP_009913&quot;</span><span class="p">,</span><span class="w"></span>
@@ -5015,7 +5021,7 @@ lot d’ingest existant ou un lot préservé.</p>
 </div>
 </section>
 <section id="id25">
-<h4><span class="section-number">4.7.3.3. </span>Détail des champs<a class="headerlink" href="#id25" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.3.3. </span>Détail des champs<a class="headerlink" href="#id25" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique du fonds.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -5088,9 +5094,9 @@ collection.</p>
 </section>
 </section>
 <section id="collection-accessionregistersymbolic">
-<h3><span class="section-number">4.7.4. </span>Collection AccessionRegisterSymbolic<a class="headerlink" href="#collection-accessionregistersymbolic" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.7.4. </span>Collection AccessionRegisterSymbolic<a class="headerlink" href="#collection-accessionregistersymbolic" title="Lien permanent vers ce titre"></a></h3>
 <section id="id26">
-<h4><span class="section-number">4.7.4.1. </span>Utilisation de la collection<a class="headerlink" href="#id26" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.4.1. </span>Utilisation de la collection<a class="headerlink" href="#id26" title="Lien permanent vers ce titre"></a></h4>
 <p>Cette collection contient une vue macroscopique des fonds relatifs aux services producteurs symboliques. Ces documents sont calculés périodiquement à partir des métadonnées renseignées dans les unités archivistiques et les groupes d’objets.</p>
 <p>Chaque document représente un instantané (snapshot) du stock symbolique pour un producteur, conservé pour l’historisation des fonds de ce dernier. Un nouveau document est donc créé à chaque fois que le registre des fonds symboliques est calculé.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
@@ -5108,7 +5114,7 @@ collection.</p>
 </div>
 </section>
 <section id="id27">
-<h4><span class="section-number">4.7.4.2. </span>Détail des champs<a class="headerlink" href="#id27" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.4.2. </span>Détail des champs<a class="headerlink" href="#id27" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique du fonds.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -5167,13 +5173,13 @@ collection.</p>
 </section>
 </section>
 <section id="collection-archiveunitprofile">
-<h3><span class="section-number">4.7.5. </span>Collection ArchiveUnitProfile<a class="headerlink" href="#collection-archiveunitprofile" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.7.5. </span>Collection ArchiveUnitProfile<a class="headerlink" href="#collection-archiveunitprofile" title="Lien permanent vers ce titre"></a></h3>
 <section id="id28">
-<h4><span class="section-number">4.7.5.1. </span>Utilisation de la collection<a class="headerlink" href="#id28" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.5.1. </span>Utilisation de la collection<a class="headerlink" href="#id28" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection ArchiveUnitProfile permet de référencer et décrire unitairement les profils d’unité archivistique.</p>
 </section>
 <section id="exemple-dun-fichier-dimport-de-profils-dunite-archivistique">
-<h4><span class="section-number">4.7.5.2. </span>Exemple d’un fichier d’import de profils d’unité archivistique<a class="headerlink" href="#exemple-dun-fichier-dimport-de-profils-dunite-archivistique" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.5.2. </span>Exemple d’un fichier d’import de profils d’unité archivistique<a class="headerlink" href="#exemple-dun-fichier-dimport-de-profils-dunite-archivistique" title="Lien permanent vers ce titre"></a></h4>
 <p>Les profils d’unité archivistique sont importés dans la solution logicielle Vitam sous la forme d’un fichier JSON.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="s2">&quot;Facture&quot;</span><span class="p">,</span><span class="w"></span>
@@ -5198,7 +5204,7 @@ archivistique sont :</p>
 <p>Un fichier JSON peut décrire plusieurs profils d’unité archivistique.</p>
 </section>
 <section id="exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-archiveunitprofile">
-<h4><span class="section-number">4.7.5.3. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection ArchiveUnitProfile<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-archiveunitprofile" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.5.3. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection ArchiveUnitProfile<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-archiveunitprofile" title="Lien permanent vers ce titre"></a></h4>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aegaaaaabmhdh434aapnqalcd7mufiyaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;Identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AUP_IDENTIFIER_0&quot;</span><span class="p">,</span><span class="w"></span>
@@ -5218,7 +5224,7 @@ archivistique sont :</p>
 </div>
 </section>
 <section id="detail-des-champs-de-la-collection-archiveunitprofile">
-<h4><span class="section-number">4.7.5.4. </span>Détail des champs de la collection ArchiveUnitProfile<a class="headerlink" href="#detail-des-champs-de-la-collection-archiveunitprofile" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.5.4. </span>Détail des champs de la collection ArchiveUnitProfile<a class="headerlink" href="#detail-des-champs-de-la-collection-archiveunitprofile" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique du profil d’unité archivistique.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -5325,31 +5331,29 @@ archivistique sont :</p>
 </section>
 </section>
 <section id="collection-agencies">
-<h3><span class="section-number">4.7.6. </span>Collection Agencies<a class="headerlink" href="#collection-agencies" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.7.6. </span>Collection Agencies<a class="headerlink" href="#collection-agencies" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-agencies">
-<h4><span class="section-number">4.7.6.1. </span>Utilisation de la collection Agencies<a class="headerlink" href="#utilisation-de-la-collection-agencies" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.6.1. </span>Utilisation de la collection Agencies<a class="headerlink" href="#utilisation-de-la-collection-agencies" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection Agencies permet de référencer et décrire unitairement les services agents.</p>
 <p>Cette collection est alimentée par l’import d’un fichier CSV contenant l’ensemble des services agents. Celui doit être structuré comme ceci :</p>
-<table border="1" class="docutils">
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr>
-<th align="center">Identifier</th>
-<th align="center">Name</th>
-<th align="center">Description</th>
+<tr class="row-odd"><th class="text-center head"><p>Identifier</p></th>
+<th class="text-center head"><p>Name</p></th>
+<th class="text-center head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td align="center">Identifiant du service agent</td>
-<td align="center">Nom du service agent</td>
-<td align="center">Description du service agent</td>
+<tr class="row-even"><td class="text-center"><p>Identifiant du service agent</p></td>
+<td class="text-center"><p>Nom du service agent</p></td>
+<td class="text-center"><p>Description du service agent</p></td>
 </tr>
 </tbody>
 </table>
 <p>Le fichier .csv doit avoir comme séparateur de champ la virgule.</p>
 </section>
 <section id="exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-agencies">
-<h4><span class="section-number">4.7.6.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Agencies<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-agencies" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.6.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Agencies<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-agencies" title="Lien permanent vers ce titre"></a></h4>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeaaaaaaaaevq6lcaamxsak7psyd2uyaaadq&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;Identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Identifier5&quot;</span><span class="p">,</span><span class="w"></span>
@@ -5362,7 +5366,7 @@ archivistique sont :</p>
 </div>
 </section>
 <section id="id29">
-<h4><span class="section-number">4.7.6.3. </span>Détail des champs<a class="headerlink" href="#id29" title="Lien permanent vers cette rubrique"></a></h4>
+<h4><span class="section-number">4.7.6.3. </span>Détail des champs<a class="headerlink" href="#id29" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique du service agent.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -5402,131 +5406,122 @@ archivistique sont :</p>
 </section>
 </section>
 <section id="collection-context">
-<h3><span class="section-number">4.7.7. </span>Collection Context<a class="headerlink" href="#collection-context" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.7.7. </span>Collection Context<a class="headerlink" href="#collection-context" title="Lien permanent vers ce titre"></a></h3>
 <section id="id30">
-<h4><span class="section-number">4.7.7.1. </span>Utilisation de la collection<a class="headerlink" href="#id30" title="Lien permanent vers cette rubrique"></a></h4>
-<p>La collection Context permet de référencer et décrire unitairement les
-contextes applicatifs.</p>
-<p>[]{#__RefHeading___Toc29507_1669085364 .anchor}7.7.2. Exemple d’un
-fichier d’import de contexte applicatif</p>
-<p>Les contextes applicatifs sont importés dans la solution logicielle
-Vitam sous la forme d’un fichier JSON.</p>
-<blockquote>
-<div><p>{<br />
-« Name »: « My_Context_5 »,<br />
-« Status »: « ACTIVE »,<br />
-« SecurityProfile »: « admin-security-profile »,<br />
-« Permissions »: [<br />
-{<br />
-« tenant »: 1,<br />
-« AccessContracts »: [<br />
-« AccessContracts_1 »,<br />
-« AccessContracts_2 »<br />
-],<br />
-« IngestContracts »: [<br />
-« IngestContracts_1 »,<br />
-« IngestContracts_2 »<br />
-]<br />
-},<br />
-{<br />
-« tenant »: 0,<br />
-« AccessContracts »: [<br />
-« AccessContracts_5 »,<br />
-« AccessContracts_6 »<br />
-],<br />
-« IngestContracts »: [<br />
-« IngestContracts_9 »,<br />
-« IngestContracts_10 »<br />
-]<br />
-}<br />
-]<br />
-}</p>
-</div></blockquote>
-<p>[]{#__RefHeading___Toc29509_1669085364 .anchor}7.7.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-Context</p>
-<blockquote>
-<div><p>{<br />
-« _id »: « aegqaaaaaaevq6lcaamxsak7psqdcmqaaaaq »,<br />
-« Name »: « admin-context »,<br />
-« Status »: « ACTIVE »,<br />
-« EnableControl »: false,<br />
-« Identifier »: « CT-000001 »,<br />
-« SecurityProfile »: « admin-security-profile »,<br />
-« Permissions »: [<br />
-{<br />
-« tenant »: 0,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-},<br />
-{<br />
-« tenant »: 1,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-},<br />
-{<br />
-« tenant »: 2,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-},<br />
-{<br />
-« tenant »: 3,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-},<br />
-{<br />
-« tenant »: 4,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-},<br />
-{<br />
-« tenant »: 5,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-},<br />
-{<br />
-« tenant »: 6,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-},<br />
-{<br />
-« tenant »: 7,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-},<br />
-{<br />
-« tenant »: 8,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-},<br />
-{<br />
-« tenant »: 9,<br />
-« AccessContracts »: [],<br />
-« IngestContracts »: []<br />
-}<br />
-],<br />
-« CreationDate »: « 2017-11-02T12:06:34.034 »,<br />
-« LastUpdate »: « 2017-11-02T12:06:34.036 »,<br />
-« _v »: 0<br />
-}</p>
-</div></blockquote>
-<p>Il est possible de mettre plusieurs contextes applicatifs dans un même
-fichier, sur le même modèle que les contrats d’entrée ou d’accès par
-exemple. On pourra noter que le contexte est multi-tenant et définit
-chaque tenant de manière indépendante. Il doit être enregistré dans le
-tenant d’administration.</p>
-<p>Les champs à renseigner obligatoirement à la création d’un contexte
-applicatif sont :</p>
-<ul>
+<h4><span class="section-number">4.7.7.1. </span>Utilisation de la collection<a class="headerlink" href="#id30" title="Lien permanent vers ce titre"></a></h4>
+<p>La collection Context permet de référencer et décrire unitairement les contextes applicatifs.</p>
+</section>
+<section id="exemple-dun-fichier-dimport-de-contexte-applicatif">
+<h4><span class="section-number">4.7.7.2. </span>Exemple d’un fichier d’import de contexte applicatif<a class="headerlink" href="#exemple-dun-fichier-dimport-de-contexte-applicatif" title="Lien permanent vers ce titre"></a></h4>
+<p>Les contextes applicatifs sont importés dans la solution logicielle Vitam sous la forme d’un fichier JSON.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My_Context_5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SecurityProfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin-security-profile&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;AccessContracts_1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;AccessContracts_2&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;IngestContracts_1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;IngestContracts_2&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;AccessContracts_5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;AccessContracts_6&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;IngestContracts_9&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;IngestContracts_10&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-context">
+<h4><span class="section-number">4.7.7.3. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Context<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-context" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aegqaaaaaaevq6lcaamxsak7psqdcmqaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin-context&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;EnableControl&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CT-000001&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;SecurityProfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin-security-profile&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;AccessContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;IngestContracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;CreationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2017-11-02T12:06:34.034&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;LastUpdate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2017-11-02T12:06:34.036&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Il est possible de mettre plusieurs contextes applicatifs dans un même fichier, sur le même modèle que les contrats d’entrée ou d’accès par exemple. On pourra noter que le contexte est multi-tenant et définit chaque tenant de manière indépendante. Il doit être enregistré dans le tenant d’administration.</p>
+<p>Les champs à renseigner obligatoirement à la création d’un contexte applicatif sont :</p>
+<ul class="simple">
 <li><p>Name</p></li>
-<li><p>Permissions. La valeur de Permissions peut cependant être vide :</p>
-<blockquote>
-<div><p>« Permissions : [] »</p>
-</div></blockquote>
-<p>[]{#__RefHeading___Toc29511_1669085364 .anchor}7.7.4. Détail des
-champs</p>
-</li>
+<li><p>Permissions. La valeur de Permissions peut cependant être vide : « Permissions : [] »</p></li>
 </ul>
+</section>
+<section id="id31">
+<h4><span class="section-number">4.7.7.4. </span>Détail des champs<a class="headerlink" href="#id31" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique du contexte applicatif.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
@@ -5544,74 +5539,43 @@ champs</p>
 <li><p>Peut avoir pour valeur : ACTIVE ou INACTIVE</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
-<p><strong>« Identifier » :</strong> identifiant signifiant donné au contexte
-applicatif.</p>
-<ul>
-<li><p>Il est constitué du préfixe « CT- » suivi d’une suite de 6 chiffres.</p>
-<blockquote>
-<div><p>Par exemple : CT-001573.</p>
-</div></blockquote>
-</li>
+<p><strong>« Identifier » :</strong> identifiant signifiant donné au contexte applicatif.</p>
+<ul class="simple">
+<li><p>Il est constitué du préfixe « CT- » suivi d’une suite de 6 chiffres. Par exemple : <code class="docutils literal notranslate"><span class="pre">CT-001573</span></code>.</p></li>
 <li><p>Il s’agit d’une chaîne de caractères.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
-<p><strong>« SecurityProfile » :</strong> nom du profil de sécurité utilisé par le
-contexte applicatif.</p>
-<ul>
-<li><p>Il s’agit d’une chaîne de caractères correspondant à une valeur</p>
-<blockquote>
-<div><p>valide du champ « _id » de la collection SecurityProfile.</p>
-</div></blockquote>
-</li>
+<p><strong>« SecurityProfile » :</strong> nom du profil de sécurité utilisé par le contexte applicatif.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères correspondant à une valeur valide du champ « _id » de la collection SecurityProfile.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
-<p><strong>« Permissions » :</strong> début du bloc appliquant les permissions à chaque
-tenant.</p>
-<ul>
+<p><strong>« Permissions » :</strong> début du bloc appliquant les permissions à chaque tenant.</p>
+<ul class="simple">
 <li><p>C’est un mot clé qui n’a pas de valeur associée.</p></li>
 <li><p>Il s’agit d’un tableau.</p></li>
 <li><p>Peut être vide.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
-<li><p>pour un tenant donné, il contient un objet JSON contenant les champs</p>
-<blockquote>
-<div><p>suivants :</p>
-</div></blockquote>
+<li><p>pour un tenant donné, il contient un objet JSON contenant les champs suivants :</p>
 <ul>
-<li><p><strong>« tenant » :</strong> tenant sur lequel sont appliquées les</p>
-<blockquote>
-<div><p>permissions.</p>
-</div></blockquote>
-<ul class="simple">
+<li><p><strong>« tenant » :</strong> tenant sur lequel sont appliquées les permissions.</p>
+<ul>
 <li><p>Il s’agit d’un entier.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
 </li>
-<li><p><strong>« AccessContracts » :</strong> tableau d’identifiants de contrats</p>
-<blockquote>
-<div><p>d’accès appliqués sur le tenant.</p>
-</div></blockquote>
+<li><p><strong>« AccessContracts » :</strong> tableau d’identifiants de contrats d’accès appliqués sur le tenant.</p>
 <ul>
 <li><p>Il s’agit d’un tableau de chaînes de caractères.</p></li>
-<li><p>Les identifiants valides correspondent au champ Identifier</p>
-<blockquote>
-<div><p>des documents de la collection AccessContract.</p>
-</div></blockquote>
-</li>
+<li><p>Les identifiants valides correspondent au champ Identifier des documents de la collection AccessContract.</p></li>
 <li><p>Peut être vide.</p></li>
 <li><p>Cardinalité : 0-1</p></li>
 </ul>
 </li>
-<li><p><strong>« IngestContracts » :</strong> tableau d’identifiants de contrats</p>
-<blockquote>
-<div><p>d’entrées appliqués sur le tenant.</p>
-</div></blockquote>
+<li><p><strong>« IngestContracts » :</strong> tableau d’identifiants de contrats d’entrées appliqués sur le tenant.</p>
 <ul>
 <li><p>Il s’agit d’un tableau de chaînes de caractères.</p></li>
-<li><p>Les identifants valides correspondent au champ Identifier</p>
-<blockquote>
-<div><p>des documents de la collection IngestContract.</p>
-</div></blockquote>
-</li>
+<li><p>Les identifants valides correspondent au champ Identifier des documents de la collection IngestContract.</p></li>
 <li><p>Peut être vide.</p></li>
 <li><p>Cardinalité : 0-1</p></li>
 </ul>
@@ -5623,47 +5587,39 @@ tenant.</p>
 <ul>
 <li><p>Il s’agit d’une date au format ISO 8601.</p></li>
 <li><p>Cardinalité : 1-1</p>
-<p>Exemple : « CreationDate »: « 2017-04-10T11:30:33.798 »,</p>
+<p>Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;CreationDate&quot;:</span> <span class="pre">&quot;2017-04-10T11:30:33.798&quot;</span></code>,</p>
 </li>
 </ul>
-<p><strong>« LastUpdate » :</strong> date de dernière modification du contexte
-applicatif.</p>
+<p><strong>« LastUpdate » :</strong> date de dernière modification du contexte applicatif.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une date au format ISO 8601.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
-<li><p>Exemple : « LastUpdate »: « 2017-04-10T11:30:33.798 »,</p></li>
+<li><p>Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;LastUpdate&quot;:</span> <span class="pre">&quot;2017-04-10T11:30:33.798&quot;</span></code>,</p></li>
 </ul>
 <p><strong>« _v » :</strong> version de l’enregistrement décrit.</p>
-<ul>
+<ul class="simple">
 <li><p>Il s’agit d’un entier.</p></li>
 <li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
-<li><p>0 correspond à l’enregistrement d’origine. Si le numéro est</p>
-<blockquote>
-<div><p>supérieur à 0, alors il s’agit du numéro de version de
-l’enregistrement.</p>
-</div></blockquote>
-</li>
+<li><p>0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
 <p><strong>« EnableControl » :</strong> activation des contrôles sur les tenants.</p>
-<ul>
-<li><p>Il s’agit d’un booléen</p></li>
-<li><p>Il peut avoir pour valeur « true » ou « false » et a la valeur par</p>
-<blockquote>
-<div><p>défaut : « false ».</p>
-</div></blockquote>
 <ul class="simple">
+<li><p>Il s’agit d’un booléen</p></li>
+<li><p>Il peut avoir pour valeur « true » ou « false » et a la valeur par défaut : « false ».</p>
+<ul>
 <li><p>« true » : le contrôle est actif</p></li>
 <li><p>« false » : le contrôle est inactif</p></li>
 </ul>
 </li>
-<li><p>Cardinalité : 1-1</p>
-<p>[]{#__RefHeading___Toc29513_1669085364 .anchor}7.8. Collection
-FileFormat</p>
-<p>[]{#__RefHeading___Toc29515_1669085364 .anchor}7.8.1. Utilisation de
-la collection FileFormat</p>
-</li>
+<li><p>Cardinalité : 1-1</p></li>
 </ul>
+</section>
+</section>
+<section id="collection-fileformat">
+<h3><span class="section-number">4.7.8. </span>Collection FileFormat<a class="headerlink" href="#collection-fileformat" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-fileformat">
+<h4><span class="section-number">4.7.8.1. </span>Utilisation de la collection FileFormat<a class="headerlink" href="#utilisation-de-la-collection-fileformat" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection FileFormat permet de référencer et décrire unitairement
 les différents formats de fichiers ainsi que leur description. La
 collection est initialisée à partir de l’import du fichier de signature
@@ -7800,7 +7756,7 @@ champs</p>
 </section>
 </section>
 <section id="base-report">
-<h2><span class="section-number">4.8. </span>Base Report<a class="headerlink" href="#base-report" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.8. </span>Base Report<a class="headerlink" href="#base-report" title="Lien permanent vers ce titre"></a></h2>
 <p>La base Report contient des collections remplies temporairement,
 utilisées pour construire des rapports d’opérations dans la solution
 logicielle Vitam. Ces collections sont :</p>
@@ -7937,7 +7893,7 @@ comme valeurs :</p>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
 <section id="collection-eliminationactionobjectgroup">
-<h3><span class="section-number">4.8.1. </span>Collection EliminationActionObjectGroup<a class="headerlink" href="#collection-eliminationactionobjectgroup" title="Lien permanent vers cette rubrique"></a></h3>
+<h3><span class="section-number">4.8.1. </span>Collection EliminationActionObjectGroup<a class="headerlink" href="#collection-eliminationactionobjectgroup" title="Lien permanent vers ce titre"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[]{#__RefHeading___Toc29601_1669085364 .anchor}8.3. Collection
 EliminationActionObjectGroup
 
@@ -8082,7 +8038,7 @@ préservation.</p>
 </section>
 </section>
 <section id="annexe-1-valeurs-possibles-pour-le-champ-evtype-du-logbook-operation">
-<h2><span class="section-number">4.9. </span>Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation<a class="headerlink" href="#annexe-1-valeurs-possibles-pour-le-champ-evtype-du-logbook-operation" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.9. </span>Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation<a class="headerlink" href="#annexe-1-valeurs-possibles-pour-le-champ-evtype-du-logbook-operation" title="Lien permanent vers ce titre"></a></h2>
 <p>L’ensemble des étapes, tâches et traitements sont détaillés dans la
 documentation Modèle de workflow.</p>
 <p>## Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle</p>
@@ -8090,146 +8046,120 @@ documentation Modèle de workflow.</p>
 documentation Modèle de workflow.</p>
 </section>
 <section id="annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus">
-<h2><span class="section-number">4.10. </span>Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)<a class="headerlink" href="#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus" title="Lien permanent vers cette rubrique"></a></h2>
-<table border="1" class="docutils">
+<h2><span class="section-number">4.10. </span>Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)<a class="headerlink" href="#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus" title="Lien permanent vers ce titre"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr>
-<th align="left">Process Type</th>
-<th align="left">Valeur</th>
-<th align="left">Description</th>
+<tr class="row-odd"><th class="text-left head"><p>Process Type</p></th>
+<th class="text-left head"><p>Valeur</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td align="left">Archive Transfer process</td>
-<td align="left">ARCHIVE_TRANSFER</td>
-<td align="left">Transfert</td>
+<tr class="row-even"><td class="text-left"><p>Archive Transfer process</p></td>
+<td class="text-left"><p>ARCHIVE_TRANSFER</p></td>
+<td class="text-left"><p>Transfert</p></td>
 </tr>
-<tr>
-<td align="left">Audit Type process</td>
-<td align="left">AUDIT</td>
-<td align="left">Audit</td>
+<tr class="row-odd"><td class="text-left"><p>Audit Type process</p></td>
+<td class="text-left"><p>AUDIT</p></td>
+<td class="text-left"><p>Audit</p></td>
 </tr>
-<tr>
-<td align="left">Bulk Update process</td>
-<td align="left">BULK_UPDATE</td>
-<td align="left">Mise à jour unitaire en masse</td>
+<tr class="row-even"><td class="text-left"><p>Bulk Update process</p></td>
+<td class="text-left"><p>BULK_UPDATE</p></td>
+<td class="text-left"><p>Mise à jour unitaire en masse</p></td>
 </tr>
-<tr>
-<td align="left">Check type process</td>
-<td align="left">CHECK</td>
-<td align="left">Vérification</td>
+<tr class="row-odd"><td class="text-left"><p>Check type process</p></td>
+<td class="text-left"><p>CHECK</p></td>
+<td class="text-left"><p>Vérification</p></td>
 </tr>
-<tr>
-<td align="left">ComputedInheritedRules process</td>
-<td align="left">COMPUTE_INHERITED_RULES</td>
-<td align="left">Calcul des règles de gestion applicables</td>
+<tr class="row-even"><td class="text-left"><p>ComputedInheritedRules process</p></td>
+<td class="text-left"><p>COMPUTE_INHERITED_RULES</p></td>
+<td class="text-left"><p>Calcul des règles de gestion applicables</p></td>
 </tr>
-<tr>
-<td align="left">Migration</td>
-<td align="left">DATA_MIGRATION</td>
-<td align="left">Migration</td>
+<tr class="row-odd"><td class="text-left"><p>Migration</p></td>
+<td class="text-left"><p>DATA_MIGRATION</p></td>
+<td class="text-left"><p>Migration</p></td>
 </tr>
-<tr>
-<td align="left">Delete GOT versions process</td>
-<td align="left">DELETE_GOT_VERSIONS</td>
-<td align="left">Suppression de versions d’objets</td>
+<tr class="row-even"><td class="text-left"><p>Delete GOT versions process</p></td>
+<td class="text-left"><p>DELETE_GOT_VERSIONS</p></td>
+<td class="text-left"><p>Suppression de versions d’objets</p></td>
 </tr>
-<tr>
-<td align="left">Destruction type process</td>
-<td align="left">ELIMINATION</td>
-<td align="left">Élimination</td>
+<tr class="row-odd"><td class="text-left"><p>Destruction type process</p></td>
+<td class="text-left"><p>ELIMINATION</p></td>
+<td class="text-left"><p>Élimination</p></td>
 </tr>
-<tr>
-<td align="left">Evidence Audit type process</td>
-<td align="left">EVIDENCEAUDIT</td>
-<td align="left">Audit de traçabilité</td>
+<tr class="row-even"><td class="text-left"><p>Evidence Audit type process</p></td>
+<td class="text-left"><p>EVIDENCEAUDIT</p></td>
+<td class="text-left"><p>Audit de traçabilité</p></td>
 </tr>
-<tr>
-<td align="left">DIP export</td>
-<td align="left">EXPORT_DIP</td>
-<td align="left">Export de DIP</td>
+<tr class="row-odd"><td class="text-left"><p>DIP export</p></td>
+<td class="text-left"><p>EXPORT_DIP</p></td>
+<td class="text-left"><p>Export de DIP</p></td>
 </tr>
-<tr>
-<td align="left">Evidence probativevalue export</td>
-<td align="left">EXPORT_PROBATIVE_VALUE</td>
-<td align="left">Export d’un relevé de valeur probante</td>
+<tr class="row-even"><td class="text-left"><p>Evidence probativevalue export</p></td>
+<td class="text-left"><p>EXPORT_PROBATIVE_VALUE</p></td>
+<td class="text-left"><p>Export d’un relevé de valeur probante</p></td>
 </tr>
-<tr>
-<td align="left">External</td>
-<td align="left">EXTERNAL</td>
-<td align="left">Opération Externe à VITAM</td>
+<tr class="row-odd"><td class="text-left"><p>External</p></td>
+<td class="text-left"><p>EXTERNAL</p></td>
+<td class="text-left"><p>Opération Externe à VITAM</p></td>
 </tr>
-<tr>
-<td align="left">Filing scheme type process</td>
-<td align="left">FILINGSCHEME</td>
-<td align="left">Import de plan de classement</td>
+<tr class="row-even"><td class="text-left"><p>Filing scheme type process</p></td>
+<td class="text-left"><p>FILINGSCHEME</p></td>
+<td class="text-left"><p>Import de plan de classement</p></td>
 </tr>
-<tr>
-<td align="left">Holding scheme type process (tree)</td>
-<td align="left">HOLDINGSCHEME</td>
-<td align="left">Entrée de plan</td>
+<tr class="row-odd"><td class="text-left"><p>Holding scheme type process (tree)</p></td>
+<td class="text-left"><p>HOLDINGSCHEME</p></td>
+<td class="text-left"><p>Entrée de plan</p></td>
 </tr>
-<tr>
-<td align="left">Ingest type process</td>
-<td align="left">INGEST</td>
-<td align="left">Entrée</td>
+<tr class="row-even"><td class="text-left"><p>Ingest type process</p></td>
+<td class="text-left"><p>INGEST</p></td>
+<td class="text-left"><p>Entrée</p></td>
 </tr>
-<tr>
-<td align="left">Ingest test type process</td>
-<td align="left">INGEST_TEST</td>
-<td align="left">Entrée à blanc</td>
+<tr class="row-odd"><td class="text-left"><p>Ingest test type process</p></td>
+<td class="text-left"><p>INGEST_TEST</p></td>
+<td class="text-left"><p>Entrée à blanc</p></td>
 </tr>
-<tr>
-<td align="left">Mass update of archive units</td>
-<td align="left">MASS_UPDATE</td>
-<td align="left">Modification de masse</td>
+<tr class="row-even"><td class="text-left"><p>Mass update of archive units</p></td>
+<td class="text-left"><p>MASS_UPDATE</p></td>
+<td class="text-left"><p>Modification de masse</p></td>
 </tr>
-<tr>
-<td align="left">Rules Manager process</td>
-<td align="left">MASTERDATA</td>
-<td align="left">Données de base</td>
+<tr class="row-odd"><td class="text-left"><p>Rules Manager process</p></td>
+<td class="text-left"><p>MASTERDATA</p></td>
+<td class="text-left"><p>Données de base</p></td>
 </tr>
-<tr>
-<td align="left">Preservation type process</td>
-<td align="left">PRESERVATION</td>
-<td align="left">Préservation</td>
+<tr class="row-even"><td class="text-left"><p>Preservation type process</p></td>
+<td class="text-left"><p>PRESERVATION</p></td>
+<td class="text-left"><p>Préservation</p></td>
 </tr>
-<tr>
-<td align="left">Reclassification process (attachment/detachment)</td>
-<td align="left">RECLASSIFICATION</td>
-<td align="left">Modification d’arborescence</td>
+<tr class="row-odd"><td class="text-left"><p>Reclassification process (attachment/detachment)</p></td>
+<td class="text-left"><p>RECLASSIFICATION</p></td>
+<td class="text-left"><p>Modification d’arborescence</p></td>
 </tr>
-<tr>
-<td align="left">Storage Backup type process</td>
-<td align="left">STORAGE_BACKUP</td>
-<td align="left">Enregistrement du backup</td>
+<tr class="row-even"><td class="text-left"><p>Storage Backup type process</p></td>
+<td class="text-left"><p>STORAGE_BACKUP</p></td>
+<td class="text-left"><p>Enregistrement du backup</p></td>
 </tr>
-<tr>
-<td align="left">Storage Logbook type process</td>
-<td align="left">STORAGE_LOGBOOK</td>
-<td align="left">Enregistrement des journaux</td>
+<tr class="row-odd"><td class="text-left"><p>Storage Logbook type process</p></td>
+<td class="text-left"><p>STORAGE_LOGBOOK</p></td>
+<td class="text-left"><p>Enregistrement des journaux</p></td>
 </tr>
-<tr>
-<td align="left">Storage Angencies type process</td>
-<td align="left">STORAGE_RULE</td>
-<td align="left">Enregistrement du référentiel des services agents</td>
+<tr class="row-even"><td class="text-left"><p>Storage Angencies type process</p></td>
+<td class="text-left"><p>STORAGE_RULE</p></td>
+<td class="text-left"><p>Enregistrement du référentiel des services agents</p></td>
 </tr>
-<tr>
-<td align="left">Traceability type process</td>
-<td align="left">TRACEABILITY</td>
-<td align="left">Sécurisation</td>
+<tr class="row-odd"><td class="text-left"><p>Traceability type process</p></td>
+<td class="text-left"><p>TRACEABILITY</p></td>
+<td class="text-left"><p>Sécurisation</p></td>
 </tr>
-<tr>
-<td align="left">Update process</td>
-<td align="left">UPDATE</td>
-<td align="left">Mise à jour</td>
+<tr class="row-even"><td class="text-left"><p>Update process</p></td>
+<td class="text-left"><p>UPDATE</p></td>
+<td class="text-left"><p>Mise à jour</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="annexe-4-categories-de-regles-possibles">
-<h2><span class="section-number">4.11. </span>Annexe 4 : Catégories de règles possibles<a class="headerlink" href="#annexe-4-categories-de-regles-possibles" title="Lien permanent vers cette rubrique"></a></h2>
+<h2><span class="section-number">4.11. </span>Annexe 4 : Catégories de règles possibles<a class="headerlink" href="#annexe-4-categories-de-regles-possibles" title="Lien permanent vers ce titre"></a></h2>
 <hr class="docutils" />
 <p>Prefixe (Peut être modifié)   Type de règle correspondante   Description du type de règle
 ACC                           AccessRule                     Règle d’accès / délai de communicabilité
@@ -9027,12 +8957,9 @@ directement, une correspondance est nécessaire pour y accéder.</p>
   </span>
   <div class="rst-other-versions">
     <dl>
-      <dt>Tags</dt>
-      <dd><a href="../../v5.0/sections/modele_de_donnees.html">v5.0</a></dd>
-    </dl>
-    <dl>
       <dt>Branches</dt>
       <dd><a href="modele_de_donnees.html">Update_of_MDD_for_6.rc_version</a></dd>
+      <dd><a href="../../v5.0/sections/modele_de_donnees.html">v5.0</a></dd>
     </dl>
   </div>
 </div><script>
