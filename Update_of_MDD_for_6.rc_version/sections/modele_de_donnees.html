@@ -199,6 +199,13 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#collection-fileformat">4.7.8. Collection FileFormat</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-fileformat">4.7.8.1. Utilisation de la collection FileFormat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exemple-de-la-description-dun-format-dans-le-xml-dentree">4.7.8.2. Exemple de la description d’un format dans le XML d’entrée</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-fileformat">4.7.8.3. Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection FileFormat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id32">4.7.8.4. Détail des champs du JSON stocké en base</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-filerules">4.7.9. Collection FileRules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-filerules">4.7.9.1. Utilisation de la collection FileRules</a></li>
 </ul>
 </li>
 </ul>
@@ -5620,125 +5627,87 @@ archivistique sont :</p>
 <h3><span class="section-number">4.7.8. </span>Collection FileFormat<a class="headerlink" href="#collection-fileformat" title="Lien permanent vers ce titre"></a></h3>
 <section id="utilisation-de-la-collection-fileformat">
 <h4><span class="section-number">4.7.8.1. </span>Utilisation de la collection FileFormat<a class="headerlink" href="#utilisation-de-la-collection-fileformat" title="Lien permanent vers ce titre"></a></h4>
-<p>La collection FileFormat permet de référencer et décrire unitairement
-les différents formats de fichiers ainsi que leur description. La
-collection est initialisée à partir de l’import du fichier de signature
-PRONOM, mis à disposition par The National Archive (UK).</p>
-<p>Cette collection est commune à tous les tenants. Elle est enregistrée
-sur le tenant d’administration.</p>
-<p>[]{#__RefHeading___Toc29517_1669085364 .anchor}7.8.2. Exemple de la
-description d’un format dans le XML d’entrée</p>
-<p>Ci-après, la portion d’un fichier de signatures
-(DROID_SignatureFile_VXX.xml) utilisée pour renseigner les champs du
-JSON.</p>
-<blockquote>
-<div><p>&lt;FileFormat ID= »105 » MimeType= »application/msword » Name= »Microsoft
-Word for Macintosh Document » PUID= »x-fmt/64 » Version= »4.0 »&gt;<br />
-&lt;InternalSignatureID&gt;486&lt;/InternalSignatureID&gt;<br />
-&lt;Extension&gt;mcw&lt;/Extension&gt;<br />
-&lt;/FileFormat&gt;</p>
-</div></blockquote>
-<p>[]{#__RefHeading___Toc29519_1669085364 .anchor}7.8.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-FileFormat</p>
-<blockquote>
-<div><p>{<br />
-« _id »: « aeaaaaaaaahbl62nabduoak3jc2zqciaadiq »,<br />
-« CreatedDate »: « 2016-09-27T15:37:53 »,<br />
-« VersionPronom »: « 88 »,<br />
-« UpdateDate »: « 2016-09-27T15:37:53 »,<br />
-« PUID »: « fmt/961 »,<br />
-« Version »: « 2 »,<br />
-« Name »: « Mobile eXtensible Music Format »,<br />
-« Extension »: [<br />
-« mxmf »<br />
-],<br />
-« HasPriorityOverFileFormatID »: [<br />
-« fmt/714 »<br />
-],<br />
-« MimeType »: « audio/mobile-xmf »,<br />
-« Group »: « « ,<br />
-« Alert »: false,<br />
-« Comment »: « « ,<br />
-« _v »: 0<br />
-}</p>
-</div></blockquote>
-<p>[]{#__RefHeading___Toc29521_1669085364 .anchor}7.8.4. Détail des champs
-du JSON stocké en base</p>
+<p>La collection FileFormat permet de référencer et décrire unitairement les différents formats de fichiers ainsi que leur description. La collection est initialisée à partir de l’import du fichier de signature PRONOM, mis à disposition par The National Archive (UK).</p>
+<p>Cette collection est commune à tous les tenants. Elle est enregistrée sur le tenant d’administration.</p>
+</section>
+<section id="exemple-de-la-description-dun-format-dans-le-xml-dentree">
+<h4><span class="section-number">4.7.8.2. </span>Exemple de la description d’un format dans le XML d’entrée<a class="headerlink" href="#exemple-de-la-description-dun-format-dans-le-xml-dentree" title="Lien permanent vers ce titre"></a></h4>
+<p>Ci-après, la portion d’un fichier de signatures (DROID_SignatureFile_VXX.xml) utilisée pour renseigner les champs du JSON.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&lt;FileFormat ID=&quot;105&quot; MimeType=&quot;application/msword&quot; Name=&quot;Microsoft Word for Macintosh Document&quot; PUID=&quot;x-fmt/64&quot; Version=&quot;4.0&quot;&gt;
+  &lt;InternalSignatureID&gt;486&lt;/InternalSignatureID&gt;
+  &lt;Extension&gt;mcw&lt;/Extension&gt;
+&lt;/FileFormat&gt;
+</pre></div>
+</div>
+</section>
+<section id="exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-fileformat">
+<h4><span class="section-number">4.7.8.3. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection FileFormat<a class="headerlink" href="#exemple-de-json-stocke-en-base-comprenant-lexhaustivite-des-champs-de-la-collection-fileformat" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeaaaaaaaahbl62nabduoak3jc2zqciaadiq&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;CreatedDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2016-09-27T15:37:53&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;VersionPronom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;88&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;UpdateDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2016-09-27T15:37:53&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;PUID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fmt/961&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mobile eXtensible Music Format&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Extension&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;mxmf&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;HasPriorityOverFileFormatID&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;fmt/714&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;MimeType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;audio/mobile-xmf&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Alert&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;_v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id32">
+<h4><span class="section-number">4.7.8.4. </span>Détail des champs du JSON stocké en base<a class="headerlink" href="#id32" title="Lien permanent vers ce titre"></a></h4>
 <p><strong>« _id » :</strong> identifiant unique du format.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
 <li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
-<p><strong>« CreatedDate » :</strong> date de création de la version du fichier de
-signatures PRONOM utilisé pour créer l’enregistrement.</p>
+<p><strong>« CreatedDate » :</strong> date de création de la version du fichier de signatures PRONOM utilisé pour créer l’enregistrement.</p>
 <ul>
-<li><p>Il s’agit d’une date au format ISO 8601 YYYY-MM-DD + “T” +</p>
-<blockquote>
-<div><p>hh:mm:ss.millisecondes « + » timezone hh:mm.</p>
-</div></blockquote>
-</li>
-<li><p>La date de création est à l’origine déclarée dans le fichier de</p>
-<blockquote>
-<div><p>signatures au niveau de la balise &lt;FFSignatureFile&gt; au
-niveau de l’attribut « DateCreated » .</p>
-</div></blockquote>
-</li>
+<li><p>Il s’agit d’une date au format ISO 8601 YYYY-MM-DD + “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.</p></li>
+<li><p>La date de création est à l’origine déclarée dans le fichier de signatures au niveau de la balise &lt;FFSignatureFile&gt; au niveau de l’attribut « DateCreated » .</p></li>
 <li><p>Cardinalité : 1-1</p>
-<p>Exemple : « 2016-08-19T16:36:07.942+02:00 »</p>
+<p>Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;2016-08-19T16:36:07.942+02:00&quot;</span></code></p>
 </li>
 </ul>
-<p><strong>« VersionPronom » :</strong> numéro de version du fichier de signatures
-PRONOM utilisé pour créer l’enregistrement.</p>
-<ul>
+<p><strong>« VersionPronom » :</strong> numéro de version du fichier de signatures PRONOM utilisé pour créer l’enregistrement.</p>
+<ul class="simple">
 <li><p>Il s’agit d’un entier.</p></li>
-<li><p>Le numéro de version de PRONOM est à l’origine déclaré dans le</p>
-<blockquote>
-<div><p>fichier de signature au niveau de la balise
-&lt;FFSignatureFile&gt; au niveau de l’attribut « Version » .</p>
-</div></blockquote>
-</li>
+<li><p>Le numéro de version de PRONOM est à l’origine déclaré dans le fichier de signature au niveau de la balise &lt;FFSignatureFile&gt; au niveau de l’attribut « Version » .</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
 <p>Dans cet exemple, le numéro de version est 88 :</p>
-<blockquote>
-<div><p>&lt;FFSignatureFile DateCreated= »2016-09-27T15:37:53 » Version= »88 »
-xmlns= »http://www.nationalarchives.gov.uk/pronom/SignatureFile »&gt;</p>
-</div></blockquote>
-<p><strong>« UpdateDate » :</strong> date de mise à jour de la version du fichier de
-signatures PRONOM utilisé pour mettre à jour la collection.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;FFSignatureFile</span> <span class="na">DateCreated=</span><span class="s">&quot;2016-09-27T15:37:53&quot;</span> <span class="na">Version=</span><span class="s">&quot;88&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.nationalarchives.gov.uk/pronom/SignatureFile&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p><strong>« UpdateDate » :</strong> date de mise à jour de la version du fichier de signatures PRONOM utilisé pour mettre à jour la collection.</p>
 <ul>
-<li><p>Il s’agit d’une date au format ISO 8601 YYYY-MM-DD + “T” +</p>
-<blockquote>
-<div><p>hh:mm:ss.millisecondes « + » timezone hh:mm.</p>
-</div></blockquote>
-</li>
+<li><p>Il s’agit d’une date au format ISO 8601 YYYY-MM-DD + “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.</p></li>
 <li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
 <li><p>Cardinalité : 1-1</p>
-<p>Exemple : « 2016-08-19T16:36:07.942+02:00 »</p>
+<p>Exemple : <code class="docutils literal notranslate"><span class="pre">&quot;2016-08-19T16:36:07.942+02:00&quot;</span></code></p>
 </li>
 </ul>
-<p><strong>« PUID » :</strong> identifiant unique du format au sein du référentiel
-PRONOM.</p>
-<ul>
+<p><strong>« PUID » :</strong> identifiant unique du format au sein du référentiel PRONOM.</p>
+<ul class="simple">
 <li><p>Il s’agit d’une chaîne de caractères.</p></li>
-<li><p>Il est issu du champ « PUID » de la balise &lt;FileFormat&gt;. La</p>
-<blockquote>
-<div><p>valeur est composée du préfixe « fmt » ou « x-fmt », puis d’un
-nombre correspondant au numéro d’entrée du format dans le
-référentiel PRONOM. Les deux éléments sont séparés par un « / ».</p>
-</div></blockquote>
-</li>
+<li><p>Il est issu du champ « PUID » de la balise &lt;FileFormat&gt;. La valeur est composée du préfixe « fmt » ou « x-fmt », puis d’un nombre correspondant au numéro d’entrée du format dans le référentiel PRONOM. Les deux éléments sont séparés par un « / ».</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
-<p>Par exemple :</p>
-<blockquote>
-<div><p>x-fmt/64</p>
-</div></blockquote>
-<p>Les PUID comportant un préfixe « x-fmt » indiquent que ces formats sont
-en cours de validation par The National Archives (UK). Ceux possédant un
-préfixe « fmt » sont validés.</p>
+<p>Par exemple :
+<code class="docutils literal notranslate"><span class="pre">x-fmt/64</span></code></p>
+<p>Les PUID comportant un préfixe « x-fmt » indiquent que ces formats sont en cours de validation par The National Archives (UK). Ceux possédant un préfixe « fmt » sont validés.</p>
 <p><strong>« Version » :</strong> version du format.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de caractères.</p></li>
@@ -5746,95 +5715,70 @@ préfixe « fmt » sont validés.</p>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
 <p>Exemples de formats :</p>
-<blockquote>
-<div><p>Version= »3D Binary Little Endian 2.0 »<br />
-Version= »2013 »<br />
-Version= »1.5 »</p>
-</div></blockquote>
-<p>L’attribut « version » n’est pas obligatoire dans la balise
-&lt;FileFormat&gt; du fichier de signatures.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Version</span><span class="o">=</span><span class="s2">&quot;3D Binary Little Endian 2.0&quot;</span>
+<span class="n">Version</span><span class="o">=</span><span class="s2">&quot;2013&quot;</span>
+<span class="n">Version</span><span class="o">=</span><span class="s2">&quot;1.5&quot;</span>
+</pre></div>
+</div>
+<p>L’attribut « version » n’est pas obligatoire dans la balise &lt;FileFormat&gt; du fichier de signatures.</p>
 <p><strong>« Name » :</strong> nom du format.</p>
-<ul>
+<ul class="simple">
 <li><p>Il s’agit d’une chaîne de caractères.</p></li>
-<li><p>Le nom du format est issu de la valeur de l’attribut « Name » de la</p>
-<blockquote>
-<div><p>balise &lt;FileFormat&gt; du fichier de signature.</p>
-</div></blockquote>
-</li>
+<li><p>Le nom du format est issu de la valeur de l’attribut « Name » de la balise &lt;FileFormat&gt; du fichier de signature.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
 <p><strong>« MimeType » :</strong> Type MIME correspondant au format de fichier.</p>
-<ul>
+<ul class="simple">
 <li><p>Il s’agit d’une chaîne de caractères.</p></li>
 <li><p>Peut être vide.</p></li>
-<li><p>Il est renseigné avec le contenu de l’attribut « MimeType » de la</p>
-<blockquote>
-<div><p>balise &lt;FileFormat&gt;. Cet attribut est facultatif dans le
-fichier de signatures.</p>
-</div></blockquote>
-</li>
+<li><p>Il est renseigné avec le contenu de l’attribut « MimeType » de la balise &lt;FileFormat&gt;. Cet attribut est facultatif dans le fichier de signatures.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
-<p><strong>« HasPriorityOverFileFormatID » :</strong> liste des PUID des formats sur
-lesquels le format a la priorité.</p>
+<p><strong>« HasPriorityOverFileFormatID » :</strong> liste des PUID des formats sur lesquels le format a la priorité.</p>
 <ul class="simple">
 <li><p>Il s’agit d’un tableau de chaînes de caractères.</p></li>
 <li><p>Peut être vide.</p></li>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
-<blockquote>
-<div><p>&lt;HasPriorityOverFileFormatID&gt;1121&lt;/HasPriorityOverFileFormatID&gt;</p>
-</div></blockquote>
-<p>Cet identifiant est ensuite utilisé dans Vitam pour retrouver le PUID
-correspondant.</p>
-<p>S’il existe plusieurs balises &lt;HasPriorityOverFileFormatID&gt; dans
-le fichier XML initial pour un format donné, alors les PUID seront
-stockés dans le JSON sous la forme suivante :</p>
-<blockquote>
-<div><p>« HasPriorityOverFileFormatID »: [<br />
-« fmt/714 »,<br />
-« fmt/715 »,<br />
-« fmt/716 »<br />
-],</p>
-</div></blockquote>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;HasPriorityOverFileFormatID&gt;</span>1121<span class="nt">&lt;/HasPriorityOverFileFormatID&gt;</span>
+</pre></div>
+</div>
+<p>Cet identifiant est ensuite utilisé dans Vitam pour retrouver le PUID correspondant.</p>
+<p>S’il existe plusieurs balises &lt;HasPriorityOverFileFormatID&gt; dans le fichier XML initial pour un format donné, alors les PUID seront stockés dans le JSON sous la forme suivante :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;HasPriorityOverFileFormatID&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;fmt/714&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;fmt/715&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;fmt/716&quot;</span><span class="w"></span>
+<span class="p">],</span><span class="w"></span>
+</pre></div>
+</div>
 <p><strong>« Extension » :</strong> extension(s) du format.</p>
 <ul>
 <li><p>Il s’agit d’un tableau de chaînes de caractères.</p></li>
 <li><p>Peut être vide.</p></li>
-<li><p>Il contient les valeurs situées entre les balises &lt;Extension&gt;</p>
-<blockquote>
-<div><p>elles-mêmes encapsulées entre les balises &lt;FileFormat&gt;.</p>
-</div></blockquote>
-</li>
+<li><p>Il contient les valeurs situées entre les balises &lt;Extension&gt; elles-mêmes encapsulées entre les balises &lt;FileFormat&gt;.</p></li>
 <li><p>Cardinalité : 1-1</p>
-<p>Le champ &lt;Extension&gt; peut-être multivalué. Dans ce cas, les
-différentes valeurs situées entre les différentes balises
-&lt;Extension&gt; sont placées dans le tableau et séparées par une
-virgule.</p>
+<p>Le champ &lt;Extension&gt; peut-être multivalué. Dans ce cas, les différentes valeurs situées entre les différentes balises &lt;Extension&gt; sont placées dans le tableau et séparées par une virgule.</p>
 </li>
 </ul>
-<p>Par exemple, pour le format dont le PUID est fmt/918 la représentation
-XML est la suivante :</p>
-<blockquote>
-<div><p>&lt;FileFormat ID= »1723 » Name= »AmiraMesh » PUID= »fmt/918 » Version= »3D
-ASCII 2.0 »&gt;<br />
-&lt;InternalSignatureID&gt;1268&lt;/InternalSignatureID&gt;<br />
-&lt;Extension&gt;am&lt;/Extension&gt;<br />
-&lt;Extension&gt;amiramesh&lt;/Extension&gt;<br />
-&lt;Extension&gt;hx&lt;/Extension&gt;<br />
-&lt;/FileFormat&gt;</p>
-</div></blockquote>
-<p>Les valeurs des balises &lt;Extension&gt; seront stockées de la façon
-suivante dans le JSON :</p>
-<blockquote>
-<div><p>« Extension »: [<br />
-« am »,<br />
-« amiramesh »,<br />
-« hx »<br />
-],</p>
-</div></blockquote>
-<p><strong>« Group » :</strong> champ permettant d’indiquer le nom d’une famille de
-formats.</p>
+<p>Par exemple, pour le format dont le PUID est fmt/918 la représentation XML est la suivante :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;FileFormat</span> <span class="na">ID=</span><span class="s">&quot;1723&quot;</span> <span class="na">Name=</span><span class="s">&quot;AmiraMesh&quot;</span> <span class="na">PUID=</span><span class="s">&quot;fmt/918&quot;</span> <span class="na">Version=</span><span class="s">&quot;3D ASCII 2.0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;InternalSignatureID&gt;</span>1268<span class="nt">&lt;/InternalSignatureID&gt;</span>
+    <span class="nt">&lt;Extension&gt;</span>am<span class="nt">&lt;/Extension&gt;</span>
+    <span class="nt">&lt;Extension&gt;</span>amiramesh<span class="nt">&lt;/Extension&gt;</span>
+    <span class="nt">&lt;Extension&gt;</span>hx<span class="nt">&lt;/Extension&gt;</span>
+  <span class="nt">&lt;/FileFormat&gt;</span>
+</pre></div>
+</div>
+<p>Les valeurs des balises &lt;Extension&gt; seront stockées de la façon suivante dans le JSON :</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;Extension&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">     </span><span class="s2">&quot;am&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">     </span><span class="s2">&quot;amiramesh&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">     </span><span class="s2">&quot;hx&quot;</span><span class="w"></span>
+<span class="w"> </span><span class="p">],</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>« Group » :</strong> champ permettant d’indiquer le nom d’une famille de formats.</p>
 <ul class="simple">
 <li><p>Il s’agit d’une chaîne de caractères.</p></li>
 <li><p>Peut être vide.</p></li>
@@ -5854,25 +5798,22 @@ formats.</p>
 <li><p>Cardinalité : 1-1</p></li>
 </ul>
 <p><strong>« _v » :</strong> version de l’enregistrement décrit.</p>
-<ul>
+<ul class="simple">
 <li><p>Il s’agit d’un entier.</p></li>
 <li><p>Champ peuplé par la solution logicielle Vitam.</p>
 <ul>
 <li><p>0 correspond à l’enregistrement d’origine.</p></li>
-<li><p>Si le numéro est supérieur à 0, alors il s’agit du numéro de</p>
-<blockquote>
-<div><p>version de l’enregistrement.</p>
-</div></blockquote>
-</li>
+<li><p>Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.</p></li>
 </ul>
 </li>
-<li><p>Cardinalité : 1-1</p>
-<p>[]{#__RefHeading___Toc29523_1669085364 .anchor}7.9. Collection
-FileRules</p>
-<p>[]{#__RefHeading___Toc29525_1669085364 .anchor}7.9.1. Utilisation de
-la collection FileRules</p>
-</li>
+<li><p>Cardinalité : 1-1</p></li>
 </ul>
+</section>
+</section>
+<section id="collection-filerules">
+<h3><span class="section-number">4.7.9. </span>Collection FileRules<a class="headerlink" href="#collection-filerules" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-filerules">
+<h4><span class="section-number">4.7.9.1. </span>Utilisation de la collection FileRules<a class="headerlink" href="#utilisation-de-la-collection-filerules" title="Lien permanent vers ce titre"></a></h4>
 <p>La collection FileRules permet de référencer et décrire unitairement les
 différentes règles de gestion utilisées dans la solution logicielle
 Vitam pour calculer les échéances associées aux unités archivistiques.</p>
