@@ -6230,25 +6230,19 @@ Les valeurs des balises &lt;Extension&gt; seront stockées de la façon suivante
 
 #### Utilisation de la collection FileRules
 
-La collection FileRules permet de référencer et décrire unitairement les
-différentes règles de gestion utilisées dans la solution logicielle
-Vitam pour calculer les échéances associées aux unités archivistiques.
+La collection FileRules permet de référencer et décrire unitairement les différentes règles de gestion utilisées dans la solution logicielle Vitam pour calculer les échéances associées aux unités archivistiques.
 
-Cette collection est alimentée par l’import d’un fichier CSV contenant
-l’ensemble des règles. Celui-ci doit être structuré comme ceci :
+Cette collection est alimentée par l’import d’un fichier CSV contenant l’ensemble des règles. Celui-ci doit être structuré comme ceci :
 
-  ---------------- --------------- ---------------------- ------------------------- ------------------- -----------------------------------------
-  RuleId           RuleType        RuleValue              RuleDescription           RuleDuration        RuleMeasurement
-  Id de la règle   Type de règle   Intitulé de la règle   Description de la règle   Durée de la règle   Unité de mesure de la durée de la règle
-  ---------------- --------------- ---------------------- ------------------------- ------------------- -----------------------------------------
+| RuleId | RuleType | RuleValue | RuleDescription | RuleDuration | RuleMeasurement |
+| :-:     | :-:      | :-:       | :-:             | :-:          | :-:             |
+| Id de la règle | Type de règle | Intitulé de la règle | Description de la règle | Durée de la règle | Unité de mesure de la durée de la règle |
 
 Le fichier .csv doit avoir comme séparateur de champs la virgule.
 
 La liste des types de règle disponibles est en annexe.
 
-Les valeurs renseignées dans la colonne unité de mesure doivent
-correspondre à une valeur de l’énumération RuleMeasurementEnum, à
-savoir :
+Les valeurs renseignées dans la colonne unité de mesure doivent correspondre à une valeur de l’énumération RuleMeasurementEnum, à savoir :
 
 -   MONTH
 
@@ -6256,31 +6250,27 @@ savoir :
 
 -   YEAR
 
-    []{#__RefHeading___Toc29527_1669085364 .anchor}7.9.2. Exemple de
-    JSON stocké en base comprenant l’exhaustivité des champs de la
-    collection FileRules
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection FileRules
 
-> {\
-> "\_id": "aeaaaaaaaahbl62nabduoak3jc4avsyaaaha",\
-> "RuleId": "ACC-00011",\
-> "RuleType": "AccessRule",\
-> "RuleValue": "Communicabilité des informations portant atteinte au
-> secret de la défense nationale",\
-> "RuleDescription": "Durée de communicabilité applicable aux
-> informations portant atteinte au secret de la défense
-> nationale\\nL’échéance est calculée à partir de la date du document ou
-> du document le plus récent inclus dans le dossier",\
-> "RuleDuration": "50",\
-> "RuleMeasurement": "YEAR",\
-> "CreationDate": "2017-11-02T13:50:28.922",\
-> "UpdateDate": "2017-11-06T09:11:54.062",\
-> "\_v": 0,\
-> "\_tenant": 0\
-> }
+```json
+{
+  "_id": "aeaaaaaaaahbl62nabduoak3jc4avsyaaaha",
+  "RuleId": "ACC-00011",
+  "RuleType": "AccessRule",
+  "RuleValue": "Communicabilité des informations portant atteinte au secret de la défense nationale",
+  "RuleDescription": "Durée de communicabilité applicable aux informations portant atteinte au secret de la défense nationale\nL’échéance est calculée à partir de la date du document ou du document le plus récent inclus dans le dossier",
+  "RuleDuration": "50",
+  "RuleMeasurement": "YEAR",
+  "CreationDate": "2017-11-02T13:50:28.922",
+  "UpdateDate": "2017-11-06T09:11:54.062",
+  "_v": 0,
+  "_tenant": 0
+ }
+```
 
-[]{#__RefHeading___Toc29529_1669085364 .anchor}7.9.3. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique.
+**« _id » :** identifiant unique.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -6288,29 +6278,23 @@ savoir :
 
 -   Cardinalité : 1-1
 
-**« RuleId » :** identifiant unique par tenant de la règle dans le
-référentiel utilisé.
+**« RuleId » :** identifiant unique par tenant de la règle dans le référentiel utilisé.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   La valeur est reprise du champ RuleId du fichier d’import. Par
-    > commodité, les exemples sont composés d’un préfixe puis d’un
-    > nombre, séparés par un tiret, mais ce formalisme n’est pas
-    > obligatoire.
+-   La valeur est reprise du champ RuleId du fichier d’import. Par commodité, les exemples sont composés d’un préfixe puis d’un nombre, séparés par un tiret, mais ce formalisme n’est pas obligatoire.
 
 -   Cardinalité : 1-1
 
 Par exemple :
 
-> ACC-00027
+``` ACC-00027 ```
 
 **« RuleType » :** type de règle.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Il correspond à la valeur située dans la colonne RuleType du fichier
-    > d’import. Les valeurs possibles pour ce champ sont indiquées en
-    > annexe.
+-   Il correspond à la valeur située dans la colonne RuleType du fichier d’import. Les valeurs possibles pour ce champ sont indiquées en annexe.
 
 -   Cardinalité : 1-1
 
@@ -6318,8 +6302,7 @@ Par exemple :
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Elle correspond à la valeur de la colonne RuleValue du fichier
-    > d’import.
+-   Elle correspond à la valeur de la colonne RuleValue du fichier d’import.
 
 -   Cardinalité : 1-1
 
@@ -6327,8 +6310,7 @@ Par exemple :
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Elle correspond à la valeur de la colonne RuleDescription du fichier
-    > d’import.
+-   Elle correspond à la valeur de la colonne RuleDescription du fichier d’import.
 
 -   Cardinalité : 1-1
 
@@ -6338,10 +6320,7 @@ Par exemple :
 
 -   Il peut également prendre la valeur « unlimited ».
 
--   Associé à la valeur indiquée dans RuleMeasurement, il permet de
-    > décrire la durée d’application de la règle de gestion. Il
-    > correspond à la valeur de la colonne RuleDuration du fichier
-    > d’import.
+-   Associé à la valeur indiquée dans RuleMeasurement, il permet de décrire la durée d’application de la règle de gestion. Il correspond à la valeur de la colonne RuleDuration du fichier d’import.
 
 -   Cardinalité :
 
@@ -6352,8 +6331,7 @@ Par exemple :
 **« RuleMeasurement » :** unité de mesure de la durée décrite dans la
 colonne RuleDuration du fichier d’import.
 
--   Il s’agit d’une chaîne de caractères devant correspondre à une
-    > valeur de l’énumération RuleMeasurement, à savoir :
+-   Il s’agit d’une chaîne de caractères devant correspondre à une valeur de l’énumération RuleMeasurement, à savoir :
 
     -   MONTH
 
@@ -6367,17 +6345,15 @@ colonne RuleDuration du fichier d’import.
 
     -   0-1 pour les règles de gel
 
-**« CreationDate » :** date de création de la règle dans la collection
-FileRules.
+**« CreationDate » :** date de création de la règle dans la collection FileRules.
 
 -   La date est au format ISO 8601.
 
 -   Cardinalité : 1-1
 
-    Exemple : "2017-11-02T13:50:28.922"
+    Exemple : ```"2017-11-02T13:50:28.922"```
 
-**« UpdateDate » :** Date de dernière mise à jour de la règle dans la
-collection FileRules.
+**« UpdateDate » :** Date de dernière mise à jour de la règle dans la collection FileRules.
 
 -   La date est au format ISO 8601.
 
@@ -6385,9 +6361,9 @@ collection FileRules.
 
 -   Cardinalité : 1-1
 
-    Exemple : "2017-11-02T13:50:28.922"
+    Exemple : ```"2017-11-02T13:50:28.922"```
 
-**« \_v » :** version de l’enregistrement décrit
+**« _v » :** version de l’enregistrement décrit
 
 -   Il s’agit d’un entier.
 
@@ -6395,11 +6371,9 @@ collection FileRules.
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
@@ -6407,11 +6381,9 @@ collection FileRules.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc12788_4022761242 .anchor}7.10. Collection
-    Griffin
+### Collection Griffin
 
-    []{#__RefHeading___Toc29577_1669085364 .anchor}7.10.1. Utilisation
-    de la collection Griffin
+#### Utilisation de la collection Griffin
 
 La collection Griffin permet de référencer et décrire unitairement les
 griffons utilisés pour mettre en œuvre les opérations de préservation.
