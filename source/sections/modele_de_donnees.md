@@ -6006,7 +6006,7 @@ Cette collection est commune à tous les tenants. Elle est enregistrée sur le t
 
 Ci-après, la portion d’un fichier de signatures (DROID\_SignatureFile\_VXX.xml) utilisée pour renseigner les champs du JSON.
 
-```json
+```xml
 <FileFormat ID="105" MimeType="application/msword" Name="Microsoft Word for Macintosh Document" PUID="x-fmt/64" Version="4.0">
   <InternalSignatureID>486</InternalSignatureID>
   <Extension>mcw</Extension>
