@@ -5998,56 +5998,49 @@ Les champs à renseigner obligatoirement à la création d’un contexte applica
 
 #### Utilisation de la collection FileFormat
 
-La collection FileFormat permet de référencer et décrire unitairement
-les différents formats de fichiers ainsi que leur description. La
-collection est initialisée à partir de l’import du fichier de signature
-PRONOM, mis à disposition par The National Archive (UK).
+La collection FileFormat permet de référencer et décrire unitairement les différents formats de fichiers ainsi que leur description. La collection est initialisée à partir de l’import du fichier de signature PRONOM, mis à disposition par The National Archive (UK).
 
-Cette collection est commune à tous les tenants. Elle est enregistrée
-sur le tenant d’administration.
+Cette collection est commune à tous les tenants. Elle est enregistrée sur le tenant d’administration.
 
-[]{#__RefHeading___Toc29517_1669085364 .anchor}7.8.2. Exemple de la
-description d’un format dans le XML d’entrée
+#### Exemple de la description d’un format dans le XML d’entrée
 
-Ci-après, la portion d’un fichier de signatures
-(DROID\_SignatureFile\_VXX.xml) utilisée pour renseigner les champs du
-JSON.
+Ci-après, la portion d’un fichier de signatures (DROID\_SignatureFile\_VXX.xml) utilisée pour renseigner les champs du JSON.
 
-> &lt;FileFormat ID="105" MimeType="application/msword" Name="Microsoft
-> Word for Macintosh Document" PUID="x-fmt/64" Version="4.0"&gt;\
-> &lt;InternalSignatureID&gt;486&lt;/InternalSignatureID&gt;\
-> &lt;Extension&gt;mcw&lt;/Extension&gt;\
-> &lt;/FileFormat&gt;
+```json
+<FileFormat ID="105" MimeType="application/msword" Name="Microsoft Word for Macintosh Document" PUID="x-fmt/64" Version="4.0">
+  <InternalSignatureID>486</InternalSignatureID>
+  <Extension>mcw</Extension>
+</FileFormat>
+```
 
-[]{#__RefHeading___Toc29519_1669085364 .anchor}7.8.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-FileFormat
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection FileFormat
 
-> {\
-> "\_id": "aeaaaaaaaahbl62nabduoak3jc2zqciaadiq",\
-> "CreatedDate": "2016-09-27T15:37:53",\
-> "VersionPronom": "88",\
-> "UpdateDate": "2016-09-27T15:37:53",\
-> "PUID": "fmt/961",\
-> "Version": "2",\
-> "Name": "Mobile eXtensible Music Format",\
-> "Extension": \[\
-> "mxmf"\
-> \],\
-> "HasPriorityOverFileFormatID": \[\
-> "fmt/714"\
-> \],\
-> "MimeType": "audio/mobile-xmf",\
-> "Group": "",\
-> "Alert": false,\
-> "Comment": "",\
-> "\_v": 0\
-> }
+```json
+{
+  "_id": "aeaaaaaaaahbl62nabduoak3jc2zqciaadiq",
+  "CreatedDate": "2016-09-27T15:37:53",
+  "VersionPronom": "88",
+  "UpdateDate": "2016-09-27T15:37:53",
+  "PUID": "fmt/961",
+  "Version": "2",
+  "Name": "Mobile eXtensible Music Format",
+  "Extension": [
+      "mxmf"
+  ],
+  "HasPriorityOverFileFormatID": [
+      "fmt/714"
+  ],
+  "MimeType": "audio/mobile-xmf",
+  "Group": "",
+  "Alert": false,
+  "Comment": "",
+  "_v": 0
+}
+```
 
-[]{#__RefHeading___Toc29521_1669085364 .anchor}7.8.4. Détail des champs
-du JSON stocké en base
+#### Détail des champs du JSON stocké en base
 
-**« \_id » :** identifiant unique du format.
+**« _id » :** identifiant unique du format.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -6055,67 +6048,52 @@ du JSON stocké en base
 
 -   Cardinalité : 1-1
 
-**« CreatedDate » :** date de création de la version du fichier de
-signatures PRONOM utilisé pour créer l’enregistrement.
+**« CreatedDate » :** date de création de la version du fichier de signatures PRONOM utilisé pour créer l’enregistrement.
 
--   Il s’agit d’une date au format ISO 8601 YYYY-MM-DD + “T” +
-    > hh:mm:ss.millisecondes « + » timezone hh:mm.
+-   Il s’agit d’une date au format ISO 8601 YYYY-MM-DD + “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.
 
--   La date de création est à l’origine déclarée dans le fichier de
-    > signatures au niveau de la balise &lt;FFSignatureFile&gt; au
-    > niveau de l’attribut « DateCreated » .
+-   La date de création est à l’origine déclarée dans le fichier de signatures au niveau de la balise &lt;FFSignatureFile&gt; au niveau de l’attribut « DateCreated » .
 
 -   Cardinalité : 1-1
 
-    Exemple : "2016-08-19T16:36:07.942+02:00"
+    Exemple : ```"2016-08-19T16:36:07.942+02:00"```
 
-**« VersionPronom » :** numéro de version du fichier de signatures
-PRONOM utilisé pour créer l’enregistrement.
+**« VersionPronom » :** numéro de version du fichier de signatures PRONOM utilisé pour créer l’enregistrement.
 
 -   Il s’agit d’un entier.
 
--   Le numéro de version de PRONOM est à l’origine déclaré dans le
-    > fichier de signature au niveau de la balise
-    > &lt;FFSignatureFile&gt; au niveau de l’attribut « Version » .
+-   Le numéro de version de PRONOM est à l’origine déclaré dans le fichier de signature au niveau de la balise &lt;FFSignatureFile&gt; au niveau de l’attribut « Version » .
 
 -   Cardinalité : 1-1
 
 Dans cet exemple, le numéro de version est 88 :
 
-> &lt;FFSignatureFile DateCreated="2016-09-27T15:37:53" Version="88"
-> xmlns="http://www.nationalarchives.gov.uk/pronom/SignatureFile"&gt;
+```xml
+<FFSignatureFile DateCreated="2016-09-27T15:37:53" Version="88" xmlns="http://www.nationalarchives.gov.uk/pronom/SignatureFile">
+```
 
-**« UpdateDate » :** date de mise à jour de la version du fichier de
-signatures PRONOM utilisé pour mettre à jour la collection.
+**« UpdateDate » :** date de mise à jour de la version du fichier de signatures PRONOM utilisé pour mettre à jour la collection.
 
--   Il s’agit d’une date au format ISO 8601 YYYY-MM-DD + “T” +
-    > hh:mm:ss.millisecondes « + » timezone hh:mm.
+-   Il s’agit d’une date au format ISO 8601 YYYY-MM-DD + “T” + hh:mm:ss.millisecondes « + » timezone hh:mm.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 1-1
 
-    Exemple : "2016-08-19T16:36:07.942+02:00"
+    Exemple : ```"2016-08-19T16:36:07.942+02:00"```
 
-**« PUID » :** identifiant unique du format au sein du référentiel
-PRONOM.
+**« PUID » :** identifiant unique du format au sein du référentiel PRONOM.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Il est issu du champ « PUID » de la balise &lt;FileFormat&gt;. La
-    > valeur est composée du préfixe « fmt » ou « x-fmt », puis d’un
-    > nombre correspondant au numéro d’entrée du format dans le
-    > référentiel PRONOM. Les deux éléments sont séparés par un « / ».
+-   Il est issu du champ « PUID » de la balise &lt;FileFormat&gt;. La valeur est composée du préfixe « fmt » ou « x-fmt », puis d’un nombre correspondant au numéro d’entrée du format dans le référentiel PRONOM. Les deux éléments sont séparés par un « / ».
 
 -   Cardinalité : 1-1
 
-Par exemple :
+Par exemple : 
+```x-fmt/64```
 
-> x-fmt/64
-
-Les PUID comportant un préfixe « x-fmt » indiquent que ces formats sont
-en cours de validation par The National Archives (UK). Ceux possédant un
-préfixe « fmt » sont validés.
+Les PUID comportant un préfixe « x-fmt » indiquent que ces formats sont en cours de validation par The National Archives (UK). Ceux possédant un préfixe « fmt » sont validés.
 
 **« Version » :** version du format.
 
@@ -6127,19 +6105,19 @@ préfixe « fmt » sont validés.
 
 Exemples de formats :
 
-> Version="3D Binary Little Endian 2.0"\
-> Version="2013"\
-> Version="1.5"
+```
+Version="3D Binary Little Endian 2.0"
+Version="2013"
+Version="1.5"
+```
 
-L’attribut « version » n’est pas obligatoire dans la balise
-&lt;FileFormat&gt; du fichier de signatures.
+L’attribut « version » n’est pas obligatoire dans la balise &lt;FileFormat&gt; du fichier de signatures.
 
 **« Name » :** nom du format.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Le nom du format est issu de la valeur de l’attribut « Name » de la
-    > balise &lt;FileFormat&gt; du fichier de signature.
+-   Le nom du format est issu de la valeur de l’attribut « Name » de la balise &lt;FileFormat&gt; du fichier de signature.
 
 -   Cardinalité : 1-1
 
@@ -6149,14 +6127,11 @@ L’attribut « version » n’est pas obligatoire dans la balise
 
 -   Peut être vide.
 
--   Il est renseigné avec le contenu de l’attribut « MimeType » de la
-    > balise &lt;FileFormat&gt;. Cet attribut est facultatif dans le
-    > fichier de signatures.
+-   Il est renseigné avec le contenu de l’attribut « MimeType » de la balise &lt;FileFormat&gt;. Cet attribut est facultatif dans le fichier de signatures.
 
 -   Cardinalité : 1-1
 
-**« HasPriorityOverFileFormatID » :** liste des PUID des formats sur
-lesquels le format a la priorité.
+**« HasPriorityOverFileFormatID » :** liste des PUID des formats sur lesquels le format a la priorité.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
@@ -6164,20 +6139,21 @@ lesquels le format a la priorité.
 
 -   Cardinalité : 1-1
 
-> &lt;HasPriorityOverFileFormatID&gt;1121&lt;/HasPriorityOverFileFormatID&gt;
+```xml
+<HasPriorityOverFileFormatID>1121</HasPriorityOverFileFormatID>
+```
 
-Cet identifiant est ensuite utilisé dans Vitam pour retrouver le PUID
-correspondant.
+Cet identifiant est ensuite utilisé dans Vitam pour retrouver le PUID correspondant.
 
-S’il existe plusieurs balises &lt;HasPriorityOverFileFormatID&gt; dans
-le fichier XML initial pour un format donné, alors les PUID seront
-stockés dans le JSON sous la forme suivante :
+S’il existe plusieurs balises &lt;HasPriorityOverFileFormatID&gt; dans le fichier XML initial pour un format donné, alors les PUID seront stockés dans le JSON sous la forme suivante :
 
-> "HasPriorityOverFileFormatID": \[\
-> "fmt/714",\
-> "fmt/715",\
-> "fmt/716"\
-> \],
+```json
+"HasPriorityOverFileFormatID": [
+    "fmt/714",
+    "fmt/715",
+    "fmt/716"
+],
+```
 
 **« Extension » :** extension(s) du format.
 
@@ -6185,38 +6161,34 @@ stockés dans le JSON sous la forme suivante :
 
 -   Peut être vide.
 
--   Il contient les valeurs situées entre les balises &lt;Extension&gt;
-    > elles-mêmes encapsulées entre les balises &lt;FileFormat&gt;.
+-   Il contient les valeurs situées entre les balises &lt;Extension&gt; elles-mêmes encapsulées entre les balises &lt;FileFormat&gt;.
 
 -   Cardinalité : 1-1
 
-    Le champ &lt;Extension&gt; peut-être multivalué. Dans ce cas, les
-    différentes valeurs situées entre les différentes balises
-    &lt;Extension&gt; sont placées dans le tableau et séparées par une
-    virgule.
+    Le champ &lt;Extension&gt; peut-être multivalué. Dans ce cas, les différentes valeurs situées entre les différentes balises &lt;Extension&gt; sont placées dans le tableau et séparées par une virgule.
 
-Par exemple, pour le format dont le PUID est fmt/918 la représentation
-XML est la suivante :
+Par exemple, pour le format dont le PUID est fmt/918 la représentation XML est la suivante :
 
-> &lt;FileFormat ID="1723" Name="AmiraMesh" PUID="fmt/918" Version="3D
-> ASCII 2.0"&gt;\
-> &lt;InternalSignatureID&gt;1268&lt;/InternalSignatureID&gt;\
-> &lt;Extension&gt;am&lt;/Extension&gt;\
-> &lt;Extension&gt;amiramesh&lt;/Extension&gt;\
-> &lt;Extension&gt;hx&lt;/Extension&gt;\
-> &lt;/FileFormat&gt;
+```xml
+<FileFormat ID="1723" Name="AmiraMesh" PUID="fmt/918" Version="3D ASCII 2.0">
+    <InternalSignatureID>1268</InternalSignatureID>
+    <Extension>am</Extension>
+    <Extension>amiramesh</Extension>
+    <Extension>hx</Extension>
+  </FileFormat>
+```
 
-Les valeurs des balises &lt;Extension&gt; seront stockées de la façon
-suivante dans le JSON :
+Les valeurs des balises &lt;Extension&gt; seront stockées de la façon suivante dans le JSON :
 
-> "Extension": \[\
-> "am",\
-> "amiramesh",\
-> "hx"\
-> \],
+```json
+"Extension": [
+     "am",
+     "amiramesh",
+     "hx"
+ ],
+```
 
-**« Group » :** champ permettant d’indiquer le nom d’une famille de
-formats.
+**« Group » :** champ permettant d’indiquer le nom d’une famille de formats.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -6242,7 +6214,7 @@ formats.
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
@@ -6250,16 +6222,13 @@ formats.
 
     -   0 correspond à l’enregistrement d’origine.
 
-    -   Si le numéro est supérieur à 0, alors il s’agit du numéro de
-        > version de l’enregistrement.
+    -   Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc29523_1669085364 .anchor}7.9. Collection
-    FileRules
+### Collection FileRules
 
-    []{#__RefHeading___Toc29525_1669085364 .anchor}7.9.1. Utilisation de
-    la collection FileRules
+#### Utilisation de la collection FileRules
 
 La collection FileRules permet de référencer et décrire unitairement les
 différentes règles de gestion utilisées dans la solution logicielle
