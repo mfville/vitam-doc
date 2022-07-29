@@ -7932,14 +7932,11 @@ logicielle Vitam. Ces collections sont :
 
 #### Utilisation de la collection
 
-La collection AuditObjectGroup permet à la solution logicielle Vitam de
-construire des rapports d’audit. Les données de cette collection sont
-temporaires et sont supprimées dès que les rapports correspondants sont
-créés. Il est donc possible de trouver la collection vide.
+La collection AuditObjectGroup permet à la solution logicielle Vitam de construire des rapports d’audit. Les données de cette collection sont temporaires et sont supprimées dès que les rapports correspondants sont créés. Il est donc possible de trouver la collection vide.
 
-[]{#__RefHeading___Toc87219_939825479 .anchor}8.1.2. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique de l’enregistrement
+**« _id » :** identifiant unique de l’enregistrement
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7955,26 +7952,21 @@ créés. Il est donc possible de trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**« \_metadata »** objet contenant une liste de paramètres concernant
-les métadonnées du groupe d’objets. Il est composé comme suit :
+**« _metadata »** objet contenant une liste de paramètres concernant les métadonnées du groupe d’objets. Il est composé comme suit :
 
 -   « id » : identifiant du groupe d’objets.
 
--   « status » : statut de l’action d’audit pour ce groupe d’objets. Il
-    > s’agit d’une chaîne de caractères qui peut avoir comme valeurs :
-    > OK, WARNING, KO.
+-   « status » : statut de l’action d’audit pour ce groupe d’objets. Il s’agit d’une chaîne de caractères qui peut avoir comme valeurs : OK, WARNING, KO.
 
 -   « opi » : identifiant de l’opération d’entrée du groupe d’objets.
 
--   « originatingAgency » : identifiant du service producteur du groupe
-    > d’objets.
+-   « originatingAgency » : identifiant du service producteur du groupe d’objets.
 
--   « parentUnitIds » : identifiant des unités archivistiques parentes
-    > du groupe d’objets ayant été audités.
+-   « parentUnitIds » : identifiant des unités archivistiques parentes du groupe d’objets ayant été audités.
 
 -   « objectIds » : identifiants des objets du groupe d’objets.
 
-**« \_tenant » :** information sur le tenant
+**« _tenant » :** information sur le tenant
 
 -   Il s’agit de l’identifiant du tenant.
 
@@ -7990,21 +7982,15 @@ les métadonnées du groupe d’objets. Il est composé comme suit :
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc87221_939825479 .anchor}8.2. Collection
-    EliminationActionUnit
+### Collection EliminationActionUnit
 
-    []{#__RefHeading___Toc29597_1669085364 .anchor}8.2.1. Utilisation de
-    la collection
+#### Utilisation de la collection
 
-La collection EliminationActionUnit permet à la solution logicielle
-Vitam de construire des rapports d’élimination d’unités archivistiques.
-Les données de cette collection sont temporaires et sont supprimées dès
-que les rapports correspondants sont créés. Il est donc possible de
-trouver la collection vide.
+La collection EliminationActionUnit permet à la solution logicielle Vitam de construire des rapports d’élimination d’unités archivistiques. Les données de cette collection sont temporaires et sont supprimées dès que les rapports correspondants sont créés. Il est donc possible de trouver la collection vide.
 
-[]{#__RefHeading___Toc29599_1669085364 .anchor}8.2.2. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique de l’enregistrement.
+**« _id » :** identifiant unique de l’enregistrement.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8020,33 +8006,28 @@ trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**\_metadata** objet contenant une liste de paramètres concernant les
+**_metadata** objet contenant une liste de paramètres concernant les
 métadonnées de l’unité archivistiques. Il est composé comme suit :
 
 -   « id » : identifiant unique de l’enregistrement.
 
--   « status » : statut de l’action d’élimination pour cette unité
-    > archivistique. Il s’agit d’une chaîne de caractères qui peut avoir
-    > comme valeurs :
+-   « status » : statut de l’action d’élimination pour cette unité archivistique. Il s’agit d’une chaîne de caractères qui peut avoir comme valeurs :
 
     -   DELETED,
 
-    -   NON\_DESTROYABLE\_HAS\_CHILD\_UNITS,
+    -   NON_DESTROYABLE_HAS_CHILD_UNITS,
 
-    -   GLOBAL\_STATUS\_KEEP,
+    -   GLOBAL_STATUS_KEEP,
 
-    -   GLOBAL\_STATUS\_CONFLICT.
+    -   GLOBAL_STATUS_CONFLICT.
 
--   « opi » : identifiant de l’opération d’entrée de cette unité
-    > archivistique.
+-   « opi » : identifiant de l’opération d’entrée de cette unité archivistique.
 
--   « originatingAgency » : identifiant du service producteur de cette
-    > unité archivistique.
+-   « originatingAgency » : identifiant du service producteur de cette unité archivistique.
 
--   « objectGroupId » : identifiant du groupe d’objets attaché à cette
-    > unité archivistique.
+-   « objectGroupId » : identifiant du groupe d’objets attaché à cette unité archivistique.
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit de l’identifiant du tenant.
 
@@ -8064,21 +8045,13 @@ métadonnées de l’unité archivistiques. Il est composé comme suit :
 
 ### Collection EliminationActionObjectGroup
 
-    []{#__RefHeading___Toc29601_1669085364 .anchor}8.3. Collection
-    EliminationActionObjectGroup
+#### Utilisation de la collection
 
-    []{#__RefHeading___Toc29603_1669085364 .anchor}8.3.1. Utilisation de
-    la collection
+La collection EliminationActionObjectGroup permet à la solution logicielle Vitam de construire des rapports d’élimination des groupes d’objets techniques. Les données de cette collection sont temporaires et sont supprimées dès que les rapports correspondants sont créés. Il est donc possible de trouver la collection vide.
 
-La collection EliminationActionObjectGroup permet à la solution
-logicielle Vitam de construire des rapports d’élimination des groupes
-d’objets techniques. Les données de cette collection sont temporaires et
-sont supprimées dès que les rapports correspondants sont créés. Il est
-donc possible de trouver la collection vide.
+#### Détail des champs
 
-[]{#__RefHeading___Toc29605_1669085364 .anchor}8.3.2. Détail des champs
-
-**« \_id » :** identifiant unique de l’enregistrement.
+**« _id » :** identifiant unique de l’enregistrement.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8094,26 +8067,22 @@ donc possible de trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**« \_metadata »** objet contenant une liste de paramètres concernant
+**« _metadata »** objet contenant une liste de paramètres concernant
 les métadonnées du groupe d’objets. Il est composé comme suit :
 
 -   « id » : identifiant du groupe d’objets
 
--   « status » : statut de l’action d’élimination pour ce groupe
-    > d’objets. Il s’agit d’une chaîne de caractères qui peut avoir
-    > comme valeurs : DELETED, PARTIAL\_DETACHMENT.
+-   « status » : statut de l’action d’élimination pour ce groupe d’objets. Il s’agit d’une chaîne de caractères qui peut avoir comme valeurs : DELETED, PARTIAL_DETACHMENT.
 
 -   « opi » : identifiant de l’opération d’entrée du groupe d’objets.
 
--   « originatingAgency » : identifiant du service producteur du groupe
-    > d’objets.
+-   « originatingAgency » : identifiant du service producteur du groupe d’objets.
 
--   « deletedParentUnitIds » : identifiant des unités archivistiques
-    > parentes du groupe d’objets et ayant été supprimées.
+-   « deletedParentUnitIds » : identifiant des unités archivistiques parentes du groupe d’objets et ayant été supprimées.
 
 -   « objectIds » : identifiants des objets du groupe d’objets.
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit de l’identifiant du tenant.
 
@@ -8129,21 +8098,15 @@ les métadonnées du groupe d’objets. Il est composé comme suit :
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc12792_4022761242 .anchor}8.4. Collection
-    PreservationReport
+### Collection PreservationReport
 
-    []{#__RefHeading___Toc29603_16690853641 .anchor}8.4.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
-La collection PreservationReport permet à la solution logicielle Vitam
-de construire des rapports de préservation des groupes d’objets
-techniques. Les données de cette collection sont temporaires et sont
-supprimées dès que les rapports correspondants sont créés. Il est donc
-possible de trouver la collection vide.
+La collection PreservationReport permet à la solution logicielle Vitam de construire des rapports de préservation des groupes d’objets techniques. Les données de cette collection sont temporaires et sont supprimées dès que les rapports correspondants sont créés. Il est donc possible de trouver la collection vide.
 
-[]{#__RefHeading___Toc29605_16690853641 .anchor}8.4.2. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique de l’enregistrement.
+**« _id » :** identifiant unique de l’enregistrement.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8159,7 +8122,7 @@ possible de trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit de l’identifiant du tenant.
 
@@ -8167,7 +8130,7 @@ possible de trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**« \_action » :** action mise en œuvre dans le cadre de l’opération de
+**« _action » :** action mise en œuvre dans le cadre de l’opération de
 préservation.
 
 -   Il s’agit d’une chaîne de caractères.
@@ -8213,8 +8176,7 @@ préservation.
 
 -   Cardinalité : 1-1
 
-    « **outputName** » : identifiant unique de l’objet créé lors de
-    l’opération de préservation.
+    « **outputName** » : identifiant unique de l’objet créé lors de l’opération de préservation.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8233,9 +8195,7 @@ préservation.
 
 -   Cardinalité : 1-1
 
-    « **unitId** » : identifiant unique de l’unité archivistique
-    déclarant le groupe d’objets ayant fait l’objet de l’opération de
-    préservation.
+    « **unitId** » : identifiant unique de l’unité archivistique déclarant le groupe d’objets ayant fait l’objet de l’opération de préservation.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8247,8 +8207,6 @@ préservation.
 
 L’ensemble des étapes, tâches et traitements sont détaillés dans la
 documentation Modèle de workflow.
-
-
 
 ## Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle
 
@@ -8288,53 +8246,46 @@ documentation Modèle de workflow.
 
 ## Annexe 4 : Catégories de règles possibles
 
-  ----------------------------- ------------------------------ --------------------------------------------------------------------------------------------------
-  Prefixe (Peut être modifié)   Type de règle correspondante   Description du type de règle
-  ACC                           AccessRule                     Règle d’accès / délai de communicabilité
-  APP                           Appraisal                      Règle correspondant à la durée d’utilité administrative (DUA)/ Durée de rétention / conservation
-  CLASS                         ClassificationRule             Règle de classification
-  DIS                           DisseminationRule              Règle de diffusion
-  REU                           ReuseRule                      Règle de réutilisation
-  STO                           StorageRule                    Durée d’utilité courante / durée de conservation au sens de la loi Informatique et Libertés
-  HOL                           HoldRule                       Gel
-  ----------------------------- ------------------------------ --------------------------------------------------------------------------------------------------
 
-1.  []{#__RefHeading___Toc29617_1669085364 .anchor}Annexe 5 : Valeurs
-    possibles pour le champ Status de la collection
-    AccessionRegisterDetail
+| Prefixe (Peut être modifié) | Type de règle correspondante | Description du type de règle |
+| :-: | :-: | :-: |
+| ACC                         | AccessRule                   | Règle d’accès / délai de communicabilité |
+| APP                         | Appraisal                    | Règle correspondant à la durée d’utilité administrative (DUA)/ Durée de rétention / conservation |
+| CLASS                       | ClassificationRule           | Règle de classification |
+| DIS                         | DisseminationRule            | Règle de diffusion |
+| REU                         | ReuseRule                    | Règle de réutilisation |
+| STO                         | StorageRule                  | Durée d’utilité courante / durée de conservation au sens de la loi Informatique et Libertés |
+| HOL                         | HoldRule                     | Gel |
 
-  --------------------------------------- ------------------------
-  Status type                             Valeur
-  Le fonds est complet et sauvegardé      STORED\_AND\_COMPLETED
-  Le fonds est mis à jour et sauvegardé   STORED\_AND\_UPDATED
-  Le fonds n’est pas sauvegardé           UNSTORED
-  --------------------------------------- ------------------------
+## Annexe 5 : Valeurs possibles pour le champ Status de la collection AccessionRegisterDetail
 
-1.  []{#__RefHeading___Toc29619_1669085364 .anchor}Annexe 6 : Valeurs
-    possibles pour le champ Name de la collection VitamSequence
+| Status type                           | Valeur |
+| :-: | :-: |
+| Le fonds est complet et sauvegardé    | STORED_AND_COMPLETED |
+| Le fonds est mis à jour et sauvegardé | STORED_AND_UPDATED   |
+| Le fonds n’est pas sauvegardé         | UNSTORED             |
 
-  -------------------- ----------------------------------- --------------------------------
-  Prefixe              Type de collection correspondante   Description
-  AC                   AccessContract                      Contrats d’accès
-  AG                   Agencies                            Services agents
-  AUP                  ArchiveUnitProfile                  Profil d’unité archivistique
-  CT                   Context                             Contextes applicatifs
-  GR                   Griffin                             Griffons
-  IC                   IngestContract                      Contrats d’entrée
-  FORMATS              FileFormats                         Formats
-  MC                   ManagementContract                  Contrats de gestion
-  ON                   Ontology                            Ontologie
-  PR                   Profile                             Profils d’archivage
-  PSC                  PreservationScenario                Scénarios de préservation
-  REGISTER\_DETAIL     AccessionRegisterDetail             Détail du registre des fonds
-  REGISTER\_SYMBOLIC   AccessionRegisterSymbolic           Registre des fonds symboliques
-  RULE                 FileRules                           Règles de gestion
-  SEC\_PROFILE         SecurityProfiles                    Profils de sécurité
-  -------------------- ----------------------------------- --------------------------------
+## Annexe 6 : Valeurs possibles pour le champ Name de la collection VitamSequence
 
-1.  []{#__RefHeading___Toc29621_1669085364 .anchor}Annexe 7 : Type
-    d’indexation des chaînes de caractères dans ElasticSearch par
-    collection et par champ
+|  Prefixe            | Type de collection correspondante | Description |
+| :-: | :-: | :-: |
+|  AC                 | AccessContract                    | Contrats d’accès |
+|  AG                 | Agencies                          | Services agents |
+|  AUP                | ArchiveUnitProfile                | Profil d’unité archivistique |
+|  CT                 | Context                           | Contextes applicatifs |
+|  GR                 | Griffin                           | Griffons |
+|  IC                 | IngestContract                    | Contrats d’entrée |
+|  FORMATS            | FileFormats                       | Formats |
+|  MC                 | ManagementContract                | Contrats de gestion |
+|  ON                 | Ontology                          | Ontologie |
+|  PR                 | Profile                           | Profils d’archivage |
+|  PSC                | PreservationScenario              | Scénarios de préservation |
+|  REGISTER_DETAIL    | AccessionRegisterDetail           | Détail du registre des fonds |
+|  REGISTER_SYMBOLIC  | AccessionRegisterSymbolic         | Registre des fonds symboliques |
+|  RULE               | FileRules                         | Règles de gestion |
+|  SEC_PROFILE        | SecurityProfiles                  | Profils de sécurité |
+
+## Annexe 7 : Type d’indexation des chaînes de caractères dans ElasticSearch par collection et par champ
 
 **Collection AccessContract**
 
