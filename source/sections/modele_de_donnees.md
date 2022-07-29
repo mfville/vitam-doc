@@ -7060,7 +7060,8 @@ La collection Ontology permet de référencer et décrire unitairement les champ
 L’ontologie est importée dans la solution logicielle Vitam sous la forme d’un fichier JSON.
 
 ```json
-[ {
+[ 
+  {
     "Identifier" : "AcquiredDate",
     "SedaField" : "AcquiredDate",
     "ApiField" : "AcquiredDate",
