@@ -6794,148 +6794,94 @@ Par exemple : IC-007485. Si le référentiel est en position esclave, cet ident
 
 #### Utilisation de la collection ManagementContract
 
-La collection ManagementContract permet de référencer et de décrire
-unitairement les contrats de gestion.
+La collection ManagementContract permet de référencer et de décrire unitairement les contrats de gestion.
 
-[]{#__RefHeading___Toc29455_16690853641 .anchor}7.12.2. Exemple d’un
-fichier d’import de contrat de gestion
+#### Exemple d’un fichier d’import de contrat de gestion
 
 Les contrats de gestion sont importés dans la solution logicielle Vitam
 sous la forme d’un fichier JSON.
 
-\[\
-{\
-"Name": "Contrat de gestion avec stockage",\
-"Identifier": "MCDefaultStorageAll",\
-"Description": "Contrat de gestion valide déclarant pas de surcharge
-pour le stockage avec la stratégie par défaut",\
-"Status": "ACTIVE",\
-"Storage": {\
-"UnitStrategy": "default",\
-"ObjectGroupStrategy": "default",\
-"ObjectStrategy": "default"\
-}\
-}\
-\]
+```json
+[
+  {
+		"Name": "Contrat de gestion avec stockage",
+		"Identifier": "MCDefaultStorageAll",
+		"Description": "Contrat de gestion valide déclarant pas de surcharge pour le stockage avec la stratégie par défaut",
+		"Status": "ACTIVE",
+		"Storage": {
+			"UnitStrategy": "default",
+			"ObjectGroupStrategy": "default",
+			"ObjectStrategy": "default"
+		}
+	}
+]
+```
 
-Les champs à renseigner obligatoirement à la création d’un contrat
-sont :
+Les champs à renseigner obligatoirement à la création d’un contrat sont :
 
 -   Name
 
--   Identifier (selon la configuration du tenant : Identifier n’est
-    > obligatoire que si l’identifiant du contrat d’accès n’est pas
-    > généré par la solution logicielle Vitam)
+-   Identifier (selon la configuration du tenant : Identifier n’est obligatoire que si l’identifiant du contrat d’accès n’est pas généré par la solution logicielle Vitam)
 
 Un fichier d’import peut décrire plusieurs contrats.
 
-[]{#__RefHeading___Toc29457_16690853641 .anchor}7.12.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-ManagementContract
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection ManagementContract
 
+```json
 {
-
-"\_id": "aefqaaaaaahjy6rtaapocalm6uiw5oqaaaaq",
-
-"Name": "Contrat de gestion avec stockage",
-
-"Identifier": "MCDefaultStorageAll",
-
-"Description": "Contrat de gestion valide déclarant pas de surcharge
-pour le stockage avec la stratégie par défaut",
-
-"Status": "ACTIVE",
-
-"CreationDate": "2016-12-10T00:00:00.000",
-
-"LastUpdate": "2019-09-03T03:00:56.115",
-
-"ActivationDate": "2016-12-10T00:00:00.000",
-
-"DeactivationDate": "2016-12-10T00:00:00.000",
-
-"Storage": {
-
-"UnitStrategy": "default",
-
-"ObjectGroupStrategy": "default",
-
-"ObjectStrategy": "default"
-
-},
-
-"VersionRetentionPolicy": {
-
-"InitialVersion": true,
-
-"IntermediaryVersion": "ALL",
-
-"Usages": \[
-
-{
-
-"UsageName": "Thumbnail",
-
-"InitialVersion": false,
-
-"IntermediaryVersion": "NONE"
-
-},
-
-{
-
-"UsageName": "PhysicalMaster",
-
-"InitialVersion": false,
-
-"IntermediaryVersion": "NONE"
-
-},
-
-{
-
-"UsageName": "TextContent",
-
-"InitialVersion": false,
-
-"IntermediaryVersion": "NONE"
-
-},
-
-{
-
-"UsageName": "BinaryMaster",
-
-"InitialVersion": true,
-
-"IntermediaryVersion": "ALL"
-
-},
-
-{
-
-"UsageName": "Dissemination",
-
-"InitialVersion": false,
-
-"IntermediaryVersion": "NONE"
-
+    "_id": "aefqaaaaaahjy6rtaapocalm6uiw5oqaaaaq",
+    "Name": "Contrat de gestion avec stockage",
+    "Identifier": "MCDefaultStorageAll",
+    "Description": "Contrat de gestion valide déclarant pas de surcharge pour le stockage avec la stratégie par défaut",
+    "Status": "ACTIVE",
+    "CreationDate": "2016-12-10T00:00:00.000",
+    "LastUpdate": "2019-09-03T03:00:56.115",
+    "ActivationDate": "2016-12-10T00:00:00.000",
+    "DeactivationDate": "2016-12-10T00:00:00.000",
+    "Storage": {
+        "UnitStrategy": "default",
+        "ObjectGroupStrategy": "default",
+        "ObjectStrategy": "default"
+    },
+    "VersionRetentionPolicy": {
+        "InitialVersion": true,
+        "IntermediaryVersion": "ALL",
+        "Usages": [
+            {
+                "UsageName": "Thumbnail",
+                "InitialVersion": false,
+                "IntermediaryVersion": "NONE"
+            },
+            {
+                "UsageName": "PhysicalMaster",
+                "InitialVersion": false,
+                "IntermediaryVersion": "NONE"
+            },
+            {
+                "UsageName": "TextContent",
+                "InitialVersion": false,
+                "IntermediaryVersion": "NONE"
+            },
+            {
+                "UsageName": "BinaryMaster",
+                "InitialVersion": true,
+                "IntermediaryVersion": "ALL"
+            },
+            {
+                "UsageName": "Dissemination",
+                "InitialVersion": false,
+                "IntermediaryVersion": "NONE"
+            }
+        ]
+    },
+    "_tenant": 0,
+    "_v": 0
 }
+```
 
-\]
+#### Détail des champs
 
-},
-
-"\_tenant": 0,
-
-"\_v": 0
-
-}
-
-[]{#__RefHeading___Toc29459_16690853641 .anchor}7.12.4. Détail des
-champs
-
-**« \_id » :** identifiant unique du contrat pour un tenant donné.
+**« _id » :** identifiant unique du contrat pour un tenant donné.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -6951,11 +6897,7 @@ champs
 
 **« Identifier » :** identifiant signifiant donné au contrat.
 
--   Il est constitué du préfixe « MC- » suivi d’une suite de 6 chiffres
-    > s’il est peuplé par la solution logicielle Vitam. Par exemple :
-    > MC-001223. Si le référentiel est en position esclave, cet
-    > identifiant peut être géré par l’application à l’origine du
-    > contrat et est unique sur le tenant.
+-   Il est constitué du préfixe « MC- » suivi d’une suite de 6 chiffres s’il est peuplé par la solution logicielle Vitam. Par exemple : MC-001223. Si le référentiel est en position esclave, cet identifiant peut être géré par l’application à l’origine du contrat et est unique sur le tenant.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -6979,7 +6921,7 @@ champs
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "CreationDate": "2017-04-10T11:30:33.798"
+    ```"CreationDate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -6989,7 +6931,7 @@ champs
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "LastUpdate": "2017-04-10T11:30:33.798"
+    ```"LastUpdate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -6999,7 +6941,7 @@ champs
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "ActivationDate": "2017-04-10T11:30:33.798"
+    ```"ActivationDate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -7009,72 +6951,59 @@ champs
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "DeactivationDate": "2017-04-10T11:30:33.798"
+    ```"DeactivationDate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 0-1
 
-**« Storage » :** définition d’une stratégie de stockage pouvant être
-appliquée aux unités archivistiques, aux groupes d’objets techniques
-et/ou aux objets techniques.
+**« Storage » :** définition d’une stratégie de stockage pouvant être appliquée aux unités archivistiques, aux groupes d’objets techniques et/ou aux objets techniques.
 
 -   Cardinalité : 0-1
 
 -   Cet objet peut contenir les champs suivants :
 
-    -   « UnitStrategy » : stratégie de stockage définie pour les
-        > métadonnées correspondant aux unités archivistiques .
+    -   « UnitStrategy » : stratégie de stockage définie pour les métadonnées correspondant aux unités archivistiques .
 
         -   Il s’agit d’une chaîne de caractères.
 
         -   Cardinalité : 0-1
 
-    -   « ObjectGroupStrategy » : stratégie de stockage définie pour les
-        > métadonnées correspondant aux groupes d’objets techniques.
+    -   « ObjectGroupStrategy » : stratégie de stockage définie pour les métadonnées correspondant aux groupes d’objets techniques.
 
         -   Il s’agit d’une chaîne de caractères.
 
         -   Cardinalité : 0-1
 
-    -   « ObjectStrategy » : stratégie de stockage pour les objets
-        > techniques.
+    -   « ObjectStrategy » : stratégie de stockage pour les objets techniques.
 
         -   Il s’agit d’une chaîne de caractères.
 
         -   Cardinalité : 0-1
 
-**« VersionRetentionPolicy » :** définition d’une politique de
-préservation pouvant être appliquée aux objets techniques de manière
-générique ou de manière spécifique par type d’usage.
+**« VersionRetentionPolicy » :** définition d’une politique de préservation pouvant être appliquée aux objets techniques de manière générique ou de manière spécifique par type d’usage.
 
 -   Cardinalité : 1-1
 
 -   Cet objet peut contenir les champs suivants :
 
-    -   « InitialVersion » : conservation de la valeur initiale des
-        > objets.
+    -   « InitialVersion » : conservation de la valeur initiale des objets.
 
         -   Il s’agit d’un booléen.
 
-        -   Si ce champ n’est pas défini lors de la création de
-            > l’enregistrement, alors il est par défaut true.
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut true.
 
         -   Cardinalité : 1-1
 
-    -   « IntermediaryVersion » : conservation des versions
-        > intermédiaires des objets.
+    -   « IntermediaryVersion » : conservation des versions intermédiaires des objets.
 
-        -   Il s’agit d’une chaîne de caractères dont la valeur est
-            > égale à LAST ou ALL.
+        -   Il s’agit d’une chaîne de caractères dont la valeur est égale à LAST ou ALL.
 
-        -   Si ce champ n’est pas défini lors de la création de
-            > l’enregistrement, alors il est par défaut LAST.
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut LAST.
 
         -   Cardinalité : 1-1
 
-    -   « Usages » : liste des usages définissant une politique de
-        > préservation spécifique.
+    -   « Usages » : liste des usages définissant une politique de préservation spécifique.
 
         -   Il s’agit d’un pouvant être vide.
 
@@ -7084,39 +7013,31 @@ générique ou de manière spécifique par type d’usage.
 
             -   «  UsageName » : nom de l’usage d’objet concerné.
 
-                -   Il s’agit d’une chaîne de caractères dont la valeur
-                    > peut être égale à « BinaryMaster, Dissemination,
-                    > TextContent, Thumbnail, PhysicalMaster).
+                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster, Dissemination, TextContent, Thumbnail, PhysicalMaster).
 
                 -   Cardinalité : 0-1
 
-            -   « InitialVersion » : conservation de la valeur initiale
-                > des objets
+            -   « InitialVersion » : conservation de la valeur initiale des objets
 
                 -   Il s’agit d’un booléen.
 
-                -   La valeur est obligatoirement égale à « true » pour
-                    > les objets d’usage « BinaryMaster ».
+                -   La valeur est obligatoirement égale à « true » pour les objets d’usage « BinaryMaster ».
 
                 -   Cardinalité : 0-1
 
-            -   « IntermediaryVersion » : conservation des versions
-                > intermédiaires des objets.
+            -   « IntermediaryVersion » : conservation des versions intermédiaires des objets.
 
-                -   Il s’agit d’une chaîne de caractères dont la la
-                    > valeur peut être égale à « ALL », à « LAST » ou
-                    > « NONE », ce dernier n’étant pas accepté pour les
-                    > objets d’usage « BinaryMaster ».
+                -   Il s’agit d’une chaîne de caractères dont la la valeur peut être égale à « ALL », à « LAST » ou « NONE », ce dernier n’étant pas accepté pour les objets d’usage « BinaryMaster ».
 
                 -   Cardinalité : 0-1
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit
+**« _v » :** version de l’enregistrement décrit
 
 -   Il s’agit d’un entier.
 
@@ -7124,15 +7045,11 @@ générique ou de manière spécifique par type d’usage.
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-    []{#__RefHeading___Toc29541_1669085364 .anchor}7.13. Collection
-    Ontology
+### Collection Ontology
 
-    []{#__RefHeading___Toc29543_1669085364 .anchor}7.13.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
 La collection Ontology permet de référencer et décrire unitairement les
 champs définissant l’ontologie utilisée dans la solution logicielle
