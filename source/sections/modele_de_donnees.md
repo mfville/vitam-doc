@@ -8203,17 +8203,20 @@ préservation.
 
 -   Cardinalité : 1-1
 
-## Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation
+Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation
+----------------------------------------------------------------------
 
 L’ensemble des étapes, tâches et traitements sont détaillés dans la
 documentation Modèle de workflow.
 
-## Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle
+Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle
+----------------------------------------------------------------------
 
 L’ensemble des étapes, tâches et traitements sont détaillées dans la
 documentation Modèle de workflow.
 
-## Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)
+Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)
+------------------------------------------------------------------------
 
 | Process Type                                     | Valeur                    | Description                                       |
 |:-------------------------------------------------|:--------------------------|:--------------------------------------------------|
@@ -8244,8 +8247,8 @@ documentation Modèle de workflow.
 | Update process                                   | UPDATE                    | Mise à jour                                       | 
 
 
-## Annexe 4 : Catégories de règles possibles
-
+Annexe 4 : Catégories de règles possibles
+-----------------------------------------
 
 | Prefixe (Peut être modifié) | Type de règle correspondante | Description du type de règle |
 | :-: | :-: | :-: |
@@ -8257,7 +8260,8 @@ documentation Modèle de workflow.
 | STO                         | StorageRule                  | Durée d’utilité courante / durée de conservation au sens de la loi Informatique et Libertés |
 | HOL                         | HoldRule                     | Gel |
 
-## Annexe 5 : Valeurs possibles pour le champ Status de la collection AccessionRegisterDetail
+Annexe 5 : Valeurs possibles pour le champ Status de la collection AccessionRegisterDetail
+------------------------------------------------------------------------------------------
 
 | Status type                           | Valeur |
 | :-: | :-: |
@@ -8265,7 +8269,8 @@ documentation Modèle de workflow.
 | Le fonds est mis à jour et sauvegardé | STORED_AND_UPDATED   |
 | Le fonds n’est pas sauvegardé         | UNSTORED             |
 
-## Annexe 6 : Valeurs possibles pour le champ Name de la collection VitamSequence
+Annexe 6 : Valeurs possibles pour le champ Name de la collection VitamSequence
+------------------------------------------------------------------------------
 
 |  Prefixe            | Type de collection correspondante | Description |
 | :-: | :-: | :-: |
