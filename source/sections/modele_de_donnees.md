@@ -7483,26 +7483,26 @@ liste de formats.
 La collection Profile permet de référencer et décrire unitairement les
 notices de profil d’archivage.
 
-[]{#__RefHeading___Toc29553_1669085364 .anchor}7.15.2. Exemple d’un
-fichier d’import de notices de Profils d’archivage
+#### Exemple d’un fichier d’import de notices de Profils d’archivage
 
-Un fichier d’import peut décrire plusieurs notices de profil
-d’archivage.
+Un fichier d’import peut décrire plusieurs notices de profil d’archivage.
 
-> \[\
-> {\
-> "Name":"ArchiveProfile0",\
-> "Description":"Description of the Profile",\
-> "Status":"ACTIVE",\
-> "Format":"XSD"\
-> },\
-> {\
-> "Name":"ArchiveProfile1",\
-> "Description":"Description of the profile 2",\
-> "Status":"ACTIVE",\
-> "Format":"RNG"\
-> }\
-> \]
+```json
+[
+  {
+    "Name":"ArchiveProfile0",
+    "Description":"Description of the Profile",
+    "Status":"ACTIVE",
+    "Format":"XSD"
+  },
+    {
+    "Name":"ArchiveProfile1",
+    "Description":"Description of the profile 2",
+    "Status":"ACTIVE",
+    "Format":"RNG"
+  }
+]
+```
 
 Les champs à renseigner obligatoirement à la création d’un profil
 d’archivage sont :
@@ -7511,30 +7511,29 @@ d’archivage sont :
 
 -   Format
 
-    []{#__RefHeading___Toc29555_1669085364 .anchor}7.15.3. Exemple de
-    JSON stocké en base comprenant l’exhaustivité des champs de la
-    collection Profile
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Profile
 
-> {\
-> "\_id": "aegaaaaaaehlfs7waax4iak4f52mzriaaaaq",\
-> "Identifier": "PR-000003",\
-> "Name": "ArchiveProfile0",\
-> "Description": "Description of the Profile",\
-> "Status": "ACTIVE",\
-> "Format": "XSD",\
-> "CreationDate": "2016-12-10T00:00",\
-> "LastUpdate": "2017-05-22T09:23:33.637",\
-> "ActivationDate": "2016-12-10T00:00",\
-> "DeactivationDate": "2016-12-10T00:00",\
-> "\_v": 1,\
-> "\_tenant": 1,\
-> "Path":
-> "1\_profile\_aegaaaaaaehlfs7waax4iak4f52mzriaaaaq\_20170522\_092333.xsd"\
-> }
+```json
+{
+  "_id": "aegaaaaaaehlfs7waax4iak4f52mzriaaaaq",
+  "Identifier": "PR-000003",
+  "Name": "ArchiveProfile0",
+  "Description": "Description of the Profile",
+  "Status": "ACTIVE",
+  "Format": "XSD",
+  "CreationDate": "2016-12-10T00:00",
+  "LastUpdate": "2017-05-22T09:23:33.637",
+  "ActivationDate": "2016-12-10T00:00",
+  "DeactivationDate": "2016-12-10T00:00",
+  "_v": 1,
+  "_tenant": 1,
+  "Path": "1_profile_aegaaaaaaehlfs7waax4iak4f52mzriaaaaq_20170522_092333.xsd"
+}
+```
 
-[]{#__RefHeading___Toc29557_1669085364 .anchor}7.15.4. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique de la notice de profil d’archivage.
+**« _id » :** identifiant unique de la notice de profil d’archivage.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7542,14 +7541,9 @@ d’archivage sont :
 
 -   Cardinalité : 1-1
 
-**« Identifier » :** identifiant signifiant de la notice de profil
-d’archivage.
+**« Identifier » :** identifiant signifiant de la notice de profil d’archivage.
 
--   Si Vitam est maître dans la création de cet identifiant, il est
-    > alors constitué du préfixe « PR- » suivi d’une suite de 6
-    > chiffres. Par exemple : PR-001573. Si le référentiel est en
-    > position esclave, cet identifiant peut être géré par l’application
-    > à l’origine de la notice du profil d’archivage.
+-   Si Vitam est maître dans la création de cet identifiant, il est alors constitué du préfixe « PR- » suivi d’une suite de 6 chiffres. Par exemple : PR-001573. Si le référentiel est en position esclave, cet identifiant peut être géré par l’application à l’origine de la notice du profil d’archivage.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -7573,23 +7567,20 @@ d’archivage.
 
 -   Peut avoir comme valeur : ACTIVE ou INACTIVE
 
--   Si ce champ n’est pas défini lors de la création de
-    > l’enregistrement, alors il est par défaut INACTIVE.
+-   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut INACTIVE.
 
 -   Cardinalité : 1-1
 
 **« Format » :** format attendu pour le fichier décrivant les règles du
 profil d’archivage.
 
--   Il s’agit d’une chaîne de caractères devant correspondre à
-    > l’énumération ProfileFormat.
+-   Il s’agit d’une chaîne de caractères devant correspondre à l’énumération ProfileFormat.
 
 -   Ses valeurs sont soit RNG, soit XSD.
 
 -   Cardinalité : 1-1
 
-**« CreationDate » :** date de création de la notice du profil
-d’archivage.
+**« CreationDate » :** date de création de la notice du profil d’archivage.
 
 -   La date est au format ISO 8601.
 
@@ -7597,21 +7588,9 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
-    Exemple : "CreationDate": "2017-04-10T11:30:33.798",
+    Exemple : ```"CreationDate": "2017-04-10T11:30:33.798"```,
 
-**« LastUpdate » :** date de dernière mise à jour de la notice du profil
-d’archivage.
-
--   La date est au format ISO 8601
-
--   Champ peuplé par la solution logicielle Vitam.
-
--   Cardinalité : 1-1
-
-    Exemple : "LastUpdate": "2017-04-10T11:30:33.798"
-
-**« ActivationDate » :** date d’activation de la notice du profil
-d’archivage.
+**« LastUpdate » :** date de dernière mise à jour de la notice du profil d’archivage.
 
 -   La date est au format ISO 8601
 
@@ -7619,10 +7598,9 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
--   Exemple : "ActivationDate": "2017-04-10T11:30:33.798"
+    Exemple : ```"LastUpdate": "2017-04-10T11:30:33.798"```
 
-**« DeactivationDate » :** date de désactivation de la notice du profil
-d’archivage.
+**« ActivationDate » :** date d’activation de la notice du profil d’archivage.
 
 -   La date est au format ISO 8601
 
@@ -7630,9 +7608,19 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
--   Exemple : "DeactivationDate": "2017-04-10T11:30:33.798"
+    Exemple : ```"ActivationDate": "2017-04-10T11:30:33.798"```
 
-**« \_tenant » :** information sur le tenant.
+**« DeactivationDate » :** date de désactivation de la notice du profil d’archivage.
+
+-   La date est au format ISO 8601
+
+-   Champ peuplé par la solution logicielle Vitam.
+
+-   Cardinalité : 1-1
+
+-   Exemple : ```"DeactivationDate": "2017-04-10T11:30:33.798"```
+
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit d’un entier.
 
@@ -7640,7 +7628,7 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit
+**« _v » :** version de l’enregistrement décrit
 
 -   Il s’agit d’un entier.
 
@@ -7648,54 +7636,48 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-**« Path » :** champ contribué par la solution logicielle Vitam lors
-d’un import de fichier XSD ou RNG.
+**« Path » :** champ contribué par la solution logicielle Vitam lors d’un import de fichier XSD ou RNG.
 
 -   Indique le chemin pour accéder au fichier du profil d’archivage.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Le format de fichier doit correspondre à celui qui est décrit dans
-    > le champ Format.
+-   Le format de fichier doit correspondre à celui qui est décrit dans le champ Format.
 
 -   Cardinalité : 0-1
 
-    []{#__RefHeading___Toc29559_1669085364 .anchor}7.16. Collection
-    SecurityProfile
+### Collection SecurityProfile
 
-    []{#__RefHeading___Toc29561_1669085364 .anchor}7.16.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
-Cette collection référence et décrit les profils de sécurité mobilisés
-par les contextes applicatifs.
+Cette collection référence et décrit les profils de sécurité mobilisés par les contextes applicatifs.
 
-[]{#__RefHeading___Toc29563_1669085364 .anchor}7.16.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-> {\
-> "\_id": "aegqaaaaaaeucszwabglyak64gjmgbyaaaba",\
-> "Identifier": "SEC\_PROFILE-000002",\
-> "Name": "demo-security-profile",\
-> "FullAccess": false,\
-> "Permissions": \[\
-> "securityprofiles:create",\
-> "securityprofiles:read",\
-> "securityprofiles:id:read",\
-> "securityprofiles:id:update",\
-> "accesscontracts:read",\
-> "accesscontracts:id:read",\
-> "contexts:id:update"\
-> \],\
-> "\_v": 1\
-> }
+```json
+{
+    "_id": "aegqaaaaaaeucszwabglyak64gjmgbyaaaba",
+    "Identifier": "SEC_PROFILE-000002",
+    "Name": "demo-security-profile",
+    "FullAccess": false,
+    "Permissions": [
+        "securityprofiles:create",
+        "securityprofiles:read",
+        "securityprofiles:id:read",
+        "securityprofiles:id:update",
+        "accesscontracts:read",
+        "accesscontracts:id:read",
+        "contexts:id:update"
+    ],
+    "_v": 1
+}
+```
 
-[]{#__RefHeading___Toc29565_1669085364 .anchor}7.16.3. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique du profil de sécurité.
+**« _id » :** identifiant unique du profil de sécurité.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7705,11 +7687,7 @@ stocké en base comprenant l’exhaustivité des champs
 
 **« Identifier » :** identifiant signifiant donné au profil de sécurité.
 
--   Il est constitué du préfixe « SEC\_PROFILE- » suivi d’une suite de 6
-    > chiffres tant qu’il est défini par la solution logicielle Vitam.
-    > Par exemple : SEC\_PROFILE-001573. Si le référentiel est en
-    > position esclave, cet identifiant peut être géré par l’application
-    > à l’origine du profil de sécurité.
+-   Il est constitué du préfixe « SEC\_PROFILE- » suivi d’une suite de 6 chiffres tant qu’il est défini par la solution logicielle Vitam. Par exemple : SEC_PROFILE-001573. Si le référentiel est en position esclave, cet identifiant peut être géré par l’application à l’origine du profil de sécurité.
 
 -   Cardinalité : 1-1
 
@@ -7719,21 +7697,15 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Cardinalité : 1-1
 
-**« FullAccess » :** mode super-administrateur donnant toutes les
-permissions.
+**« FullAccess » :** mode super-administrateur donnant toutes les permissions.
 
 -   Il s’agit d’un booléen.
 
--   S’il est à « false », le mode super-administrateur n’est pas activé
-    > et les valeurs du champ permission sont utilisées. S’il est à
-    > « true », le champ permission doit être vide.
+-   S’il est à « false », le mode super-administrateur n’est pas activé et les valeurs du champ permission sont utilisées. S’il est à « true », le champ permission doit être vide.
 
 -   Cardinalité : 1-1
 
-**« Permissions » :** décrit l’ensemble des permissions auxquelles le
-profil de sécurité donne accès. Chaque API externe contient un verbe
-OPTION qui retourne la liste des services avec leur description et
-permissions associées.
+**« Permissions » :** décrit l’ensemble des permissions auxquelles le profil de sécurité donne accès. Chaque API externe contient un verbe OPTION qui retourne la liste des services avec leur description et permissions associées.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
@@ -7743,6 +7715,11 @@ permissions associées.
 
 -   Liste non exhaustive :
 
+| :- | :- | :- | :-i |
+
+| accesscontracts:create:json                         | distributionreport:id:read            | objects:read                 | rulesfile:check |
+
+| accesscontracts:id:read                             | elimination:action                    | ontologies:create:json       | rulesreferential:id:read |
   ----------------------------------------------------- --------------------------------------- ------------------------------ ------------------------------
   accesscontracts:create:json                           distributionreport:id:read              objects:read                   rulesfile:check
                                                                                                                                
