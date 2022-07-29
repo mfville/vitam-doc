@@ -7719,64 +7719,33 @@ Cette collection référence et décrit les profils de sécurité mobilisés par
 | :- | :- | :- | :- |
 | accesscontracts:create:json                         | distributionreport:id:read            | objects:read                 | rulesfile:check |
 | accesscontracts:id:read                             | elimination:action                    | ontologies:create:json       | rulesreferential:id:read |
+| accesscontracts:id:update                           | elimination:analysis                  | ontologies:id:read:json      | rulesreport:id:read |
+| accesscontracts:read                                | evidenceaudit:check                   | ontologies:read              | securityprofiles:create:json |
+| accessionregisters:id:accessionregisterdetails:read | forcepause:check                      | operations:id:delete         | securityprofiles:id:read |
+| accessionregisters:read                             | formats:create                        | operations:id:read           | securityprofiles:id:update |
+| accessionregisterssymbolic:read                     | formats:id:read                       | operations:id:read:status    | securityprofiles:read |
+| agencies:create                                     | formats:read                          | operations:id:update         | storageaccesslog:read:binary |
+| agencies:id:read                                    | formatsfile:check                     | operations:read              | traceability:id:read |
+| agencies:read                                       | griffin:read                          | preservation:update          | traceabilitychecks:create |
+| agenciesfile:check                                  | griffins:create                       | preservationScenario:read    | units:id:objects:read:binary |
+| agenciesreferential:id:read                         | griffins:read                         | preservationScenarios:create | units:id:objects:read:json |
+| archiveunitprofiles:create:binary                   | ingestcontracts:create:json           | preservationScenarios:read   | units:id:read:json |
+| archiveunitprofiles:create:json                     | ingestcontracts:id:read               | probativevalue:create        | units:id:update |
+| archiveunitprofiles:id:read:json                    | ingestcontracts:id:update             | profiles:create:binary       | units:read |
+| archiveunitprofiles:id:update:json                  | ingestcontracts:read                  | profiles:create:json         | units:rules:update |
+| archiveunitprofiles:read                            | ingests:create                        | profiles:id:read:binary      | units:update |
+| audits:create                                       | ingests:id:archivetransfertreply:read | profiles:id:read:json        | unitsWithInheritedRules:read |
+| batchreport:id:read                                 | ingests:id:manifests:read             | profiles:id:update:binaire   | workflows:read |
+| contexts:create:json                                | ingests:local:create                  | profiles:id:update:json      |  |
+| contexts:id:read                                    | logbookobjectslifecycles:id:read      | profiles:read                |  |
+| contexts:id:update                                  | logbookoperations:create              | reclassification:update      |  |
+| contexts:read                                       | logbookoperations:id:read             | rectificationaudit:check     |  |
+| dipexport:create                                    | logbookoperations:read                | removeforcepause:check       |  |
+| dipexport:id:dip:read                               | logbookunitlifecycles:id:read         | rules:create                 |  |
+|                                                     |                                       | rules:id:read                |  |
+|                                                     |                                       | rules:read                   |  |
 
-  ----------------------------------------------------- --------------------------------------- ------------------------------ ------------------------------
-  accesscontracts:create:json                           distributionreport:id:read              objects:read                   rulesfile:check
-                                                                                                                               
-  accesscontracts:id:read                               elimination:action                      ontologies:create:json         rulesreferential:id:read
-                                                                                                                               
-  accesscontracts:id:update                             elimination:analysis                    ontologies:id:read:json        rulesreport:id:read
-                                                                                                                               
-  accesscontracts:read                                  evidenceaudit:check                     ontologies:read                securityprofiles:create:json
-                                                                                                                               
-  accessionregisters:id:accessionregisterdetails:read   forcepause:check                        operations:id:delete           securityprofiles:id:read
-                                                                                                                               
-  accessionregisters:read                               formats:create                          operations:id:read             securityprofiles:id:update
-                                                                                                                               
-  accessionregisterssymbolic:read                       formats:id:read                         operations:id:read:status      securityprofiles:read
-                                                                                                                               
-  agencies:create                                       formats:read                            operations:id:update           storageaccesslog:read:binary
-                                                                                                                               
-  agencies:id:read                                      formatsfile:check                       operations:read                traceability:id:read
-                                                                                                                               
-  agencies:read                                         griffin:read                            preservation:update            traceabilitychecks:create
-                                                                                                                               
-  agenciesfile:check                                    griffins:create                         preservationScenario:read      units:id:objects:read:binary
-                                                                                                                               
-  agenciesreferential:id:read                           griffins:read                           preservationScenarios:create   units:id:objects:read:json
-                                                                                                                               
-  archiveunitprofiles:create:binary                     ingestcontracts:create:json             preservationScenarios:read     units:id:read:json
-                                                                                                                               
-  archiveunitprofiles:create:json                       ingestcontracts:id:read                 probativevalue:create          units:id:update
-                                                                                                                               
-  archiveunitprofiles:id:read:json                      ingestcontracts:id:update               profiles:create:binary         units:read
-                                                                                                                               
-  archiveunitprofiles:id:update:json                    ingestcontracts:read                    profiles:create:json           units:rules:update
-                                                                                                                               
-  archiveunitprofiles:read                              ingests:create                          profiles:id:read:binary        units:update
-                                                                                                                               
-  audits:create                                         ingests:id:archivetransfertreply:read   profiles:id:read:json          unitsWithInheritedRules:read
-                                                                                                                               
-  batchreport:id:read                                   ingests:id:manifests:read               profiles:id:update:binaire     workflows:read
-                                                                                                                               
-  contexts:create:json                                  ingests:local:create                    profiles:id:update:json        
-                                                                                                                               
-  contexts:id:read                                      logbookobjectslifecycles:id:read        profiles:read                  
-                                                                                                                               
-  contexts:id:update                                    logbookoperations:create                reclassification:update        
-                                                                                                                               
-  contexts:read                                         logbookoperations:id:read               rectificationaudit:check       
-                                                                                                                               
-  dipexport:create                                      logbookoperations:read                  removeforcepause:check         
-                                                                                                                               
-  dipexport:id:dip:read                                 logbookunitlifecycles:id:read           rules:create                   
-                                                                                                                               
-                                                                                                rules:id:read                  
-                                                                                                                               
-                                                                                                rules:read                     
-  ----------------------------------------------------- --------------------------------------- ------------------------------ ------------------------------
-
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
@@ -7784,15 +7753,11 @@ Cette collection référence et décrit les profils de sécurité mobilisés par
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-    []{#__RefHeading___Toc29567_1669085364 .anchor}7.17. Collection
-    VitamSequence
+### Collection VitamSequence
 
-    []{#__RefHeading___Toc29569_1669085364 .anchor}7.17.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
 Cette collection permet de générer des identifiants signifiants pour les
 enregistrements des collections suivantes :
