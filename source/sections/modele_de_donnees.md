@@ -7715,6 +7715,7 @@ Cette collection référence et décrit les profils de sécurité mobilisés par
 
 -   Liste non exhaustive :
 
+| <!-- -->                                            | <!-- -->                              | <!-- -->                     | <!-- --> |
 | :- | :- | :- | :- |
 | accesscontracts:create:json                         | distributionreport:id:read            | objects:read                 | rulesfile:check |
 | accesscontracts:id:read                             | elimination:action                    | ontologies:create:json       | rulesreferential:id:read |
