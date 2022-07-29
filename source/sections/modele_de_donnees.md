@@ -7788,25 +7788,23 @@ enregistrements des collections suivantes :
 
 -   SecurityProfile
 
-Ces identifiants sont généralement composés d’un préfixe de deux
-lettres, d’un tiret et d’une suite de six chiffres. Par exemple :
-IC-027593. Il sont reportés dans les champs Identifier des collections
-concernées.
+Ces identifiants sont généralement composés d’un préfixe de deux lettres, d’un tiret et d’une suite de six chiffres. Par exemple : IC-027593. Il sont reportés dans les champs Identifier des collections concernées.
 
-[]{#__RefHeading___Toc29571_1669085364 .anchor}7.17.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-> {\
-> "\_id": "aeaaaaaaaahkwxukabqteak4q5mtmdyaaaaq",\
-> "Name": "AC",\
-> "Counter": 44,\
-> "\_tenant": 1,\
-> "\_v": 0\
-> }
+```json
+{
+  "_id": "aeaaaaaaaahkwxukabqteak4q5mtmdyaaaaq",
+  "Name": "AC",
+  "Counter": 44,
+  "_tenant": 1,
+  "_v": 0
+}
+```
 
-[]{#__RefHeading___Toc29573_1669085364 .anchor}7.17.3. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique.
+**« _id » :** identifiant unique.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7816,9 +7814,7 @@ stocké en base comprenant l’exhaustivité des champs
 
 **« Name » :** préfixe utilisé pour générer un identifiant signifiant.
 
--   La valeur contenue dans ce champ doit correspondre à la table de
-    > concordance du service VitamCounterService.java. La liste des
-    > valeurs possibles est détaillée en annexe.
+-   La valeur contenue dans ce champ doit correspondre à la table de concordance du service VitamCounterService.java. La liste des valeurs possibles est détaillée en annexe.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -7828,8 +7824,7 @@ stocké en base comprenant l’exhaustivité des champs
 
 **« Counter » :** numéro incrémental.
 
--   Il s’agit du dernier numéro utilisé pour générer un identifiant
-    > signifiant.
+-   Il s’agit du dernier numéro utilisé pour générer un identifiant signifiant.
 
 -   Il s’agit d’un entier.
 
@@ -7837,7 +7832,7 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit de l’identifiant du tenant utilisant l’enregistrement.
 
@@ -7847,46 +7842,39 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit
+**« _v » :** version de l’enregistrement décrit
 
 -   Il s’agit d’un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc52402_236744635 .anchor}7.18. Collection
-    Offset
+### Collection Offset
 
-    []{#__RefHeading___Toc29439_16690853641 .anchor}7.18.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
-Cette collection permet de persister les offsets des dernières données
-reconstruites des offres de stockage lors de la reconstruction au fil de
-l’eau pour les collections de la base Masterdata.
+Cette collection permet de persister les offsets des dernières données reconstruites des offres de stockage lors de la reconstruction au fil de l’eau pour les collections de la base Masterdata.
 
 Il y a une valeur d’offset par couple tenant/collection.
 
-[]{#__RefHeading___Toc29441_16690853641 .anchor}7.18.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-> {\
-> "\_id": ObjectId("507f191e810c19729de860ea"),\
-> "offset": 1357,\
-> "collection": "PROFILE",
->
-> "strategyId": "default",\
-> "\_tenant": 1\
-> }
+```json
+{
+  "_id": ObjectId("507f191e810c19729de860ea"),
+  "offset": 1357,
+  "collection": "PROFILE",
+  "strategyId": "default",
+  "_tenant": 1
+}
+```
 
-[]{#__RefHeading___Toc29443_16690853641 .anchor}7.18.3. Détail des
-champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique mongo.
+**« _id » :** identifiant unique mongo.
 
 -   Il s’agit d’un champ de type mongo : ObjectId(&lt;hexadecimal&gt;).
 
@@ -7908,11 +7896,9 @@ champs
 
     **« strategyId »** : identifiant de la stratégie de stockage.
 
-<!-- -->
-
 -   Il s’agit d’une chaîne de caractère.
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
@@ -7939,11 +7925,9 @@ logicielle Vitam. Ces collections sont :
 
 -   UpdateUnitReport
 
-    []{#__RefHeading___Toc87217_939825479 .anchor}8.1. Collection
-    AuditObjectGroup
+### Collection AuditObjectGroup
 
-    []{#__RefHeading___Toc29597_1669085364111 .anchor}8.1.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
 La collection AuditObjectGroup permet à la solution logicielle Vitam de
 construire des rapports d’audit. Les données de cette collection sont
