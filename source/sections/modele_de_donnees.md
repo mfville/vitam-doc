@@ -7051,44 +7051,39 @@ Un fichier d’import peut décrire plusieurs contrats.
 
 #### Utilisation de la collection
 
-La collection Ontology permet de référencer et décrire unitairement les
-champs définissant l’ontologie utilisée dans la solution logicielle
-Vitam.
+La collection Ontology permet de référencer et décrire unitairement les champs définissant l’ontologie utilisée dans la solution logicielle Vitam.
 
-[]{#__RefHeading___Toc29545_1669085364 .anchor}7.13.2. Exemple d’un
-fichier d’import d’ontology
+#### Exemple d’un fichier d’import d’ontology
 
-L’ontologie est importée dans la solution logicielle Vitam sous la forme
-d’un fichier JSON.
+L’ontologie est importée dans la solution logicielle Vitam sous la forme d’un fichier JSON.
 
-> \[ {\
-> "Identifier" : "AcquiredDate",\
-> "SedaField" : "AcquiredDate",\
-> "ApiField" : "AcquiredDate",\
-> "Description" : "unit-es-mapping.json",\
-> "Type" : "DATE",\
-> "Origin" : "INTERNAL",\
-> "ShortName" : "AcquiredDate",\
-> "Collections" : \[ "Unit" \]\
-> }, {\
-> "Identifier" : "BirthDate",\
-> "SedaField" : "BirthDate",\
-> "ApiField" : "BirthDate",\
-> "Description" : "unit-es-mapping.json",\
-> "Type" : "DATE",\
-> "Origin" : "INTERNAL",\
-> "ShortName" : "BirthDate",\
-> "Collections" : \[ "Unit" \]\
-> },\
-> \[...\]\
-> \]
+```json
+[ {
+    "Identifier" : "AcquiredDate",
+    "SedaField" : "AcquiredDate",
+    "ApiField" : "AcquiredDate",
+    "Description" : "unit-es-mapping.json",
+    "Type" : "DATE",
+    "Origin" : "INTERNAL",
+    "ShortName" : "AcquiredDate",
+    "Collections" : [ "Unit" ]
+  }, {
+    "Identifier" : "BirthDate",
+    "SedaField" : "BirthDate",
+    "ApiField" : "BirthDate",
+    "Description" : "unit-es-mapping.json",
+    "Type" : "DATE",
+    "Origin" : "INTERNAL",
+    "ShortName" : "BirthDate",
+    "Collections" : [ "Unit" ]
+  },
+  [...]
+]
+```
 
-Les champs à renseigner obligatoirement pour chaque définition de champ
-dans l’ontologie sont :
+Les champs à renseigner obligatoirement pour chaque définition de champ dans l’ontologie sont :
 
 -   Identifier
-
-<!-- -->
 
 -   Type
 
@@ -7096,13 +7091,11 @@ dans l’ontologie sont :
 
 -   Collections
 
-Un fichier JSON décrit la totalité des champs de l’ontologie (interne et
-externe).
+Un fichier JSON décrit la totalité des champs de l’ontologie (interne et externe).
 
-[]{#__RefHeading___Toc29547_1669085364 .anchor}7.13.3. Détail des champs
-de la collection Ontology
+#### Détail des champs de la collection Ontology
 
-**« \_id » :** identifiant unique d’un vocabulaire de l’ontologie.
+**« _id » :** identifiant unique d’un vocabulaire de l’ontologie.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7110,8 +7103,7 @@ de la collection Ontology
 
 -   Cardinalité : 1-1
 
-**« Identifier » :** identifiant signifiant du vocabulaire de
-l’ontologie.
+**« Identifier » :** identifiant signifiant du vocabulaire de l’ontologie.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -7135,8 +7127,7 @@ l’ontologie.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Peut avoir comme valeur : DATE, TEXT, KEYWORD, BOOLEAN, LONG,
-    > DOUBLE, ENUM, GEO\_POINT.
+-   Peut avoir comme valeur : DATE, TEXT, KEYWORD, BOOLEAN, LONG, DOUBLE, ENUM, GEO_POINT.
 
 -   Cardinalité : 1-1
 
@@ -7154,14 +7145,13 @@ l’ontologie.
 
 -   Cardinalité : 0-1
 
-**« Collections » :** collections concernées par un vocabulaire de
-l’ontologie.
+**« Collections » :** collections concernées par un vocabulaire de l’ontologie.
 
 -   Il s’agit d’une liste de chaînes de caractères.
 
 -   Cardinalité : 1-n
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit d’un entier.
 
@@ -7169,7 +7159,7 @@ l’ontologie.
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
@@ -7177,12 +7167,9 @@ l’ontologie.
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-**« ApiField » :** identifiant d’un vocabulaire de l’ontologie qui sera
-retourné via le DSL.
+**« ApiField » :** identifiant d’un vocabulaire de l’ontologie qui sera retourné via le DSL.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -7190,86 +7177,51 @@ retourné via le DSL.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc12790_4022761242 .anchor}7.14. Collection
-    PreservationScenario
+### Collection PreservationScenario
 
-    []{#__RefHeading___Toc29585_1669085364 .anchor}7.14.1. Utilisation
-    de la collection PreservationScenario
+#### Utilisation de la collection PreservationScenario
 
-La collection PreservationScenario permet de référencer et décrire
-unitairement les scénarios de préservation utilisés pour lancer des
-opérations de préservation.
+La collection PreservationScenario permet de référencer et décrire unitairement les scénarios de préservation utilisés pour lancer des opérations de préservation.
 
-[]{#__RefHeading___Toc13508_4022761242 .anchor}7.14.2. Exemple d’un
-fichier d’import de scénario de préservation
+#### Exemple d’un fichier d’import de scénario de préservation
 
-Les scénarios de préservation sont importés dans la solution logicielle
-Vitam sous la forme d’un fichier JSON.
+Les scénarios de préservation sont importés dans la solution logicielle Vitam sous la forme d’un fichier JSON.
 
-> \[
->
-> {
->
-> "Identifier": "PSC-000002",
->
-> "Name": "Transformation en GIF MINI",
->
-> "Description": "Ce scenario transforme une image JPEG en GIF mini",
->
-> "ActionList": \[
->
-> "GENERATE"
->
-> \],
->
-> "GriffinByFormat": \[
->
-> {
->
-> "FormatList": \["fmt/41", "fmt/43"\],
->
-> "GriffinIdentifier": "GRI-000001",
->
-> "TimeOut": 20,
->
-> "MaxSize": 10000000,
->
-> "Debug":true,
->
-> "ActionDetail": \[
->
-> {
->
-> "Type": "GENERATE",
->
-> "Values": {
->
-> "Extension": "GIF",
->
-> "Args": \[
->
-> "-thumbnail",
->
-> "100x100"
->
-> \]
->
-> }
->
-> }
->
-> \]
->
-> }
->
-> \]
->
-> }
->
-> \]
+```json
+[
+  {
+    "Identifier": "PSC-000002",
+    "Name": "Transformation en GIF MINI",
+    "Description": "Ce scenario transforme une image JPEG en GIF mini",
+    "ActionList": [
+      "GENERATE"
+    ],
+    "GriffinByFormat": [
+      {
+        "FormatList": ["fmt/41", "fmt/43"],
+        "GriffinIdentifier": "GRI-000001",
+        "TimeOut": 20,
+        "MaxSize": 10000000,
+        "Debug":true,
+        "ActionDetail": [
+          {
+            "Type": "GENERATE",
+            "Values": {
+              "Extension": "GIF",
+              "Args": [
+                "-thumbnail",
+                "100x100"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
+```
 
-Les champs à renseigner obligatoirement à l’import d’un scénario de
-préservation sont :
+Les champs à renseigner obligatoirement à l’import d’un scénario de préservation sont :
 
 -   Name ;
 
@@ -7295,85 +7247,75 @@ préservation sont :
 
 Un fichier d’import peut décrire plusieurs scénarios de préservation.
 
-[]{#__RefHeading___Toc29587_1669085364 .anchor}7.14.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-PreservationScenario
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection PreservationScenario
 
-> {\
-> "\_id": "aefqaaaabahn6dttabew6alha45dfgqaaaaq",\
-> "Identifier": "PSC-000023",\
-> "Name": "Normalisation d'entrée",\
-> "Description": "Ce scénario permet de faire une validation des formats
-> et de créer une version de diffusion en PDF. Il est en général
-> appliqué au contenu d'une entrée pour donner un retour de la qualité
-> du versement et préparer une consultation fréquente.",\
-> "CreationDate": "2018-11-16T15:55:30.721",\
-> "LastUpdate": "2018-11-20T15:34:21.542",\
-> "ActionList": \["ANALYSE", "GENERATE"\],\
-> "GriffinByFormat": \[{\
-> "FormatList": \["fmt/136", "fmt/137", "fmt/138", "fmt/139", "fmt/290",
-> "fmt/294", "fmt/292", "fmt/296", "fmt/291", "fmt/295", "fmt/293", ,
-> "fmt/297"\],\
-> "GriffinIdentifier": "GRI-0000023",\
-> "TimeOut": 20,\
-> "MaxSize": 10000000,\
-> "ActionDetail": \[{\
-> "Action": "ANALYSE",\
-> "Values": {\
-> "Args": \["-strict"\]\
-> }\
-> }, {\
-> "Action": "GENERATE",\
-> "Values": {\
-> "Extension": "pdf",\
-> "Args": \["-f", "pdf", "-e", "SelectedPdfVersion=1"\]\
-> }\
-> }\
-> \]\
-> }, {\
-> "FormatList": \["fmt/41", "fmt/42", "x-fmt/398", "x-fmt/390",
-> "x-fmt/391", "fmt/645",\
-> "fmt/43", "fmt/44", "fmt/112", "fmt/11", "fmt/12", "fmt/13",
-> "fmt/935", "fmt/152",\
-> "fmt/399", "fmt/388", "fmt/387", "fmt/155", "fmt/353", "fmt/154",
-> "fmt/153",\
-> "fmt/156", "x-fmt/392", "x-fmt/178", "fmt/408", "fmt/568", "fmt/567",
-> "fmt/566"\],\
-> "GriffinIdentifier": "GRI-0000012",\
-> "TimeOut": 10,\
-> "MaxSize": 10000000,\
-> "ActionDetail": \[{\
-> "Action": "ANALYSE"\
-> }, {\
-> "Action": "GENERATE",\
-> "Values": {\
-> "Extension": "pdf",\
-> "Args": \["-quality", "90"\]\
-> }\
-> }\
-> \]\
-> }\
-> \],\
-> "GriffinDefault": {\
-> "GriffinIdentifier": "GRI-0000005",\
-> "TimeOut": 10,\
-> "MaxSize": 10000000,\
-> "ActionDetail": \[{\
-> "Action": "ANALYSE",\
-> "Values": {\
-> "Args": \["-strict"\]\
-> }\
-> }\
-> \]\
-> },\
-> " \_tenant": 3,\
-> " \_v": 2\
-> }\
-> \`\`\`
+```json
+{
+    "_id": "aefqaaaabahn6dttabew6alha45dfgqaaaaq",
+    "Identifier": "PSC-000023",
+    "Name": "Normalisation d'entrée",
+    "Description": "Ce scénario permet de faire une validation des formats et de créer une version de diffusion en PDF. Il est en général appliqué au contenu d'une entrée pour donner un retour de la qualité du versement et préparer une consultation fréquente.",
+    "CreationDate": "2018-11-16T15:55:30.721",
+    "LastUpdate": "2018-11-20T15:34:21.542",
+    "ActionList": ["ANALYSE", "GENERATE"],
+    "GriffinByFormat": [{
+            "FormatList": ["fmt/136", "fmt/137", "fmt/138", "fmt/139", "fmt/290", "fmt/294", "fmt/292", "fmt/296", "fmt/291", "fmt/295", "fmt/293", , "fmt/297"],
+            "GriffinIdentifier": "GRI-0000023",
+            "TimeOut": 20,
+            "MaxSize": 10000000,
+            "ActionDetail": [{
+                    "Action": "ANALYSE",
+                    "Values": {
+                        "Args": ["-strict"]
+                    }
+                }, {
+                    "Action": "GENERATE",
+                    "Values": {
+                        "Extension": "pdf",
+                        "Args": ["-f", "pdf", "-e", "SelectedPdfVersion=1"]
+                    }
+                }
+            ]
+        }, {
+            "FormatList": ["fmt/41", "fmt/42", "x-fmt/398", "x-fmt/390", "x-fmt/391", "fmt/645",
+                "fmt/43", "fmt/44", "fmt/112", "fmt/11", "fmt/12", "fmt/13", "fmt/935", "fmt/152",
+                "fmt/399", "fmt/388", "fmt/387", "fmt/155", "fmt/353", "fmt/154", "fmt/153",
+                "fmt/156", "x-fmt/392", "x-fmt/178", "fmt/408", "fmt/568", "fmt/567", "fmt/566"],
+            "GriffinIdentifier": "GRI-0000012",
+            "TimeOut": 10,
+            "MaxSize": 10000000,
+            "ActionDetail": [{
+                    "Action": "ANALYSE"
+                }, {
+                    "Action": "GENERATE",
+                    "Values": {
+                        "Extension": "pdf",
+                        "Args": ["-quality", "90"]
+                    }
+                }
+            ]
+        }
+    ],
+    "GriffinDefault": {
+        "GriffinIdentifier": "GRI-0000005",
+        "TimeOut": 10,
+        "MaxSize": 10000000,
+        "ActionDetail": [{
+                "Action": "ANALYSE",
+                "Values": {
+                    "Args": ["-strict"]
+                }
+            }
+        ]
+    },
+    " _tenant": 3,
+    " _v": 2
+}
+```
 
-[]{#__RefHeading___Toc29589_1669085364 .anchor}7.14.4. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique du scénario de préservation.
+**« _id » :** identifiant unique du scénario de préservation.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7387,8 +7329,7 @@ PreservationScenario
 
 -   Cardinalité : 1-1
 
-**« Identifier » :** identifiant signifiant donné au scénario de
-préservation.
+**« Identifier » :** identifiant signifiant donné au scénario de préservation.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -7404,15 +7345,13 @@ préservation.
 
 -   La date est enregistrée au format ISO 8601.
 
--   S’il n’est pas renseigné dans le fichier d’import, champ peuplé par
-    > la solution logicielle Vitam.
+-   S’il n’est pas renseigné dans le fichier d’import, champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 1-1
 
-    "CreationDate": "2017-04-10T11:30:33.798"
+    ```"CreationDate": "2017-04-10T11:30:33.798"```
 
-**« LastUpdate » :** date de dernière de mise à jour du scénario de
-préservation.
+**« LastUpdate » :** date de dernière de mise à jour du scénario de préservation.
 
 -   La date est au format ISO 8601.
 
@@ -7420,15 +7359,14 @@ préservation.
 
 -   Cardinalité : 1-1
 
-    "LastUpdate": "2017-04-10T11:30:33.798"
+    ```"LastUpdate": "2017-04-10T11:30:33.798"```
 
 **« ActionList » :** liste des actions prévues par le scénario de
 préservation.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
--   Il peut avoir comme valeurs : ANALYSE, GENERATE, IDENTIFY, EXTRACT,
-    > EXTRACT\_AU.
+-   Il peut avoir comme valeurs : ANALYSE, GENERATE, IDENTIFY, EXTRACT, EXTRACT_AU.
 
 -   Cardinalité : 1-1
 
@@ -7441,35 +7379,25 @@ liste de formats.
 
 -   Ce tableau est composé des champs suivants :
 
-    -   **« FormatList » :** identifiants des formats de fichiers sur
-        > lesquels l’action est effectuée. Ces identifiants doivent
-        > correspondre à des identifiants valides de la collection
-        > FileFormat.
+    -   **« FormatList » :** identifiants des formats de fichiers sur lesquels l’action est effectuée. Ces identifiants doivent correspondre à des identifiants valides de la collection FileFormat.
 
         -   Il s’agit d’un tableau de chaînes de caractères.
 
         -   Cardinalités : 1-1
 
-    -   **« GriffinIdentifier » :** identifiant du griffon qui effectue
-        > l’action pour les objets identifiés par un format du champ
-        > FormatList. Cet identifiant doit correspondre à un identifiant
-        > valide de la collection Griffin.
+    -   **« GriffinIdentifier » :** identifiant du griffon qui effectue l’action pour les objets identifiés par un format du champ FormatList. Cet identifiant doit correspondre à un identifiant valide de la collection Griffin.
 
         -   Il s’agit d’une chaîne de caractères.
 
         -   Cardinalité : 1-1
 
-    -   **« Timeout » :** temps en minutes au bout duquel la solution
-        > logicielle Vitam, en l’absence de réponse du griffon, arrêtera
-        > l’action de préservation.
+    -   **« Timeout » :** temps en minutes au bout duquel la solution logicielle Vitam, en l’absence de réponse du griffon, arrêtera l’action de préservation.
 
         -   Il s’agit d’un entier.
 
         -   Cardinalités : 1-1
 
-    -   **« MaxSize » :** taille maximale en octet des objets sur
-        > lesquels l’action de préservation peut être effectuée en
-        > utilisant ce scénario de préservation.
+    -   **« MaxSize » :** taille maximale en octet des objets sur lesquels l’action de préservation peut être effectuée en utilisant ce scénario de préservation.
 
         -   Il s’agit d’un entier.
 
@@ -7477,15 +7405,11 @@ liste de formats.
 
     -   **« Debug » :** debug.
 
-        -   Il s’agit d’un booléen. Si la valeur est « true », les
-            > erreurs rencontrées sont remontées dans les logs de la
-            > solution logicielle Vitam.
+        -   Il s’agit d’un booléen. Si la valeur est « true », les erreurs rencontrées sont remontées dans les logs de la solution logicielle Vitam.
 
         -   Cardinalité : 1-1
 
-    -   **« ActionDetail » :** tableau d’objets permettant de décrire
-        > les commandes techniques associées à chaque action de
-        > préservation.
+    -   **« ActionDetail » :** tableau d’objets permettant de décrire les commandes techniques associées à chaque action de préservation.
 
         -   Cardinalité : 1-1
 
@@ -7493,77 +7417,48 @@ liste de formats.
 
             -   **« Type » :** action de préservation.
 
-                -   Ce champ doit avoir une chaîne de caractères faisant
-                    > partie des valeurs autorisées pour le champ
-                    > ActionList.
+                -   Ce champ doit avoir une chaîne de caractères faisant partie des valeurs autorisées pour le champ ActionList.
 
                 -   Cardinalité : 1-1
 
-            -   **« Values » :** valeurs précisant les commandes passées
-                > par le scénario de préservation au griffon.
+            -   **« Values » :** valeurs précisant les commandes passées par le scénario de préservation au griffon.
 
                 -   Cardinalité : 0-1
 
-                -   pour les actions ANALYSE, GENERATE, EXTRACT et
-                    > EXTRACT\_AU, ce champ a pour valeur « null » ou
-                    > peut être absent.
+                -   pour les actions ANALYSE, GENERATE, EXTRACT et EXTRACT_AU, ce champ a pour valeur « null » ou peut être absent.
 
-                -   pour l’action GENERATE, c’est un objet possédant
-                    > deux champs :
+                -   pour l’action GENERATE, c’est un objet possédant deux champs :
 
-                    -   **« Extension » **: chaîne de caractère servant
-                        > à rajouter une extension aux fichiers générés
-                        > (ex : .pdf).
+                    -   **« Extension » **: chaîne de caractère servant à rajouter une extension aux fichiers générés (ex : .pdf).
 
                         -   Cardinalité : 0-1
 
-                    -   **« Args »** : liste d’arguments utilisés lors
-                        > de la commande système qu’effectue le griffon
-                        > sur les objets concernés.
+                    -   **« Args »** : liste d’arguments utilisés lors de la commande système qu’effectue le griffon sur les objets concernés.
 
                         -   Cardinalité : 0-1
 
                 -   pour l’action EXTRACT, c’est un objet possédant un
                     > champ :
 
-                    -   **« FilteredExtractedObjectGroupData »** : liste
-                        > de métadonnées à extraire.
+                    -   **« FilteredExtractedObjectGroupData »** : liste de métadonnées à extraire.
 
-                        -   Il s’agit d’un tableau de chaînes de
-                            > caractères.
+                        -   Il s’agit d’un tableau de chaînes de caractères.
 
-                        -   Ce champ peut contenir les valeurs
-                            > suivantes : « ALL\_METADATA »,
-                            > « RAW\_METADATA » et/ou une liste de
-                            > métadonnées internes en particulier (ex :
-                            > resolution, compression, geometry).
+                        -   Ce champ peut contenir les valeurs suivantes : « ALL_METADATA », « RAW_METADATA » et/ou une liste de métadonnées internes en particulier (ex : resolution, compression, geometry).
 
                         -   Cardinalité : 0-1
 
-**« GriffinDefault » :** description de l’action par défaut à effectuer
-si aucun format ne correspond à ceux attendus dans les objets de
-GriffinByFormat
+**« GriffinDefault » :** description de l’action par défaut à effectuer si aucun format ne correspond à ceux attendus dans les objets de GriffinByFormat
 
--   Il s’agit d’un tableau d’objets reprenant la structure de ceux de
-    > GriffinByFormat.
+-   Il s’agit d’un tableau d’objets reprenant la structure de ceux de GriffinByFormat.
 
--   S’il n’y a pas d’action par défaut à effectuer, ce champ peut être
-    > “null”.
+-   S’il n’y a pas d’action par défaut à effectuer, ce champ peut être “null”.
 
 -   Cardinalité : 0-1
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
--   Il s’agit de l’identifiant du tenant utilisant le scénario de
-    > préservation.
-
--   Il s’agit d’un entier.
-
--   Champ peuplé par la solution logicielle Vitam.
-
--   Cardinalité : 1-1
-
-**« \_v » :** version de l’enregistrement décrit.
+-   Il s’agit de l’identifiant du tenant utilisant le scénario de préservation.
 
 -   Il s’agit d’un entier.
 
@@ -7571,15 +7466,19 @@ GriffinByFormat
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+**« _v » :** version de l’enregistrement décrit.
 
-    []{#__RefHeading___Toc29549_1669085364 .anchor}7.15. Collection
-    Profile
+-   Il s’agit d’un entier.
 
-    []{#__RefHeading___Toc29551_1669085364 .anchor}7.15.1. Utilisation
-    de la collection Profile
+-   Champ peuplé par la solution logicielle Vitam.
+
+-   Cardinalité : 1-1
+
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
+
+### Collection Profile
+
+#### Utilisation de la collection Profile
 
 La collection Profile permet de référencer et décrire unitairement les
 notices de profil d’archivage.
