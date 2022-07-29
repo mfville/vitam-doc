@@ -6427,7 +6427,8 @@ Un fichier d’import peut décrire plusieurs griffons.
 #### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Griffins
 
 ```json
-{
+[
+  {  
     "_id": "aeaaaaaaaahlopljab2wualhmuydxiaaaaaq",
     "Name": Imgmagic,
     "Identifier": "GRIFFIN1",
@@ -6438,7 +6439,8 @@ Un fichier d’import peut décrire plusieurs griffons.
     "ExecutableVersion": "V1",
     "_tenant": 1,
     "_v": 13
-}
+  }
+]
 ```
 
 #### Détail des champs
@@ -6536,9 +6538,9 @@ Les contrats d’entrée sont importés dans la solution logicielle Vitam sous l
 ```json
 [
     {
-        "Name":"Contrat Archives Départementales",
-        "Description":"Test entrée - Contrat Archives Départementales",
-        "Status" : "ACTIVE",
+        "Name": "Contrat Archives Départementales",
+        "Description": "Test entrée - Contrat Archives Départementales",
+        "Status": "ACTIVE",
     },
     {
         "Name": "SIA archives nationales",
@@ -6547,7 +6549,7 @@ Les contrats d’entrée sont importés dans la solution logicielle Vitam sous l
         "ArchiveProfiles": [
           "ArchiveProfile8"
         ],
-        "LinkParentId" : "aeaqaaaaaagbcaacaax56ak35rpo6zqaaaaq"
+        "LinkParentId": "aeaqaaaaaagbcaacaax56ak35rpo6zqaaaaq"
     }
 ]
 ```
@@ -7077,9 +7079,9 @@ L’ontologie est importée dans la solution logicielle Vitam sous la forme d’
     "ShortName" : "BirthDate",
     "Collections" : [ "Unit" ]
   },
-  [...]
 ]
 ```
+[...]
 
 Les champs à renseigner obligatoirement pour chaque définition de champ dans l’ontologie sont :
 
