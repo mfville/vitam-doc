@@ -6427,7 +6427,8 @@ Un fichier d’import peut décrire plusieurs griffons.
 #### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Griffins
 
 ```json
-{
+[
+  {  
     "_id": "aeaaaaaaaahlopljab2wualhmuydxiaaaaaq",
     "Name": Imgmagic,
     "Identifier": "GRIFFIN1",
@@ -6438,7 +6439,8 @@ Un fichier d’import peut décrire plusieurs griffons.
     "ExecutableVersion": "V1",
     "_tenant": 1,
     "_v": 13
-}
+  }
+]
 ```
 
 #### Détail des champs
@@ -6536,9 +6538,9 @@ Les contrats d’entrée sont importés dans la solution logicielle Vitam sous l
 ```json
 [
     {
-        "Name":"Contrat Archives Départementales",
-        "Description":"Test entrée - Contrat Archives Départementales",
-        "Status" : "ACTIVE",
+        "Name": "Contrat Archives Départementales",
+        "Description": "Test entrée - Contrat Archives Départementales",
+        "Status": "ACTIVE",
     },
     {
         "Name": "SIA archives nationales",
@@ -6547,7 +6549,7 @@ Les contrats d’entrée sont importés dans la solution logicielle Vitam sous l
         "ArchiveProfiles": [
           "ArchiveProfile8"
         ],
-        "LinkParentId" : "aeaqaaaaaagbcaacaax56ak35rpo6zqaaaaq"
+        "LinkParentId": "aeaqaaaaaagbcaacaax56ak35rpo6zqaaaaq"
     }
 ]
 ```
@@ -6794,148 +6796,94 @@ Par exemple : IC-007485. Si le référentiel est en position esclave, cet ident
 
 #### Utilisation de la collection ManagementContract
 
-La collection ManagementContract permet de référencer et de décrire
-unitairement les contrats de gestion.
+La collection ManagementContract permet de référencer et de décrire unitairement les contrats de gestion.
 
-[]{#__RefHeading___Toc29455_16690853641 .anchor}7.12.2. Exemple d’un
-fichier d’import de contrat de gestion
+#### Exemple d’un fichier d’import de contrat de gestion
 
 Les contrats de gestion sont importés dans la solution logicielle Vitam
 sous la forme d’un fichier JSON.
 
-\[\
-{\
-"Name": "Contrat de gestion avec stockage",\
-"Identifier": "MCDefaultStorageAll",\
-"Description": "Contrat de gestion valide déclarant pas de surcharge
-pour le stockage avec la stratégie par défaut",\
-"Status": "ACTIVE",\
-"Storage": {\
-"UnitStrategy": "default",\
-"ObjectGroupStrategy": "default",\
-"ObjectStrategy": "default"\
-}\
-}\
-\]
+```json
+[
+  {
+		"Name": "Contrat de gestion avec stockage",
+		"Identifier": "MCDefaultStorageAll",
+		"Description": "Contrat de gestion valide déclarant pas de surcharge pour le stockage avec la stratégie par défaut",
+		"Status": "ACTIVE",
+		"Storage": {
+			"UnitStrategy": "default",
+			"ObjectGroupStrategy": "default",
+			"ObjectStrategy": "default"
+		}
+	}
+]
+```
 
-Les champs à renseigner obligatoirement à la création d’un contrat
-sont :
+Les champs à renseigner obligatoirement à la création d’un contrat sont :
 
 -   Name
 
--   Identifier (selon la configuration du tenant : Identifier n’est
-    > obligatoire que si l’identifiant du contrat d’accès n’est pas
-    > généré par la solution logicielle Vitam)
+-   Identifier (selon la configuration du tenant : Identifier n’est obligatoire que si l’identifiant du contrat d’accès n’est pas généré par la solution logicielle Vitam)
 
 Un fichier d’import peut décrire plusieurs contrats.
 
-[]{#__RefHeading___Toc29457_16690853641 .anchor}7.12.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-ManagementContract
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection ManagementContract
 
+```json
 {
-
-"\_id": "aefqaaaaaahjy6rtaapocalm6uiw5oqaaaaq",
-
-"Name": "Contrat de gestion avec stockage",
-
-"Identifier": "MCDefaultStorageAll",
-
-"Description": "Contrat de gestion valide déclarant pas de surcharge
-pour le stockage avec la stratégie par défaut",
-
-"Status": "ACTIVE",
-
-"CreationDate": "2016-12-10T00:00:00.000",
-
-"LastUpdate": "2019-09-03T03:00:56.115",
-
-"ActivationDate": "2016-12-10T00:00:00.000",
-
-"DeactivationDate": "2016-12-10T00:00:00.000",
-
-"Storage": {
-
-"UnitStrategy": "default",
-
-"ObjectGroupStrategy": "default",
-
-"ObjectStrategy": "default"
-
-},
-
-"VersionRetentionPolicy": {
-
-"InitialVersion": true,
-
-"IntermediaryVersion": "ALL",
-
-"Usages": \[
-
-{
-
-"UsageName": "Thumbnail",
-
-"InitialVersion": false,
-
-"IntermediaryVersion": "NONE"
-
-},
-
-{
-
-"UsageName": "PhysicalMaster",
-
-"InitialVersion": false,
-
-"IntermediaryVersion": "NONE"
-
-},
-
-{
-
-"UsageName": "TextContent",
-
-"InitialVersion": false,
-
-"IntermediaryVersion": "NONE"
-
-},
-
-{
-
-"UsageName": "BinaryMaster",
-
-"InitialVersion": true,
-
-"IntermediaryVersion": "ALL"
-
-},
-
-{
-
-"UsageName": "Dissemination",
-
-"InitialVersion": false,
-
-"IntermediaryVersion": "NONE"
-
+    "_id": "aefqaaaaaahjy6rtaapocalm6uiw5oqaaaaq",
+    "Name": "Contrat de gestion avec stockage",
+    "Identifier": "MCDefaultStorageAll",
+    "Description": "Contrat de gestion valide déclarant pas de surcharge pour le stockage avec la stratégie par défaut",
+    "Status": "ACTIVE",
+    "CreationDate": "2016-12-10T00:00:00.000",
+    "LastUpdate": "2019-09-03T03:00:56.115",
+    "ActivationDate": "2016-12-10T00:00:00.000",
+    "DeactivationDate": "2016-12-10T00:00:00.000",
+    "Storage": {
+        "UnitStrategy": "default",
+        "ObjectGroupStrategy": "default",
+        "ObjectStrategy": "default"
+    },
+    "VersionRetentionPolicy": {
+        "InitialVersion": true,
+        "IntermediaryVersion": "ALL",
+        "Usages": [
+            {
+                "UsageName": "Thumbnail",
+                "InitialVersion": false,
+                "IntermediaryVersion": "NONE"
+            },
+            {
+                "UsageName": "PhysicalMaster",
+                "InitialVersion": false,
+                "IntermediaryVersion": "NONE"
+            },
+            {
+                "UsageName": "TextContent",
+                "InitialVersion": false,
+                "IntermediaryVersion": "NONE"
+            },
+            {
+                "UsageName": "BinaryMaster",
+                "InitialVersion": true,
+                "IntermediaryVersion": "ALL"
+            },
+            {
+                "UsageName": "Dissemination",
+                "InitialVersion": false,
+                "IntermediaryVersion": "NONE"
+            }
+        ]
+    },
+    "_tenant": 0,
+    "_v": 0
 }
+```
 
-\]
+#### Détail des champs
 
-},
-
-"\_tenant": 0,
-
-"\_v": 0
-
-}
-
-[]{#__RefHeading___Toc29459_16690853641 .anchor}7.12.4. Détail des
-champs
-
-**« \_id » :** identifiant unique du contrat pour un tenant donné.
+**« _id » :** identifiant unique du contrat pour un tenant donné.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -6951,11 +6899,7 @@ champs
 
 **« Identifier » :** identifiant signifiant donné au contrat.
 
--   Il est constitué du préfixe « MC- » suivi d’une suite de 6 chiffres
-    > s’il est peuplé par la solution logicielle Vitam. Par exemple :
-    > MC-001223. Si le référentiel est en position esclave, cet
-    > identifiant peut être géré par l’application à l’origine du
-    > contrat et est unique sur le tenant.
+-   Il est constitué du préfixe « MC- » suivi d’une suite de 6 chiffres s’il est peuplé par la solution logicielle Vitam. Par exemple : MC-001223. Si le référentiel est en position esclave, cet identifiant peut être géré par l’application à l’origine du contrat et est unique sur le tenant.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -6979,7 +6923,7 @@ champs
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "CreationDate": "2017-04-10T11:30:33.798"
+    ```"CreationDate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -6989,7 +6933,7 @@ champs
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "LastUpdate": "2017-04-10T11:30:33.798"
+    ```"LastUpdate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -6999,7 +6943,7 @@ champs
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "ActivationDate": "2017-04-10T11:30:33.798"
+    ```"ActivationDate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
@@ -7009,72 +6953,59 @@ champs
 
 -   La date est au format ISO 8601 et prend la forme suivante :
 
-    "DeactivationDate": "2017-04-10T11:30:33.798"
+    ```"DeactivationDate": "2017-04-10T11:30:33.798"```
 
 -   Champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 0-1
 
-**« Storage » :** définition d’une stratégie de stockage pouvant être
-appliquée aux unités archivistiques, aux groupes d’objets techniques
-et/ou aux objets techniques.
+**« Storage » :** définition d’une stratégie de stockage pouvant être appliquée aux unités archivistiques, aux groupes d’objets techniques et/ou aux objets techniques.
 
 -   Cardinalité : 0-1
 
 -   Cet objet peut contenir les champs suivants :
 
-    -   « UnitStrategy » : stratégie de stockage définie pour les
-        > métadonnées correspondant aux unités archivistiques .
+    -   « UnitStrategy » : stratégie de stockage définie pour les métadonnées correspondant aux unités archivistiques .
 
         -   Il s’agit d’une chaîne de caractères.
 
         -   Cardinalité : 0-1
 
-    -   « ObjectGroupStrategy » : stratégie de stockage définie pour les
-        > métadonnées correspondant aux groupes d’objets techniques.
+    -   « ObjectGroupStrategy » : stratégie de stockage définie pour les métadonnées correspondant aux groupes d’objets techniques.
 
         -   Il s’agit d’une chaîne de caractères.
 
         -   Cardinalité : 0-1
 
-    -   « ObjectStrategy » : stratégie de stockage pour les objets
-        > techniques.
+    -   « ObjectStrategy » : stratégie de stockage pour les objets techniques.
 
         -   Il s’agit d’une chaîne de caractères.
 
         -   Cardinalité : 0-1
 
-**« VersionRetentionPolicy » :** définition d’une politique de
-préservation pouvant être appliquée aux objets techniques de manière
-générique ou de manière spécifique par type d’usage.
+**« VersionRetentionPolicy » :** définition d’une politique de préservation pouvant être appliquée aux objets techniques de manière générique ou de manière spécifique par type d’usage.
 
 -   Cardinalité : 1-1
 
 -   Cet objet peut contenir les champs suivants :
 
-    -   « InitialVersion » : conservation de la valeur initiale des
-        > objets.
+    -   « InitialVersion » : conservation de la valeur initiale des objets.
 
         -   Il s’agit d’un booléen.
 
-        -   Si ce champ n’est pas défini lors de la création de
-            > l’enregistrement, alors il est par défaut true.
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut true.
 
         -   Cardinalité : 1-1
 
-    -   « IntermediaryVersion » : conservation des versions
-        > intermédiaires des objets.
+    -   « IntermediaryVersion » : conservation des versions intermédiaires des objets.
 
-        -   Il s’agit d’une chaîne de caractères dont la valeur est
-            > égale à LAST ou ALL.
+        -   Il s’agit d’une chaîne de caractères dont la valeur est égale à LAST ou ALL.
 
-        -   Si ce champ n’est pas défini lors de la création de
-            > l’enregistrement, alors il est par défaut LAST.
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut LAST.
 
         -   Cardinalité : 1-1
 
-    -   « Usages » : liste des usages définissant une politique de
-        > préservation spécifique.
+    -   « Usages » : liste des usages définissant une politique de préservation spécifique.
 
         -   Il s’agit d’un pouvant être vide.
 
@@ -7084,39 +7015,31 @@ générique ou de manière spécifique par type d’usage.
 
             -   «  UsageName » : nom de l’usage d’objet concerné.
 
-                -   Il s’agit d’une chaîne de caractères dont la valeur
-                    > peut être égale à « BinaryMaster, Dissemination,
-                    > TextContent, Thumbnail, PhysicalMaster).
+                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster, Dissemination, TextContent, Thumbnail, PhysicalMaster).
 
                 -   Cardinalité : 0-1
 
-            -   « InitialVersion » : conservation de la valeur initiale
-                > des objets
+            -   « InitialVersion » : conservation de la valeur initiale des objets
 
                 -   Il s’agit d’un booléen.
 
-                -   La valeur est obligatoirement égale à « true » pour
-                    > les objets d’usage « BinaryMaster ».
+                -   La valeur est obligatoirement égale à « true » pour les objets d’usage « BinaryMaster ».
 
                 -   Cardinalité : 0-1
 
-            -   « IntermediaryVersion » : conservation des versions
-                > intermédiaires des objets.
+            -   « IntermediaryVersion » : conservation des versions intermédiaires des objets.
 
-                -   Il s’agit d’une chaîne de caractères dont la la
-                    > valeur peut être égale à « ALL », à « LAST » ou
-                    > « NONE », ce dernier n’étant pas accepté pour les
-                    > objets d’usage « BinaryMaster ».
+                -   Il s’agit d’une chaîne de caractères dont la la valeur peut être égale à « ALL », à « LAST » ou « NONE », ce dernier n’étant pas accepté pour les objets d’usage « BinaryMaster ».
 
                 -   Cardinalité : 0-1
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit
+**« _v » :** version de l’enregistrement décrit
 
 -   Il s’agit d’un entier.
 
@@ -7124,54 +7047,46 @@ générique ou de manière spécifique par type d’usage.
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-    []{#__RefHeading___Toc29541_1669085364 .anchor}7.13. Collection
-    Ontology
+### Collection Ontology
 
-    []{#__RefHeading___Toc29543_1669085364 .anchor}7.13.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
-La collection Ontology permet de référencer et décrire unitairement les
-champs définissant l’ontologie utilisée dans la solution logicielle
-Vitam.
+La collection Ontology permet de référencer et décrire unitairement les champs définissant l’ontologie utilisée dans la solution logicielle Vitam.
 
-[]{#__RefHeading___Toc29545_1669085364 .anchor}7.13.2. Exemple d’un
-fichier d’import d’ontology
+#### Exemple d’un fichier d’import d’ontology
 
-L’ontologie est importée dans la solution logicielle Vitam sous la forme
-d’un fichier JSON.
+L’ontologie est importée dans la solution logicielle Vitam sous la forme d’un fichier JSON.
 
-> \[ {\
-> "Identifier" : "AcquiredDate",\
-> "SedaField" : "AcquiredDate",\
-> "ApiField" : "AcquiredDate",\
-> "Description" : "unit-es-mapping.json",\
-> "Type" : "DATE",\
-> "Origin" : "INTERNAL",\
-> "ShortName" : "AcquiredDate",\
-> "Collections" : \[ "Unit" \]\
-> }, {\
-> "Identifier" : "BirthDate",\
-> "SedaField" : "BirthDate",\
-> "ApiField" : "BirthDate",\
-> "Description" : "unit-es-mapping.json",\
-> "Type" : "DATE",\
-> "Origin" : "INTERNAL",\
-> "ShortName" : "BirthDate",\
-> "Collections" : \[ "Unit" \]\
-> },\
-> \[...\]\
-> \]
+```json
+[ 
+  {
+    "Identifier" : "AcquiredDate",
+    "SedaField" : "AcquiredDate",
+    "ApiField" : "AcquiredDate",
+    "Description" : "unit-es-mapping.json",
+    "Type" : "DATE",
+    "Origin" : "INTERNAL",
+    "ShortName" : "AcquiredDate",
+    "Collections" : [ "Unit" ]
+  }, {
+    "Identifier" : "BirthDate",
+    "SedaField" : "BirthDate",
+    "ApiField" : "BirthDate",
+    "Description" : "unit-es-mapping.json",
+    "Type" : "DATE",
+    "Origin" : "INTERNAL",
+    "ShortName" : "BirthDate",
+    "Collections" : [ "Unit" ]
+  },
+]
+```
+[...]
 
-Les champs à renseigner obligatoirement pour chaque définition de champ
-dans l’ontologie sont :
+Les champs à renseigner obligatoirement pour chaque définition de champ dans l’ontologie sont :
 
 -   Identifier
-
-<!-- -->
 
 -   Type
 
@@ -7179,13 +7094,11 @@ dans l’ontologie sont :
 
 -   Collections
 
-Un fichier JSON décrit la totalité des champs de l’ontologie (interne et
-externe).
+Un fichier JSON décrit la totalité des champs de l’ontologie (interne et externe).
 
-[]{#__RefHeading___Toc29547_1669085364 .anchor}7.13.3. Détail des champs
-de la collection Ontology
+#### Détail des champs de la collection Ontology
 
-**« \_id » :** identifiant unique d’un vocabulaire de l’ontologie.
+**« _id » :** identifiant unique d’un vocabulaire de l’ontologie.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7193,8 +7106,7 @@ de la collection Ontology
 
 -   Cardinalité : 1-1
 
-**« Identifier » :** identifiant signifiant du vocabulaire de
-l’ontologie.
+**« Identifier » :** identifiant signifiant du vocabulaire de l’ontologie.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -7218,8 +7130,7 @@ l’ontologie.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Peut avoir comme valeur : DATE, TEXT, KEYWORD, BOOLEAN, LONG,
-    > DOUBLE, ENUM, GEO\_POINT.
+-   Peut avoir comme valeur : DATE, TEXT, KEYWORD, BOOLEAN, LONG, DOUBLE, ENUM, GEO_POINT.
 
 -   Cardinalité : 1-1
 
@@ -7237,14 +7148,13 @@ l’ontologie.
 
 -   Cardinalité : 0-1
 
-**« Collections » :** collections concernées par un vocabulaire de
-l’ontologie.
+**« Collections » :** collections concernées par un vocabulaire de l’ontologie.
 
 -   Il s’agit d’une liste de chaînes de caractères.
 
 -   Cardinalité : 1-n
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit d’un entier.
 
@@ -7252,7 +7162,7 @@ l’ontologie.
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
@@ -7260,12 +7170,9 @@ l’ontologie.
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-**« ApiField » :** identifiant d’un vocabulaire de l’ontologie qui sera
-retourné via le DSL.
+**« ApiField » :** identifiant d’un vocabulaire de l’ontologie qui sera retourné via le DSL.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -7273,86 +7180,51 @@ retourné via le DSL.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc12790_4022761242 .anchor}7.14. Collection
-    PreservationScenario
+### Collection PreservationScenario
 
-    []{#__RefHeading___Toc29585_1669085364 .anchor}7.14.1. Utilisation
-    de la collection PreservationScenario
+#### Utilisation de la collection PreservationScenario
 
-La collection PreservationScenario permet de référencer et décrire
-unitairement les scénarios de préservation utilisés pour lancer des
-opérations de préservation.
+La collection PreservationScenario permet de référencer et décrire unitairement les scénarios de préservation utilisés pour lancer des opérations de préservation.
 
-[]{#__RefHeading___Toc13508_4022761242 .anchor}7.14.2. Exemple d’un
-fichier d’import de scénario de préservation
+#### Exemple d’un fichier d’import de scénario de préservation
 
-Les scénarios de préservation sont importés dans la solution logicielle
-Vitam sous la forme d’un fichier JSON.
+Les scénarios de préservation sont importés dans la solution logicielle Vitam sous la forme d’un fichier JSON.
 
-> \[
->
-> {
->
-> "Identifier": "PSC-000002",
->
-> "Name": "Transformation en GIF MINI",
->
-> "Description": "Ce scenario transforme une image JPEG en GIF mini",
->
-> "ActionList": \[
->
-> "GENERATE"
->
-> \],
->
-> "GriffinByFormat": \[
->
-> {
->
-> "FormatList": \["fmt/41", "fmt/43"\],
->
-> "GriffinIdentifier": "GRI-000001",
->
-> "TimeOut": 20,
->
-> "MaxSize": 10000000,
->
-> "Debug":true,
->
-> "ActionDetail": \[
->
-> {
->
-> "Type": "GENERATE",
->
-> "Values": {
->
-> "Extension": "GIF",
->
-> "Args": \[
->
-> "-thumbnail",
->
-> "100x100"
->
-> \]
->
-> }
->
-> }
->
-> \]
->
-> }
->
-> \]
->
-> }
->
-> \]
+```json
+[
+  {
+    "Identifier": "PSC-000002",
+    "Name": "Transformation en GIF MINI",
+    "Description": "Ce scenario transforme une image JPEG en GIF mini",
+    "ActionList": [
+      "GENERATE"
+    ],
+    "GriffinByFormat": [
+      {
+        "FormatList": ["fmt/41", "fmt/43"],
+        "GriffinIdentifier": "GRI-000001",
+        "TimeOut": 20,
+        "MaxSize": 10000000,
+        "Debug":true,
+        "ActionDetail": [
+          {
+            "Type": "GENERATE",
+            "Values": {
+              "Extension": "GIF",
+              "Args": [
+                "-thumbnail",
+                "100x100"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
+```
 
-Les champs à renseigner obligatoirement à l’import d’un scénario de
-préservation sont :
+Les champs à renseigner obligatoirement à l’import d’un scénario de préservation sont :
 
 -   Name ;
 
@@ -7378,85 +7250,75 @@ préservation sont :
 
 Un fichier d’import peut décrire plusieurs scénarios de préservation.
 
-[]{#__RefHeading___Toc29587_1669085364 .anchor}7.14.3. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs de la collection
-PreservationScenario
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection PreservationScenario
 
-> {\
-> "\_id": "aefqaaaabahn6dttabew6alha45dfgqaaaaq",\
-> "Identifier": "PSC-000023",\
-> "Name": "Normalisation d'entrée",\
-> "Description": "Ce scénario permet de faire une validation des formats
-> et de créer une version de diffusion en PDF. Il est en général
-> appliqué au contenu d'une entrée pour donner un retour de la qualité
-> du versement et préparer une consultation fréquente.",\
-> "CreationDate": "2018-11-16T15:55:30.721",\
-> "LastUpdate": "2018-11-20T15:34:21.542",\
-> "ActionList": \["ANALYSE", "GENERATE"\],\
-> "GriffinByFormat": \[{\
-> "FormatList": \["fmt/136", "fmt/137", "fmt/138", "fmt/139", "fmt/290",
-> "fmt/294", "fmt/292", "fmt/296", "fmt/291", "fmt/295", "fmt/293", ,
-> "fmt/297"\],\
-> "GriffinIdentifier": "GRI-0000023",\
-> "TimeOut": 20,\
-> "MaxSize": 10000000,\
-> "ActionDetail": \[{\
-> "Action": "ANALYSE",\
-> "Values": {\
-> "Args": \["-strict"\]\
-> }\
-> }, {\
-> "Action": "GENERATE",\
-> "Values": {\
-> "Extension": "pdf",\
-> "Args": \["-f", "pdf", "-e", "SelectedPdfVersion=1"\]\
-> }\
-> }\
-> \]\
-> }, {\
-> "FormatList": \["fmt/41", "fmt/42", "x-fmt/398", "x-fmt/390",
-> "x-fmt/391", "fmt/645",\
-> "fmt/43", "fmt/44", "fmt/112", "fmt/11", "fmt/12", "fmt/13",
-> "fmt/935", "fmt/152",\
-> "fmt/399", "fmt/388", "fmt/387", "fmt/155", "fmt/353", "fmt/154",
-> "fmt/153",\
-> "fmt/156", "x-fmt/392", "x-fmt/178", "fmt/408", "fmt/568", "fmt/567",
-> "fmt/566"\],\
-> "GriffinIdentifier": "GRI-0000012",\
-> "TimeOut": 10,\
-> "MaxSize": 10000000,\
-> "ActionDetail": \[{\
-> "Action": "ANALYSE"\
-> }, {\
-> "Action": "GENERATE",\
-> "Values": {\
-> "Extension": "pdf",\
-> "Args": \["-quality", "90"\]\
-> }\
-> }\
-> \]\
-> }\
-> \],\
-> "GriffinDefault": {\
-> "GriffinIdentifier": "GRI-0000005",\
-> "TimeOut": 10,\
-> "MaxSize": 10000000,\
-> "ActionDetail": \[{\
-> "Action": "ANALYSE",\
-> "Values": {\
-> "Args": \["-strict"\]\
-> }\
-> }\
-> \]\
-> },\
-> " \_tenant": 3,\
-> " \_v": 2\
-> }\
-> \`\`\`
+```json
+{
+    "_id": "aefqaaaabahn6dttabew6alha45dfgqaaaaq",
+    "Identifier": "PSC-000023",
+    "Name": "Normalisation d'entrée",
+    "Description": "Ce scénario permet de faire une validation des formats et de créer une version de diffusion en PDF. Il est en général appliqué au contenu d'une entrée pour donner un retour de la qualité du versement et préparer une consultation fréquente.",
+    "CreationDate": "2018-11-16T15:55:30.721",
+    "LastUpdate": "2018-11-20T15:34:21.542",
+    "ActionList": ["ANALYSE", "GENERATE"],
+    "GriffinByFormat": [{
+            "FormatList": ["fmt/136", "fmt/137", "fmt/138", "fmt/139", "fmt/290", "fmt/294", "fmt/292", "fmt/296", "fmt/291", "fmt/295", "fmt/293", , "fmt/297"],
+            "GriffinIdentifier": "GRI-0000023",
+            "TimeOut": 20,
+            "MaxSize": 10000000,
+            "ActionDetail": [{
+                    "Action": "ANALYSE",
+                    "Values": {
+                        "Args": ["-strict"]
+                    }
+                }, {
+                    "Action": "GENERATE",
+                    "Values": {
+                        "Extension": "pdf",
+                        "Args": ["-f", "pdf", "-e", "SelectedPdfVersion=1"]
+                    }
+                }
+            ]
+        }, {
+            "FormatList": ["fmt/41", "fmt/42", "x-fmt/398", "x-fmt/390", "x-fmt/391", "fmt/645",
+                "fmt/43", "fmt/44", "fmt/112", "fmt/11", "fmt/12", "fmt/13", "fmt/935", "fmt/152",
+                "fmt/399", "fmt/388", "fmt/387", "fmt/155", "fmt/353", "fmt/154", "fmt/153",
+                "fmt/156", "x-fmt/392", "x-fmt/178", "fmt/408", "fmt/568", "fmt/567", "fmt/566"],
+            "GriffinIdentifier": "GRI-0000012",
+            "TimeOut": 10,
+            "MaxSize": 10000000,
+            "ActionDetail": [{
+                    "Action": "ANALYSE"
+                }, {
+                    "Action": "GENERATE",
+                    "Values": {
+                        "Extension": "pdf",
+                        "Args": ["-quality", "90"]
+                    }
+                }
+            ]
+        }
+    ],
+    "GriffinDefault": {
+        "GriffinIdentifier": "GRI-0000005",
+        "TimeOut": 10,
+        "MaxSize": 10000000,
+        "ActionDetail": [{
+                "Action": "ANALYSE",
+                "Values": {
+                    "Args": ["-strict"]
+                }
+            }
+        ]
+    },
+    " _tenant": 3,
+    " _v": 2
+}
+```
 
-[]{#__RefHeading___Toc29589_1669085364 .anchor}7.14.4. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique du scénario de préservation.
+**« _id » :** identifiant unique du scénario de préservation.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7470,8 +7332,7 @@ PreservationScenario
 
 -   Cardinalité : 1-1
 
-**« Identifier » :** identifiant signifiant donné au scénario de
-préservation.
+**« Identifier » :** identifiant signifiant donné au scénario de préservation.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -7487,15 +7348,13 @@ préservation.
 
 -   La date est enregistrée au format ISO 8601.
 
--   S’il n’est pas renseigné dans le fichier d’import, champ peuplé par
-    > la solution logicielle Vitam.
+-   S’il n’est pas renseigné dans le fichier d’import, champ peuplé par la solution logicielle Vitam.
 
 -   Cardinalité : 1-1
 
-    "CreationDate": "2017-04-10T11:30:33.798"
+    ```"CreationDate": "2017-04-10T11:30:33.798"```
 
-**« LastUpdate » :** date de dernière de mise à jour du scénario de
-préservation.
+**« LastUpdate » :** date de dernière de mise à jour du scénario de préservation.
 
 -   La date est au format ISO 8601.
 
@@ -7503,15 +7362,14 @@ préservation.
 
 -   Cardinalité : 1-1
 
-    "LastUpdate": "2017-04-10T11:30:33.798"
+    ```"LastUpdate": "2017-04-10T11:30:33.798"```
 
 **« ActionList » :** liste des actions prévues par le scénario de
 préservation.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
--   Il peut avoir comme valeurs : ANALYSE, GENERATE, IDENTIFY, EXTRACT,
-    > EXTRACT\_AU.
+-   Il peut avoir comme valeurs : ANALYSE, GENERATE, IDENTIFY, EXTRACT, EXTRACT_AU.
 
 -   Cardinalité : 1-1
 
@@ -7524,35 +7382,25 @@ liste de formats.
 
 -   Ce tableau est composé des champs suivants :
 
-    -   **« FormatList » :** identifiants des formats de fichiers sur
-        > lesquels l’action est effectuée. Ces identifiants doivent
-        > correspondre à des identifiants valides de la collection
-        > FileFormat.
+    -   **« FormatList » :** identifiants des formats de fichiers sur lesquels l’action est effectuée. Ces identifiants doivent correspondre à des identifiants valides de la collection FileFormat.
 
         -   Il s’agit d’un tableau de chaînes de caractères.
 
         -   Cardinalités : 1-1
 
-    -   **« GriffinIdentifier » :** identifiant du griffon qui effectue
-        > l’action pour les objets identifiés par un format du champ
-        > FormatList. Cet identifiant doit correspondre à un identifiant
-        > valide de la collection Griffin.
+    -   **« GriffinIdentifier » :** identifiant du griffon qui effectue l’action pour les objets identifiés par un format du champ FormatList. Cet identifiant doit correspondre à un identifiant valide de la collection Griffin.
 
         -   Il s’agit d’une chaîne de caractères.
 
         -   Cardinalité : 1-1
 
-    -   **« Timeout » :** temps en minutes au bout duquel la solution
-        > logicielle Vitam, en l’absence de réponse du griffon, arrêtera
-        > l’action de préservation.
+    -   **« Timeout » :** temps en minutes au bout duquel la solution logicielle Vitam, en l’absence de réponse du griffon, arrêtera l’action de préservation.
 
         -   Il s’agit d’un entier.
 
         -   Cardinalités : 1-1
 
-    -   **« MaxSize » :** taille maximale en octet des objets sur
-        > lesquels l’action de préservation peut être effectuée en
-        > utilisant ce scénario de préservation.
+    -   **« MaxSize » :** taille maximale en octet des objets sur lesquels l’action de préservation peut être effectuée en utilisant ce scénario de préservation.
 
         -   Il s’agit d’un entier.
 
@@ -7560,15 +7408,11 @@ liste de formats.
 
     -   **« Debug » :** debug.
 
-        -   Il s’agit d’un booléen. Si la valeur est « true », les
-            > erreurs rencontrées sont remontées dans les logs de la
-            > solution logicielle Vitam.
+        -   Il s’agit d’un booléen. Si la valeur est « true », les erreurs rencontrées sont remontées dans les logs de la solution logicielle Vitam.
 
         -   Cardinalité : 1-1
 
-    -   **« ActionDetail » :** tableau d’objets permettant de décrire
-        > les commandes techniques associées à chaque action de
-        > préservation.
+    -   **« ActionDetail » :** tableau d’objets permettant de décrire les commandes techniques associées à chaque action de préservation.
 
         -   Cardinalité : 1-1
 
@@ -7576,77 +7420,48 @@ liste de formats.
 
             -   **« Type » :** action de préservation.
 
-                -   Ce champ doit avoir une chaîne de caractères faisant
-                    > partie des valeurs autorisées pour le champ
-                    > ActionList.
+                -   Ce champ doit avoir une chaîne de caractères faisant partie des valeurs autorisées pour le champ ActionList.
 
                 -   Cardinalité : 1-1
 
-            -   **« Values » :** valeurs précisant les commandes passées
-                > par le scénario de préservation au griffon.
+            -   **« Values » :** valeurs précisant les commandes passées par le scénario de préservation au griffon.
 
                 -   Cardinalité : 0-1
 
-                -   pour les actions ANALYSE, GENERATE, EXTRACT et
-                    > EXTRACT\_AU, ce champ a pour valeur « null » ou
-                    > peut être absent.
+                -   pour les actions ANALYSE, GENERATE, EXTRACT et EXTRACT_AU, ce champ a pour valeur « null » ou peut être absent.
 
-                -   pour l’action GENERATE, c’est un objet possédant
-                    > deux champs :
+                -   pour l’action GENERATE, c’est un objet possédant deux champs :
 
-                    -   **« Extension » **: chaîne de caractère servant
-                        > à rajouter une extension aux fichiers générés
-                        > (ex : .pdf).
+                    -   **« Extension » **: chaîne de caractère servant à rajouter une extension aux fichiers générés (ex : .pdf).
 
                         -   Cardinalité : 0-1
 
-                    -   **« Args »** : liste d’arguments utilisés lors
-                        > de la commande système qu’effectue le griffon
-                        > sur les objets concernés.
+                    -   **« Args »** : liste d’arguments utilisés lors de la commande système qu’effectue le griffon sur les objets concernés.
 
                         -   Cardinalité : 0-1
 
                 -   pour l’action EXTRACT, c’est un objet possédant un
                     > champ :
 
-                    -   **« FilteredExtractedObjectGroupData »** : liste
-                        > de métadonnées à extraire.
+                    -   **« FilteredExtractedObjectGroupData »** : liste de métadonnées à extraire.
 
-                        -   Il s’agit d’un tableau de chaînes de
-                            > caractères.
+                        -   Il s’agit d’un tableau de chaînes de caractères.
 
-                        -   Ce champ peut contenir les valeurs
-                            > suivantes : « ALL\_METADATA »,
-                            > « RAW\_METADATA » et/ou une liste de
-                            > métadonnées internes en particulier (ex :
-                            > resolution, compression, geometry).
+                        -   Ce champ peut contenir les valeurs suivantes : « ALL_METADATA », « RAW_METADATA » et/ou une liste de métadonnées internes en particulier (ex : resolution, compression, geometry).
 
                         -   Cardinalité : 0-1
 
-**« GriffinDefault » :** description de l’action par défaut à effectuer
-si aucun format ne correspond à ceux attendus dans les objets de
-GriffinByFormat
+**« GriffinDefault » :** description de l’action par défaut à effectuer si aucun format ne correspond à ceux attendus dans les objets de GriffinByFormat
 
--   Il s’agit d’un tableau d’objets reprenant la structure de ceux de
-    > GriffinByFormat.
+-   Il s’agit d’un tableau d’objets reprenant la structure de ceux de GriffinByFormat.
 
--   S’il n’y a pas d’action par défaut à effectuer, ce champ peut être
-    > “null”.
+-   S’il n’y a pas d’action par défaut à effectuer, ce champ peut être “null”.
 
 -   Cardinalité : 0-1
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
--   Il s’agit de l’identifiant du tenant utilisant le scénario de
-    > préservation.
-
--   Il s’agit d’un entier.
-
--   Champ peuplé par la solution logicielle Vitam.
-
--   Cardinalité : 1-1
-
-**« \_v » :** version de l’enregistrement décrit.
+-   Il s’agit de l’identifiant du tenant utilisant le scénario de préservation.
 
 -   Il s’agit d’un entier.
 
@@ -7654,39 +7469,43 @@ GriffinByFormat
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+**« _v » :** version de l’enregistrement décrit.
 
-    []{#__RefHeading___Toc29549_1669085364 .anchor}7.15. Collection
-    Profile
+-   Il s’agit d’un entier.
 
-    []{#__RefHeading___Toc29551_1669085364 .anchor}7.15.1. Utilisation
-    de la collection Profile
+-   Champ peuplé par la solution logicielle Vitam.
+
+-   Cardinalité : 1-1
+
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
+
+### Collection Profile
+
+#### Utilisation de la collection Profile
 
 La collection Profile permet de référencer et décrire unitairement les
 notices de profil d’archivage.
 
-[]{#__RefHeading___Toc29553_1669085364 .anchor}7.15.2. Exemple d’un
-fichier d’import de notices de Profils d’archivage
+#### Exemple d’un fichier d’import de notices de Profils d’archivage
 
-Un fichier d’import peut décrire plusieurs notices de profil
-d’archivage.
+Un fichier d’import peut décrire plusieurs notices de profil d’archivage.
 
-> \[\
-> {\
-> "Name":"ArchiveProfile0",\
-> "Description":"Description of the Profile",\
-> "Status":"ACTIVE",\
-> "Format":"XSD"\
-> },\
-> {\
-> "Name":"ArchiveProfile1",\
-> "Description":"Description of the profile 2",\
-> "Status":"ACTIVE",\
-> "Format":"RNG"\
-> }\
-> \]
+```json
+[
+  {
+    "Name":"ArchiveProfile0",
+    "Description":"Description of the Profile",
+    "Status":"ACTIVE",
+    "Format":"XSD"
+  },
+    {
+    "Name":"ArchiveProfile1",
+    "Description":"Description of the profile 2",
+    "Status":"ACTIVE",
+    "Format":"RNG"
+  }
+]
+```
 
 Les champs à renseigner obligatoirement à la création d’un profil
 d’archivage sont :
@@ -7695,30 +7514,29 @@ d’archivage sont :
 
 -   Format
 
-    []{#__RefHeading___Toc29555_1669085364 .anchor}7.15.3. Exemple de
-    JSON stocké en base comprenant l’exhaustivité des champs de la
-    collection Profile
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs de la collection Profile
 
-> {\
-> "\_id": "aegaaaaaaehlfs7waax4iak4f52mzriaaaaq",\
-> "Identifier": "PR-000003",\
-> "Name": "ArchiveProfile0",\
-> "Description": "Description of the Profile",\
-> "Status": "ACTIVE",\
-> "Format": "XSD",\
-> "CreationDate": "2016-12-10T00:00",\
-> "LastUpdate": "2017-05-22T09:23:33.637",\
-> "ActivationDate": "2016-12-10T00:00",\
-> "DeactivationDate": "2016-12-10T00:00",\
-> "\_v": 1,\
-> "\_tenant": 1,\
-> "Path":
-> "1\_profile\_aegaaaaaaehlfs7waax4iak4f52mzriaaaaq\_20170522\_092333.xsd"\
-> }
+```json
+{
+  "_id": "aegaaaaaaehlfs7waax4iak4f52mzriaaaaq",
+  "Identifier": "PR-000003",
+  "Name": "ArchiveProfile0",
+  "Description": "Description of the Profile",
+  "Status": "ACTIVE",
+  "Format": "XSD",
+  "CreationDate": "2016-12-10T00:00",
+  "LastUpdate": "2017-05-22T09:23:33.637",
+  "ActivationDate": "2016-12-10T00:00",
+  "DeactivationDate": "2016-12-10T00:00",
+  "_v": 1,
+  "_tenant": 1,
+  "Path": "1_profile_aegaaaaaaehlfs7waax4iak4f52mzriaaaaq_20170522_092333.xsd"
+}
+```
 
-[]{#__RefHeading___Toc29557_1669085364 .anchor}7.15.4. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique de la notice de profil d’archivage.
+**« _id » :** identifiant unique de la notice de profil d’archivage.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7726,14 +7544,9 @@ d’archivage sont :
 
 -   Cardinalité : 1-1
 
-**« Identifier » :** identifiant signifiant de la notice de profil
-d’archivage.
+**« Identifier » :** identifiant signifiant de la notice de profil d’archivage.
 
--   Si Vitam est maître dans la création de cet identifiant, il est
-    > alors constitué du préfixe « PR- » suivi d’une suite de 6
-    > chiffres. Par exemple : PR-001573. Si le référentiel est en
-    > position esclave, cet identifiant peut être géré par l’application
-    > à l’origine de la notice du profil d’archivage.
+-   Si Vitam est maître dans la création de cet identifiant, il est alors constitué du préfixe « PR- » suivi d’une suite de 6 chiffres. Par exemple : PR-001573. Si le référentiel est en position esclave, cet identifiant peut être géré par l’application à l’origine de la notice du profil d’archivage.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -7757,23 +7570,20 @@ d’archivage.
 
 -   Peut avoir comme valeur : ACTIVE ou INACTIVE
 
--   Si ce champ n’est pas défini lors de la création de
-    > l’enregistrement, alors il est par défaut INACTIVE.
+-   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut INACTIVE.
 
 -   Cardinalité : 1-1
 
 **« Format » :** format attendu pour le fichier décrivant les règles du
 profil d’archivage.
 
--   Il s’agit d’une chaîne de caractères devant correspondre à
-    > l’énumération ProfileFormat.
+-   Il s’agit d’une chaîne de caractères devant correspondre à l’énumération ProfileFormat.
 
 -   Ses valeurs sont soit RNG, soit XSD.
 
 -   Cardinalité : 1-1
 
-**« CreationDate » :** date de création de la notice du profil
-d’archivage.
+**« CreationDate » :** date de création de la notice du profil d’archivage.
 
 -   La date est au format ISO 8601.
 
@@ -7781,21 +7591,9 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
-    Exemple : "CreationDate": "2017-04-10T11:30:33.798",
+    Exemple : ```"CreationDate": "2017-04-10T11:30:33.798"```,
 
-**« LastUpdate » :** date de dernière mise à jour de la notice du profil
-d’archivage.
-
--   La date est au format ISO 8601
-
--   Champ peuplé par la solution logicielle Vitam.
-
--   Cardinalité : 1-1
-
-    Exemple : "LastUpdate": "2017-04-10T11:30:33.798"
-
-**« ActivationDate » :** date d’activation de la notice du profil
-d’archivage.
+**« LastUpdate » :** date de dernière mise à jour de la notice du profil d’archivage.
 
 -   La date est au format ISO 8601
 
@@ -7803,10 +7601,9 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
--   Exemple : "ActivationDate": "2017-04-10T11:30:33.798"
+    Exemple : ```"LastUpdate": "2017-04-10T11:30:33.798"```
 
-**« DeactivationDate » :** date de désactivation de la notice du profil
-d’archivage.
+**« ActivationDate » :** date d’activation de la notice du profil d’archivage.
 
 -   La date est au format ISO 8601
 
@@ -7814,9 +7611,19 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
--   Exemple : "DeactivationDate": "2017-04-10T11:30:33.798"
+    Exemple : ```"ActivationDate": "2017-04-10T11:30:33.798"```
 
-**« \_tenant » :** information sur le tenant.
+**« DeactivationDate » :** date de désactivation de la notice du profil d’archivage.
+
+-   La date est au format ISO 8601
+
+-   Champ peuplé par la solution logicielle Vitam.
+
+-   Cardinalité : 1-1
+
+-   Exemple : ```"DeactivationDate": "2017-04-10T11:30:33.798"```
+
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit d’un entier.
 
@@ -7824,7 +7631,7 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit
+**« _v » :** version de l’enregistrement décrit
 
 -   Il s’agit d’un entier.
 
@@ -7832,54 +7639,48 @@ d’archivage.
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-**« Path » :** champ contribué par la solution logicielle Vitam lors
-d’un import de fichier XSD ou RNG.
+**« Path » :** champ contribué par la solution logicielle Vitam lors d’un import de fichier XSD ou RNG.
 
 -   Indique le chemin pour accéder au fichier du profil d’archivage.
 
 -   Il s’agit d’une chaîne de caractères.
 
--   Le format de fichier doit correspondre à celui qui est décrit dans
-    > le champ Format.
+-   Le format de fichier doit correspondre à celui qui est décrit dans le champ Format.
 
 -   Cardinalité : 0-1
 
-    []{#__RefHeading___Toc29559_1669085364 .anchor}7.16. Collection
-    SecurityProfile
+### Collection SecurityProfile
 
-    []{#__RefHeading___Toc29561_1669085364 .anchor}7.16.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
-Cette collection référence et décrit les profils de sécurité mobilisés
-par les contextes applicatifs.
+Cette collection référence et décrit les profils de sécurité mobilisés par les contextes applicatifs.
 
-[]{#__RefHeading___Toc29563_1669085364 .anchor}7.16.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-> {\
-> "\_id": "aegqaaaaaaeucszwabglyak64gjmgbyaaaba",\
-> "Identifier": "SEC\_PROFILE-000002",\
-> "Name": "demo-security-profile",\
-> "FullAccess": false,\
-> "Permissions": \[\
-> "securityprofiles:create",\
-> "securityprofiles:read",\
-> "securityprofiles:id:read",\
-> "securityprofiles:id:update",\
-> "accesscontracts:read",\
-> "accesscontracts:id:read",\
-> "contexts:id:update"\
-> \],\
-> "\_v": 1\
-> }
+```json
+{
+    "_id": "aegqaaaaaaeucszwabglyak64gjmgbyaaaba",
+    "Identifier": "SEC_PROFILE-000002",
+    "Name": "demo-security-profile",
+    "FullAccess": false,
+    "Permissions": [
+        "securityprofiles:create",
+        "securityprofiles:read",
+        "securityprofiles:id:read",
+        "securityprofiles:id:update",
+        "accesscontracts:read",
+        "accesscontracts:id:read",
+        "contexts:id:update"
+    ],
+    "_v": 1
+}
+```
 
-[]{#__RefHeading___Toc29565_1669085364 .anchor}7.16.3. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique du profil de sécurité.
+**« _id » :** identifiant unique du profil de sécurité.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -7889,11 +7690,7 @@ stocké en base comprenant l’exhaustivité des champs
 
 **« Identifier » :** identifiant signifiant donné au profil de sécurité.
 
--   Il est constitué du préfixe « SEC\_PROFILE- » suivi d’une suite de 6
-    > chiffres tant qu’il est défini par la solution logicielle Vitam.
-    > Par exemple : SEC\_PROFILE-001573. Si le référentiel est en
-    > position esclave, cet identifiant peut être géré par l’application
-    > à l’origine du profil de sécurité.
+-   Il est constitué du préfixe « SEC\_PROFILE- » suivi d’une suite de 6 chiffres tant qu’il est défini par la solution logicielle Vitam. Par exemple : SEC_PROFILE-001573. Si le référentiel est en position esclave, cet identifiant peut être géré par l’application à l’origine du profil de sécurité.
 
 -   Cardinalité : 1-1
 
@@ -7903,21 +7700,15 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Cardinalité : 1-1
 
-**« FullAccess » :** mode super-administrateur donnant toutes les
-permissions.
+**« FullAccess » :** mode super-administrateur donnant toutes les permissions.
 
 -   Il s’agit d’un booléen.
 
--   S’il est à « false », le mode super-administrateur n’est pas activé
-    > et les valeurs du champ permission sont utilisées. S’il est à
-    > « true », le champ permission doit être vide.
+-   S’il est à « false », le mode super-administrateur n’est pas activé et les valeurs du champ permission sont utilisées. S’il est à « true », le champ permission doit être vide.
 
 -   Cardinalité : 1-1
 
-**« Permissions » :** décrit l’ensemble des permissions auxquelles le
-profil de sécurité donne accès. Chaque API externe contient un verbe
-OPTION qui retourne la liste des services avec leur description et
-permissions associées.
+**« Permissions » :** décrit l’ensemble des permissions auxquelles le profil de sécurité donne accès. Chaque API externe contient un verbe OPTION qui retourne la liste des services avec leur description et permissions associées.
 
 -   Il s’agit d’un tableau de chaînes de caractères.
 
@@ -7927,63 +7718,37 @@ permissions associées.
 
 -   Liste non exhaustive :
 
-  ----------------------------------------------------- --------------------------------------- ------------------------------ ------------------------------
-  accesscontracts:create:json                           distributionreport:id:read              objects:read                   rulesfile:check
-                                                                                                                               
-  accesscontracts:id:read                               elimination:action                      ontologies:create:json         rulesreferential:id:read
-                                                                                                                               
-  accesscontracts:id:update                             elimination:analysis                    ontologies:id:read:json        rulesreport:id:read
-                                                                                                                               
-  accesscontracts:read                                  evidenceaudit:check                     ontologies:read                securityprofiles:create:json
-                                                                                                                               
-  accessionregisters:id:accessionregisterdetails:read   forcepause:check                        operations:id:delete           securityprofiles:id:read
-                                                                                                                               
-  accessionregisters:read                               formats:create                          operations:id:read             securityprofiles:id:update
-                                                                                                                               
-  accessionregisterssymbolic:read                       formats:id:read                         operations:id:read:status      securityprofiles:read
-                                                                                                                               
-  agencies:create                                       formats:read                            operations:id:update           storageaccesslog:read:binary
-                                                                                                                               
-  agencies:id:read                                      formatsfile:check                       operations:read                traceability:id:read
-                                                                                                                               
-  agencies:read                                         griffin:read                            preservation:update            traceabilitychecks:create
-                                                                                                                               
-  agenciesfile:check                                    griffins:create                         preservationScenario:read      units:id:objects:read:binary
-                                                                                                                               
-  agenciesreferential:id:read                           griffins:read                           preservationScenarios:create   units:id:objects:read:json
-                                                                                                                               
-  archiveunitprofiles:create:binary                     ingestcontracts:create:json             preservationScenarios:read     units:id:read:json
-                                                                                                                               
-  archiveunitprofiles:create:json                       ingestcontracts:id:read                 probativevalue:create          units:id:update
-                                                                                                                               
-  archiveunitprofiles:id:read:json                      ingestcontracts:id:update               profiles:create:binary         units:read
-                                                                                                                               
-  archiveunitprofiles:id:update:json                    ingestcontracts:read                    profiles:create:json           units:rules:update
-                                                                                                                               
-  archiveunitprofiles:read                              ingests:create                          profiles:id:read:binary        units:update
-                                                                                                                               
-  audits:create                                         ingests:id:archivetransfertreply:read   profiles:id:read:json          unitsWithInheritedRules:read
-                                                                                                                               
-  batchreport:id:read                                   ingests:id:manifests:read               profiles:id:update:binaire     workflows:read
-                                                                                                                               
-  contexts:create:json                                  ingests:local:create                    profiles:id:update:json        
-                                                                                                                               
-  contexts:id:read                                      logbookobjectslifecycles:id:read        profiles:read                  
-                                                                                                                               
-  contexts:id:update                                    logbookoperations:create                reclassification:update        
-                                                                                                                               
-  contexts:read                                         logbookoperations:id:read               rectificationaudit:check       
-                                                                                                                               
-  dipexport:create                                      logbookoperations:read                  removeforcepause:check         
-                                                                                                                               
-  dipexport:id:dip:read                                 logbookunitlifecycles:id:read           rules:create                   
-                                                                                                                               
-                                                                                                rules:id:read                  
-                                                                                                                               
-                                                                                                rules:read                     
-  ----------------------------------------------------- --------------------------------------- ------------------------------ ------------------------------
+| <!-- -->                                            | <!-- -->                              | <!-- -->                     | <!-- --> |
+| :- | :- | :- | :- |
+| accesscontracts:create:json                         | distributionreport:id:read            | objects:read                 | rulesfile:check |
+| accesscontracts:id:read                             | elimination:action                    | ontologies:create:json       | rulesreferential:id:read |
+| accesscontracts:id:update                           | elimination:analysis                  | ontologies:id:read:json      | rulesreport:id:read |
+| accesscontracts:read                                | evidenceaudit:check                   | ontologies:read              | securityprofiles:create:json |
+| accessionregisters:id:accessionregisterdetails:read | forcepause:check                      | operations:id:delete         | securityprofiles:id:read |
+| accessionregisters:read                             | formats:create                        | operations:id:read           | securityprofiles:id:update |
+| accessionregisterssymbolic:read                     | formats:id:read                       | operations:id:read:status    | securityprofiles:read |
+| agencies:create                                     | formats:read                          | operations:id:update         | storageaccesslog:read:binary |
+| agencies:id:read                                    | formatsfile:check                     | operations:read              | traceability:id:read |
+| agencies:read                                       | griffin:read                          | preservation:update          | traceabilitychecks:create |
+| agenciesfile:check                                  | griffins:create                       | preservationScenario:read    | units:id:objects:read:binary |
+| agenciesreferential:id:read                         | griffins:read                         | preservationScenarios:create | units:id:objects:read:json |
+| archiveunitprofiles:create:binary                   | ingestcontracts:create:json           | preservationScenarios:read   | units:id:read:json |
+| archiveunitprofiles:create:json                     | ingestcontracts:id:read               | probativevalue:create        | units:id:update |
+| archiveunitprofiles:id:read:json                    | ingestcontracts:id:update             | profiles:create:binary       | units:read |
+| archiveunitprofiles:id:update:json                  | ingestcontracts:read                  | profiles:create:json         | units:rules:update |
+| archiveunitprofiles:read                            | ingests:create                        | profiles:id:read:binary      | units:update |
+| audits:create                                       | ingests:id:archivetransfertreply:read | profiles:id:read:json        | unitsWithInheritedRules:read |
+| batchreport:id:read                                 | ingests:id:manifests:read             | profiles:id:update:binaire   | workflows:read |
+| contexts:create:json                                | ingests:local:create                  | profiles:id:update:json      |  |
+| contexts:id:read                                    | logbookobjectslifecycles:id:read      | profiles:read                |  |
+| contexts:id:update                                  | logbookoperations:create              | reclassification:update      |  |
+| contexts:read                                       | logbookoperations:id:read             | rectificationaudit:check     |  |
+| dipexport:create                                    | logbookoperations:read                | removeforcepause:check       |  |
+| dipexport:id:dip:read                               | logbookunitlifecycles:id:read         | rules:create                 |  |
+|                                                     |                                       | rules:id:read                |  |
+|                                                     |                                       | rules:read                   |  |
 
-**« \_v » :** version de l’enregistrement décrit.
+**« _v » :** version de l’enregistrement décrit.
 
 -   Il s’agit d’un entier.
 
@@ -7991,15 +7756,11 @@ permissions associées.
 
 -   Cardinalité : 1-1
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
-    []{#__RefHeading___Toc29567_1669085364 .anchor}7.17. Collection
-    VitamSequence
+### Collection VitamSequence
 
-    []{#__RefHeading___Toc29569_1669085364 .anchor}7.17.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
 Cette collection permet de générer des identifiants signifiants pour les
 enregistrements des collections suivantes :
@@ -8030,25 +7791,23 @@ enregistrements des collections suivantes :
 
 -   SecurityProfile
 
-Ces identifiants sont généralement composés d’un préfixe de deux
-lettres, d’un tiret et d’une suite de six chiffres. Par exemple :
-IC-027593. Il sont reportés dans les champs Identifier des collections
-concernées.
+Ces identifiants sont généralement composés d’un préfixe de deux lettres, d’un tiret et d’une suite de six chiffres. Par exemple : IC-027593. Il sont reportés dans les champs Identifier des collections concernées.
 
-[]{#__RefHeading___Toc29571_1669085364 .anchor}7.17.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-> {\
-> "\_id": "aeaaaaaaaahkwxukabqteak4q5mtmdyaaaaq",\
-> "Name": "AC",\
-> "Counter": 44,\
-> "\_tenant": 1,\
-> "\_v": 0\
-> }
+```json
+{
+  "_id": "aeaaaaaaaahkwxukabqteak4q5mtmdyaaaaq",
+  "Name": "AC",
+  "Counter": 44,
+  "_tenant": 1,
+  "_v": 0
+}
+```
 
-[]{#__RefHeading___Toc29573_1669085364 .anchor}7.17.3. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique.
+**« _id » :** identifiant unique.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8058,9 +7817,7 @@ stocké en base comprenant l’exhaustivité des champs
 
 **« Name » :** préfixe utilisé pour générer un identifiant signifiant.
 
--   La valeur contenue dans ce champ doit correspondre à la table de
-    > concordance du service VitamCounterService.java. La liste des
-    > valeurs possibles est détaillée en annexe.
+-   La valeur contenue dans ce champ doit correspondre à la table de concordance du service VitamCounterService.java. La liste des valeurs possibles est détaillée en annexe.
 
 -   Il s’agit d’une chaîne de caractères.
 
@@ -8070,8 +7827,7 @@ stocké en base comprenant l’exhaustivité des champs
 
 **« Counter » :** numéro incrémental.
 
--   Il s’agit du dernier numéro utilisé pour générer un identifiant
-    > signifiant.
+-   Il s’agit du dernier numéro utilisé pour générer un identifiant signifiant.
 
 -   Il s’agit d’un entier.
 
@@ -8079,7 +7835,7 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit de l’identifiant du tenant utilisant l’enregistrement.
 
@@ -8089,46 +7845,39 @@ stocké en base comprenant l’exhaustivité des champs
 
 -   Cardinalité : 1-1
 
-**« \_v » :** version de l’enregistrement décrit
+**« _v » :** version de l’enregistrement décrit
 
 -   Il s’agit d’un entier.
 
 -   Champ peuplé par la solution logicielle Vitam.
 
--   0 correspond à l’enregistrement d’origine. Si le numéro est
-    > supérieur à 0, alors il s’agit du numéro de version de
-    > l’enregistrement.
+-   0 correspond à l’enregistrement d’origine. Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc52402_236744635 .anchor}7.18. Collection
-    Offset
+### Collection Offset
 
-    []{#__RefHeading___Toc29439_16690853641 .anchor}7.18.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
-Cette collection permet de persister les offsets des dernières données
-reconstruites des offres de stockage lors de la reconstruction au fil de
-l’eau pour les collections de la base Masterdata.
+Cette collection permet de persister les offsets des dernières données reconstruites des offres de stockage lors de la reconstruction au fil de l’eau pour les collections de la base Masterdata.
 
 Il y a une valeur d’offset par couple tenant/collection.
 
-[]{#__RefHeading___Toc29441_16690853641 .anchor}7.18.2. Exemple de JSON
-stocké en base comprenant l’exhaustivité des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-> {\
-> "\_id": ObjectId("507f191e810c19729de860ea"),\
-> "offset": 1357,\
-> "collection": "PROFILE",
->
-> "strategyId": "default",\
-> "\_tenant": 1\
-> }
+```json
+{
+  "_id": ObjectId("507f191e810c19729de860ea"),
+  "offset": 1357,
+  "collection": "PROFILE",
+  "strategyId": "default",
+  "_tenant": 1
+}
+```
 
-[]{#__RefHeading___Toc29443_16690853641 .anchor}7.18.3. Détail des
-champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique mongo.
+**« _id » :** identifiant unique mongo.
 
 -   Il s’agit d’un champ de type mongo : ObjectId(&lt;hexadecimal&gt;).
 
@@ -8150,11 +7899,9 @@ champs
 
     **« strategyId »** : identifiant de la stratégie de stockage.
 
-<!-- -->
-
 -   Il s’agit d’une chaîne de caractère.
 
-**« \_tenant » :** identifiant du tenant.
+**« _tenant » :** identifiant du tenant.
 
 -   Il s’agit d’un entier.
 
@@ -8181,20 +7928,15 @@ logicielle Vitam. Ces collections sont :
 
 -   UpdateUnitReport
 
-    []{#__RefHeading___Toc87217_939825479 .anchor}8.1. Collection
-    AuditObjectGroup
+### Collection AuditObjectGroup
 
-    []{#__RefHeading___Toc29597_1669085364111 .anchor}8.1.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
-La collection AuditObjectGroup permet à la solution logicielle Vitam de
-construire des rapports d’audit. Les données de cette collection sont
-temporaires et sont supprimées dès que les rapports correspondants sont
-créés. Il est donc possible de trouver la collection vide.
+La collection AuditObjectGroup permet à la solution logicielle Vitam de construire des rapports d’audit. Les données de cette collection sont temporaires et sont supprimées dès que les rapports correspondants sont créés. Il est donc possible de trouver la collection vide.
 
-[]{#__RefHeading___Toc87219_939825479 .anchor}8.1.2. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique de l’enregistrement
+**« _id » :** identifiant unique de l’enregistrement
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8210,26 +7952,21 @@ créés. Il est donc possible de trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**« \_metadata »** objet contenant une liste de paramètres concernant
-les métadonnées du groupe d’objets. Il est composé comme suit :
+**« _metadata »** objet contenant une liste de paramètres concernant les métadonnées du groupe d’objets. Il est composé comme suit :
 
 -   « id » : identifiant du groupe d’objets.
 
--   « status » : statut de l’action d’audit pour ce groupe d’objets. Il
-    > s’agit d’une chaîne de caractères qui peut avoir comme valeurs :
-    > OK, WARNING, KO.
+-   « status » : statut de l’action d’audit pour ce groupe d’objets. Il s’agit d’une chaîne de caractères qui peut avoir comme valeurs : OK, WARNING, KO.
 
 -   « opi » : identifiant de l’opération d’entrée du groupe d’objets.
 
--   « originatingAgency » : identifiant du service producteur du groupe
-    > d’objets.
+-   « originatingAgency » : identifiant du service producteur du groupe d’objets.
 
--   « parentUnitIds » : identifiant des unités archivistiques parentes
-    > du groupe d’objets ayant été audités.
+-   « parentUnitIds » : identifiant des unités archivistiques parentes du groupe d’objets ayant été audités.
 
 -   « objectIds » : identifiants des objets du groupe d’objets.
 
-**« \_tenant » :** information sur le tenant
+**« _tenant » :** information sur le tenant
 
 -   Il s’agit de l’identifiant du tenant.
 
@@ -8245,21 +7982,15 @@ les métadonnées du groupe d’objets. Il est composé comme suit :
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc87221_939825479 .anchor}8.2. Collection
-    EliminationActionUnit
+### Collection EliminationActionUnit
 
-    []{#__RefHeading___Toc29597_1669085364 .anchor}8.2.1. Utilisation de
-    la collection
+#### Utilisation de la collection
 
-La collection EliminationActionUnit permet à la solution logicielle
-Vitam de construire des rapports d’élimination d’unités archivistiques.
-Les données de cette collection sont temporaires et sont supprimées dès
-que les rapports correspondants sont créés. Il est donc possible de
-trouver la collection vide.
+La collection EliminationActionUnit permet à la solution logicielle Vitam de construire des rapports d’élimination d’unités archivistiques. Les données de cette collection sont temporaires et sont supprimées dès que les rapports correspondants sont créés. Il est donc possible de trouver la collection vide.
 
-[]{#__RefHeading___Toc29599_1669085364 .anchor}8.2.2. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique de l’enregistrement.
+**« _id » :** identifiant unique de l’enregistrement.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8275,33 +8006,28 @@ trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**\_metadata** objet contenant une liste de paramètres concernant les
+**_metadata** objet contenant une liste de paramètres concernant les
 métadonnées de l’unité archivistiques. Il est composé comme suit :
 
 -   « id » : identifiant unique de l’enregistrement.
 
--   « status » : statut de l’action d’élimination pour cette unité
-    > archivistique. Il s’agit d’une chaîne de caractères qui peut avoir
-    > comme valeurs :
+-   « status » : statut de l’action d’élimination pour cette unité archivistique. Il s’agit d’une chaîne de caractères qui peut avoir comme valeurs :
 
     -   DELETED,
 
-    -   NON\_DESTROYABLE\_HAS\_CHILD\_UNITS,
+    -   NON_DESTROYABLE_HAS_CHILD_UNITS,
 
-    -   GLOBAL\_STATUS\_KEEP,
+    -   GLOBAL_STATUS_KEEP,
 
-    -   GLOBAL\_STATUS\_CONFLICT.
+    -   GLOBAL_STATUS_CONFLICT.
 
--   « opi » : identifiant de l’opération d’entrée de cette unité
-    > archivistique.
+-   « opi » : identifiant de l’opération d’entrée de cette unité archivistique.
 
--   « originatingAgency » : identifiant du service producteur de cette
-    > unité archivistique.
+-   « originatingAgency » : identifiant du service producteur de cette unité archivistique.
 
--   « objectGroupId » : identifiant du groupe d’objets attaché à cette
-    > unité archivistique.
+-   « objectGroupId » : identifiant du groupe d’objets attaché à cette unité archivistique.
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit de l’identifiant du tenant.
 
@@ -8319,21 +8045,13 @@ métadonnées de l’unité archivistiques. Il est composé comme suit :
 
 ### Collection EliminationActionObjectGroup
 
-    []{#__RefHeading___Toc29601_1669085364 .anchor}8.3. Collection
-    EliminationActionObjectGroup
+#### Utilisation de la collection
 
-    []{#__RefHeading___Toc29603_1669085364 .anchor}8.3.1. Utilisation de
-    la collection
+La collection EliminationActionObjectGroup permet à la solution logicielle Vitam de construire des rapports d’élimination des groupes d’objets techniques. Les données de cette collection sont temporaires et sont supprimées dès que les rapports correspondants sont créés. Il est donc possible de trouver la collection vide.
 
-La collection EliminationActionObjectGroup permet à la solution
-logicielle Vitam de construire des rapports d’élimination des groupes
-d’objets techniques. Les données de cette collection sont temporaires et
-sont supprimées dès que les rapports correspondants sont créés. Il est
-donc possible de trouver la collection vide.
+#### Détail des champs
 
-[]{#__RefHeading___Toc29605_1669085364 .anchor}8.3.2. Détail des champs
-
-**« \_id » :** identifiant unique de l’enregistrement.
+**« _id » :** identifiant unique de l’enregistrement.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8349,26 +8067,22 @@ donc possible de trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**« \_metadata »** objet contenant une liste de paramètres concernant
+**« _metadata »** objet contenant une liste de paramètres concernant
 les métadonnées du groupe d’objets. Il est composé comme suit :
 
 -   « id » : identifiant du groupe d’objets
 
--   « status » : statut de l’action d’élimination pour ce groupe
-    > d’objets. Il s’agit d’une chaîne de caractères qui peut avoir
-    > comme valeurs : DELETED, PARTIAL\_DETACHMENT.
+-   « status » : statut de l’action d’élimination pour ce groupe d’objets. Il s’agit d’une chaîne de caractères qui peut avoir comme valeurs : DELETED, PARTIAL_DETACHMENT.
 
 -   « opi » : identifiant de l’opération d’entrée du groupe d’objets.
 
--   « originatingAgency » : identifiant du service producteur du groupe
-    > d’objets.
+-   « originatingAgency » : identifiant du service producteur du groupe d’objets.
 
--   « deletedParentUnitIds » : identifiant des unités archivistiques
-    > parentes du groupe d’objets et ayant été supprimées.
+-   « deletedParentUnitIds » : identifiant des unités archivistiques parentes du groupe d’objets et ayant été supprimées.
 
 -   « objectIds » : identifiants des objets du groupe d’objets.
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit de l’identifiant du tenant.
 
@@ -8384,21 +8098,15 @@ les métadonnées du groupe d’objets. Il est composé comme suit :
 
 -   Cardinalité : 1-1
 
-    []{#__RefHeading___Toc12792_4022761242 .anchor}8.4. Collection
-    PreservationReport
+### Collection PreservationReport
 
-    []{#__RefHeading___Toc29603_16690853641 .anchor}8.4.1. Utilisation
-    de la collection
+#### Utilisation de la collection
 
-La collection PreservationReport permet à la solution logicielle Vitam
-de construire des rapports de préservation des groupes d’objets
-techniques. Les données de cette collection sont temporaires et sont
-supprimées dès que les rapports correspondants sont créés. Il est donc
-possible de trouver la collection vide.
+La collection PreservationReport permet à la solution logicielle Vitam de construire des rapports de préservation des groupes d’objets techniques. Les données de cette collection sont temporaires et sont supprimées dès que les rapports correspondants sont créés. Il est donc possible de trouver la collection vide.
 
-[]{#__RefHeading___Toc29605_16690853641 .anchor}8.4.2. Détail des champs
+#### Détail des champs
 
-**« \_id » :** identifiant unique de l’enregistrement.
+**« _id » :** identifiant unique de l’enregistrement.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8414,7 +8122,7 @@ possible de trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**« \_tenant » :** information sur le tenant.
+**« _tenant » :** information sur le tenant.
 
 -   Il s’agit de l’identifiant du tenant.
 
@@ -8422,7 +8130,7 @@ possible de trouver la collection vide.
 
 -   Cardinalité : 1-1
 
-**« \_action » :** action mise en œuvre dans le cadre de l’opération de
+**« _action » :** action mise en œuvre dans le cadre de l’opération de
 préservation.
 
 -   Il s’agit d’une chaîne de caractères.
@@ -8468,8 +8176,7 @@ préservation.
 
 -   Cardinalité : 1-1
 
-    « **outputName** » : identifiant unique de l’objet créé lors de
-    l’opération de préservation.
+    « **outputName** » : identifiant unique de l’objet créé lors de l’opération de préservation.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8488,9 +8195,7 @@ préservation.
 
 -   Cardinalité : 1-1
 
-    « **unitId** » : identifiant unique de l’unité archivistique
-    déclarant le groupe d’objets ayant fait l’objet de l’opération de
-    préservation.
+    « **unitId** » : identifiant unique de l’unité archivistique déclarant le groupe d’objets ayant fait l’objet de l’opération de préservation.
 
 -   Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
 
@@ -8498,19 +8203,20 @@ préservation.
 
 -   Cardinalité : 1-1
 
-## Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation
+Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation
+----------------------------------------------------------------------
 
 L’ensemble des étapes, tâches et traitements sont détaillés dans la
 documentation Modèle de workflow.
 
-
-
-## Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle
+Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle
+----------------------------------------------------------------------
 
 L’ensemble des étapes, tâches et traitements sont détaillées dans la
 documentation Modèle de workflow.
 
-## Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)
+Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)
+------------------------------------------------------------------------
 
 | Process Type                                     | Valeur                    | Description                                       |
 |:-------------------------------------------------|:--------------------------|:--------------------------------------------------|
@@ -8541,838 +8247,801 @@ documentation Modèle de workflow.
 | Update process                                   | UPDATE                    | Mise à jour                                       | 
 
 
-## Annexe 4 : Catégories de règles possibles
+Annexe 4 : Catégories de règles possibles
+-----------------------------------------
 
-  ----------------------------- ------------------------------ --------------------------------------------------------------------------------------------------
-  Prefixe (Peut être modifié)   Type de règle correspondante   Description du type de règle
-  ACC                           AccessRule                     Règle d’accès / délai de communicabilité
-  APP                           Appraisal                      Règle correspondant à la durée d’utilité administrative (DUA)/ Durée de rétention / conservation
-  CLASS                         ClassificationRule             Règle de classification
-  DIS                           DisseminationRule              Règle de diffusion
-  REU                           ReuseRule                      Règle de réutilisation
-  STO                           StorageRule                    Durée d’utilité courante / durée de conservation au sens de la loi Informatique et Libertés
-  HOL                           HoldRule                       Gel
-  ----------------------------- ------------------------------ --------------------------------------------------------------------------------------------------
+| Prefixe (Peut être modifié) | Type de règle correspondante | Description du type de règle |
+| :-: | :-: | :-: |
+| ACC                         | AccessRule                   | Règle d’accès / délai de communicabilité |
+| APP                         | Appraisal                    | Règle correspondant à la durée d’utilité administrative (DUA)/ Durée de rétention / conservation |
+| CLASS                       | ClassificationRule           | Règle de classification |
+| DIS                         | DisseminationRule            | Règle de diffusion |
+| REU                         | ReuseRule                    | Règle de réutilisation |
+| STO                         | StorageRule                  | Durée d’utilité courante / durée de conservation au sens de la loi Informatique et Libertés |
+| HOL                         | HoldRule                     | Gel |
 
-1.  []{#__RefHeading___Toc29617_1669085364 .anchor}Annexe 5 : Valeurs
-    possibles pour le champ Status de la collection
-    AccessionRegisterDetail
+Annexe 5 : Valeurs possibles pour le champ Status de la collection AccessionRegisterDetail
+------------------------------------------------------------------------------------------
 
-  --------------------------------------- ------------------------
-  Status type                             Valeur
-  Le fonds est complet et sauvegardé      STORED\_AND\_COMPLETED
-  Le fonds est mis à jour et sauvegardé   STORED\_AND\_UPDATED
-  Le fonds n’est pas sauvegardé           UNSTORED
-  --------------------------------------- ------------------------
+| Status type                           | Valeur |
+| :-: | :-: |
+| Le fonds est complet et sauvegardé    | STORED_AND_COMPLETED |
+| Le fonds est mis à jour et sauvegardé | STORED_AND_UPDATED   |
+| Le fonds n’est pas sauvegardé         | UNSTORED             |
 
-1.  []{#__RefHeading___Toc29619_1669085364 .anchor}Annexe 6 : Valeurs
-    possibles pour le champ Name de la collection VitamSequence
+Annexe 6 : Valeurs possibles pour le champ Name de la collection VitamSequence
+------------------------------------------------------------------------------
 
-  -------------------- ----------------------------------- --------------------------------
-  Prefixe              Type de collection correspondante   Description
-  AC                   AccessContract                      Contrats d’accès
-  AG                   Agencies                            Services agents
-  AUP                  ArchiveUnitProfile                  Profil d’unité archivistique
-  CT                   Context                             Contextes applicatifs
-  GR                   Griffin                             Griffons
-  IC                   IngestContract                      Contrats d’entrée
-  FORMATS              FileFormats                         Formats
-  MC                   ManagementContract                  Contrats de gestion
-  ON                   Ontology                            Ontologie
-  PR                   Profile                             Profils d’archivage
-  PSC                  PreservationScenario                Scénarios de préservation
-  REGISTER\_DETAIL     AccessionRegisterDetail             Détail du registre des fonds
-  REGISTER\_SYMBOLIC   AccessionRegisterSymbolic           Registre des fonds symboliques
-  RULE                 FileRules                           Règles de gestion
-  SEC\_PROFILE         SecurityProfiles                    Profils de sécurité
-  -------------------- ----------------------------------- --------------------------------
+|  Prefixe            | Type de collection correspondante | Description |
+| :-: | :-: | :-: |
+|  AC                 | AccessContract                    | Contrats d’accès |
+|  AG                 | Agencies                          | Services agents |
+|  AUP                | ArchiveUnitProfile                | Profil d’unité archivistique |
+|  CT                 | Context                           | Contextes applicatifs |
+|  GR                 | Griffin                           | Griffons |
+|  IC                 | IngestContract                    | Contrats d’entrée |
+|  FORMATS            | FileFormats                       | Formats |
+|  MC                 | ManagementContract                | Contrats de gestion |
+|  ON                 | Ontology                          | Ontologie |
+|  PR                 | Profile                           | Profils d’archivage |
+|  PSC                | PreservationScenario              | Scénarios de préservation |
+|  REGISTER_DETAIL    | AccessionRegisterDetail           | Détail du registre des fonds |
+|  REGISTER_SYMBOLIC  | AccessionRegisterSymbolic         | Registre des fonds symboliques |
+|  RULE               | FileRules                         | Règles de gestion |
+|  SEC_PROFILE        | SecurityProfiles                  | Profils de sécurité |
 
-1.  []{#__RefHeading___Toc29621_1669085364 .anchor}Annexe 7 : Type
-    d’indexation des chaînes de caractères dans ElasticSearch par
-    collection et par champ
+Annexe 7 : Type d’indexation des chaînes de caractères dans ElasticSearch par collection et par champ
+-----------------------------------------------------------------------------------------------------
 
 **Collection AccessContract**
 
-  ------------------------ -------------------
-  Champ                    Type d’indexation
-  AccessLog                Non analysé
-  ActivationDate           Non analysé
-  CreationDate             Non analysé
-  DeactivationDate         Non analysé
-  DataObjectVersion        Non analysé
-  Description              Analysé
-  EveryDataObjectVersion   Non analysé
-  EveryOriginatingAgency   Non analysé
-  ExcludedRootUnits        Non analysé
-  Identifier               Non analysé
-  LastUpdate               Non analysé
-  Name                     Analysé
-  OriginatingAgencies      Non analysé
-  RuleCategoryToFilter     Non analysé
-  RootUnits                Non analysé
-  Status                   Non analysé
-  WritingPermission        Non analysé
-  WritingRestrictedDesc    Non analysé
-  ------------------------ -------------------
+| Champ                  | Type d’indexation |
+| :-: | :-: |
+| AccessLog              | Non analysé |
+| ActivationDate         | Non analysé |
+| CreationDate           | Non analysé |
+| DeactivationDate       | Non analysé |
+| DataObjectVersion      | Non analysé |
+| Description            | Analysé |
+| EveryDataObjectVersion | Non analysé |
+| EveryOriginatingAgency | Non analysé |
+| ExcludedRootUnits      | Non analysé |
+| Identifier             | Non analysé |
+| LastUpdate             | Non analysé |
+| Name                   | Analysé |
+| OriginatingAgencies    | Non analysé |
+| RuleCategoryToFilter   | Non analysé |
+| RootUnits              | Non analysé |
+| Status                 | Non analysé |
+| WritingPermission      | Non analysé |
+| WritingRestrictedDesc  | Non analysé |
 
 **Collection AccessionRegisterDetail**
 
-  ------------------------ -------------------
-  Champ                    Type d’indexation
-  ArchivalAgreement        Non analysé
-  OperationIds             Non analysé
-  OriginatingAgency        Non analysé
-  Status                   Non analysé
-  SubmissionAgency         Non analysé
-  Opc                      Non analysé
-  Opi                      Non analysé
-  OpType                   Non analysé
-  LegalStatus              Analysé
-  AcquisitionInformation   Non analysé
-  Archive Profile          Non analysé
-  ObIdIn                   Analysé
-  Comment                  Analysé
-  ------------------------ -------------------
+| Champ                  | Type d’indexation |
+| :-: | :-: |
+| ArchivalAgreement      | Non analysé |
+| OperationIds           | Non analysé |
+| OriginatingAgency      | Non analysé |
+| Status                 | Non analysé |
+| SubmissionAgency       | Non analysé |
+| Opc                    | Non analysé |
+| Opi                    | Non analysé |
+| OpType                 | Non analysé |
+| LegalStatus            | Analysé |
+| AcquisitionInformation | Non analysé |
+| Archive Profile        | Non analysé |
+| ObIdIn                 | Analysé |
+| Comment                | Analysé |
 
 **Collection AccessionRegisterSummary**
 
-  ------------------- -------------------
-  Champ               Type d’indexation
-  OriginatingAgency   Non analysé
-  ------------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| OriginatingAgency | Non analysé |
 
 **Collection AccessionRegisterSymbolic**
 
-  ------------------- -------------------
-  Champ               Type d’indexation
-  OriginatingAgency   Non analysé
-  ------------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| OriginatingAgency | Non analysé |
 
 **Collection Agencies**
 
-  ------------- -------------------
-  Champ         Type d’indexation
-  Description   Analysé
-  Identifier    Non analysé
-  Name          Analysé
-  ------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| Description       | Analysé
+| Identifier        | Non analysé
+| Name              | Analysé
 
 **Collection Context**
 
-  ----------------------------- -------------------
-  Champ                         Type d’indexation
-  Identifier                    Non analysé
-  Name                          Analysé
-  Permissions.AccessContracts   Non analysé
-  Permissions.IngestContracts   Non analysé
-  SecurityProfile               Non analysé
-  Status                        Non analysé
-  ----------------------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| Identifier                  | Non analysé |
+| Name                        | Analysé |
+| Permissions.AccessContracts | Non analysé |
+| Permissions.IngestContracts | Non analysé |
+| SecurityProfile             | Non analysé |
+| Status                      | Non analysé |
 
 **Collection FileFormat**
 
-  ----------------------------- -------------------
-  Champ                         Type d’indexation
-  Comment                       Analysé
-  Extension                     Non analysé
-  Group                         Analysé
-  HasPriorityOverFileFormatID   Non analysé
-  MimeType                      Analysé
-  Name                          Analysé
-  PUID                          Non analysé
-  Version                       Non analysé
-  VersionPronom                 Non analysé
-  ----------------------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| Comment                     | Analysé |
+| Extension                   | Non analysé |
+| Group                       | Analysé |
+| HasPriorityOverFileFormatID | Non analysé |
+| MimeType                    | Analysé |
+| Name                        | Analysé |
+| PUID                        | Non analysé |
+| Version                     | Non analysé |
+| VersionPronom               | Non analysé |
 
 **Collection FileRule**
 
-  ----------------- -------------------
-  Champ             Type d’indexation
-  RuleDescription   Analysé
-  RuleDuration      Non analysé
-  RuleId            Non analysé
-  RuleMeasurement   Non analysé
-  RuleType          Non analysé
-  RuleValue         Analysé
-  ----------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| RuleDescription | Analysé |
+| RuleDuration    | Non analysé |
+| RuleId          | Non analysé |
+| RuleMeasurement | Non analysé |
+| RuleType        | Non analysé |
+| RuleValue       | Analysé |
 
 **Collection Griffin**
 
-  ------------------- -------------------
-  Champ               Type d’indexation
-  Name                Analysé
-  Description         Analysé
-  ExecutableVersion   Non analysé
-  ExecutableName      Non analysé
-  Identifier          Non analysé
-  ------------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| Name              | Analysé |
+| Description       | Analysé |
+| ExecutableVersion | Non analysé |
+| ExecutableName    | Non analysé |
+| Identifier        | Non analysé |
 
 **Collection IngestContract**
 
-  ------------------------------- -------------------
-  Champ                           Type d’indexation
-  ActivationDate                  Non analysé
-  CreationDate                    Non analysé
-  DeactivationDate                Non analysé
-  ArchiveProfiles                 Non analysé
-  ComputeInheritedRulesAtIngest   Non analysé
-  Description                     Analysé
-  EveryDataObjectVersion          Non analysé
-  EveryFormatType                 Non analysé
-  FormatUnidentifiedAuthorized    Non analysé
-  Identifier                      Non analysé
-  LastUpdate                      Non analysé
-  LinkParentId                    Non analysé
-  CheckParentId                   Non analysé
-  CheckParentLink                 Non analysé
-  ManagementContractId            Non analysé
-  MasterMandatory                 Non analysé
-  Name                            Analysé
-  Status                          Non analysé
-  DataObjectVersion               Non analysé
-  FormatType                      Non analysé
-  ------------------------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| ActivationDate                | Non analysé |
+| CreationDate                  | Non analysé |
+| DeactivationDate              | Non analysé |
+| ArchiveProfiles               | Non analysé |
+| ComputeInheritedRulesAtIngest | Non analysé |
+| Description                   | Analysé |
+| EveryDataObjectVersion        | Non analysé |
+| EveryFormatType               | Non analysé |
+| FormatUnidentifiedAuthorized  | Non analysé |
+| Identifier                    | Non analysé |
+| LastUpdate                    | Non analysé |
+| LinkParentId                  | Non analysé |
+| CheckParentId                 | Non analysé |
+| CheckParentLink               | Non analysé |
+| ManagementContractId          | Non analysé |
+| MasterMandatory               | Non analysé |
+| Name                          | Analysé |
+| Status                        | Non analysé |
+| DataObjectVersion             | Non analysé |
+| FormatType                    | Non analysé |
 
 **Collection LogbookOperation**
 
-  ---------------------------------------------------- -------------------
-  Champ                                                Type d’indexation
-  events.evDetData.evDetDataType                       Non analysé
-  events.evDetData.LogType                             Non analysé
-  events.evDetData.Hash                                Non analysé
-  events.evDetData.TimeStampToken                      Non analysé
-  events.evDetData.FileName                            Analysé
-  events.evDetData.EvDetailReq                         Non analysé
-  events.evDetData.AgIfTrans                           Non analysé
-  events.evDetData.ArchivalAgreement                   Non analysé
-  events.evDetData.ServiceLevel                        Non analysé
-  events.evDetData.DigestAlgorithm                     Non analysé
-  events.evDetData.SecurisationVersion                 Analysé
-  events.evDetData.validateUnitReport.loadingURI       Analysé
-  events.evDetData.validateUnitReport.loadingURI       Analysé
-  events.agIdExt.originatingAgency                     Non analysé
-  events.agIdExt.TransferringAgency                    Non analysé
-  events.agIdExt.ArchivalAgency                        Non analysé
-  events.rightsStatementIdentifier.ArchivalAgreement   Analysé
-  events.evTypeProc                                    Non analysé
-  events.evType                                        Non analysé
-  events.outcome                                       Non analysé
-  events.outDetail                                     Non analysé
-  events.outMessg                                      Analysé
-  events.agId                                          Analysé
-  events.obId                                          Non analysé
-  evId                                                 Non analysé
-  evIdProc                                             Non analysé
-  evIdReq                                              Non analysé
-  evParentId                                           Non analysé
-  evTypeProc                                           Non analysé
-  evType                                               Non analysé
-  outcome                                              Non analysé
-  outMessg                                             Analysé
-  agId                                                 Analysé
-  outMessg                                             Analysé
-  LegalStatus                                          Non analysé
-  obId                                                 Analysé
-  ---------------------------------------------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| events.evDetData.evDetDataType                     | Non analysé |
+| events.evDetData.LogType                           | Non analysé |
+| events.evDetData.Hash                              | Non analysé |
+| events.evDetData.TimeStampToken                    | Non analysé |
+| events.evDetData.FileName                          | Analysé |
+| events.evDetData.EvDetailReq                       | Non analysé |
+| events.evDetData.AgIfTrans                         | Non analysé |
+| events.evDetData.ArchivalAgreement                 | Non analysé |
+| events.evDetData.ServiceLevel                      | Non analysé |
+| events.evDetData.DigestAlgorithm                   | Non analysé |
+| events.evDetData.SecurisationVersion               | Analysé |
+| events.evDetData.validateUnitReport.loadingURI     | Analysé |
+| events.evDetData.validateUnitReport.loadingURI     | Analysé |
+| events.agIdExt.originatingAgency                   | Non analysé |
+| events.agIdExt.TransferringAgency                  | Non analysé |
+| events.agIdExt.ArchivalAgency                      | Non analysé |
+| events.rightsStatementIdentifier.ArchivalAgreement | Analysé |
+| events.evTypeProc                                  | Non analysé |
+| events.evType                                      | Non analysé |
+| events.outcome                                     | Non analysé |
+| events.outDetail                                   | Non analysé |
+| events.outMessg                                    | Analysé |
+| events.agId                                        | Analysé |
+| events.obId                                        | Non analysé |
+| evId                                               | Non analysé |
+| evIdProc                                           | Non analysé |
+| evIdReq                                            | Non analysé |
+| evParentId                                         | Non analysé |
+| evTypeProc                                         | Non analysé |
+| evType                                             | Non analysé |
+| outcome                                            | Non analysé |
+| outMessg                                           | Analysé |
+| agId                                               | Analysé |
+| outMessg                                           | Analysé |
+| LegalStatus                                        | Non analysé |
+| obId                                               | Analysé |
 
 **Collection ManagementContract**
 
-  --------------------- -------------------
-  Champ                 Type d’indexation
-  ActivationDate        Non analysé
-  CreationDate          Non analysé
-  DeactivationDate      Non analysé
-  Description           Analysé
-  Identifier            Non analysé
-  InitialVersion        Non analysé
-  IntermediaryVersion   Non analysé
-  LastUpdate            Non analysé
-  Name                  Analysé
-  ObjectGroupStrategy   Non analysé
-  ObjectStrategy        Non analysé
-  Status                Non analysé
-  UsageName             Non analysé
-  UnitStrategy          Non analysé
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| ActivationDate      | Non analysé |
+| CreationDate        | Non analysé |
+| DeactivationDate    | Non analysé |
+| Description         | Analysé |
+| Identifier          | Non analysé |
+| InitialVersion      | Non analysé |
+| IntermediaryVersion | Non analysé |
+| LastUpdate          | Non analysé |
+| Name                | Analysé |
+| ObjectGroupStrategy | Non analysé |
+| ObjectStrategy      | Non analysé |
+| Status              | Non analysé |
+| UsageName           | Non analysé |
+| UnitStrategy        | Non analysé |
   --------------------- -------------------
 
 **Collection ObjectGroup**
 
-  ----------------------------------------------------------- -------------------
-  Champ                                                       Type d’indexation
-  FileInfo.CreatingApplicationName                            Analysé
-  FileInfo.CreatingApplicationVersion                         Analysé
-  FileInfo.CreatingOs                                         Analysé
-  FileInfo.CreatingOsVersion                                  Analysé
-  FileInfo.Filename                                           Analysé
-  \_glpd                                                      Non analysé
-  \_opi                                                       Non analysé
-  \_ops                                                       Non analysé
-  \_profil                                                    Non analysé
-  \_qualifiers.qualifier                                      Non analysé
-  \_qualifiers.versions.Algorithm                             Non analysé
-  \_qualifiers.versions.DataObjectGroupId                     Non analysé
-  \_qualifiers.versions.DataObjectVersion                     Non analysé
-  \_qualifiers.versions.FileInfo.CreatingApplicationName      Analysé
-  \_qualifiers.versions.FileInfo.CreatingApplicationVersion   Analysé
-  \_qualifiers.versions.FileInfo.CreatingOs                   Analysé
-  \_qualifiers.versions.FileInfo.CreatingOsVersion            Analysé
-  \_qualifiers.versions.FileInfo.Filename                     Analysé
-  \_qualifiers.versions.FormatIdentification.Encoding         Non analysé
-  \_qualifiers.versions.FormatIdentification.FormatId         Non analysé
-  \_qualifiers.versions.FormatIdentification.FormatLitteral   Non analysé
-  \_qualifiers.versions.FormatIdentification.MimeType         Non analysé
-  \_qualifiers.versions.MessageDigest                         Non analysé
-  \_qualifiers.versions.PhysicalDimensions.Depth.unit         Non analysé
-  \_qualifiers.versions.PhysicalDimensions.Diameter.unit      Non analysé
-  \_qualifiers.versions.PhysicalDimensions.Height.unit        Non analysé
-  \_qualifiers.versions.PhysicalDimensions.Length.unit        Non analysé
-  \_qualifiers.versions.PhysicalDimensions.Shape              Non analysé
-  \_qualifiers.versions.PhysicalDimensions.Thickness.unit     Non analysé
-  \_qualifiers.versions.PhysicalDimensions.Weight.unit        Non analysé
-  \_qualifiers.versions.PhysicalDimensions.Width.unit         Non analysé
-  \_qualifiers.versions.PhysicalId                            Non analysé
-  \_qualifiers.versions.Uri                                   Non analysé
-  \_qualifiers.versions.\_id                                  Non analysé
-  \_qualifiers.versions.\_storage.offerIds                    Non analysé
-  \_qualifiers.versions.\_storage.strategyId                  Non analysé
-  \_score                                                     notIndexed
-  \_sp                                                        Non analysé
-  \_sps                                                       Non analysé
-  \_storage.offerIds                                          Non analysé
-  \_storage.strategyId                                        Non analysé
-  \_up                                                        Non analysé
-  \_us                                                        Non analysé
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| FileInfo.CreatingApplicationName                          | Analysé |
+| FileInfo.CreatingApplicationVersion                       | Analysé |
+| FileInfo.CreatingOs                                       | Analysé |
+| FileInfo.CreatingOsVersion                                | Analysé |
+| FileInfo.Filename                                         | Analysé |
+| \_glpd                                                    | Non analysé |
+| \_opi                                                     | Non analysé |
+| \_ops                                                     | Non analysé |
+| \_profil                                                  | Non analysé |
+| \_qualifiers.qualifier                                    | Non analysé |
+| \_qualifiers.versions.Algorithm                           | Non analysé |
+| \_qualifiers.versions.DataObjectGroupId                   | Non analysé |
+| \_qualifiers.versions.DataObjectVersion                   | Non analysé |
+| \_qualifiers.versions.FileInfo.CreatingApplicationName    | Analysé |
+| \_qualifiers.versions.FileInfo.CreatingApplicationVersion | Analysé |
+| \_qualifiers.versions.FileInfo.CreatingOs                 | Analysé |
+| \_qualifiers.versions.FileInfo.CreatingOsVersion          | Analysé |
+| \_qualifiers.versions.FileInfo.Filename                   | Analysé |
+| \_qualifiers.versions.FormatIdentification.Encoding       | Non analysé |
+| \_qualifiers.versions.FormatIdentification.FormatId       | Non analysé |
+| \_qualifiers.versions.FormatIdentification.FormatLitteral | Non analysé |
+| \_qualifiers.versions.FormatIdentification.MimeType       | Non analysé |
+| \_qualifiers.versions.MessageDigest                       | Non analysé |
+| \_qualifiers.versions.PhysicalDimensions.Depth.unit       | Non analysé |
+| \_qualifiers.versions.PhysicalDimensions.Diameter.unit    | Non analysé |
+| \_qualifiers.versions.PhysicalDimensions.Height.unit      | Non analysé |
+| \_qualifiers.versions.PhysicalDimensions.Length.unit      | Non analysé |
+| \_qualifiers.versions.PhysicalDimensions.Shape            | Non analysé |
+| \_qualifiers.versions.PhysicalDimensions.Thickness.unit   | Non analysé |
+| \_qualifiers.versions.PhysicalDimensions.Weight.unit      | Non analysé |
+| \_qualifiers.versions.PhysicalDimensions.Width.unit       | Non analysé |
+| \_qualifiers.versions.PhysicalId                          | Non analysé |
+| \_qualifiers.versions.Uri                                 | Non analysé |
+| \_qualifiers.versions.\_id                                | Non analysé |
+| \_qualifiers.versions.\_storage.offerIds                  | Non analysé |
+| \_qualifiers.versions.\_storage.strategyId                | Non analysé |
+| \_score                                                   | notIndexed |
+| \_sp                                                      | Non analysé |
+| \_sps                                                     | Non analysé |
+| \_storage.offerIds                                        | Non analysé |
+| \_storage.strategyId                                      | Non analysé |
+| \_up                                                      | Non analysé |
+| \_us                                                      | Non analysé |
   ----------------------------------------------------------- -------------------
 
 **Collection Ontology**
 
-  ------------- -------------------
-  Champ         Type d’indexation
-  ApiField      Non analysé
-  SedaField     Non analysé
-  Identifier    Non analysé
-  Description   Analysé
-  Type          Non analysé
-  Origin        Non analysé
-  ShortName     Non analysé
-  Collections   Non analysé
-  ------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| ApiField    | Non analysé |
+| SedaField   | Non analysé |
+| Identifier  | Non analysé |
+| Description | Analysé |
+| Type        | Non analysé |
+| Origin      | Non analysé |
+| ShortName   | Non analysé |
+| Collections | Non analysé |
 
 **Collection PreservationScenario**
 
-  ------------------- -------------------
-  Champ               Type d’indexation
-  Name                Analysé
-  Identifier          Non analysé
-  Description         Analysé
-  ActionList          Non analysé
-  FormatList          Non analysé
-  GriffinIdentifier   Non analysé
-  Type                Non analysé
-  Extension           Non analysé
-  Args                Analysé
-  ------------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| Name              | Analysé |
+| Identifier        | Non analysé |
+| Description       | Analysé |
+| ActionList        | Non analysé |
+| FormatList        | Non analysé |
+| GriffinIdentifier | Non analysé |
+| Type              | Non analysé |
+| Extension         | Non analysé |
+| Args              | Analysé |
 
 **Collection Profile**
 
-  ------------- -------------------
-  Champ         Type d’indexation
-  Description   Analysé
-  Format        Non analysé
-  Identifier    Non analysé
-  Name          Analysé
-  Path          Non analysé
-  Status        Non analysé
-  ------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| Description |  Analysé |
+| Format      |  Non analysé |
+| Identifier  |  Non analysé |
+| Name        |  Analysé |
+| Path        |  Non analysé |
+| Status      |  Non analysé |
 
 **Collection Unit**
 
-  ----------------------------------------------------------------------------------- -------------------
-  Champ                                                                               Type d’indexation
-  Addressee.BirthName                                                                 Analysé
-  Addressee.BirthPlace.Address                                                        Analysé
-  Addressee.BirthPlace.City                                                           Analysé
-  Addressee.BirthPlace.Country                                                        Analysé
-  Addressee.BirthPlace.Geogname                                                       Analysé
-  Addressee.BirthPlace.PostalCode                                                     Non analysé
-  Addressee.BirthPlace.Region                                                         Analysé
-  Addressee.Corpname                                                                  Analysé
-  Addressee.DeathPlace.Address                                                        Analysé
-  Addressee.DeathPlace.City                                                           Analysé
-  Addressee.DeathPlace.Country                                                        Analysé
-  Addressee.DeathPlace.Geogname                                                       Analysé
-  Addressee.DeathPlace.PostalCode                                                     Non analysé
-  Addressee.DeathPlace.Region                                                         Analysé
-  Addressee.FirstName                                                                 Analysé
-  Addressee.Gender                                                                    Analysé
-  Addressee.GivenName                                                                 Analysé
-  Addressee.Identifier                                                                Non analysé
-  Addressee.Nationality                                                               Analysé
-  ArchivalAgencyArchiveUnitIdentifier                                                 Non analysé
-  ArchiveUnitProfile                                                                  Non analysé
-  AuthorizedAgent.BirthName                                                           Analysé
-  AuthorizedAgent.BirthPlace.Address                                                  Analysé
-  AuthorizedAgent.BirthPlace.City                                                     Analysé
-  AuthorizedAgent.BirthPlace.Country                                                  Analysé
-  AuthorizedAgent.BirthPlace.Geogname                                                 Analysé
-  AuthorizedAgent.BirthPlace.PostalCode                                               Non analysé
-  AuthorizedAgent.BirthPlace.Region                                                   Analysé
-  AuthorizedAgent.Corpname                                                            Analysé
-  AuthorizedAgent.DeathPlace.Address                                                  Analysé
-  AuthorizedAgent.DeathPlace.City                                                     Analysé
-  AuthorizedAgent.DeathPlace.Country                                                  Analysé
-  AuthorizedAgent.DeathPlace.Geogname                                                 Analysé
-  AuthorizedAgent.DeathPlace.PostalCode                                               Non analysé
-  AuthorizedAgent.DeathPlace.Region                                                   Analysé
-  AuthorizedAgent.FirstName                                                           Analysé
-  AuthorizedAgent.Gender                                                              Analysé
-  AuthorizedAgent.GivenName                                                           Analysé
-  AuthorizedAgent.Identifier                                                          Non analysé
-  AuthorizedAgent.Nationality                                                         Analysé
-  Coverage.Juridictional                                                              Analysé
-  Coverage.Spatial                                                                    Analysé
-  Coverage.Temporal                                                                   Analysé
-  CustodialHistory.CustodialHistoryFile.DataObjectGroupReferenceId                    Non analysé
-  CustodialHistory.CustodialHistoryItem                                               Analysé
-  Description                                                                         Analysé
-  DescriptionLanguage                                                                 Non analysé
-  DescriptionLevel                                                                    Non analysé
-  DocumentType                                                                        Analysé
-  Event.EventDetail                                                                   Analysé
-  Event.EventIdentifier                                                               Non analysé
-  Event.EventType                                                                     Analysé
-  FilePlanPosition                                                                    Non analysé
-  Gps.GpsAltitude                                                                     Non analysé
-  Gps.GpsAltitudeRef                                                                  Non analysé
-  Gps.GpsDateStamp                                                                    Non analysé
-  Gps.GpsLatitude                                                                     Non analysé
-  Gps.GpsLatitudeRef                                                                  Non analysé
-  Gps.GpsLongitude                                                                    Non analysé
-  Gps.GpsLongitudeRef                                                                 Non analysé
-  Gps.GpsVersionID                                                                    Non analysé
-  Non analysé.Non analyséContent                                                      Non analysé
-  Non analysé.Non analyséReference                                                    Non analysé
-  Non analysé.Non analyséType                                                         Non analysé
-  Language                                                                            Non analysé
-  OriginatingAgency.Identifier                                                        Non analysé
-  OriginatingAgencyArchiveUnitIdentifier                                              Non analysé
-  OriginatingSystemId                                                                 Non analysé
-  Recipient.BirthName                                                                 Analysé
-  Recipient.BirthPlace.Address                                                        Analysé
-  Recipient.BirthPlace.City                                                           Analysé
-  Recipient.BirthPlace.Country                                                        Analysé
-  Recipient.BirthPlace.Geogname                                                       Analysé
-  Recipient.BirthPlace.PostalCode                                                     Non analysé
-  Recipient.BirthPlace.Region                                                         Analysé
-  Recipient.Corpname                                                                  Analysé
-  Recipient.DeathPlace.Address                                                        Analysé
-  Recipient.DeathPlace.City                                                           Analysé
-  Recipient.DeathPlace.Country                                                        Analysé
-  Recipient.DeathPlace.Geogname                                                       Analysé
-  Recipient.DeathPlace.PostalCode                                                     Non analysé
-  Recipient.DeathPlace.Region                                                         Analysé
-  Recipient.FirstName                                                                 Analysé
-  Recipient.Gender                                                                    Analysé
-  Recipient.GivenName                                                                 Analysé
-  Recipient.Identifier                                                                Non analysé
-  Recipient.Nationality                                                               Analysé
-  RelatedObjectReference.IsPartOf.ArchiveUnitRefId                                    Non analysé
-  RelatedObjectReference.IsPartOf.DataObjectReference.DataObjectGroupReferenceId      Non analysé
-  RelatedObjectReference.IsPartOf.DataObjectReference.DataObjectReferenceId           Non analysé
-  RelatedObjectReference.IsPartOf.RepositoryArchiveUnitPID                            Non analysé
-  RelatedObjectReference.IsPartOf.RepositoryObjectPID                                 Non analysé
-  RelatedObjectReference.IsVersionOf.ArchiveUnitRefId                                 Non analysé
-  RelatedObjectReference.IsVersionOf.DataObjectReference.DataObjectGroupReferenceId   Non analysé
-  RelatedObjectReference.IsVersionOf.DataObjectReference.DataObjectReferenceId        Non analysé
-  RelatedObjectReference.IsVersionOf.RepositoryArchiveUnitPID                         Non analysé
-  RelatedObjectReference.IsVersionOf.RepositoryObjectPID                              Non analysé
-  RelatedObjectReference.References.ArchiveUnitRefId                                  Non analysé
-  RelatedObjectReference.References.DataObjectReference.DataObjectGroupReferenceId    Non analysé
-  RelatedObjectReference.References.DataObjectReference.DataObjectReferenceId         Non analysé
-  RelatedObjectReference.References.RepositoryArchiveUnitPID                          Non analysé
-  RelatedObjectReference.References.RepositoryObjectPID                               Non analysé
-  RelatedObjectReference.Replaces.ArchiveUnitRefId                                    Non analysé
-  RelatedObjectReference.Replaces.DataObjectReference.DataObjectGroupReferenceId      Non analysé
-  RelatedObjectReference.Replaces.DataObjectReference.DataObjectReferenceId           Non analysé
-  RelatedObjectReference.Replaces.ExternalReference                                   Analysé
-  RelatedObjectReference.Replaces.RepositoryArchiveUnitPID                            Non analysé
-  RelatedObjectReference.Replaces.RepositoryObjectPID                                 Non analysé
-  RelatedObjectReference.Requires.ArchiveUnitRefId                                    Non analysé
-  RelatedObjectReference.Requires.DataObjectReference.DataObjectGroupReferenceId      Non analysé
-  RelatedObjectReference.Requires.DataObjectReference.DataObjectReferenceId           Non analysé
-  RelatedObjectReference.Requires.RepositoryArchiveUnitPID                            Non analysé
-  RelatedObjectReference.Requires.RepositoryObjectPID                                 Non analysé
-  Sender.Activity                                                                     Non analysé
-  Sender.BirthName                                                                    Analysé
-  Sender.BirthPlace.Address                                                           Analysé
-  Sender.BirthPlace.City                                                              Analysé
-  Sender.BirthPlace.Country                                                           Analysé
-  Sender.BirthPlace.Geogname                                                          Analysé
-  Sender.BirthPlace.PostalCode                                                        Non analysé
-  Sender.BirthPlace.Region                                                            Analysé
-  Sender.DeathPlace.Address                                                           Analysé
-  Sender.DeathPlace.City                                                              Analysé
-  Sender.DeathPlace.Country                                                           Analysé
-  Sender.DeathPlace.Geogname                                                          Analysé
-  Sender.DeathPlace.PostalCode                                                        Non analysé
-  Sender.DeathPlace.Region                                                            Analysé
-  Sender.FirstName                                                                    Analysé
-  Sender.Function                                                                     Non analysé
-  Sender.Gender                                                                       Analysé
-  Sender.GivenName                                                                    Analysé
-  Sender.Identifier                                                                   Non analysé
-  Sender.Mandate                                                                      Analysé
-  Sender.Nationality                                                                  Analysé
-  Sender.Position                                                                     Analysé
-  Sender.Role                                                                         Analysé
-  Signature.Masterdata.Value                                                          Non analysé
-  Signature.ReferencedObject.SignedObjectDigest.Algorithm                             Non analysé
-  Signature.ReferencedObject.SignedObjectDigest.MessageDigest                         Non analysé
-  Signature.ReferencedObject.SignedObjectId                                           Non analysé
-  Signature.Signer.Activity                                                           Non analysé
-  Signature.Signer.BirthName                                                          Analysé
-  Signature.Signer.BirthPlace.Address                                                 Analysé
-  Signature.Signer.BirthPlace.City                                                    Analysé
-  Signature.Signer.BirthPlace.Country                                                 Analysé
-  Signature.Signer.BirthPlace.Geogname                                                Analysé
-  Signature.Signer.BirthPlace.PostalCode                                              Non analysé
-  Signature.Signer.BirthPlace.Region                                                  Analysé
-  Signature.Signer.Corpname                                                           Analysé
-  Signature.Signer.DeathPlace.Address                                                 Analysé
-  Signature.Signer.DeathPlace.City                                                    Analysé
-  Signature.Signer.DeathPlace.Country                                                 Analysé
-  Signature.Signer.DeathPlace.Geogname                                                Analysé
-  Signature.Signer.DeathPlace.PostalCode                                              Non analysé
-  Signature.Signer.DeathPlace.Region                                                  Analysé
-  Signature.Signer.FirstName                                                          Analysé
-  Signature.Signer.Fullname                                                           Analysé
-  Signature.Signer.Function                                                           Non analysé
-  Signature.Signer.Gender                                                             Analysé
-  Signature.Signer.GivenName                                                          Analysé
-  Signature.Signer.Identifier                                                         Non analysé
-  Signature.Signer.Nationality                                                        Analysé
-  Signature.Signer.Position                                                           Analysé
-  Signature.Signer.Role                                                               Analysé
-  Signature.Validator.Activity                                                        Non analysé
-  Signature.Validator.BirthName                                                       Analysé
-  Signature.Validator.BirthPlace.Address                                              Analysé
-  Signature.Validator.BirthPlace.City                                                 Analysé
-  Signature.Validator.BirthPlace.Country                                              Analysé
-  Signature.Validator.BirthPlace.Geogname                                             Analysé
-  Signature.Validator.BirthPlace.PostalCode                                           Non analysé
-  Signature.Validator.BirthPlace.Region                                               Analysé
-  Signature.Validator.Corpname                                                        Analysé
-  Signature.Validator.DeathPlace.Address                                              Analysé
-  Signature.Validator.DeathPlace.City                                                 Analysé
-  Signature.Validator.DeathPlace.Country                                              Analysé
-  Signature.Validator.DeathPlace.Geogname                                             Analysé
-  Signature.Validator.DeathPlace.PostalCode                                           Non analysé
-  Signature.Validator.DeathPlace.Region                                               Analysé
-  Signature.Validator.FirstName                                                       Analysé
-  Signature.Validator.FullName                                                        Analysé
-  Signature.Validator.Function                                                        Non analysé
-  Signature.Validator.Gender                                                          Analysé
-  Signature.Validator.GivenName                                                       Analysé
-  Signature.Validator.Identifier                                                      Non analysé
-  Signature.Validator.Nationality                                                     Analysé
-  Signature.Validator.Position                                                        Analysé
-  Signature.Validator.Role                                                            Analysé
-  Source                                                                              Analysé
-  Status                                                                              Non analysé
-  SubmissionAgency.Identifier                                                         Non analysé
-  SystemId                                                                            Non analysé
-  Tag                                                                                 Non analysé
-  Title                                                                               Analysé
-  TransferringAgencyArchiveUnitIdentifier                                             Non analysé
-  Transmitter.Activity                                                                Non analysé
-  Transmitter.BirthName                                                               Analysé
-  Transmitter.BirthPlace.Address                                                      Analysé
-  Transmitter.BirthPlace.City                                                         Analysé
-  Transmitter.BirthPlace.Country                                                      Analysé
-  Transmitter.BirthPlace.Geogname                                                     Analysé
-  Transmitter.BirthPlace.PostalCode                                                   Non analysé
-  Transmitter.BirthPlace.Region                                                       Analysé
-  Transmitter.DeathPlace.Address                                                      Analysé
-  Transmitter.DeathPlace.City                                                         Analysé
-  Transmitter.DeathPlace.Country                                                      Analysé
-  Transmitter.DeathPlace.Geogname                                                     Analysé
-  Transmitter.DeathPlace.PostalCode                                                   Non analysé
-  Transmitter.DeathPlace.Region                                                       Analysé
-  Transmitter.FirstName                                                               Analysé
-  Transmitter.Function                                                                Non analysé
-  Transmitter.Gender                                                                  Analysé
-  Transmitter.GivenName                                                               Analysé
-  Transmitter.Identifier                                                              Non analysé
-  Transmitter.Nationality                                                             Analysé
-  Transmitter.Position                                                                Analysé
-  Transmitter.Role                                                                    Analysé
-  Type                                                                                Non analysé
-  Version                                                                             Non analysé
-  Writer.Activity                                                                     Non analysé
-  Writer.BirthName                                                                    Analysé
-  Writer.BirthPlace.Address                                                           Analysé
-  Writer.BirthPlace.City                                                              Analysé
-  Writer.BirthPlace.Country                                                           Analysé
-  Writer.BirthPlace.Geogname                                                          Analysé
-  Writer.BirthPlace.PostalCode                                                        Non analysé
-  Writer.BirthPlace.Region                                                            Analysé
-  Writer.DeathPlace.Address                                                           Analysé
-  Writer.DeathPlace.City                                                              Analysé
-  Writer.DeathPlace.Country                                                           Analysé
-  Writer.DeathPlace.Geogname                                                          Analysé
-  Writer.DeathPlace.PostalCode                                                        Non analysé
-  Writer.DeathPlace.Region                                                            Analysé
-  Writer.FirstName                                                                    Analysé
-  Writer.Function                                                                     Non analysé
-  Writer.Gender                                                                       Analysé
-  Writer.GivenName                                                                    Analysé
-  Writer.Identifier                                                                   Non analysé
-  Writer.Nationality                                                                  Analysé
-  Writer.Position                                                                     Analysé
-  Writer.Role                                                                         Analysé
-  \_acd                                                                               Non analysé
-  \_aud                                                                               Non analysé
-  \_elimination.DestroyableOriginatingAgencies                                        Non analysé
-  \_elimination.ExtendedInfo.ExtendedInfoDetails.DestroyableOriginatingAgencies       Non analysé
-  \_elimination.ExtendedInfo.ExtendedInfoDetails.NonDestroyableOriginatingAgencies    Non analysé
-  \_elimination.ExtendedInfo.ExtendedInfoDetails.ParentUnitId                         Non analysé
-  \_elimination.ExtendedInfo.ExtendedInfoType                                         Non analysé
-  \_elimination.GlobalStatus                                                          Non analysé
-  \_elimination.NonDestroyableOriginatingAgencies                                     Non analysé
-  \_elimination.OperationId                                                           Non analysé
-  \_history.data.\_mgt.ClassificationRule.ClassificationAudience                      Non analysé
-  \_history.data.\_mgt.ClassificationRule.ClassificationLevel                         Non analysé
-  \_history.data.\_mgt.ClassificationRule.ClassificationOwner                         Analysé
-  \_history.data.\_mgt.ClassificationRule.Inheritance.PreventRulesId                  Non analysé
-  \_history.data.\_mgt.ClassificationRule.Rules.Rule                                  Non analysé
-  \_implementationVersion                                                             Non analysé
-  \_mgt.AccessRule.Inheritance.PreventRulesId                                         Non analysé
-  \_mgt.AccessRule.Rules.Rule                                                         Non analysé
-  \_mgt.AppraisalRule.FinalAction                                                     Non analysé
-  \_mgt.AppraisalRule.Inheritance.PreventRulesId                                      Non analysé
-  \_mgt.AppraisalRule.Rules.Rule                                                      Non analysé
-  \_mgt.ClassificationRule.ClassificationAudience                                     Non analysé
-  \_mgt.ClassificationRule.ClassificationLevel                                        Non analysé
-  \_mgt.ClassificationRule.ClassificationOwner                                        Analysé
-  \_mgt.ClassificationRule.Inheritance.PreventRulesId                                 Non analysé
-  \_mgt.ClassificationRule.Rules.ClassificationAudience                               Analysé
-  \_mgt.ClassificationRule.Rules.Rule                                                 Non analysé
-  \_mgt.DisseminationRule.Inheritance.PreventRulesId                                  Non analysé
-  \_mgt.DisseminationRule.Rules.Rule                                                  Non analysé
-  \_mgt.ReuseRule.Inheritance.PreventRulesId                                          Non analysé
-  \_mgt.ReuseRule.Rules.Rule                                                          Non analysé
-  \_mgt.StorageRule.FinalAction                                                       Non analysé
-  \_mgt.StorageRule.Inheritance.PreventRulesId                                        Non analysé
-  \_mgt.StorageRule.Rules.Rule                                                        Non analysé
-  \_og                                                                                Non analysé
-  \_opi                                                                               Non analysé
-  \_ops                                                                               Non analysé
-  \_sedaVersion                                                                       Non analysé
-  \_sp                                                                                Non analysé
-  \_sps                                                                               Non analysé
-  \_storage.offerIds                                                                  Non analysé
-  \_storage.strategyId                                                                Non analysé
-  \_unitType                                                                          Non analysé
-  \_up                                                                                Non analysé
-  \_us                                                                                Non analysé
-  ----------------------------------------------------------------------------------- -------------------
+| Champ             | Type d’indexation |
+| :-: | :-: |
+| Addressee.BirthName                                                               | Analysé |
+| Addressee.BirthPlace.Address                                                      | Analysé |
+| Addressee.BirthPlace.City                                                         | Analysé |
+| Addressee.BirthPlace.Country                                                      | Analysé |
+| Addressee.BirthPlace.Geogname                                                     | Analysé |
+| Addressee.BirthPlace.PostalCode                                                   | Non analysé |
+| Addressee.BirthPlace.Region                                                       | Analysé |
+| Addressee.Corpname                                                                | Analysé |
+| Addressee.DeathPlace.Address                                                      | Analysé |
+| Addressee.DeathPlace.City                                                         | Analysé |
+| Addressee.DeathPlace.Country                                                      | Analysé |
+| Addressee.DeathPlace.Geogname                                                     | Analysé |
+| Addressee.DeathPlace.PostalCode                                                   | Non analysé |
+| Addressee.DeathPlace.Region                                                       | Analysé |
+| Addressee.FirstName                                                               | Analysé |
+| Addressee.Gender                                                                  | Analysé |
+| Addressee.GivenName                                                               | Analysé |
+| Addressee.Identifier                                                              | Non analysé |
+| Addressee.Nationality                                                             | Analysé |
+| ArchivalAgencyArchiveUnitIdentifier                                               | Non analysé |
+| ArchiveUnitProfile                                                                | Non analysé |
+| AuthorizedAgent.BirthName                                                         | Analysé |
+| AuthorizedAgent.BirthPlace.Address                                                | Analysé |
+| AuthorizedAgent.BirthPlace.City                                                   | Analysé |
+| AuthorizedAgent.BirthPlace.Country                                                | Analysé |
+| AuthorizedAgent.BirthPlace.Geogname                                               | Analysé |
+| AuthorizedAgent.BirthPlace.PostalCode                                             | Non analysé |
+| AuthorizedAgent.BirthPlace.Region                                                 | Analysé |
+| AuthorizedAgent.Corpname                                                          | Analysé |
+| AuthorizedAgent.DeathPlace.Address                                                | Analysé |
+| AuthorizedAgent.DeathPlace.City                                                   | Analysé |
+| AuthorizedAgent.DeathPlace.Country                                                | Analysé |
+| AuthorizedAgent.DeathPlace.Geogname                                               | Analysé |
+| AuthorizedAgent.DeathPlace.PostalCode                                             | Non analysé |
+| AuthorizedAgent.DeathPlace.Region                                                 | Analysé |
+| AuthorizedAgent.FirstName                                                         | Analysé |
+| AuthorizedAgent.Gender                                                            | Analysé |
+| AuthorizedAgent.GivenName                                                         | Analysé |
+| AuthorizedAgent.Identifier                                                        | Non analysé |
+| AuthorizedAgent.Nationality                                                       | Analysé |
+| Coverage.Juridictional                                                            | Analysé |
+| Coverage.Spatial                                                                  | Analysé |
+| Coverage.Temporal                                                                 | Analysé |
+| CustodialHistory.CustodialHistoryFile.DataObjectGroupReferenceId                  | Non analysé |
+| CustodialHistory.CustodialHistoryItem                                             | Analysé |
+| Description                                                                       | Analysé |
+| DescriptionLanguage                                                               | Non analysé |
+| DescriptionLevel                                                                  | Non analysé |
+| DocumentType                                                                      | Analysé |
+| Event.EventDetail                                                                 | Analysé |
+| Event.EventIdentifier                                                             | Non analysé |
+| Event.EventType                                                                   | Analysé |
+| FilePlanPosition                                                                  | Non analysé |
+| Gps.GpsAltitude                                                                   | Non analysé |
+| Gps.GpsAltitudeRef                                                                | Non analysé |
+| Gps.GpsDateStamp                                                                  | Non analysé |
+| Gps.GpsLatitude                                                                   | Non analysé |
+| Gps.GpsLatitudeRef                                                                | Non analysé |
+| Gps.GpsLongitude                                                                  | Non analysé |
+| Gps.GpsLongitudeRef                                                               | Non analysé |
+| Gps.GpsVersionID                                                                  | Non analysé |
+| Non analysé.Non analyséContent                                                    | Non analysé |
+| Non analysé.Non analyséReference                                                  | Non analysé |
+| Non analysé.Non analyséType                                                       | Non analysé |
+| Language                                                                          | Non analysé |
+| OriginatingAgency.Identifier                                                      | Non analysé |
+| OriginatingAgencyArchiveUnitIdentifier                                            | Non analysé |
+| OriginatingSystemId                                                               | Non analysé |
+| Recipient.BirthName                                                               | Analysé |
+| Recipient.BirthPlace.Address                                                      | Analysé |
+| Recipient.BirthPlace.City                                                         | Analysé |
+| Recipient.BirthPlace.Country                                                      | Analysé |
+| Recipient.BirthPlace.Geogname                                                     | Analysé |
+| Recipient.BirthPlace.PostalCode                                                   | Non analysé |
+| Recipient.BirthPlace.Region                                                       | Analysé |
+| Recipient.Corpname                                                                | Analysé |
+| Recipient.DeathPlace.Address                                                      | Analysé |
+| Recipient.DeathPlace.City                                                         | Analysé |
+| Recipient.DeathPlace.Country                                                      | Analysé |
+| Recipient.DeathPlace.Geogname                                                     | Analysé |
+| Recipient.DeathPlace.PostalCode                                                   | Non analysé |
+| Recipient.DeathPlace.Region                                                       | Analysé |
+| Recipient.FirstName                                                               | Analysé |
+| Recipient.Gender                                                                  | Analysé |
+| Recipient.GivenName                                                               | Analysé |
+| Recipient.Identifier                                                              | Non analysé |
+| Recipient.Nationality                                                             | Analysé |
+| RelatedObjectReference.IsPartOf.ArchiveUnitRefId                                  | Non analysé |
+| RelatedObjectReference.IsPartOf.DataObjectReference.DataObjectGroupReferenceId    | Non analysé |
+| RelatedObjectReference.IsPartOf.DataObjectReference.DataObjectReferenceId         | Non analysé |
+| RelatedObjectReference.IsPartOf.RepositoryArchiveUnitPID                          | Non analysé |
+| RelatedObjectReference.IsPartOf.RepositoryObjectPID                               | Non analysé |
+| RelatedObjectReference.IsVersionOf.ArchiveUnitRefId                               | Non analysé |
+| RelatedObjectReference.IsVersionOf.DataObjectReference.DataObjectGroupReferenceId | Non analysé |
+| RelatedObjectReference.IsVersionOf.DataObjectReference.DataObjectReferenceId      | Non analysé |
+| RelatedObjectReference.IsVersionOf.RepositoryArchiveUnitPID                       | Non analysé |
+| RelatedObjectReference.IsVersionOf.RepositoryObjectPID                            | Non analysé |
+| RelatedObjectReference.References.ArchiveUnitRefId                                | Non analysé |
+| RelatedObjectReference.References.DataObjectReference.DataObjectGroupReferenceId  | Non analysé |
+| RelatedObjectReference.References.DataObjectReference.DataObjectReferenceId       | Non analysé |
+| RelatedObjectReference.References.RepositoryArchiveUnitPID                        | Non analysé |
+| RelatedObjectReference.References.RepositoryObjectPID                             | Non analysé |
+| RelatedObjectReference.Replaces.ArchiveUnitRefId                                  | Non analysé |
+| RelatedObjectReference.Replaces.DataObjectReference.DataObjectGroupReferenceId    | Non analysé |
+| RelatedObjectReference.Replaces.DataObjectReference.DataObjectReferenceId         | Non analysé |
+| RelatedObjectReference.Replaces.ExternalReference                                 | Analysé |
+| RelatedObjectReference.Replaces.RepositoryArchiveUnitPID                          | Non analysé |
+| RelatedObjectReference.Replaces.RepositoryObjectPID                               | Non analysé |
+| RelatedObjectReference.Requires.ArchiveUnitRefId                                  | Non analysé |
+| RelatedObjectReference.Requires.DataObjectReference.DataObjectGroupReferenceId    | Non analysé |
+| RelatedObjectReference.Requires.DataObjectReference.DataObjectReferenceId         | Non analysé |
+| RelatedObjectReference.Requires.RepositoryArchiveUnitPID                          | Non analysé |
+| RelatedObjectReference.Requires.RepositoryObjectPID                               | Non analysé |
+| Sender.Activity                                                                   | Non analysé |
+| Sender.BirthName                                                                  | Analysé |
+| Sender.BirthPlace.Address                                                         | Analysé |
+| Sender.BirthPlace.City                                                            | Analysé |
+| Sender.BirthPlace.Country                                                         | Analysé |
+| Sender.BirthPlace.Geogname                                                        | Analysé |
+| Sender.BirthPlace.PostalCode                                                      | Non analysé |
+| Sender.BirthPlace.Region                                                          | Analysé |
+| Sender.DeathPlace.Address                                                         | Analysé |
+| Sender.DeathPlace.City                                                            | Analysé |
+| Sender.DeathPlace.Country                                                         | Analysé |
+| Sender.DeathPlace.Geogname                                                        | Analysé |
+| Sender.DeathPlace.PostalCode                                                      | Non analysé |
+| Sender.DeathPlace.Region                                                          | Analysé |
+| Sender.FirstName                                                                  | Analysé |
+| Sender.Function                                                                   | Non analysé |
+| Sender.Gender                                                                     | Analysé |
+| Sender.GivenName                                                                  | Analysé |
+| Sender.Identifier                                                                 | Non analysé |
+| Sender.Mandate                                                                    | Analysé |
+| Sender.Nationality                                                                | Analysé |
+| Sender.Position                                                                   | Analysé |
+| Sender.Role                                                                       | Analysé |
+| Signature.Masterdata.Value                                                        | Non analysé |
+| Signature.ReferencedObject.SignedObjectDigest.Algorithm                           | Non analysé |
+| Signature.ReferencedObject.SignedObjectDigest.MessageDigest                       | Non analysé |
+| Signature.ReferencedObject.SignedObjectId                                         | Non analysé |
+| Signature.Signer.Activity                                                         | Non analysé |
+| Signature.Signer.BirthName                                                        | Analysé |
+| Signature.Signer.BirthPlace.Address                                               | Analysé |
+| Signature.Signer.BirthPlace.City                                                  | Analysé |
+| Signature.Signer.BirthPlace.Country                                               | Analysé |
+| Signature.Signer.BirthPlace.Geogname                                              | Analysé |
+| Signature.Signer.BirthPlace.PostalCode                                            | Non analysé |
+| Signature.Signer.BirthPlace.Region                                                | Analysé |
+| Signature.Signer.Corpname                                                         | Analysé |
+| Signature.Signer.DeathPlace.Address                                               | Analysé |
+| Signature.Signer.DeathPlace.City                                                  | Analysé |
+| Signature.Signer.DeathPlace.Country                                               | Analysé |
+| Signature.Signer.DeathPlace.Geogname                                              | Analysé |
+| Signature.Signer.DeathPlace.PostalCode                                            | Non analysé |
+| Signature.Signer.DeathPlace.Region                                                | Analysé |
+| Signature.Signer.FirstName                                                        | Analysé |
+| Signature.Signer.Fullname                                                         | Analysé |
+| Signature.Signer.Function                                                         | Non analysé |
+| Signature.Signer.Gender                                                           | Analysé |
+| Signature.Signer.GivenName                                                        | Analysé |
+| Signature.Signer.Identifier                                                       | Non analysé |
+| Signature.Signer.Nationality                                                      | Analysé |
+| Signature.Signer.Position                                                         | Analysé |
+| Signature.Signer.Role                                                             | Analysé |
+| Signature.Validator.Activity                                                      | Non analysé |
+| Signature.Validator.BirthName                                                     | Analysé |
+| Signature.Validator.BirthPlace.Address                                            | Analysé |
+| Signature.Validator.BirthPlace.City                                               | Analysé |
+| Signature.Validator.BirthPlace.Country                                            | Analysé |
+| Signature.Validator.BirthPlace.Geogname                                           | Analysé |
+| Signature.Validator.BirthPlace.PostalCode                                         | Non analysé |
+| Signature.Validator.BirthPlace.Region                                             | Analysé |
+| Signature.Validator.Corpname                                                      | Analysé |
+| Signature.Validator.DeathPlace.Address                                            | Analysé |
+| Signature.Validator.DeathPlace.City                                               | Analysé |
+| Signature.Validator.DeathPlace.Country                                            | Analysé |
+| Signature.Validator.DeathPlace.Geogname                                           | Analysé |
+| Signature.Validator.DeathPlace.PostalCode                                         | Non analysé |
+| Signature.Validator.DeathPlace.Region                                             | Analysé |
+| Signature.Validator.FirstName                                                     | Analysé |
+| Signature.Validator.FullName                                                      | Analysé |
+| Signature.Validator.Function                                                      | Non analysé |
+| Signature.Validator.Gender                                                        | Analysé |
+| Signature.Validator.GivenName                                                     | Analysé |
+| Signature.Validator.Identifier                                                    | Non analysé |
+| Signature.Validator.Nationality                                                   | Analysé |
+| Signature.Validator.Position                                                      | Analysé |
+| Signature.Validator.Role                                                          | Analysé |
+| Source                                                                            | Analysé |
+| Status                                                                            | Non analysé |
+| SubmissionAgency.Identifier                                                       | Non analysé |
+| SystemId                                                                          | Non analysé |
+| Tag                                                                               | Non analysé |
+| Title                                                                             | Analysé |
+| TransferringAgencyArchiveUnitIdentifier                                           | Non analysé |
+| Transmitter.Activity                                                              | Non analysé |
+| Transmitter.BirthName                                                             | Analysé |
+| Transmitter.BirthPlace.Address                                                    | Analysé |
+| Transmitter.BirthPlace.City                                                       | Analysé |
+| Transmitter.BirthPlace.Country                                                    | Analysé |
+| Transmitter.BirthPlace.Geogname                                                   | Analysé |
+| Transmitter.BirthPlace.PostalCode                                                 | Non analysé |
+| Transmitter.BirthPlace.Region                                                     | Analysé |
+| Transmitter.DeathPlace.Address                                                    | Analysé |
+| Transmitter.DeathPlace.City                                                       | Analysé |
+| Transmitter.DeathPlace.Country                                                    | Analysé |
+| Transmitter.DeathPlace.Geogname                                                   | Analysé |
+| Transmitter.DeathPlace.PostalCode                                                 | Non analysé |
+| Transmitter.DeathPlace.Region                                                     | Analysé |
+| Transmitter.FirstName                                                             | Analysé |
+| Transmitter.Function                                                              | Non analysé |
+| Transmitter.Gender                                                                | Analysé |
+| Transmitter.GivenName                                                             | Analysé |
+| Transmitter.Identifier                                                            | Non analysé |
+| Transmitter.Nationality                                                           | Analysé |
+| Transmitter.Position                                                              | Analysé |
+| Transmitter.Role                                                                  | Analysé |
+| Type                                                                              | Non analysé |
+| Version                                                                           | Non analysé |
+| Writer.Activity                                                                   | Non analysé |
+| Writer.BirthName                                                                  | Analysé |
+| Writer.BirthPlace.Address                                                         | Analysé |
+| Writer.BirthPlace.City                                                            | Analysé |
+| Writer.BirthPlace.Country                                                         | Analysé |
+| Writer.BirthPlace.Geogname                                                        | Analysé |
+| Writer.BirthPlace.PostalCode                                                      | Non analysé |
+| Writer.BirthPlace.Region                                                          | Analysé |
+| Writer.DeathPlace.Address                                                         | Analysé |
+| Writer.DeathPlace.City                                                            | Analysé |
+| Writer.DeathPlace.Country                                                         | Analysé |
+| Writer.DeathPlace.Geogname                                                        | Analysé |
+| Writer.DeathPlace.PostalCode                                                      | Non analysé |
+| Writer.DeathPlace.Region                                                          | Analysé |
+| Writer.FirstName                                                                  | Analysé |
+| Writer.Function                                                                   | Non analysé |
+| Writer.Gender                                                                     | Analysé |
+| Writer.GivenName                                                                  | Analysé |
+| Writer.Identifier                                                                 | Non analysé |
+| Writer.Nationality                                                                | Analysé |
+| Writer.Position                                                                   | Analysé |
+| Writer.Role                                                                       | Analysé |
+| \_acd                                                                             | Non analysé |
+| \_aud                                                                             | Non analysé |
+| \_elimination.DestroyableOriginatingAgencies                                      | Non analysé |
+| \_elimination.ExtendedInfo.ExtendedInfoDetails.DestroyableOriginatingAgencies     | Non analysé |
+| \_elimination.ExtendedInfo.ExtendedInfoDetails.NonDestroyableOriginatingAgencies  | Non analysé |
+| \_elimination.ExtendedInfo.ExtendedInfoDetails.ParentUnitId                       | Non analysé |
+| \_elimination.ExtendedInfo.ExtendedInfoType                                       | Non analysé |
+| \_elimination.GlobalStatus                                                        | Non analysé |
+| \_elimination.NonDestroyableOriginatingAgencies                                   | Non analysé |
+| \_elimination.OperationId                                                         | Non analysé |
+| \_history.data.\_mgt.ClassificationRule.ClassificationAudience                    | Non analysé |
+| \_history.data.\_mgt.ClassificationRule.ClassificationLevel                       | Non analysé |
+| \_history.data.\_mgt.ClassificationRule.ClassificationOwner                       | Analysé |
+| \_history.data.\_mgt.ClassificationRule.Inheritance.PreventRulesId                | Non analysé |
+| \_history.data.\_mgt.ClassificationRule.Rules.Rule                                | Non analysé |
+| \_implementationVersion                                                           | Non analysé |
+| \_mgt.AccessRule.Inheritance.PreventRulesId                                       | Non analysé |
+| \_mgt.AccessRule.Rules.Rule                                                       | Non analysé |
+| \_mgt.AppraisalRule.FinalAction                                                   | Non analysé |
+| \_mgt.AppraisalRule.Inheritance.PreventRulesId                                    | Non analysé |
+| \_mgt.AppraisalRule.Rules.Rule                                                    | Non analysé |
+| \_mgt.ClassificationRule.ClassificationAudience                                   | Non analysé |
+| \_mgt.ClassificationRule.ClassificationLevel                                      | Non analysé |
+| \_mgt.ClassificationRule.ClassificationOwner                                      | Analysé |
+| \_mgt.ClassificationRule.Inheritance.PreventRulesId                               | Non analysé |
+| \_mgt.ClassificationRule.Rules.ClassificationAudience                             | Analysé |
+| \_mgt.ClassificationRule.Rules.Rule                                               | Non analysé |
+| \_mgt.DisseminationRule.Inheritance.PreventRulesId                                | Non analysé |
+| \_mgt.DisseminationRule.Rules.Rule                                                | Non analysé |
+| \_mgt.ReuseRule.Inheritance.PreventRulesId                                        | Non analysé |
+| \_mgt.ReuseRule.Rules.Rule                                                        | Non analysé |
+| \_mgt.StorageRule.FinalAction                                                     | Non analysé |
+| \_mgt.StorageRule.Inheritance.PreventRulesId                                      | Non analysé |
+| \_mgt.StorageRule.Rules.Rule                                                      | Non analysé |
+| \_og                                                                              | Non analysé |
+| \_opi                                                                             | Non analysé |
+| \_ops                                                                             | Non analysé |
+| \_sedaVersion                                                                     | Non analysé |
+| \_sp                                                                              | Non analysé |
+| \_sps                                                                             | Non analysé |
+| \_storage.offerIds                                                                | Non analysé |
+| \_storage.strategyId                                                              | Non analysé |
+| \_unitType                                                                        | Non analysé |
+| \_up                                                                              | Non analysé |
+| \_us                                                                              | Non analysé |
 
 **Collection SecurityProfile**
 
-  ------------- -------------------
-  Champ         Type d’indexation
-  Identifier    Non analysé
-  Name          Analysé
-  Permissions   Non analysé
-  ------------- -------------------
+| Champ       | Type d’indexation |
+| :-: | :-: |
+| Identifier  | Non analysé
+| Name        | Analysé
+| Permissions | Non analysé
 
-1.  []{#__RefHeading___Toc29623_1669085364 .anchor}Annexe 8 :
-    Correspondances des champs spéciaux dans Vitam
+Annexe 8 : Correspondances des champs spéciaux dans Vitam
+---------------------------------------------------------
 
-Les champs dont le nom est préfixé d’un « \_ » ne sont pas accessibles
+Les champs dont le nom est préfixé d’un « _ » ne sont pas accessibles
 directement, une correspondance est nécessaire pour y accéder.
 
 **Collection AccessContract**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection AccessionRegisterDetail**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection AccessionRegisterSummary**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection AccessionRegisterSymbolic**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection Agencies**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection Context**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #version | _v |
 
 **Collection FileFormat**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #version | _v |
 
 **Collection FileRule**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection Griffin**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection IngestContract**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection LogbookLifeCycle**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection LogbookOperation**
 
-  ---------- ---------------
-  Champ      Champ interne
-  \#id       \_id
-  \#tenant   \_tenant
-  ---------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id     | _id |
+| #tenant | _tenant |
 
 **Collection ObjectGroup**
 
-  ------------------------- ----------------------------
-  Champ                     Champ interne
-  \#id                      \_id
-  \#profil                  \_profil
-  \#qualifiers              \_qualifiers
-  \#size                    \_qualifiers.versions.size
-  \#nbobjects               \_nbc
-  \#originating\_agency     \_sp
-  \#originating\_agencies   \_sps
-  \#unitups                 \_up
-  \#storage                 \_storage
-  \#operations              \_ops
-  \#opi                     \_opi
-  \#score                   \_score
-  \#version                 \_v
-  \#tenant                  \_tenant
-  ------------------------- ----------------------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id                    | _id |
+| #profil                | _profil |
+| #qualifiers            | _qualifiers |
+| #size                  | _qualifiers.versions.size |
+| #nbobjects             | _nbc |
+| #originating_agency    |_sp |
+| #originating_agencies  |_sps |
+| #unitups               | _up |
+| #storage               | _storage |
+| #operations            | _ops |
+| #opi                   | _opi | 
+| #score                 | _score |
+| #version               | _v |
+| #tenant                | _tenant |
 
 **Collection Profile**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection Ontology**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection PreservationScenario**
 
-  ----------- ---------------
-  Champ       Champ interne
-  \#id        \_id
-  \#tenant    \_tenant
-  \#version   \_v
-  ----------- ---------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #id      | _id |
+| #tenant  | _tenant |
+| #version | _v |
 
 **Collection Unit**
 
-Le champs « \_uds » n’est pas accessible en externe.
+Le champs « _uds » n’est pas accessible en externe.
 
-  ------------------------------- -------------------------
-  Champ                           Champ interne
-  \#approximate\_creation\_date   \_acd
-  \#approximate\_update\_date     \_aud
-  \#id                            \_id
-  \#management                    \_mgt
-  \#min                           \_min
-  \#max                           \_max
-  \#nbunits                       \_nbc
-  \#object                        \_og
-  \#originating\_agency »         \_sp
-  \#originating\_agencies         \_sps
-  \#unitups                       \_up
-  \#allunitups                    \_us
-  \#nbunits                       \_nbc
-  \#unitType                      \_unitType
-  \#storage                       \_storage
-  \#operations                    \_ops
-  \#opi                           \_opi
-  \#opts                          \_opts
-  \#sedaVersion                   \_sedaVersion
-  \#implementationVersion         \_implementationVersion
-  \#score                         \_score
-  \#version                       \_v
-  \#tenant                        \_tenant
-  ------------------------------- -------------------------
+| Champ    |  Champ interne |
+| :-: | :-: |
+| #approximate_creation_date | _acd |
+| #approximate_update_date   | _aud |
+| #id                        | _id |
+| #management                | _mgt |
+| #min                       | _min |
+| #max                       | _max |
+| #nbunits                   | _nbc |
+| #object                    | _og |
+| #originating_agency »      | _sp |
+| #originating_agencies      | _sps |
+| #unitups                   | _up |
+| #allunitups                | _us |
+| #nbunits                   | _nbc |
+| #unitType                  | _unitType |
+| #storage                   | _storage |
+| #operations                | _ops |
+| #opi                       | _opi | 
+| #opts                      | _opts | 
+| #sedaVersion               | _sedaVersion | 
+| #implementationVersion     | _implementationVersion |
+| #score                     | _score |
+| #version                   | _v |
+| #tenant                    | _tenant |
 
 
