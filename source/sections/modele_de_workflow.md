@@ -33,7 +33,8 @@ comprend l’étape : STP_SANITY_CHECK_SIP (Contrôle sanitaire du SIP). Les au
 
 Toutes les étapes, tâches et traitements sont journalisés dans le journal des opérations et décrivent le processus (clé et description de la clé associée dans le journal des opérations) tel qu’implémenté dans la version actuelle de la solution logicielle Vitam.
 
-#### Processus des contrôles préalables à l’entrée (STP\_SANITY\_CHECK\_SIP)
+
+#### Processus des contrôles préalables à l’entrée (STP_SANITY_CHECK_SIP)
 
 ##### Contrôle sanitaire du SIP SANITY\_CHECK\_SIP (IngestExternalImpl.java)
 
