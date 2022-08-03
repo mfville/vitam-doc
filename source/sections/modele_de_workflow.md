@@ -1,6 +1,8 @@
-# Description des workflows et des opérations
+Description des workflows et des opérations
+===========================================
 
-## Objectif du document
+Objectif du document
+--------------------
 
 Ce document a pour objectif de présenter les différents processus employés par la solution logicielle Vitam. Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux archivistes souhaitant avoir une connaissance plus avancée du logiciel ainsi qu’aux développeurs.
 
@@ -9,7 +11,8 @@ Il explicite chaque processus (appelé également « workflow »), et pour cha
 Ce document comprend du matériel additionnel pour faciliter la compréhension des processus comme des fiches récapitulatives et des schémas. Il explique également la manière dont est formée la structure des fichiers de workflow.
 
 
-## gestion du cycle de vie des archives
+gestion du cycle de vie des archives
+------------------------------------
 
 
 Cette seconde partie du document détail les workflows suivants :
