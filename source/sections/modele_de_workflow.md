@@ -175,7 +175,8 @@ Toutes les étapes, tâches et traitements sont journalisés dans le journal des
 
 **La tâche check\_header contient les traitements suivants :**
 
-##### Vérification de la présence et contrôle des services agents CHECK\_HEADER.CHECK\_AGENT
+
+##### Vérification de la présence et contrôle des services agents CHECK_HEADER.CHECK_AGENT
 
 Ce traitement n’est exécuté que si la valeur IN de *checkOriginatingAgency* est « true ».
 
