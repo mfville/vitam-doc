@@ -36,7 +36,7 @@ Toutes les étapes, tâches et traitements sont journalisés dans le journal des
 
 #### Processus des contrôles préalables à l’entrée (STP_SANITY_CHECK_SIP)
 
-##### Contrôle sanitaire du SIP SANITY\_CHECK\_SIP (IngestExternalImpl.java)
+##### Contrôle sanitaire du SIP SANITY_CHECK_SIP (IngestExternalImpl.java)
 
 -   **Règle** : tâche consistant à vérifier l’absence de virus dans le SIP
 
@@ -50,7 +50,7 @@ Toutes les étapes, tâches et traitements sont journalisés dans le journal des
 
     -   FATAL : une erreur technique est survenue lors de la vérification de la présence de virus dans le SIP (SANITY\_CHECK\_SIP.FATAL = Erreur technique lors du processus des contrôles préalables à l’entrée)
 
-##### Contrôle du format du conteneur du SIP CHECK\_CONTAINER (IngestExternalImpl.java)
+##### Contrôle du format du conteneur du SIP CHECK_CONTAINER (IngestExternalImpl.java)
 
 -   **Règle** : tâche consistant à vérifier le format du SIP via un outil d’identification de format qui se base sur le référentiel des formats qu’il intègre
 
@@ -66,7 +66,7 @@ Toutes les étapes, tâches et traitements sont journalisés dans le journal des
 
     -   FATAL : une erreur technique est survenue lors de la vérification du format du conteneur du SIP, liée à l’outil d’identification des formats (CHECK\_CONTAINER.FATAL = Erreur technique lors du contrôle du format du conteneur du SIP)
 
-##### Contrôle du nom du bordereau de transfert MANIFEST\_FILE\_NAME\_CHECK (IngestExternalImpl.java)
+##### Contrôle du nom du bordereau de transfert MANIFEST_FILE_NAME_CHECK (IngestExternalImpl.java)
 
 -   **Règle** : tâche consistant à vérifier le nom du bordereau de transfert. Le nom du bordereau doit être conforme avec l’expression régulière suivante :
 
