@@ -14,6 +14,7 @@ Documentation Vitam
    sections/ontologie.md
    sections/gel.md
    sections/modele_de_donnees.md
+   sections/modele_de_workflow.md
 
 Indices and tables
 ==================
