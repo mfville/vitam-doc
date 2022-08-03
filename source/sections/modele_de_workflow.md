@@ -83,7 +83,7 @@ Toutes les étapes, tâches et traitements sont journalisés dans le journal des
 
     -   FATAL : une erreur technique est survenue lors de la vérification du nom du bordereau de transfert (MANIFEST\_FILE\_NAME\_CHECK.FATAL = Erreur technique lors du contrôle du nom du bordereau de transfert)
 
-##### Vérification de l’intégrité du bordereau de transfert MANIFEST\_DIGEST\_CHECK (IngestExternalImpl.java)
+##### Vérification de l’intégrité du bordereau de transfert MANIFEST\_DIGEST\_CHECK (IngestExternalImpl.java)
 
 -   **Règle** : tâche consistant à vérifier l’empreinte du bordereau de transfert calculée par la solution logicielle Vitam et celle déclarée dans le bordereau. Si l’empreinte déclarée dans le bordereau de transfert n’a pas été calculée avec l’algorithme SHA-512, alors l’empreinte est recalculée avec cet algorithme. Elle sera alors enregistrée dans la solution logicielle Vitam.
 
@@ -97,7 +97,7 @@ Toutes les étapes, tâches et traitements sont journalisés dans le journal des
 
     -   FATAL : Une erreur technique est survenue lors du contrôle de l’empreinte (MANIFEST\_DIGEST\_CHECK.FATAL=Erreur technique lors du contrôle de l''empreinte du bordereau de transfert)
 
-#### Processus de réception du SIP dans Vitam STP\_UPLOAD\_SIP (IngestInternalResource.java)
+#### Processus de réception du SIP dans Vitam STP\_UPLOAD\_SIP (IngestInternalResource.java)
 
 -   **Règle** : étape consistant à vérifier la bonne réception du SIP sur l’espace de travail interne (« workspace »)
 
