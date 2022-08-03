@@ -1,142 +1,16 @@
-![](medias/modele_workflow/media/image1.png){width="3.9368055555555554in" height="1.2798611111111111in"}
+# Description des workflows et des opérations
 
-[]{#__RefHeading___Toc18656_1669085364 .anchor}**Description des workflows**
-
-[]{#__RefHeading___Toc56693_744239668 .anchor}**et des opérations**
-
-**Partie 2 : gestion du cycle de vie des archives**
-
-  ------------ ----------------
-  **Date**     **Version**
-
-  04/03/2022   11.0
-               
-               (Version 5.RC)
-  ------------ ----------------
-
-État du document
-
-Maîtrise du document
-
-  -------------------- -------------- -------------- ------------
-  **Responsabilité**   **Nom**        **Entité**     **Date**
-  **Rédaction**        Équipe Vitam   Équipe Vitam   09/01/2019
-  **Vérification **    MVI            Équipe Vitam   19/01/2022
-  **Validation **      AGR            Équipe Vitam   04/03/2022
-  -------------------- -------------- -------------- ------------
-
-Suivi des modifications
-
-  ------------- ------------ ------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Version**   **Date**     **Auteur**   **Modifications**
-
-  **1.0**       09/01/2019                Génération à partir de l’ancien document en RST
-
-  **1.1**       25/01/2019   NMO          Relecture
-
-  **1.2**       30/01/2019   EVA          Relecture
-
-  **1.3**       30/01/2019   MRE          Relecture
-
-  **2.0**       30/01/2019   MRE          Finalisation du document pour publication de la Release 9
-
-  **2.1**       07/02/2019   MVI          Mise à jour pour tenir compte des fonctionnalités mises en œuvre pendant la *Release 10 :*
-                                          
-                                          -   chapitre 5, section III (« Workflow d’administration d’un référentiel des formats ») : précisions sur les cas WARNING (section III.A.1) ; précisions sur le contenu des champs suivants : EvDetDateTime, Warnings et UpdatedPUIDs.
-                                          
-                                          -   chapitre 5, section XII (« Workflow d’administration d’un référentiel des griffons ») : corrections diverses : le champ Identifier fonctionne en mode VITAM esclave, le champ ExecutableVersion n’est pas un entier.
-                                          
-                                          -   chapitre 5, section XIII (« Workflow d’administration d’un référentiel des scénarios de préservation ») : ajout de l’étape « Processus de génération du rapport d’import du référentiel des scénarios de préservation SCENARIO\_REPORT » et d’une partie sur la « Structure du rapport d’administration du référentiel des scénarios de préservation ».
-                                          
-
-  **2.2**       15/04/2019   MAF          Mise à jour et corrections diverses
-
-  **3.0**       24/04/2019   MRE          Finalisation pour publication Release 10
-
-  **3.1**       14/08/2019   MVI          Mise à jour pour tenir compte des fonctionnalités mises en œuvre pendant la *Release 11 :*
-                                          
-                                          -   chapitre 2, section V (« Rapport de l’audit de cohérence ») : mise à jour du rapport ;
-                                          
-                                          -   chapitre 11, section II (« Rapport de préservation ») : création de la section.
-                                          
-
-  **3.2**       02/09/2019   JPP          Mise à jour pour tenir des fonctionnalités mises en œuvre pendant la Release 11 :
-                                          
-                                          -   chapitre 8, section III et IV.
-                                          
-
-  **4.0**       09/09/2019   MAF          Finalisation pour publication Release 11
-
-  **4.1**       24/09/2019   GFO          Modification multi-stratégies
-
-  **4.2**       23/10/2019   GFO          Mise à jour des Audits
-
-  **4.3**       19/11/2019   MAF          Mise à jour pour tenir des fonctionnalités mises en œuvre pendant la Release 12
-
-  **5.0**       29/11/2019   AGR          Finalisation pour publication Release 12
-
-  **6.0**       20/03/2020   AGR          Séparation du document en 2 parties et finalisation pour publication Release 13
-
-  **6.1**       15/04/2020   MVI          Mise à jour pour tenir compte des fonctionnalités mises en œuvre pendant la *Release 14 :*
-                                          
-                                          -   chapitre 11 (« Préservation ») : ajout des étapes liées à l’extraction de métadonnées descriptives et de contrôle de sécurité sur les unités archivistiques et les objets techniques.
-                                          
-
-  **7.0**       06/07/2020   AGR          Finalisation pour publication Release 14
-
-  **7.1**       26/10/2020   MVI          Relecture
-
-  **8.0**       26/10/2020   AGR          Finalisation pour publication Release 15
-
-  **8.1**       11/02/2021   MVI          Mise à jour pour tenir compte des fonctionnalités mises en œuvre pendant la *Release 16 :*
-                                          
-                                          -   chapitre 13 (« Mise à jour unitaire de masse ») : ajout des étapes liées à l’opération de mise à jour en masse de métadonnées descriptives, ces mises à jour différant d’une unité archivistique à l’autre.
-                                          
-                                          -   Chapitre 14 (« Restauration des métadonnées essentielles ») : ajout des étapes liées à l’opération de restauration de métadonnées essentielles.
-                                          
-
-  **9.0**       15/03/2021   AGR          Finalisation pour publication Release 16
-
-  **9.1**       09/08/2021   MVI          Mise à jour pour tenir des fonctionnalités mises en œuvre pendant la Version 5.RC :
-                                          
-                                          -   partitionnement de la documentation avec une nouvelle répartition :
-                                          
-                                              -   partie 1 : référentiels
-                                          
-                                              -   partie 2 : gestion du cycle de vie des archives
-                                          
-                                              -   partie 3 : préservation et intégrité
-                                          
-                                                  Le présent document couvre les opérations liées à la gestion du cycle de vie des archives.
-                                          
-
-  **10.0**      27/09/2021   AGR          Finalisation pour publication Version 5.RC
-
-  **10.1**      19/01/2022   MVI          Mise à jour pour tenir des fonctionnalités mises en œuvre pendant la Version 5 :
-                                          
-                                          -   chapitre 8 (« Export d’un DIP ») : ajout d’une vérification de la disponibilité des ressources ;
-                                          
-                                          -   chapitre 11 (« Transfert ») : ajout d’une vérification de la disponibilité des ressources.
-                                          
-
-  **11.0**      04/03/2022   AGR          Finalisation pour publication Version 5
-  ------------- ------------ ------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-**Licence**
-
-La solution logicielle VITAM est publiée sous la licence CeCILL 2.1 ; la documentation associée (comprenant le présent document) est publiée sous [*Licence Ouverte V2.0*](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf).
-
-[]{#__RefHeading___Toc18658_1669085364 .anchor}Introduction
-
-**Avertissement :** Cette documentation reflète l’état actuel de la solution logicielle Vitam. Elle est susceptible de changer dans les prochaines versions pour tenir compte des développements de la solution logicielle Vitam
-
-[]{#__RefHeading___Toc18660_1669085364 .anchor}Objectif du document
+## Objectif du document
 
 Ce document a pour objectif de présenter les différents processus employés par la solution logicielle Vitam. Il est destiné aux administrateurs aussi bien techniques que fonctionnels, aux archivistes souhaitant avoir une connaissance plus avancée du logiciel ainsi qu’aux développeurs.
 
 Il explicite chaque processus (appelé également « workflow »), et pour chacun leurs tâches, traitements et actions.
 
 Ce document comprend du matériel additionnel pour faciliter la compréhension des processus comme des fiches récapitulatives et des schémas. Il explique également la manière dont est formée la structure des fichiers de workflow.
+
+
+## gestion du cycle de vie des archives
+
 
 Cette seconde partie du document détail les workflows suivants :
 
@@ -158,16 +32,16 @@ Cette seconde partie du document détail les workflows suivants :
 
 -   Restauration de métadonnées essentielles
 
-4.  []{#__RefHeading___Toc86347_2252739535 .anchor}Ingest
+### Ingest
 
 Cette section décrit le processus (workflow) d’entrée, utilisé lors du transfert d’un Submission Information Package (SIP) dans la solution logicielle Vitam. Ce workflow se décompose en deux grandes catégories : le processus d’entrée externe dit « ingest externe » et le processus d’entrée interne dit « ingest interne ». Le premier prend en charge le SIP et effectue des contrôles techniques préalables, tandis que le second débute dès le premier traitement métier. Ex: Le processus d’entrée externe
 comprend l’étape : STP\_SANITY\_CHECK\_SIP (Contrôle sanitaire du SIP). Les autres étapes font partie du processus d’entrée interne.
 
 Toutes les étapes, tâches et traitements sont journalisés dans le journal des opérations et décrivent le processus (clé et description de la clé associée dans le journal des opérations) tel qu’implémenté dans la version actuelle de la solution logicielle Vitam.
 
-1.  []{#__RefHeading___Toc18886_1669085364 .anchor}Processus des contrôles préalables à l’entrée (STP\_SANITY\_CHECK\_SIP)
+#### Processus des contrôles préalables à l’entrée (STP\_SANITY\_CHECK\_SIP)
 
-    1.  []{#__RefHeading___Toc18888_1669085364 .anchor}Contrôle sanitaire du SIP SANITY\_CHECK\_SIP (IngestExternalImpl.java)
+##### Contrôle sanitaire du SIP SANITY\_CHECK\_SIP (IngestExternalImpl.java)
 
 -   **Règle** : tâche consistant à vérifier l’absence de virus dans le SIP
 
@@ -181,7 +55,7 @@ Toutes les étapes, tâches et traitements sont journalisés dans le journal des
 
     -   FATAL : une erreur technique est survenue lors de la vérification de la présence de virus dans le SIP (SANITY\_CHECK\_SIP.FATAL = Erreur technique lors du processus des contrôles préalables à l’entrée)
 
-        1.  []{#__RefHeading___Toc18890_1669085364 .anchor}Contrôle du format du conteneur du SIP CHECK\_CONTAINER (IngestExternalImpl.java)
+##### Contrôle du format du conteneur du SIP CHECK\_CONTAINER (IngestExternalImpl.java)
 
 -   **Règle** : tâche consistant à vérifier le format du SIP via un outil d’identification de format qui se base sur le référentiel des formats qu’il intègre
 
@@ -197,7 +71,7 @@ Toutes les étapes, tâches et traitements sont journalisés dans le journal des
 
     -   FATAL : une erreur technique est survenue lors de la vérification du format du conteneur du SIP, liée à l’outil d’identification des formats (CHECK\_CONTAINER.FATAL = Erreur technique lors du contrôle du format du conteneur du SIP)
 
-        1.  []{#__RefHeading___Toc18892_1669085364 .anchor}Contrôle du nom du bordereau de transfert MANIFEST\_FILE\_NAME\_CHECK (IngestExternalImpl.java)
+##### Contrôle du nom du bordereau de transfert MANIFEST\_FILE\_NAME\_CHECK (IngestExternalImpl.java)
 
 -   **Règle** : tâche consistant à vérifier le nom du bordereau de transfert. Le nom du bordereau doit être conforme avec l’expression régulière suivante :
 
@@ -364,7 +238,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkContract* est « t
 
     -   FATAL : une erreur technique est survenue lors de la vérification de la présence et du contrôle du contrat d’entrée ou du contexte applicatif (CHECK\_HEADER.CHECK\_CONTRACT\_INGEST.FATAL = Erreur technique lors de la vérification de la présence et du contrôle du contrat d’entrée ou du contexte applicatif)
 
-        1.  []{#__RefHeading___Toc18908_1669085364 .anchor}Vérification de la relation entre le contrat d’entrée et le profil d’archivage CHECK\_HEADER.CHECK\_IC\_AP\_RELATION
+##### Vérification de la relation entre le contrat d’entrée et le profil d’archivage CHECK\_HEADER.CHECK\_IC\_AP\_RELATION
 
 Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « true ».
 
@@ -549,9 +423,8 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la vérification de la cohérence du bordereau, par exemple les journaux du cycle de vie n’ont pu être créés (CHECK\_MANIFEST.FATAL = Erreur technique lors du contrôle de cohérence du bordereau de transfert)
 
-        1.  []{#__RefHeading___Toc18920_1669085364 .anchor}Vérification de la cohérence entre objets, groupes d’objets et unités archivistiques CHECK\_DATAOBJECTPACKAGE.CHECK\_CONSISTENCY (CheckObjectUnitConsistencyActionHandler.java)
+##### Vérification de la cohérence entre objets, groupes d’objets et unités archivistiques CHECK\_DATAOBJECTPACKAGE.CHECK\_CONSISTENCY (CheckObjectUnitConsistencyActionHandler.java)
 
-<!-- -->
 
 -   **Règle** : traitement consistant à vérifier que chaque objet ou groupe d’objets est référencé par une unité archivistique, à rattacher à un groupe d’objets les objets sans groupe d’objets mais référencés par une unité archivistique, à créer la table de concordance (MAP) entre les identifiants des objets et des unités archivistiques du SIP et à générer leurs identifiants pérennes dans la solution logicielle Vitam (GUID)
 

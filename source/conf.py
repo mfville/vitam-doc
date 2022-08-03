@@ -215,3 +215,6 @@ smv_branch_whitelist = 'Update|^v.*'
 smv_released_pattern = r'v.*'
 smv_latest_version = 'v6.rc'
 smv_remote_whitelist = r'^.*$'
+
+locale_dirs = ['locale/']
+gettext_compact = False
