@@ -490,7 +490,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la vérification de la taille des objets (CHECK\_OBJECT\_SIZE .FATAL = Erreur technique lors de la vérification de la taille des objets)
 
-        1.  []{#__RefHeading___Toc18926_1669085364 .anchor}Identification des formats OG\_OBJECTS\_FORMAT\_CHECK (FormatIdentificationActionPlugin.java)
+##### Identification des formats OG\_OBJECTS\_FORMAT\_CHECK (FormatIdentificationActionPlugin.java)
 
 -   **Règle** : tâche consistant à identifier le format de chaque objet binaire présent dans le SIP, à vérifier que le format identifié des objets correspond à la liste des formats acceptés dans le contrat d’entrée et à vérifier que le format identifié des objets est référencé dans le référentiel des formats de la solution logicielle Vitam. Cette action met en œuvre un outil d’identification prenant l’objet en entrée et fournissant des informations de format en sortie. Ces informations sont
     > comparées avec les formats enregistrés dans le référentiel des formats interne à la solution logicielle Vitam et avec celles déclarées dans le bordereau de transfert. En cas d’incohérence entre la déclaration dans le SIP et le format identifié, le SIP sera accepté, générant un avertissement. La solution logicielle Vitam se servira alors des informations qu’elle a identifiées et non de celles fournies dans le SIP
@@ -517,9 +517,9 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de l’identification des formats (OG\_OBJECTS\_FORMAT\_CHECK.FATAL = Erreur technique lors de l’identification des formats)
 
-    1.  []{#__RefHeading___Toc18928_1669085364 .anchor}Processus de contrôle et traitement des unités archivistiques (STP\_UNIT\_CHECK\_AND\_PROCESS)
+#### Processus de contrôle et traitement des unités archivistiques (STP\_UNIT\_CHECK\_AND\_PROCESS)
 
-        1.  []{#__RefHeading___Toc18930_1669085364 .anchor}Vérification globale de l’unité archivistique CHECK\_UNIT\_SCHEMA (CheckArchiveUnitSchemaActionPlugin.java)
+##### Vérification globale de l’unité archivistique CHECK\_UNIT\_SCHEMA (CheckArchiveUnitSchemaActionPlugin.java)
 
 -   **Règle** : tâche consistant à :
 
@@ -551,7 +551,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la vérification de l’unité archivistique (CHECK\_UNIT\_SCHEMA.FATAL = Erreur technique lors de la vérification globale de l’unité archivistique)
 
-        1.  []{#__RefHeading___Toc18932_1669085364 .anchor}Vérification du profil d’unité archivistique CHECK\_ARCHIVE\_UNIT\_PROFILE (CheckArchiveUnitProfileActionPlugin.java)
+##### Vérification du profil d’unité archivistique CHECK\_ARCHIVE\_UNIT\_PROFILE (CheckArchiveUnitProfileActionPlugin.java)
 
 -   **Règle** : tâche consistant à vérifier la conformité des unités archivistiques au schéma défini dans les profils d’unités archivistiques qu’elles déclarent dans la balise « ArchiveUnitProfile ». Les profils d’unités archivistiques référencés doivent être en état « Actif » et ne pas avoir un schéma de contrôle vide
 
@@ -575,7 +575,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
         -   Cas 6 : le profil d’unité archivistique possède un schéma de contrôle qui est vide (CHECK\_ARCHIVE\_UNIT\_PROFILE.EMPTY\_CONTROL\_SCHEMA.KO = Échec de la vérification de la conformité aux documents type : schéma de contrôle du profil d’unité archivistique vide)
 
-        1.  []{#__RefHeading___Toc18934_1669085364 .anchor}Vérification du niveau de classification CHECK\_CLASSIFICATION\_LEVEL (CheckClassificationLevelActionPlugin.java)
+##### Vérification du niveau de classification CHECK\_CLASSIFICATION\_LEVEL (CheckClassificationLevelActionPlugin.java)
 
 -   **Règle** : tâche consistant à vérifier les niveaux de classification associés, s’il en existe, aux unités archivistiques. Ces niveaux doivent exister dans la liste des niveaux de classification autorisés par la plateforme (paramètre configuré dans la configuration des workers). Pour les unités archivistiques sans niveau de classification, la vérification contrôle que la plateforme autorise le versement d’unités archivistiques ne déclarant pas de niveau de classification.
 
@@ -590,7 +590,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la vérification des niveaux de classification (CHECK\_CLASSIFICATION\_LEVEL.FATAL = Erreur technique lors de la vérification du niveau de classification)
 
-        1.  []{#__RefHeading___Toc18936_1669085364 .anchor}Application des règles de gestion et calcul des dates d’échéances UNITS\_RULES\_COMPUTE (UnitsRulesComputePlugin.java)
+##### Application des règles de gestion et calcul des dates d’échéances UNITS\_RULES\_COMPUTE (UnitsRulesComputePlugin.java)
 
 -   **Règle** : tâche consistant à calculer les dates d’échéances des unités archivistiques du SIP. Pour les unités racines, c’est-à-dire les unités déclarées dans le SIP et n’ayant aucun parent dans l’arborescence, la solution logicielle Vitam utilise les règles de gestion incluses dans le bloc Management de chacune de ces unités ainsi que celles présentes dans le bloc ManagementMetadata. La solution logicielle Vitam effectue également ce calcul pour les autres unités archivistiques du SIP
     > possédant des règles de gestion déclarées dans leurs balises Management, sans prendre en compte le ManagementMetadata. Le référentiel utilisé pour ces calculs est le référentiel des règles de gestion de la solution logicielle Vitam.
@@ -613,9 +613,9 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors du calcul des dates d’échéances (UNITS\_RULES\_COMPUTE.FATAL = Erreur technique lors de l’application des règles de gestion et du calcul des dates d’échéance)
 
-    1.  []{#__RefHeading___Toc18938_1669085364 .anchor}Processus de vérification préalable à la prise en charge (STP\_STORAGE\_AVAILABILITY\_CHECK)
+#### Processus de vérification préalable à la prise en charge (STP\_STORAGE\_AVAILABILITY\_CHECK)
 
-        1.  []{#__RefHeading___Toc18940_1669085364 .anchor}Vérification de la disponibilité de toutes les offres de stockage STORAGE\_AVAILABILITY\_CHECK (CheckStorageAvailabilityActionHandler.java)
+##### Vérification de la disponibilité de toutes les offres de stockage STORAGE\_AVAILABILITY\_CHECK (CheckStorageAvailabilityActionHandler.java)
 
 -   **Règle** : tâche consistant à vérifier la disponibilité des offres de stockage et de l’espace disponible pour y stocker le contenu du SIP compte tenu de la taille des objets à stocker
 
@@ -635,7 +635,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
         La tâche Check\_Availability\_Check contient le traitement suivant :
 
-        1.  []{#__RefHeading___Toc18942_1669085364 .anchor}Vérification de la disponibilité de l’offre de stockage STORAGE\_AVAILABILITY\_CHECK.STORAGE\_AVAILABILITY\_CHECK (CheckStorageAvailabilityActionHandler.java)
+##### Vérification de la disponibilité de l’offre de stockage STORAGE\_AVAILABILITY\_CHECK.STORAGE\_AVAILABILITY\_CHECK (CheckStorageAvailabilityActionHandler.java)
 
 -   **Règle** : traitement consistant à vérifier la disponibilité de l’offre de stockage et de l’espace disponible pour y stocker le contenu du SIP compte tenu de la taille des objets à stocker
 
@@ -653,9 +653,9 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la vérification de la disponibilité de l’offre de stockage (STORAGE\_AVAILABILITY\_CHECK.STORAGE\_AVAILABILITY\_CHECK.FATAL = Erreur technique lors de la vérification de la disponibilités de l’offre de stockage)
 
-    1.  []{#__RefHeading___Toc18944_1669085364 .anchor}Processus d’écriture et indexation des objets et groupes d’objets (STP\_OBJ\_STORING)
+#### Processus d’écriture et indexation des objets et groupes d’objets (STP\_OBJ\_STORING)
 
-        1.  []{#__RefHeading___Toc18946_1669085364 .anchor}Écriture des objets sur l’offre de stockage OBJ\_STORAGE (StoreObjectActionHandler.java)
+##### Écriture des objets sur l’offre de stockage OBJ\_STORAGE (StoreObjectActionHandler.java)
 
 -   **Règle** : tâche consistant à écrire les objets contenus dans le SIP sur les offres de stockage en fonction de la stratégie de stockage applicable
 
@@ -671,7 +671,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de l’écriture des objets binaires sur les offres de stockage (OBJ\_STORAGE.FATAL = Erreur technique lors de l’écriture des objets et des groupes d’objets sur les offres de stockage)
 
-        1.  []{#__RefHeading___Toc18948_1669085364 .anchor}Indexation des métadonnées des groupes d’objets et objets OG\_METADATA\_INDEXATION (IndexObjectGroupActionPlugin.java)
+##### Indexation des métadonnées des groupes d’objets et objets OG\_METADATA\_INDEXATION (IndexObjectGroupActionPlugin.java)
 
 -   **Règle** : tâche consistant à indexer les métadonnées des groupes d’objets et objets dans les bases internes de la solution logicielle Vitam, comme la taille des objets, les métadonnées liées aux formats (Type MIME, PUID, etc.), l’empreinte des objets, etc.
 
@@ -685,9 +685,9 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de l’indexation des métadonnées des groupes d’objets (OG\_METADATA\_INDEXATION.FATAL = Erreur technique lors de l’indexation des métadonnées des objets et des groupes d’objets)
 
-    1.  []{#__RefHeading___Toc18950_1669085364 .anchor}Processus d’indexation des unités archivistiques (STP\_UNIT\_METADATA)
+#### Processus d’indexation des unités archivistiques (STP\_UNIT\_METADATA)
 
-        []{#__RefHeading___Toc18952_1669085364 .anchor}Indexation des métadonnées des unités archivistiques UNIT\_METADATA\_INDEXATION (IndexUnitActionPlugin.java)
+##### Indexation des métadonnées des unités archivistiques UNIT\_METADATA\_INDEXATION (IndexUnitActionPlugin.java)
 
 -   **Règle** : tâche consistant à indexer les métadonnées des unités archivistiques dans les bases internes de la solution logicielle Vitam, c’est-à-dire le titre des unités, leurs descriptions, leurs dates extrêmes, etc.
 
@@ -701,9 +701,9 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de l’indexation des métadonnées des unités archivistiques (UNIT\_METADATA\_INDEXATION.FATAL = Erreur technique lors de l’indexation des métadonnées de l’unité archivistique)
 
-    1.  []{#__RefHeading___Toc18954_1669085364 .anchor}Processus d’enregistrement et écriture des métadonnées des objets et groupes d’objets (STP\_OG\_STORING)
+#### Processus d’enregistrement et écriture des métadonnées des objets et groupes d’objets (STP\_OG\_STORING)
 
-        1.  []{#__RefHeading___Toc18956_1669085364 .anchor}Enregistrement des journaux du cycle de vie des groupes d’objets COMMIT\_LIFE\_CYCLE\_OBJECT\_GROUP (CommitLifeCycleObjectGroupActionHandler.java)
+##### Enregistrement des journaux du cycle de vie des groupes d’objets COMMIT\_LIFE\_CYCLE\_OBJECT\_GROUP (CommitLifeCycleObjectGroupActionHandler.java)
 
 -   **Règle** : tâche consistant à sécuriser en base les journaux du cycle de vie des groupes d’objets. Avant cette étape, les journaux du cycle de vie des groupes d’objets sont dans une collection temporaire afin de garder une cohérence entre les métadonnées indexées et les journaux lors d’une entrée en succès ou en échec, il n’y a pas d’évènement créée dans le journal du cycle de vie.
 
@@ -715,7 +715,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la sécurisation du journal du cycle de vie (COMMIT\_LIFE\_CYCLE\_OBJECT\_GROUP.FATAL = Erreur technique lors de l’enregistrement des journaux du cycle de vie des groupes d’objets)
 
-        1.  []{#__RefHeading___Toc18958_1669085364 .anchor}Écriture des métadonnées du groupe d’objets et objets sur l’offre de stockage OG\_METADATA\_STORAGE (StoreMetaDataObjectGroupActionPlugin)
+##### Écriture des métadonnées du groupe d’objets et objets sur l’offre de stockage OG\_METADATA\_STORAGE (StoreMetaDataObjectGroupActionPlugin)
 
 -   **Règle** : tâche consistant à sauvegarder les métadonnées liées aux groupes d’objets ainsi que leurs journaux de cycle de vie sur les offres de stockage en fonction de la stratégie de stockage
 
@@ -729,9 +729,9 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de l’écriture des métadonnées du groupe d’objets sur les offres de stockage (OG\_METADATA\_STORAGE.FATAL = Erreur technique lors de l’écriture des métadonnées du groupe d’objets sur les offres de stockage)
 
-    1.  []{#__RefHeading___Toc18960_1669085364 .anchor}Processus d’enregistrement et écriture des unités archivistiques (STP\_UNIT\_STORING)
+#### Processus d’enregistrement et écriture des unités archivistiques (STP\_UNIT\_STORING)
 
-        1.  []{#__RefHeading___Toc18962_1669085364 .anchor}Enregistrement du journal du cycle de vie des unités archivistiques COMMIT\_LIFE\_CYCLE\_UNIT (AccessInternalModuleImpl.java)
+##### Enregistrement du journal du cycle de vie des unités archivistiques COMMIT\_LIFE\_CYCLE\_UNIT (AccessInternalModuleImpl.java)
 
 -   **Règle** : tâche consistant à sécuriser en base les journaux du cycle de vie des unités archivistiques. Avant cette étape, les journaux du cycle de vie des unités archivistiques sont dans une collection temporaire afin de garder une cohérence entre les métadonnées indexées et les journaux lors d’une entrée en succès ou en échec.
 
@@ -743,7 +743,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la sécurisation des journaux du cycle de vie (COMMIT\_LIFE\_CYCLE\_UNIT.FATAL = Erreur technique lors de l’enregistrement des journaux du cycle de vie des unités archivistiques)
 
-        1.  []{#__RefHeading___Toc18964_1669085364 .anchor}Écriture des métadonnées de l’unité archivistique sur l’offre de stockage UNIT\_METADATA\_STORAGE (AccessInternalModuleImpl.java)
+##### Écriture des métadonnées de l’unité archivistique sur l’offre de stockage UNIT\_METADATA\_STORAGE (AccessInternalModuleImpl.java)
 
 -   **Règle** : tâche consistant à sauvegarder les métadonnées et des journaux de cycle de vie des unités archivistiques sur les offres de stockage en fonction de la stratégie de stockage. Pas d’évènements stockés dans le journal de cycle de vie
 
@@ -757,9 +757,9 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la sécurisation du journal du cycle de vie (UNIT\_METADATA\_STORAGE.FATAL = Erreur technique lors de l’écriture des métadonnées de l’unité archivistique sur les offres de stockage)
 
-    1.  []{#__RefHeading___Toc23548_796248267 .anchor}Processus de mise à jour des groupes d’objets (STP\_UPDATE\_OBJECT\_GROUP)
+#### Processus de mise à jour des groupes d’objets (STP\_UPDATE\_OBJECT\_GROUP)
 
-        1.  []{#__RefHeading___Toc23758_796248267 .anchor}Mise à jour des groupes d’objets []{#_Hlk64278925 .anchor}OBJECT\_GROUP\_UPDATE (AccessInternalModuleImpl.java)
+##### Mise à jour des groupes d’objets OBJECT\_GROUP\_UPDATE (AccessInternalModuleImpl.java)
 
 -   **Règle** : Tâche consistant à mettre à jour les groupes d’objet techniques
 
@@ -773,7 +773,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   WARNING=Avertissement lors de la mise à jour des groupes d'objets existants
 
-        1.  []{#__RefHeading___Toc86359_2252739535 .anchor}Enregistrement du journal du cycle de vie des groupes d’objets COMMIT\_LIFE\_CYCLE\_OBJECT\_GROUP (CommitLifeCycleObjectGroupActionHandler.java)
+##### Enregistrement du journal du cycle de vie des groupes d’objets COMMIT\_LIFE\_CYCLE\_OBJECT\_GROUP (CommitLifeCycleObjectGroupActionHandler.java)
 
 -   **Règle** : tâche consistant à sécuriser en base les journaux du cycle de vie des groupes d’objets. Avant cette étape, les journaux du cycle de vie des groupes d’objets sont dans une collection temporaire afin de garder une cohérence entre les métadonnées indexées et les journaux lors d’une entrée en succès ou en échec, et il n’y a pas d’évènement créée dans le journal du cycle de vie.
 
@@ -785,7 +785,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la sécurisation du journal du cycle de vie (COMMIT\_LIFE\_CYCLE\_OBJECT\_GROUP.FATAL = Erreur technique lors de l’enregistrement des journaux du cycle de vie des groupes d’objets)
 
-        1.  []{#__RefHeading___Toc86361_2252739535 .anchor}Écriture des métadonnées des groupes d’objets sur l’offre de stockage OG\_METADATA\_STORAGE (StoreMetaDataObjectGroupActionPlugin)
+##### Écriture des métadonnées des groupes d’objets sur l’offre de stockage OG\_METADATA\_STORAGE (StoreMetaDataObjectGroupActionPlugin)
 
 -   **Règle** : tâche consistant à sauvegarder les métadonnées liées aux groupes d’objets ainsi que leurs journaux de cycle de vie sur les offres de stockage en fonction de la stratégie de stockage
 
@@ -799,9 +799,9 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de l’écriture des métadonnées du groupe d’objets sur les offres de stockage (OG\_METADATA\_STORAGE.FATAL = Erreur technique lors de l’écriture des métadonnées du groupe d’objets sur les offres de stockage)
 
-    1.  []{#__RefHeading___Toc18966_1669085364 .anchor}Processus d’alimentation du registre des fonds (STP\_ACCESSION\_REGISTRATION)
+#### Processus d’alimentation du registre des fonds (STP\_ACCESSION\_REGISTRATION)
 
-        []{#__RefHeading___Toc23760_796248267 .anchor}Alimentation du registre des fonds ACCESSION\_REGISTRATION
+##### Alimentation du registre des fonds ACCESSION\_REGISTRATION
 
 -   **Règle** : tâche consistant à enregistrer dans le registre des fonds des informations concernant la nouvelle entrée (nombre d’objets, volumétrie...). Ces informations viennent s’ajouter aux informations existantes pour un même service producteur. Si aucune information n’existait préalablement, alors un nouveau document est créé dans la base de données concernant ce producteur. Une fois cette action d’ajout ou de mise à jour effectuée, la solution logicielle Vitam calcule et enregistre une
     > information agrégée de l’état des stocks du service producteur concerné (dans la collection AccessionRegisterDetail).
@@ -816,9 +816,9 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de l’alimentation du registre des fonds (ACCESSION\_REGISTRATION.FATAL = Erreur technique lors de l’alimentation du registre des fonds)
 
-    1.  []{#__RefHeading___Toc18968_1669085364 .anchor}Processus de finalisation de l’entrée (STP\_INGEST\_FINALISATION)
+#### Processus de finalisation de l’entrée (STP\_INGEST\_FINALISATION)
 
-        1.  []{#__RefHeading___Toc18970_1669085364 .anchor}Notification de la fin de l’opération d’entrée ATR\_NOTIFICATION (TransferNotificationActionHandler.java)
+##### Notification de la fin de l’opération d’entrée ATR\_NOTIFICATION (TransferNotificationActionHandler.java)
 
 -   **Règle** : tâche consistant à générer la notification de réponse (ArchiveTransferReply ou ATR) une fois toutes les étapes passées, en succès, avertissement ou échec, puis écriture de cette notification dans l’offre de stockage et envoi au service versant
 
@@ -832,7 +832,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la notification de la fin de l’opération (ATR\_NOTIFICATION.FATAL = Erreur technique lors de la notification de la fin de l’opération d’entrée à l’opérateur de versement)
 
-        1.  []{#__RefHeading___Toc18972_1669085364 .anchor}Mise en cohérence des journaux du cycle de vie ROLL\_BACK (RollBackActionHandler.java)
+##### Mise en cohérence des journaux du cycle de vie ROLL\_BACK (RollBackActionHandler.java)
 
 -   **Règle** : Purge des collections temporaires des journaux du cycle de vie
 
@@ -844,7 +844,7 @@ Ce traitement n’est exécuté que si la valeur IN de *checkProfile* est « tr
 
     -   FATAL : une erreur technique est survenue lors de la purge (ROLL\_BACK.FATAL = Erreur technique lors de la mise en cohérence des journaux du cycle de vie)
 
-    1.  []{#__RefHeading___Toc18974_1669085364 .anchor}Le cas du processus d’entrée « test à blanc »
+#### Le cas du processus d’entrée « test à blanc »
 
 Il est possible de procéder à un versement dit « à blanc », pour tester la conformité du SIP par rapport à la forme attendue par la solution logicielle Vitam sans pour autant le prendre en charge. Dans ce cas, le processus d’entrée à blanc diffère du processus d’entrée « classique » en ignorant un certain nombre d’étapes.
 
@@ -864,7 +864,7 @@ Les étapes non exécutées dans le processus d’entrée à blanc sont les suiv
 
     Les tâches et traitements relatifs à toutes ces étapes sont donc également ignorés.
 
-    1.  []{#__RefHeading___Toc18976_1669085364 .anchor}Structure du Workflow de l’entrée
+#### Structure du Workflow de l’entrée
 
 Le workflow mis en place dans la solution logicielle Vitam est défini dans l’unique fichier *« DefaultIngestWorkflow.json »*. Ce fichier est disponible dans /sources/processing/processing-management/src/main/resources/workflows. Il décrit le processus d’entrée (hors Ingest externe) pour entrer un SIP, indexer les métadonnées et stocker les objets contenus dans le SIP.
 
@@ -882,15 +882,15 @@ D’une façon synthétique, le workflow est décrit de cette façon :
 
 ![](medias/modele_workflow/media/image7.jpeg){width="5.905555555555556in" height="7.622222222222222in"}
 
-4.  []{#__RefHeading___Toc19210_1669085364 .anchor}Mise à jour unitaire (Update)
+### Mise à jour unitaire (Update)
 
-    1.  []{#__RefHeading___Toc19212_1669085364 .anchor}Workflow de mise à jour unitaire des unités archivistiques
+#### Workflow de mise à jour unitaire des unités archivistiques
 
 Cette section décrit le processus permettant la mise à jour unitaire des unités archivistiques.
 
 Toutes les étapes, tâches et traitements sont journalisés dans le journal des opérations et décrivent le processus (clé et description de la clé associée dans le journal des opérations) tel qu’implémenté dans la version actuelle de la solution logicielle Vitam.
 
-1.  []{#__RefHeading___Toc19216_1669085364 .anchor}Mise à jour d’une unité archivistique (vision métier)
+#### Mise à jour d’une unité archivistique (vision métier)
 
 Le processus de mise à jour unitaire des unités archivistiques est lancé lors d’une mise à jour de n’importe quelle métadonnée d’une unité archivistique. On distingue cependant deux cas de modifications, liés à des droits gérés via les contrats d’accès : soit les utilisateurs disposent d’un droit de modification sur métadonnées descriptives seulement, soit ils disposent des droits pour modifier les métadonnées descriptives et les métadonnées de gestion (profil d’unité archivistiques et règles de
 gestion).
