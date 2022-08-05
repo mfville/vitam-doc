@@ -870,17 +870,17 @@ Le workflow mis en place dans la solution logicielle Vitam est défini dans l’
 
 D’une façon synthétique, le workflow est décrit de cette façon :
 
-![](medias/modele_workflow/media/image2.gif){width="5.905555555555556in" height="4.992361111111111in"}
+![](medias/modele_workflow/media/image2.gif)
 
-![](medias/modele_workflow/media/image3.gif){width="5.905555555555556in" height="8.354166666666666in"}
+![](medias/modele_workflow/media/image3.gif)
 
-![](medias/modele_workflow/media/image4.gif){width="5.731944444444444in" height="8.350694444444445in"}
+![](medias/modele_workflow/media/image4.gif)
 
-![](medias/modele_workflow/media/image5.gif){width="5.735416666666667in" height="8.046527777777778in"}
+![](medias/modele_workflow/media/image5.gif)
 
-![](medias/modele_workflow/media/image6.gif){width="5.905555555555556in" height="7.472222222222222in"}
+![](medias/modele_workflow/media/image6.gif)
 
-![](medias/modele_workflow/media/image7.jpeg){width="5.905555555555556in" height="7.622222222222222in"}
+![](medias/modele_workflow/media/image7.jpeg)
 
 ### Mise à jour unitaire (Update)
 
