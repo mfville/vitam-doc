@@ -8203,6 +8203,824 @@ préservation.
 
 -   Cardinalité : 1-1
 
+
+Base Offer
+----------
+
+La base Offer contient pour une offre les collections relatives aux ordres d’écriture opérés sur les offres. Pour l’offre froide, cette base contient aussi les données d’emplacement de stockage dans l’offre (bande magnétique).
+
+###Collection OfferLog
+
+
+#### Utilisation de la collection OfferLog
+
+La collection OfferLog contient les ordres d'écriture ou de suppression reçus par l'offre, ordonnés selon un numéro de séquence.
+
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
+
+
+```json
+{
+    "_id": ObjectID("61c5e857e50db01443f204a7"),
+    "Sequence": 1,
+    "Time": "2021-12-24T15:33:43.827",
+    "Container": "int_1_backup_operation",
+    "FileName": "aeaaaaaaaaheill3abe5mal55ujzaciaaaaq",
+    "Action": "write",
+    "_FormatVersion": "V2"
+}
+```
+
+#### Détail des champs du JSON stocké dans la collection
+
+"_id" : identifiant unique Mongo.
+* Il s’agit d’un champ de type Mongo composé comme suit : ObjectId( < hexadecimal > ).
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"Sequence" : numéro incrémental.
+* Il s’agit du dernier numéro utilisé pour définir l'ordre des données.
+* Il s’agit d’un entier.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"Time" : date.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"Container" : identifiant du conteneur de la donnée
+* Il s’agit d’une chaîne de caractères.
+* Le format du conteneur est {environnement}\_{tenant}\_{repertoire}, où :
+  * {environnement} est l'identifiant de l'environnement Vitam configuré
+  * {tenant} est le tenant auquel appartient l'objet
+  * {repertoire} est un répertoire de stockage dépendant du type de données. Ex "unit" pour les unités archivistiques et leurs journaux des cycles de vie, "object" pour les objets binaires, etc.
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"FileName" : nom de l'objet stocké dans l'offre
+* Il s’agit d’une chaîne de caractères.
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"Action" : action de l'ordre d'écriture
+* Il s’agit d’une chaîne de caractères.
+* Les valeurs attendues dans ce champ sont :
+  * "write" : indique un ordre d'écriture de type "écriture"
+  * "delete" : indique un ordre d'écriture de type "suppression"
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+
+"_FormatVersion" : version du schéma du modèle de données de l'ordre
+* Il s’agit d’une chaîne de caractères.
+* Les valeurs possibles dans ce champ sont :
+  * "V1" : ancienne version dépréciée
+  * "V2" : version courante
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+### Collection CompactedOfferLog
+
+
+#### Utilisation de la collection CompactedOfferLog
+
+La collection CompactedOfferLog contient un regroupement d'anciens ordres d'écriture et de suppression.
+
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
+
+
+```json
+{
+    "_id": ObjectID("6198de987cd1fd5f1f812c26"),
+    "SequenceStart": 2424,
+    "SequenceEnd": 22599,
+    "CompactionDateTime": "2021-11-20T11:40:08.515022",
+    "Container": "v5rc_0_accessionregisterdetail",
+    "Logs": [
+        {
+            "Sequence": 2424,
+            "Time": "2021-10-29T18:00:22.859",
+            "Container": "v5rc_0_accessionregisterdetail",
+            "FileName": "0_aehaaaaaaahcujfzabip2al4zu23rkyaaaaq.json",
+            "Action": "write",
+            "_FormatVersion": "V2"
+        },
+        ...
+        {
+            "Sequence": 22599,
+            "Time": "2021-10-29T18:52:47.368",
+            "Container": "v5rc_0_accessionregisterdetail",
+            "FileName": "0_aehaaaaaaahcujfzabip2al4zvs3jpyaaaaq.json",
+            "Action": "write",
+            "_FormatVersion": "V2"
+        }
+    ]
+}
+```
+
+#### Détail des champs du JSON stocké dans la collection
+
+"_id" : identifiant unique Mongo.
+* Il s’agit d’un champ de type Mongo composé comme suit : ObjectId( < hexadecimal > ).
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"SequenceStart" : numéro de séquence du premier ordre du lot.
+* Il s’agit d’un entier.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"SequenceEnd" : numéro de séquence du dernier ordre du lot.
+* Il s’agit d’un entier.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"CompactionDateTime" : date de la compaction des ordres d'écriture.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"Container": identifiant du conteneur de la donnée
+* Il s’agit d’une chaîne de caractères.
+* Le format du conteneur est {environnement}\_{tenant}\_{repertoire}, où :
+  * {environnement} est l'identifiant de l'environnement Vitam configuré
+  * {tenant} est le tenant auquel appartient l'objet
+  * {repertoire} est un répertoire de stockage dépendant du type de données. Ex "unit" pour les unités archivistiques et leurs journaux des cycles de vie, "object" pour les objets binaires, etc.
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"Logs" : tableau de structure de type "OfferLog" 
+* Pour la structure incluante, le tableau contient n structures incluses dans l’ordre par le champ "Sequence" pour un même "Container".
+* Cardinalité : 1-1
+* S’agissant d’un tableau, les structures incluses ont pour cardinalités 1-n.
+* Ce champ existe uniquement pour la structure incluante.
+
+
+### Collection OfferSequence
+
+
+#### Utilisation de la collection OfferSequence
+
+Cette collection permet de générer des identifiants ordonnés pour les enregistrements de la Collection OfferLog.
+
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
+
+
+```json
+{
+    "_id": "Backup_Log_Sequence",
+    "Counter": 838338
+}
+```
+
+#### Détail des champs du JSON stocké dans la collection
+
+
+"_id" : identifiant unique.
+* Il s’agit d’une chaîne de caractères.
+* Les valeurs possibles dans ce champ sont :
+  * "Backup_Log_Sequence" : identifiant de la séquence des ordres d'écriture
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"Counter" : numéro incrémental.
+* Il s’agit du dernier numéro utilisé comme identifiant ordonné.
+* Il s’agit d’un entier.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+
+### Collection TapeCatalog (offre froide)
+
+
+#### Utilisation de la collection TapeCatalog
+
+La collection TapeCatalog regroupe l'ensemble des bandes magnétiques connues du système. Cette collection est peuplée par Vitam lors de l'initialisation de l'offre froide.
+
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
+
+
+```json
+{
+    "_id": "aeaaaaaaaahar5sqaane4al55udhntqaaaaq",
+    "queue_state": "RUNNING",
+    "queue_last-update": "1642081219061",
+    "queue_creation_date": "2021-12-24T15:19:23.601",
+    "queue_message_type": "TapeCatalog",
+    "queue_priority": 1,
+    "code": "VIT001",
+    "bucket": "admin",
+    "label": {
+        "_id": "aeaaaaaaaahar5sqaane4al55udhntqaaaaq",
+        "code": "VIT001",
+        "bucket": "admin",
+        "creationDate": "2021-12-24T16:33:51.394"
+    },
+    "library": "TAPE_LIB_2",
+    "written_bytes": 78499981,
+    "tape_state": "OPEN",
+    "file_count": 329,
+    "current_location": {
+        "index": 0,
+        "locationType": "DRIVE"
+    },
+    "previous_location": {
+        "index": 1,
+        "locationType": "SLOT"
+    },
+    "compressed": false,
+    "worm": false,
+    "_v": 679
+}
+```
+
+#### Détail des champs du JSON stocké dans la collection
+
+
+"_id" : identifiant unique.
+* Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_state" : état de la bande dans la file d'attente interne à Vitam
+* Il s’agit d’une chaîne de caractères.
+* Les valeurs possibles dans ce champ sont :
+  * "READY" : la bande est disponible
+  * "RUNNING" : la bande est en cours d'utilisation dans un drive
+  * "ERROR" : réservé à un usage futur
+  * "COMPLETED" : réservé à un usage futur
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_last-update" : date de modification technique de l'état de la bande dans la file.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_creation_date" : date technique de création de l'enregistrement.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_message_type" : type technique de la file.
+* Il s’agit d’une chaîne de caractères.
+* Valeur fixe : "TapeCatalog"
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_priority" : réservé à un usage futur.
+* Il s’agit d’un entier.
+* Valeur fixe : 1.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"code" : code à barres identifiant la bande magnétique.
+* Il s’agit d’une chaîne de caractères.
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"bucket" : identifiant permettant d'isoler physiquement les données d'une bande selon le tenant. 
+* Il s’agit d’une chaîne de caractères.
+* Non renseigné si la bande est encore vide ("tape_state" est "EMPTY").
+* Cardinalité : 0-1
+
+"label" : décrit le tout premier fichier écrit sur une bande, qui a un rôle de "marqueur" pour l'identification unique de la bande. Il est notamment utilisé pour éviter toute erreur de manipulation de la bande par un autre applicatif (autre que l'offre froide de Vitam).
+* Cet objet, s'il existe, doit contenir les champs suivants :
+  * "_id" : identifiant unique du format.
+    * Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
+    * Cardinalité : 1-1
+  * "code" : Code à barres identifiant la bande magnétique.
+    * Il s’agit d’une chaîne de caractères.
+    * Cardinalité : 1-1
+  * "bucket" : Identifiant permettant d'isoler physiquement les données d'une bande selon le tenant.
+    * Il s’agit d’une chaîne de caractères.
+    * Ne peut être vide.
+    * Cardinalité : 1-1
+  * "creationDate" : Date de la création de label, qui correspond à la première écriture de donnée sur la bande.
+    * Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+    * Cardinalité : 1-1
+* Cardinalité : 0-1
+
+"library" : identifiant de la bibliothèque de bandes.
+* Il s’agit d’une chaîne de caractères.
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"written_bytes" : nombre de bytes écrits sur la bande.
+* Il s'agit d'un entier.
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"tape_state" : état de la bande magnétique.
+* Il s’agit d’une chaîne de caractères.
+* Les valeurs possibles dans ce champ sont :
+  * "EMPTY" : vierge
+  * "OPEN" : en cours d’écriture
+  * "FULL" : remplie
+  * "CONFLICT" : en erreur
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"file_count" : nombre de fichiers écrits sur la bande.
+* Il s'agit d'un entier.
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"current_location" : localisation la bande magnétique dans la bibliothèque de bandes.
+* Cet objet, s'il existe, doit contenir les champs suivants :
+  * "index" : numéro du lecteur ou de l'emplacement dans lequel se trouve la bande
+    * Il s'agit d'un entier.
+    * Cardinalité : 1-1
+  * "location_type" : type d'emplacement de localisation de la bande magnétique
+    * Il s’agit d’une chaîne de caractères.
+    * Les valeurs possibles dans ce champ sont :
+      * "DRIVE" : dans un lecteur
+      * "SLOT" : rangée dans un emplacement
+      * "OUTSIDE" : sortie du robot. Réservé à un usage futur
+      * "IMPORT/EXPORT" : rangée dans un emplacement de type import/export. Réservé à un usage futur
+    * Cardinalité : 1-1
+* Cardinalité : 0-1
+
+"previous_location" : précédente localisation la bande magnétique dans la bibliothèque de bandes.
+* Cet objet, s'il existe, doit contenir les champs suivants :
+  * "index" : Numéro du lecteur ou de l'emplacement dans lequel se trouvait précédemment la bande
+    * Il s'agit d'un entier.
+    * Cardinalité : 1-1
+  * "location_type" : type d'emplacement de localisation de la bande magnétique
+    * Il s’agit d’une chaîne de caractères.
+    * Les valeurs possibles dans ce champ sont :
+      * "DRIVE" : dans un lecteur
+      * "SLOT" : rangée dans un emplacement
+      * "OUTSIDE" : sortie du robot. Réservé à un usage futur
+      * "IMPORT/EXPORT" : rangée dans un emplacement de type import/export. Réservé à un usage futur
+    * Cardinalité : 1-1
+* Cardinalité : 0-1
+
+"compressed" : indicateur si la compression matérielle est activée.
+* Il s’agit d’un booléen.
+* Cardinalité : 1-1
+
+"worm" : indicateur si la bande est non réinscriptible.
+* Il s’agit d’un booléen.
+* Cardinalité : 1-1
+
+"_v" : version de l’enregistrement décrit.
+* Il s’agit d’un entier.
+* Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
+* Cardinalité : 1-1
+
+### Collections TapeQueueMessage (offre froide)
+
+
+#### Utilisation de la collection TapeQueueMessage
+
+La collection TapeQueueMessage contient la liste (file d'attente) des ordres d'écriture vers une bande ou de lecture depuis une bande.
+
+#### Exemples de JSON stockés en base comprenant l’exhaustivité des champs
+
+
+```json
+{
+    "_id" : "aeaaaaaaaacctyjaacrv6al6kq76acyaaaaq",
+    "queue_state" : "RUNNING",
+    "queue_last-update" : NumberLong(1642090979954),
+    "queue_creation_date" : "2022-01-13T16:22:59.351",
+    "queue_message_type" : "WriteOrder",
+    "queue_priority" : 2,
+    "bucket" : "myBucket1",
+    "fileBucketId" : "myFileBucketId1",
+    "filePath" : "myArchiveId1",
+    "size" : NumberLong(1234567890123),
+    "digest" : "digest1",
+    "archiveId" : "myArchiveId1"
+}
+```
+
+
+```json
+{
+    "_id" : "aeaaaaaaaacctyjaacuvial6krcc5oyaaaaq",
+    "queue_state" : "READY",
+    "queue_last-update" : "2022-01-13T16:27:41.659",
+    "queue_creation_date" : "2022-01-13T16:27:41.662",
+    "queue_message_type" : "WriteBackupOrder",
+    "queue_priority" : 2,
+    "bucket" : "myBucket1",
+    "fileBucketId" : "myFileBucketId1",
+    "filePath" : "myArchiveId1",
+    "size" : NumberLong(1234567890123),
+    "digest" : "digest1",
+    "archiveId" : "myArchiveId1"
+}
+```
+
+```json
+{
+    "_id" : "aeaaaaaaaacctyjaacxkial6kremcgaaaaaq",
+    "queue_state" : "RUNNING",
+    "queue_last-update" : NumberLong(1642091561882),
+    "queue_creation_date" : "2022-01-13T16:32:41.269",
+    "queue_message_type" : "ReadOrder",
+    "queue_priority" : 1,
+    "tapeCode" : "VIT0001",
+    "bucket" : "myBucket",
+    "filePosition" : 3,
+    "fileName" : "tarId.tar",
+    "fileBucketId" : "myFileBucketId",
+    "size" : NumberLong(1234567890123)
+}
+```
+
+#### Détail des champs du JSON stocké dans la collection
+
+"_id" : identifiant unique.
+* Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_state" : état de traitement de l'ordre dans la file d'attente.
+* Il s’agit d’une chaîne de caractères.
+* Les valeurs possibles dans ce champ sont :
+  * "READY" : ordre prêt à être exécuté
+  * "RUNNING" : ordre en cours d'exécution
+  * "ERROR" : ordre en erreur
+  * "COMPLETED" : réservé à un usage futur
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_last-update" : date et heure de la dernière mise à jour l'ordre.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_creation_date" : date et heure de création de l'ordre.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_message_type" : type de l'ordre.
+* Il s’agit d’une chaîne de caractères.
+* Les valeurs possibles dans ce champ sont :
+  * "ReadOrder" : ordre de lecture d'un fichier sur bande
+  * "WriteOrder" : ordre d'écriture d'un fichier vers une bande
+  * "WriteBackupOrder" : ordre d'écriture spécial pour les archives de type back-up de la base de données.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"queue_priority" : priorité de l'ordre. Réservée à un usage futur.
+* Il s’agit d’un entier.
+* Valeur fixe : 1.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"tapeCode" : identifiant de la bande magnétique cible (code à barres).
+* Il s’agit d’une chaîne de caractères.
+* Présent uniquement dans les cas d'un ordre de lecture (ReadOrder)
+* Cardinalité : 0-1
+
+"bucket" : identifiant permettant d'isoler physiquement les données d'une bande selon le tenant.
+* Il s’agit d’une chaîne de caractères.
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"filePosition" : position sur la bande magnétique.
+* Présent uniquement dans les cas d'un ordre de lecture (ReadOrder)
+* Il s'agit d'un entier.
+* Cardinalité : 0-1
+
+"FileName" : nom de l'archive à écrire sur disque.
+* Présent uniquement dans les cas d'un ordre de lecture (ReadOrder)
+* Il s’agit d’une chaîne de caractères.
+* Cardinalité : 0-1
+
+"fileBucketId" : identifiant permettant de regrouper les objets par type (metadata, objet binaire ou autre) au sein d'un bucket.
+* Il s’agit d’une chaîne de caractères.
+* Cardinalité : 0-1
+
+"filePath" : chemin de l'archive à écrire sur disque
+* Présent uniquement dans les cas d'un ordre d'écriture (WriteOrder ou WriteBackupOrder)
+* Il s’agit d’une chaîne de caractères.
+* Cardinalité : 0-1
+
+"size": taille du fichier en octets.
+* Il s'agit d'un entier.
+* Ne peut être vide
+* Cardinalité : 1-1
+
+"digest" : empreinte du fichier.
+* Il s’agit d’une chaîne de caractères
+* Cardinalité : 0-1
+
+"archiveId" : identifiant unique de l'archive.
+* Présent uniquement dans les cas d'un ordre d'écriture (WriteOrder ou WriteBackupOrder)
+* Il s’agit d’une chaîne de caractères
+* Cardinalité : 0-1
+
+
+### Collection TapeObjectReferential (offre froide)
+
+
+#### Utilisation de la collection TapeObjectReferential
+
+La collection TapeObjectReferential écrit un objet archivé dans l'offre froide.
+
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
+
+
+```json
+{
+    "_id": {
+        "containerName": "frigo_1_report",
+        "objectName": "aeeaaaaaaghghpjyabeugal55upghlyaaaaq.json"
+    },
+    "size": 22393,
+    "digestType": "SHA-512",
+    "digest": "b8f6aecf662642c9f9f64b9dc1a8c351118568af23db6d1f673afa053237937b1d5da522b08f2792971583947624ec16daaab0e78a5839b5c7bb8451b00c7dc4",
+    "storageId": "aeeaaaaaaghghpjyabeugal55upghlyaaaaq.json-aeaaaaaaaahar5sqaan72al55upiavaaaaaq",
+    "location": {
+        "type": "tar",
+        "tarEntries": [
+            {
+                "tarFileId": "20211224153343742-eface7d9-42c7-4dd5-a1fb-5edb36f8de72.tar",
+                "entryName": "frigo_1_report/aeeaaaaaaghghpjyabeugal55upghlyaaaaq.json-aeaaaaaaaahar5sqaan72al55upiavaaaaaq-0",
+                "startPos": 806912,
+                "size": 22393,
+                "digest": "b8f6aecf662642c9f9f64b9dc1a8c351118568af23db6d1f673afa053237937b1d5da522b08f2792971583947624ec16daaab0e78a5839b5c7bb8451b00c7dc4"
+            }
+        ]
+    },
+    "lastObjectModifiedDate": "2021-12-24T15:45:38.909",
+    "lastUpdateDate": "2021-12-24T15:45:38.937"
+}
+```
+
+#### Détail des champs du JSON stocké dans la collection
+
+
+"_id" : identifiant technique du fichier objet.
+* Il s’agit d’un object composé des champs suivants :
+  * "containerName" : identifiant du conteneur du fichier objet
+  * "objectName" : nom de l'objet à persister
+* Cardinalité : 1-1
+
+"size": taille du fichier d'objet en octets.
+* Il s'agit d'un entier.
+* Ne peut être vide
+* Cardinalité : 1-1
+
+"digestType" : algorithme de hachage.
+* Il s’agit d’une chaîne de caractères.
+* Il s’agit du nom de l’algorithme de hachage utilisé pour l'empreinte.
+* Cardinalité : 1-1
+
+"digest" : empreinte du fichier d'objet.
+* Il s’agit d’une chaîne de caractères.
+* Ne peut être vide
+* Cardinalité : 1-1
+
+"storageId" : identifiant unique de la version de l'objet.
+* Il s’agit d’une chaîne de caractères au format {objectName}-{guid}, où :
+  * {objectName} est le nom de l'objet
+  * {guid} est une chaîne de 36 caractères correspondant à un GUID.
+* Ne peut être vide
+* Champ peuplé par la solution logicielle Vitam à chaque écriture ou réécriture d'un objet.
+* Cardinalité : 1-1
+
+"location" : localisation physique de l'objet.
+* Cet objet, doit contenir les champs suivants :
+  * "type" : Type de stockage de l'objet
+    * Il s’agit d’une chaîne de caractères.
+    * Les valeurs possibles dans ce champ sont : 
+      * "input_file" : L'objet a été reçu par l'offre et écrit localement sur disque, mais n'a par encore été archivé dans une archive de type TAR
+      * "tar" : le fichier d'objet est contenu dans une ou plusieurs archives de type TAR. Les archives peuvent être en cours de construction, prêtes à être écrites sur bande ou archivées définitivement sur bandes.
+    * Cardinalité : 1-1
+  * "tarEntries" : pour le cas d'un type "tar", les références aux fichiers TAR contenant le fichier d'objet (ou des parties du fichier d'objet) sous forme de tableau
+    * Le tableau contient n structures contenant les champs suivants :
+      * "tarFileId" : identifiant du fichier d'archive de type TAR
+        * Il s’agit d’une chaîne de caractères.
+        * Ne peut être vide
+        * Cardinalité : 1-1
+      * "entryName" : Nom de l'entrée (nom technique du fichier au sein de l'archive TAR)
+        * Il s’agit d’une chaîne de caractères.
+        * Ne peut être vide
+        * Cardinalité : 1-1
+      * "tarPosition" : Position, en octets, du fichier dans l'archive
+        * Il s'agit d'un entier
+        * Ne peut être vide.
+        * Cardinalité : 1-1
+      * "size" : taille du fichier d'objet en octets contenu dans l'archive
+        * Il s'agit d'un entier.
+        * Ne peut être vide
+        * Cardinalité : 1-1
+      * "digest" : empreinte du fichier d'objet en octets contenu dans l'archive
+        * Il s'agit d'un entier.
+        * Ne peut être vide
+        * Cardinalité : 1-1
+    * Cardinalité : 0-n
+
+"lastObjectModifiedDate" : date et heure de l'écriture de la dernière version de l'objet.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"lastUpdateDate" : date et heure de la dernière modification technique du document.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+
+### Collection TapeArchiveReferential (offre froide)
+
+
+
+#### Utilisation de la collection TapeArchiveReferential
+
+La collection TapeArchiveReferential écrit une archive de données archivée sur une bande magnétique ou en cours d'archivage.
+
+#### Exemples de JSON stockés en base comprenant les différents cas possibles
+
+
+```json
+{
+    "_id": "20211225001023845-cca8fa6a-acd5-4192-8132-ba2d907ef6df.tar",
+    "location": {
+        "type": "on_tape",
+        "tapeCode": "VIT006",
+        "filePosition": 4
+    },
+    "entryTape": "DATA",
+    "lastUpdateDate": "2021-12-25T01:10:34.549",
+    "digest": "93fc8689667f5ae6c083fde08379c4469f92d43d19ec54f5434d94c892d700b3a54fa1f4d842576005fa6dd8013c1f19f7b1749bfafd1dd4a61800a56c7f9583",
+    "size": 549888
+}
+```
+
+```json
+{
+    "_id": "20211225001023845-cca8fa6a-acd5-4192-8132-ba2d907ef6df.tar",
+    "location": { 
+        "type": "ready_on_disk" 
+    },
+    "entryTape": "DATA",
+    "lastUpdateDate": "2021-12-25T01:10:34.549",
+    "digest": "93fc8689667f5ae6c083fde08379c4469f92d43d19ec54f5434d94c892d700b3a54fa1f4d842576005fa6dd8013c1f19f7b1749bfafd1dd4a61800a56c7f9583",
+    "size": 12346789
+}
+```
+
+
+```json
+{
+    "_id": "20211225001023845-cca8fa6a-acd5-4192-8132-ba2d907ef6df.tar",
+    "location": {
+        "type": "building_on_disk"
+    },
+    "entryTape": "DATA",
+    "lastUpdateDate": "2022-01-13T15:15:27.983"
+}
+```
+
+#### Détail des champs du JSON stocké dans la collection
+
+"_id" : identifiant unique de l'archive.
+* Il s’agit d’une chaîne de caractères.
+* Le format est {timestamp}_{guid}.tar, où
+  * {timestamp} est la date et heure de création de l'archive an format AAAAMMJJhhmmssmmmm.
+  * {guid} est une chaîne de 36 caractères correspondant à un GUID.
+* Cardinalité : 1-1
+
+"location" : décrit la localisation de l'archive TAR
+* Cet objet doit contenir les champs suivants :
+  * "type" : Type de localisation
+    * Il s’agit d’une chaîne de caractères.
+    * Les valeurs possibles dans ce champ sont : 
+      * "building_on_disk" : l'archive TAR est en cours de construction sur le filesystem
+      * "ready_on_disk" : l'archive TAR est sur filesystem et prête à être écrite sur une bande magnétique
+      * "on_tape" : l'archive TAR est écrite sur une bande magnétique
+    * Cardinalité : 1-1
+  * "tapeCode" : Identifiant de la bande magnétique
+    * Il s’agit d’une chaîne de caractères.
+    * Doit être renseigné dans le cas où "type" est "on_tape"
+    * Cardinalité : 0-1
+  * "filePosition" : Position sur la bande magnétique
+    * Il s'agit d'un entier.
+    * Doit être renseigné dans le cas où "type" est "on_tape"
+    * Cardinalité : 0-1
+* Cardinalité : 1-1
+
+"entry_type" : type de l'archive
+* Il s’agit d’une chaîne de caractères.
+* Les valeurs possibles dans ce champ sont :
+  * "DATA" : Archive de type TAR contenant des données standard Vitam à archiver
+  * "BACKUP" : Pour les archives spéciales contenant des back-ups de la base de données (WriteBackupOrder)
+* Cardinalité : 1-1
+
+"lastUpdateDate" : date de dernière mise à jour technique du document.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"digest" : empreinte définitive de l'archive TAR.
+* Il s’agit d’une chaîne de caractères.
+* Doit être renseigné dans les cas où "location.type" est "ready_on_disk" ou "on_tape"
+* Cardinalité : 0-1
+
+"size" : taille définitive en octets de l'archive TAR.
+* Il s'agit d'un entier.
+* Doit être renseigné dans les cas où "location.type" est "ready_on_disk" ou "on_tape"
+* Cardinalité : 0-1
+
+### Collection TapeAccessRequestReferential (offre froide)
+
+
+#### Utilisation de la collection TapeAccessRequestReferential
+
+Cette collection contient les demandes d'accès aux archives contenues sur un stockage de type bandes magnétiques.
+
+#### Exemples de JSON stockés en base comprenant l’exhaustivité des champs
+
+```json
+{
+    "_id": "aeaaaaaaaahjp2jaabukyal6nxps3eaaaaaq",
+    "containerName": "prod_0_unit",
+    "objectNames": [ "aeeaaaaaaghjko2fabdtwal6nxvvwyaaaaaq.json", "aecaaaaaawhjp2jaabllial6nx4l3biaaaaq.json" ],
+    "creationDate": "2022-01-18T16:00:57.472",
+    "readyDate": null,
+    "expirationDate": null,
+    "purgeDate": null,
+    "unavailableArchiveIds": [ "20220118154732676-a075455e-e5ec-49c0-90b9-113dda067e37.tar", "20220118154732676-a075455e-e5ec-49c0-90b9-113dda067e37.tar" ],
+    "_v": 5
+}
+```
+
+
+```json
+{
+    "_id": "aeaaaaaaaahjp2jaabukyal6nxps3eaaaaaq",
+    "containerName": "prod_0_unit",
+    "objectNames": [ "aeeaaaaaaghjko2fabdtwal6nxvvwyaaaaaq.json", "aecaaaaaawhjp2jaabllial6nx4l3biaaaaq.json" ],
+    "creationDate": "2022-01-18T16:00:57.472",
+    "readyDate": "2022-01-18T16:05:11.235",
+    "expirationDate": "2022-02-17T16:05:11.235",
+    "purgeDate": "2022-03-19T16:05:11.235",
+    "unavailableArchiveIds": [],
+    "_v": 6
+}
+```
+
+#### Détail des champs du JSON stocké dans la collection
+
+"_id" : identifiant de la requête d'accès.
+* Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"containerName" : identifiant du conteneur de la donnée concernée par la requête d'accès.
+* Il s’agit d’une chaîne de caractères.
+* Le format du conteneur est {environnement}\_{tenant}\_{repertoire}, où :
+  * {environnement} est l'identifiant de l'environnement Vitam configuré
+  * {tenant} est le tenant auquel appartient l'objet
+  * {repertoire} est un répertoire de stockage dépendant du type de données. Ex "unit" pour les unités archivistiques et leur journal du cycle de vie, "object" pour les objets binaires, etc.
+* Ne peut être vide.
+* Cardinalité : 1-1
+
+"objectNames" : liste des objets concernés par la requête d'accès.
+* le tableau contient des chaînes de caractères.
+* Ne peut être vide.
+* Cardinalité : 1-n
+
+"creationDate" : date de création de la requête d'accès.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 1-1
+
+"readyDate" : date à laquelle la demande d'accès est devenue prête. Une demande d'accès est prête lorsque tous ses objets sont disponibles pour lecture immédiate depuis le disque.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 0-1
+
+"expirationDate" : date à laquelle la demande d'accès prête expirera. Une demande d'accès expire automatiquement après un délai configurable à partir du moment où elle devient prête.  
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 0-1
+
+"purgeDate" : date à laquelle la demande d'accès prête sera purgée de la base de données. Une demande d'accès est purgée automatiquement après un délai configurable à partir du moment où elle devient prête.
+* Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ "T" +hh:mm:ss:[3 digits de millisecondes]
+* Champ peuplé par la solution logicielle Vitam.
+* Cardinalité : 0-1
+
+"unavailableArchiveIds" : liste des identifiants des archives actuellement indisponibles sur disque et dont la lecture depuis une bande est en cours.
+* le tableau contient des chaînes de caractères.
+* Cardinalité : 0-n
+
+_v": version de la requête d'accès.
+* Il s’agit d’un entier.
+* Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.
+* Cardinalité : 1-1
+
+
+
 Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation
 ----------------------------------------------------------------------
 
