@@ -8209,7 +8209,7 @@ Base Offer
 
 La base Offer contient pour une offre les collections relatives aux ordres d’écriture opérés sur les offres. Pour l’offre froide, cette base contient aussi les données d’emplacement de stockage dans l’offre (bande magnétique).
 
-###Collection OfferLog
+### Collection OfferLog
 
 
 #### Utilisation de la collection OfferLog
