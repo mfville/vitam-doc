@@ -295,14 +295,65 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#annexe-1-valeurs-possibles-pour-le-champ-evtype-du-logbook-operation">4.9. Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annexe-2-valeurs-possibles-pour-le-champ-evtype-du-logbook-lifecycle">4.10. Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus">4.11. Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annexe-4-categories-de-regles-possibles">4.12. Annexe 4 : Catégories de règles possibles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annexe-5-valeurs-possibles-pour-le-champ-status-de-la-collection-accessionregisterdetail">4.13. Annexe 5 : Valeurs possibles pour le champ Status de la collection AccessionRegisterDetail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annexe-6-valeurs-possibles-pour-le-champ-name-de-la-collection-vitamsequence">4.14. Annexe 6 : Valeurs possibles pour le champ Name de la collection VitamSequence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annexe-7-type-dindexation-des-chaines-de-caracteres-dans-elasticsearch-par-collection-et-par-champ">4.15. Annexe 7 : Type d’indexation des chaînes de caractères dans ElasticSearch par collection et par champ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annexe-8-correspondances-des-champs-speciaux-dans-vitam">4.16. Annexe 8 : Correspondances des champs spéciaux dans Vitam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base-offer">4.9. Base Offer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#collection-offerlog">4.9.1. Collection OfferLog</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-offerlog">4.9.1.1. Utilisation de la collection OfferLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id58">4.9.1.2. Exemple de JSON stocké en base comprenant l’exhaustivité des champs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id59">4.9.1.3. Détail des champs du JSON stocké dans la collection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-compactedofferlog">4.9.2. Collection CompactedOfferLog</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-compactedofferlog">4.9.2.1. Utilisation de la collection CompactedOfferLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id60">4.9.2.2. Exemple de JSON stocké en base comprenant l’exhaustivité des champs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id61">4.9.2.3. Détail des champs du JSON stocké dans la collection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-offersequence">4.9.3. Collection OfferSequence</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-offersequence">4.9.3.1. Utilisation de la collection OfferSequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id62">4.9.3.2. Exemple de JSON stocké en base comprenant l’exhaustivité des champs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id63">4.9.3.3. Détail des champs du JSON stocké dans la collection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-tapecatalog-offre-froide">4.9.4. Collection TapeCatalog (offre froide)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-tapecatalog">4.9.4.1. Utilisation de la collection TapeCatalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id64">4.9.4.2. Exemple de JSON stocké en base comprenant l’exhaustivité des champs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id65">4.9.4.3. Détail des champs du JSON stocké dans la collection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collections-tapequeuemessage-offre-froide">4.9.5. Collections TapeQueueMessage (offre froide)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-tapequeuemessage">4.9.5.1. Utilisation de la collection TapeQueueMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exemples-de-json-stockes-en-base-comprenant-lexhaustivite-des-champs">4.9.5.2. Exemples de JSON stockés en base comprenant l’exhaustivité des champs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id66">4.9.5.3. Détail des champs du JSON stocké dans la collection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-tapeobjectreferential-offre-froide">4.9.6. Collection TapeObjectReferential (offre froide)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-tapeobjectreferential">4.9.6.1. Utilisation de la collection TapeObjectReferential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id67">4.9.6.2. Exemple de JSON stocké en base comprenant l’exhaustivité des champs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id68">4.9.6.3. Détail des champs du JSON stocké dans la collection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-tapearchivereferential-offre-froide">4.9.7. Collection TapeArchiveReferential (offre froide)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-tapearchivereferential">4.9.7.1. Utilisation de la collection TapeArchiveReferential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exemples-de-json-stockes-en-base-comprenant-les-differents-cas-possibles">4.9.7.2. Exemples de JSON stockés en base comprenant les différents cas possibles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id69">4.9.7.3. Détail des champs du JSON stocké dans la collection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-tapeaccessrequestreferential-offre-froide">4.9.8. Collection TapeAccessRequestReferential (offre froide)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-de-la-collection-tapeaccessrequestreferential">4.9.8.1. Utilisation de la collection TapeAccessRequestReferential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id70">4.9.8.2. Exemples de JSON stockés en base comprenant l’exhaustivité des champs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id71">4.9.8.3. Détail des champs du JSON stocké dans la collection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#annexe-1-valeurs-possibles-pour-le-champ-evtype-du-logbook-operation">4.10. Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annexe-2-valeurs-possibles-pour-le-champ-evtype-du-logbook-lifecycle">4.11. Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus">4.12. Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annexe-4-categories-de-regles-possibles">4.13. Annexe 4 : Catégories de règles possibles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annexe-5-valeurs-possibles-pour-le-champ-status-de-la-collection-accessionregisterdetail">4.14. Annexe 5 : Valeurs possibles pour le champ Status de la collection AccessionRegisterDetail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annexe-6-valeurs-possibles-pour-le-champ-name-de-la-collection-vitamsequence">4.15. Annexe 6 : Valeurs possibles pour le champ Name de la collection VitamSequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annexe-7-type-dindexation-des-chaines-de-caracteres-dans-elasticsearch-par-collection-et-par-champ">4.16. Annexe 7 : Type d’indexation des chaînes de caractères dans ElasticSearch par collection et par champ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annexe-8-correspondances-des-champs-speciaux-dans-vitam">4.17. Annexe 8 : Correspondances des champs spéciaux dans Vitam</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modele_de_workflow.html">5. Description des workflows et des opérations</a></li>
@@ -7718,18 +7769,1013 @@ d’objets.</p>
 </section>
 </section>
 </section>
+<section id="base-offer">
+<h2><span class="section-number">4.9. </span>Base Offer<a class="headerlink" href="#base-offer" title="Lien permanent vers ce titre"></a></h2>
+<p>La base Offer contient pour une offre les collections relatives aux ordres d’écriture opérés sur les offres. Pour l’offre froide, cette base contient aussi les données d’emplacement de stockage dans l’offre (bande magnétique).</p>
+<section id="collection-offerlog">
+<h3><span class="section-number">4.9.1. </span>Collection OfferLog<a class="headerlink" href="#collection-offerlog" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-offerlog">
+<h4><span class="section-number">4.9.1.1. </span>Utilisation de la collection OfferLog<a class="headerlink" href="#utilisation-de-la-collection-offerlog" title="Lien permanent vers ce titre"></a></h4>
+<p>La collection OfferLog contient les ordres d’écriture ou de suppression reçus par l’offre, ordonnés selon un numéro de séquence.</p>
+</section>
+<section id="id58">
+<h4><span class="section-number">4.9.1.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id58" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    &quot;_id&quot;: ObjectID(&quot;61c5e857e50db01443f204a7&quot;),
+    &quot;Sequence&quot;: 1,
+    &quot;Time&quot;: &quot;2021-12-24T15:33:43.827&quot;,
+    &quot;Container&quot;: &quot;int_1_backup_operation&quot;,
+    &quot;FileName&quot;: &quot;aeaaaaaaaaheill3abe5mal55ujzaciaaaaq&quot;,
+    &quot;Action&quot;: &quot;write&quot;,
+    &quot;_FormatVersion&quot;: &quot;V2&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="id59">
+<h4><span class="section-number">4.9.1.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id59" title="Lien permanent vers ce titre"></a></h4>
+<p>« _id » : identifiant unique Mongo.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un champ de type Mongo composé comme suit : ObjectId( &lt; hexadecimal &gt; ).</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« Sequence » : numéro incrémental.</p>
+<ul class="simple">
+<li><p>Il s’agit du dernier numéro utilisé pour définir l’ordre des données.</p></li>
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« Time » : date.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« Container » : identifiant du conteneur de la donnée</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Le format du conteneur est {environnement}_{tenant}_{repertoire}, où :</p>
+<ul>
+<li><p>{environnement} est l’identifiant de l’environnement Vitam configuré</p></li>
+<li><p>{tenant} est le tenant auquel appartient l’objet</p></li>
+<li><p>{repertoire} est un répertoire de stockage dépendant du type de données. Ex « unit » pour les unités archivistiques et leurs journaux des cycles de vie, « object » pour les objets binaires, etc.</p></li>
+</ul>
+</li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« FileName » : nom de l’objet stocké dans l’offre</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« Action » : action de l’ordre d’écriture</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs attendues dans ce champ sont :</p>
+<ul>
+<li><p>« write » : indique un ordre d’écriture de type « écriture »</p></li>
+<li><p>« delete » : indique un ordre d’écriture de type « suppression »</p></li>
+</ul>
+</li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« _FormatVersion » : version du schéma du modèle de données de l’ordre</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« V1 » : ancienne version dépréciée</p></li>
+<li><p>« V2 » : version courante</p></li>
+</ul>
+</li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</section>
+</section>
+<section id="collection-compactedofferlog">
+<h3><span class="section-number">4.9.2. </span>Collection CompactedOfferLog<a class="headerlink" href="#collection-compactedofferlog" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-compactedofferlog">
+<h4><span class="section-number">4.9.2.1. </span>Utilisation de la collection CompactedOfferLog<a class="headerlink" href="#utilisation-de-la-collection-compactedofferlog" title="Lien permanent vers ce titre"></a></h4>
+<p>La collection CompactedOfferLog contient un regroupement d’anciens ordres d’écriture et de suppression.</p>
+</section>
+<section id="id60">
+<h4><span class="section-number">4.9.2.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id60" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    &quot;_id&quot;: ObjectID(&quot;6198de987cd1fd5f1f812c26&quot;),
+    &quot;SequenceStart&quot;: 2424,
+    &quot;SequenceEnd&quot;: 22599,
+    &quot;CompactionDateTime&quot;: &quot;2021-11-20T11:40:08.515022&quot;,
+    &quot;Container&quot;: &quot;v5rc_0_accessionregisterdetail&quot;,
+    &quot;Logs&quot;: [
+        {
+            &quot;Sequence&quot;: 2424,
+            &quot;Time&quot;: &quot;2021-10-29T18:00:22.859&quot;,
+            &quot;Container&quot;: &quot;v5rc_0_accessionregisterdetail&quot;,
+            &quot;FileName&quot;: &quot;0_aehaaaaaaahcujfzabip2al4zu23rkyaaaaq.json&quot;,
+            &quot;Action&quot;: &quot;write&quot;,
+            &quot;_FormatVersion&quot;: &quot;V2&quot;
+        },
+        ...
+        {
+            &quot;Sequence&quot;: 22599,
+            &quot;Time&quot;: &quot;2021-10-29T18:52:47.368&quot;,
+            &quot;Container&quot;: &quot;v5rc_0_accessionregisterdetail&quot;,
+            &quot;FileName&quot;: &quot;0_aehaaaaaaahcujfzabip2al4zvs3jpyaaaaq.json&quot;,
+            &quot;Action&quot;: &quot;write&quot;,
+            &quot;_FormatVersion&quot;: &quot;V2&quot;
+        }
+    ]
+}
+</pre></div>
+</div>
+</section>
+<section id="id61">
+<h4><span class="section-number">4.9.2.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id61" title="Lien permanent vers ce titre"></a></h4>
+<p>« _id » : identifiant unique Mongo.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un champ de type Mongo composé comme suit : ObjectId( &lt; hexadecimal &gt; ).</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« SequenceStart » : numéro de séquence du premier ordre du lot.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« SequenceEnd » : numéro de séquence du dernier ordre du lot.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« CompactionDateTime » : date de la compaction des ordres d’écriture.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« Container »: identifiant du conteneur de la donnée</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Le format du conteneur est {environnement}_{tenant}_{repertoire}, où :</p>
+<ul>
+<li><p>{environnement} est l’identifiant de l’environnement Vitam configuré</p></li>
+<li><p>{tenant} est le tenant auquel appartient l’objet</p></li>
+<li><p>{repertoire} est un répertoire de stockage dépendant du type de données. Ex « unit » pour les unités archivistiques et leurs journaux des cycles de vie, « object » pour les objets binaires, etc.</p></li>
+</ul>
+</li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« Logs » : tableau de structure de type « OfferLog »</p>
+<ul class="simple">
+<li><p>Pour la structure incluante, le tableau contient n structures incluses dans l’ordre par le champ « Sequence » pour un même « Container ».</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+<li><p>S’agissant d’un tableau, les structures incluses ont pour cardinalités 1-n.</p></li>
+<li><p>Ce champ existe uniquement pour la structure incluante.</p></li>
+</ul>
+</section>
+</section>
+<section id="collection-offersequence">
+<h3><span class="section-number">4.9.3. </span>Collection OfferSequence<a class="headerlink" href="#collection-offersequence" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-offersequence">
+<h4><span class="section-number">4.9.3.1. </span>Utilisation de la collection OfferSequence<a class="headerlink" href="#utilisation-de-la-collection-offersequence" title="Lien permanent vers ce titre"></a></h4>
+<p>Cette collection permet de générer des identifiants ordonnés pour les enregistrements de la Collection OfferLog.</p>
+</section>
+<section id="id62">
+<h4><span class="section-number">4.9.3.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id62" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Backup_Log_Sequence&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Counter&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">838338</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id63">
+<h4><span class="section-number">4.9.3.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id63" title="Lien permanent vers ce titre"></a></h4>
+<p>« _id » : identifiant unique.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« Backup_Log_Sequence » : identifiant de la séquence des ordres d’écriture</p></li>
+</ul>
+</li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« Counter » : numéro incrémental.</p>
+<ul class="simple">
+<li><p>Il s’agit du dernier numéro utilisé comme identifiant ordonné.</p></li>
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</section>
+</section>
+<section id="collection-tapecatalog-offre-froide">
+<h3><span class="section-number">4.9.4. </span>Collection TapeCatalog (offre froide)<a class="headerlink" href="#collection-tapecatalog-offre-froide" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-tapecatalog">
+<h4><span class="section-number">4.9.4.1. </span>Utilisation de la collection TapeCatalog<a class="headerlink" href="#utilisation-de-la-collection-tapecatalog" title="Lien permanent vers ce titre"></a></h4>
+<p>La collection TapeCatalog regroupe l’ensemble des bandes magnétiques connues du système. Cette collection est peuplée par Vitam lors de l’initialisation de l’offre froide.</p>
+</section>
+<section id="id64">
+<h4><span class="section-number">4.9.4.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id64" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeaaaaaaaahar5sqaane4al55udhntqaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;queue_state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RUNNING&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;queue_last-update&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1642081219061&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;queue_creation_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-24T15:19:23.601&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;queue_message_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TapeCatalog&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;queue_priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VIT001&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;bucket&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeaaaaaaaahar5sqaane4al55udhntqaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VIT001&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;bucket&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;creationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-24T16:33:51.394&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;library&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TAPE_LIB_2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;written_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">78499981</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;tape_state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OPEN&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;file_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">329</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;current_location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;locationType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DRIVE&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;previous_location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;locationType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SLOT&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;worm&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">679</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id65">
+<h4><span class="section-number">4.9.4.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id65" title="Lien permanent vers ce titre"></a></h4>
+<p>« _id » : identifiant unique.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_state » : état de la bande dans la file d’attente interne à Vitam</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« READY » : la bande est disponible</p></li>
+<li><p>« RUNNING » : la bande est en cours d’utilisation dans un drive</p></li>
+<li><p>« ERROR » : réservé à un usage futur</p></li>
+<li><p>« COMPLETED » : réservé à un usage futur</p></li>
+</ul>
+</li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_last-update » : date de modification technique de l’état de la bande dans la file.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_creation_date » : date technique de création de l’enregistrement.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_message_type » : type technique de la file.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Valeur fixe : « TapeCatalog »</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_priority » : réservé à un usage futur.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Valeur fixe : 1.</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« code » : code à barres identifiant la bande magnétique.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« bucket » : identifiant permettant d’isoler physiquement les données d’une bande selon le tenant.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Non renseigné si la bande est encore vide (« tape_state » est « EMPTY »).</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« label » : décrit le tout premier fichier écrit sur une bande, qui a un rôle de « marqueur » pour l’identification unique de la bande. Il est notamment utilisé pour éviter toute erreur de manipulation de la bande par un autre applicatif (autre que l’offre froide de Vitam).</p>
+<ul class="simple">
+<li><p>Cet objet, s’il existe, doit contenir les champs suivants :</p>
+<ul>
+<li><p>« _id » : identifiant unique du format.</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« code » : Code à barres identifiant la bande magnétique.</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« bucket » : Identifiant permettant d’isoler physiquement les données d’une bande selon le tenant.</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« creationDate » : Date de la création de label, qui correspond à la première écriture de donnée sur la bande.</p>
+<ul>
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« library » : identifiant de la bibliothèque de bandes.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« written_bytes » : nombre de bytes écrits sur la bande.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« tape_state » : état de la bande magnétique.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« EMPTY » : vierge</p></li>
+<li><p>« OPEN » : en cours d’écriture</p></li>
+<li><p>« FULL » : remplie</p></li>
+<li><p>« CONFLICT » : en erreur</p></li>
+</ul>
+</li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« file_count » : nombre de fichiers écrits sur la bande.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« current_location » : localisation la bande magnétique dans la bibliothèque de bandes.</p>
+<ul class="simple">
+<li><p>Cet objet, s’il existe, doit contenir les champs suivants :</p>
+<ul>
+<li><p>« index » : numéro du lecteur ou de l’emplacement dans lequel se trouve la bande</p>
+<ul>
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« location_type » : type d’emplacement de localisation de la bande magnétique</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« DRIVE » : dans un lecteur</p></li>
+<li><p>« SLOT » : rangée dans un emplacement</p></li>
+<li><p>« OUTSIDE » : sortie du robot. Réservé à un usage futur</p></li>
+<li><p>« IMPORT/EXPORT » : rangée dans un emplacement de type import/export. Réservé à un usage futur</p></li>
+</ul>
+</li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« previous_location » : précédente localisation la bande magnétique dans la bibliothèque de bandes.</p>
+<ul class="simple">
+<li><p>Cet objet, s’il existe, doit contenir les champs suivants :</p>
+<ul>
+<li><p>« index » : Numéro du lecteur ou de l’emplacement dans lequel se trouvait précédemment la bande</p>
+<ul>
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« location_type » : type d’emplacement de localisation de la bande magnétique</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« DRIVE » : dans un lecteur</p></li>
+<li><p>« SLOT » : rangée dans un emplacement</p></li>
+<li><p>« OUTSIDE » : sortie du robot. Réservé à un usage futur</p></li>
+<li><p>« IMPORT/EXPORT » : rangée dans un emplacement de type import/export. Réservé à un usage futur</p></li>
+</ul>
+</li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« compressed » : indicateur si la compression matérielle est activée.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un booléen.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« worm » : indicateur si la bande est non réinscriptible.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un booléen.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« _v » : version de l’enregistrement décrit.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</section>
+</section>
+<section id="collections-tapequeuemessage-offre-froide">
+<h3><span class="section-number">4.9.5. </span>Collections TapeQueueMessage (offre froide)<a class="headerlink" href="#collections-tapequeuemessage-offre-froide" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-tapequeuemessage">
+<h4><span class="section-number">4.9.5.1. </span>Utilisation de la collection TapeQueueMessage<a class="headerlink" href="#utilisation-de-la-collection-tapequeuemessage" title="Lien permanent vers ce titre"></a></h4>
+<p>La collection TapeQueueMessage contient la liste (file d’attente) des ordres d’écriture vers une bande ou de lecture depuis une bande.</p>
+</section>
+<section id="exemples-de-json-stockes-en-base-comprenant-lexhaustivite-des-champs">
+<h4><span class="section-number">4.9.5.2. </span>Exemples de JSON stockés en base comprenant l’exhaustivité des champs<a class="headerlink" href="#exemples-de-json-stockes-en-base-comprenant-lexhaustivite-des-champs" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    &quot;_id&quot; : &quot;aeaaaaaaaacctyjaacrv6al6kq76acyaaaaq&quot;,
+    &quot;queue_state&quot; : &quot;RUNNING&quot;,
+    &quot;queue_last-update&quot; : NumberLong(1642090979954),
+    &quot;queue_creation_date&quot; : &quot;2022-01-13T16:22:59.351&quot;,
+    &quot;queue_message_type&quot; : &quot;WriteOrder&quot;,
+    &quot;queue_priority&quot; : 2,
+    &quot;bucket&quot; : &quot;myBucket1&quot;,
+    &quot;fileBucketId&quot; : &quot;myFileBucketId1&quot;,
+    &quot;filePath&quot; : &quot;myArchiveId1&quot;,
+    &quot;size&quot; : NumberLong(1234567890123),
+    &quot;digest&quot; : &quot;digest1&quot;,
+    &quot;archiveId&quot; : &quot;myArchiveId1&quot;
+}
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    &quot;_id&quot; : &quot;aeaaaaaaaacctyjaacuvial6krcc5oyaaaaq&quot;,
+    &quot;queue_state&quot; : &quot;READY&quot;,
+    &quot;queue_last-update&quot; : &quot;2022-01-13T16:27:41.659&quot;,
+    &quot;queue_creation_date&quot; : &quot;2022-01-13T16:27:41.662&quot;,
+    &quot;queue_message_type&quot; : &quot;WriteBackupOrder&quot;,
+    &quot;queue_priority&quot; : 2,
+    &quot;bucket&quot; : &quot;myBucket1&quot;,
+    &quot;fileBucketId&quot; : &quot;myFileBucketId1&quot;,
+    &quot;filePath&quot; : &quot;myArchiveId1&quot;,
+    &quot;size&quot; : NumberLong(1234567890123),
+    &quot;digest&quot; : &quot;digest1&quot;,
+    &quot;archiveId&quot; : &quot;myArchiveId1&quot;
+}
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    &quot;_id&quot; : &quot;aeaaaaaaaacctyjaacxkial6kremcgaaaaaq&quot;,
+    &quot;queue_state&quot; : &quot;RUNNING&quot;,
+    &quot;queue_last-update&quot; : NumberLong(1642091561882),
+    &quot;queue_creation_date&quot; : &quot;2022-01-13T16:32:41.269&quot;,
+    &quot;queue_message_type&quot; : &quot;ReadOrder&quot;,
+    &quot;queue_priority&quot; : 1,
+    &quot;tapeCode&quot; : &quot;VIT0001&quot;,
+    &quot;bucket&quot; : &quot;myBucket&quot;,
+    &quot;filePosition&quot; : 3,
+    &quot;fileName&quot; : &quot;tarId.tar&quot;,
+    &quot;fileBucketId&quot; : &quot;myFileBucketId&quot;,
+    &quot;size&quot; : NumberLong(1234567890123)
+}
+</pre></div>
+</div>
+</section>
+<section id="id66">
+<h4><span class="section-number">4.9.5.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id66" title="Lien permanent vers ce titre"></a></h4>
+<p>« _id » : identifiant unique.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_state » : état de traitement de l’ordre dans la file d’attente.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« READY » : ordre prêt à être exécuté</p></li>
+<li><p>« RUNNING » : ordre en cours d’exécution</p></li>
+<li><p>« ERROR » : ordre en erreur</p></li>
+<li><p>« COMPLETED » : réservé à un usage futur</p></li>
+</ul>
+</li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_last-update » : date et heure de la dernière mise à jour l’ordre.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_creation_date » : date et heure de création de l’ordre.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_message_type » : type de l’ordre.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« ReadOrder » : ordre de lecture d’un fichier sur bande</p></li>
+<li><p>« WriteOrder » : ordre d’écriture d’un fichier vers une bande</p></li>
+<li><p>« WriteBackupOrder » : ordre d’écriture spécial pour les archives de type back-up de la base de données.</p></li>
+</ul>
+</li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« queue_priority » : priorité de l’ordre. Réservée à un usage futur.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Valeur fixe : 1.</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« tapeCode » : identifiant de la bande magnétique cible (code à barres).</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Présent uniquement dans les cas d’un ordre de lecture (ReadOrder)</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« bucket » : identifiant permettant d’isoler physiquement les données d’une bande selon le tenant.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« filePosition » : position sur la bande magnétique.</p>
+<ul class="simple">
+<li><p>Présent uniquement dans les cas d’un ordre de lecture (ReadOrder)</p></li>
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« FileName » : nom de l’archive à écrire sur disque.</p>
+<ul class="simple">
+<li><p>Présent uniquement dans les cas d’un ordre de lecture (ReadOrder)</p></li>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« fileBucketId » : identifiant permettant de regrouper les objets par type (metadata, objet binaire ou autre) au sein d’un bucket.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« filePath » : chemin de l’archive à écrire sur disque</p>
+<ul class="simple">
+<li><p>Présent uniquement dans les cas d’un ordre d’écriture (WriteOrder ou WriteBackupOrder)</p></li>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« size »: taille du fichier en octets.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Ne peut être vide</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« digest » : empreinte du fichier.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« archiveId » : identifiant unique de l’archive.</p>
+<ul class="simple">
+<li><p>Présent uniquement dans les cas d’un ordre d’écriture (WriteOrder ou WriteBackupOrder)</p></li>
+<li><p>Il s’agit d’une chaîne de caractères</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+</section>
+</section>
+<section id="collection-tapeobjectreferential-offre-froide">
+<h3><span class="section-number">4.9.6. </span>Collection TapeObjectReferential (offre froide)<a class="headerlink" href="#collection-tapeobjectreferential-offre-froide" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-tapeobjectreferential">
+<h4><span class="section-number">4.9.6.1. </span>Utilisation de la collection TapeObjectReferential<a class="headerlink" href="#utilisation-de-la-collection-tapeobjectreferential" title="Lien permanent vers ce titre"></a></h4>
+<p>La collection TapeObjectReferential écrit un objet archivé dans l’offre froide.</p>
+</section>
+<section id="id67">
+<h4><span class="section-number">4.9.6.2. </span>Exemple de JSON stocké en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id67" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;containerName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;frigo_1_report&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;objectName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeeaaaaaaghghpjyabeugal55upghlyaaaaq.json&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">22393</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;digestType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SHA-512&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;b8f6aecf662642c9f9f64b9dc1a8c351118568af23db6d1f673afa053237937b1d5da522b08f2792971583947624ec16daaab0e78a5839b5c7bb8451b00c7dc4&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;storageId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeeaaaaaaghghpjyabeugal55upghlyaaaaq.json-aeaaaaaaaahar5sqaan72al55upiavaaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tarEntries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;tarFileId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20211224153343742-eface7d9-42c7-4dd5-a1fb-5edb36f8de72.tar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;entryName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;frigo_1_report/aeeaaaaaaghghpjyabeugal55upghlyaaaaq.json-aeaaaaaaaahar5sqaan72al55upiavaaaaaq-0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;startPos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">806912</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">22393</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;b8f6aecf662642c9f9f64b9dc1a8c351118568af23db6d1f673afa053237937b1d5da522b08f2792971583947624ec16daaab0e78a5839b5c7bb8451b00c7dc4&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lastObjectModifiedDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-24T15:45:38.909&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lastUpdateDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-24T15:45:38.937&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id68">
+<h4><span class="section-number">4.9.6.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id68" title="Lien permanent vers ce titre"></a></h4>
+<p>« _id » : identifiant technique du fichier objet.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un object composé des champs suivants :</p>
+<ul>
+<li><p>« containerName » : identifiant du conteneur du fichier objet</p></li>
+<li><p>« objectName » : nom de l’objet à persister</p></li>
+</ul>
+</li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« size »: taille du fichier d’objet en octets.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Ne peut être vide</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« digestType » : algorithme de hachage.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Il s’agit du nom de l’algorithme de hachage utilisé pour l’empreinte.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« digest » : empreinte du fichier d’objet.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Ne peut être vide</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« storageId » : identifiant unique de la version de l’objet.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères au format {objectName}-{guid}, où :</p>
+<ul>
+<li><p>{objectName} est le nom de l’objet</p></li>
+<li><p>{guid} est une chaîne de 36 caractères correspondant à un GUID.</p></li>
+</ul>
+</li>
+<li><p>Ne peut être vide</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam à chaque écriture ou réécriture d’un objet.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« location » : localisation physique de l’objet.</p>
+<ul class="simple">
+<li><p>Cet objet, doit contenir les champs suivants :</p>
+<ul>
+<li><p>« type » : Type de stockage de l’objet</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« input_file » : L’objet a été reçu par l’offre et écrit localement sur disque, mais n’a par encore été archivé dans une archive de type TAR</p></li>
+<li><p>« tar » : le fichier d’objet est contenu dans une ou plusieurs archives de type TAR. Les archives peuvent être en cours de construction, prêtes à être écrites sur bande ou archivées définitivement sur bandes.</p></li>
+</ul>
+</li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« tarEntries » : pour le cas d’un type « tar », les références aux fichiers TAR contenant le fichier d’objet (ou des parties du fichier d’objet) sous forme de tableau</p>
+<ul>
+<li><p>Le tableau contient n structures contenant les champs suivants :</p>
+<ul>
+<li><p>« tarFileId » : identifiant du fichier d’archive de type TAR</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Ne peut être vide</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« entryName » : Nom de l’entrée (nom technique du fichier au sein de l’archive TAR)</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Ne peut être vide</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« tarPosition » : Position, en octets, du fichier dans l’archive</p>
+<ul>
+<li><p>Il s’agit d’un entier</p></li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« size » : taille du fichier d’objet en octets contenu dans l’archive</p>
+<ul>
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Ne peut être vide</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« digest » : empreinte du fichier d’objet en octets contenu dans l’archive</p>
+<ul>
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Ne peut être vide</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Cardinalité : 0-n</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>« lastObjectModifiedDate » : date et heure de l’écriture de la dernière version de l’objet.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« lastUpdateDate » : date et heure de la dernière modification technique du document.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</section>
+</section>
+<section id="collection-tapearchivereferential-offre-froide">
+<h3><span class="section-number">4.9.7. </span>Collection TapeArchiveReferential (offre froide)<a class="headerlink" href="#collection-tapearchivereferential-offre-froide" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-tapearchivereferential">
+<h4><span class="section-number">4.9.7.1. </span>Utilisation de la collection TapeArchiveReferential<a class="headerlink" href="#utilisation-de-la-collection-tapearchivereferential" title="Lien permanent vers ce titre"></a></h4>
+<p>La collection TapeArchiveReferential écrit une archive de données archivée sur une bande magnétique ou en cours d’archivage.</p>
+</section>
+<section id="exemples-de-json-stockes-en-base-comprenant-les-differents-cas-possibles">
+<h4><span class="section-number">4.9.7.2. </span>Exemples de JSON stockés en base comprenant les différents cas possibles<a class="headerlink" href="#exemples-de-json-stockes-en-base-comprenant-les-differents-cas-possibles" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20211225001023845-cca8fa6a-acd5-4192-8132-ba2d907ef6df.tar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on_tape&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tapeCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VIT006&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;filePosition&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;entryTape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DATA&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lastUpdateDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-25T01:10:34.549&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;93fc8689667f5ae6c083fde08379c4469f92d43d19ec54f5434d94c892d700b3a54fa1f4d842576005fa6dd8013c1f19f7b1749bfafd1dd4a61800a56c7f9583&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">549888</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20211225001023845-cca8fa6a-acd5-4192-8132-ba2d907ef6df.tar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ready_on_disk&quot;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;entryTape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DATA&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lastUpdateDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-25T01:10:34.549&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;93fc8689667f5ae6c083fde08379c4469f92d43d19ec54f5434d94c892d700b3a54fa1f4d842576005fa6dd8013c1f19f7b1749bfafd1dd4a61800a56c7f9583&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12346789</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20211225001023845-cca8fa6a-acd5-4192-8132-ba2d907ef6df.tar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;building_on_disk&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;entryTape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DATA&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lastUpdateDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-13T15:15:27.983&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id69">
+<h4><span class="section-number">4.9.7.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id69" title="Lien permanent vers ce titre"></a></h4>
+<p>« _id » : identifiant unique de l’archive.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Le format est {timestamp}_{guid}.tar, où</p>
+<ul>
+<li><p>{timestamp} est la date et heure de création de l’archive an format AAAAMMJJhhmmssmmmm.</p></li>
+<li><p>{guid} est une chaîne de 36 caractères correspondant à un GUID.</p></li>
+</ul>
+</li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« location » : décrit la localisation de l’archive TAR</p>
+<ul class="simple">
+<li><p>Cet objet doit contenir les champs suivants :</p>
+<ul>
+<li><p>« type » : Type de localisation</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« building_on_disk » : l’archive TAR est en cours de construction sur le filesystem</p></li>
+<li><p>« ready_on_disk » : l’archive TAR est sur filesystem et prête à être écrite sur une bande magnétique</p></li>
+<li><p>« on_tape » : l’archive TAR est écrite sur une bande magnétique</p></li>
+</ul>
+</li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</li>
+<li><p>« tapeCode » : Identifiant de la bande magnétique</p>
+<ul>
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Doit être renseigné dans le cas où « type » est « on_tape »</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+</li>
+<li><p>« filePosition » : Position sur la bande magnétique</p>
+<ul>
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Doit être renseigné dans le cas où « type » est « on_tape »</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« entry_type » : type de l’archive</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Les valeurs possibles dans ce champ sont :</p>
+<ul>
+<li><p>« DATA » : Archive de type TAR contenant des données standard Vitam à archiver</p></li>
+<li><p>« BACKUP » : Pour les archives spéciales contenant des back-ups de la base de données (WriteBackupOrder)</p></li>
+</ul>
+</li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« lastUpdateDate » : date de dernière mise à jour technique du document.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« digest » : empreinte définitive de l’archive TAR.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Doit être renseigné dans les cas où « location.type » est « ready_on_disk » ou « on_tape »</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« size » : taille définitive en octets de l’archive TAR.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Doit être renseigné dans les cas où « location.type » est « ready_on_disk » ou « on_tape »</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+</section>
+</section>
+<section id="collection-tapeaccessrequestreferential-offre-froide">
+<h3><span class="section-number">4.9.8. </span>Collection TapeAccessRequestReferential (offre froide)<a class="headerlink" href="#collection-tapeaccessrequestreferential-offre-froide" title="Lien permanent vers ce titre"></a></h3>
+<section id="utilisation-de-la-collection-tapeaccessrequestreferential">
+<h4><span class="section-number">4.9.8.1. </span>Utilisation de la collection TapeAccessRequestReferential<a class="headerlink" href="#utilisation-de-la-collection-tapeaccessrequestreferential" title="Lien permanent vers ce titre"></a></h4>
+<p>Cette collection contient les demandes d’accès aux archives contenues sur un stockage de type bandes magnétiques.</p>
+</section>
+<section id="id70">
+<h4><span class="section-number">4.9.8.2. </span>Exemples de JSON stockés en base comprenant l’exhaustivité des champs<a class="headerlink" href="#id70" title="Lien permanent vers ce titre"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeaaaaaaaahjp2jaabukyal6nxps3eaaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;containerName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prod_0_unit&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;objectNames&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;aeeaaaaaaghjko2fabdtwal6nxvvwyaaaaaq.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;aecaaaaaawhjp2jaabllial6nx4l3biaaaaq.json&quot;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;creationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-18T16:00:57.472&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;readyDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;expirationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;purgeDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;unavailableArchiveIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;20220118154732676-a075455e-e5ec-49c0-90b9-113dda067e37.tar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;20220118154732676-a075455e-e5ec-49c0-90b9-113dda067e37.tar&quot;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aeaaaaaaaahjp2jaabukyal6nxps3eaaaaaq&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;containerName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prod_0_unit&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;objectNames&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;aeeaaaaaaghjko2fabdtwal6nxvvwyaaaaaq.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;aecaaaaaawhjp2jaabllial6nx4l3biaaaaq.json&quot;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;creationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-18T16:00:57.472&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;readyDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-18T16:05:11.235&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;expirationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-02-17T16:05:11.235&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;purgeDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-03-19T16:05:11.235&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;unavailableArchiveIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id71">
+<h4><span class="section-number">4.9.8.3. </span>Détail des champs du JSON stocké dans la collection<a class="headerlink" href="#id71" title="Lien permanent vers ce titre"></a></h4>
+<p>« _id » : identifiant de la requête d’accès.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de 36 caractères correspondant à un GUID.</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« containerName » : identifiant du conteneur de la donnée concernée par la requête d’accès.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une chaîne de caractères.</p></li>
+<li><p>Le format du conteneur est {environnement}_{tenant}_{repertoire}, où :</p>
+<ul>
+<li><p>{environnement} est l’identifiant de l’environnement Vitam configuré</p></li>
+<li><p>{tenant} est le tenant auquel appartient l’objet</p></li>
+<li><p>{repertoire} est un répertoire de stockage dépendant du type de données. Ex « unit » pour les unités archivistiques et leur journal du cycle de vie, « object » pour les objets binaires, etc.</p></li>
+</ul>
+</li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« objectNames » : liste des objets concernés par la requête d’accès.</p>
+<ul class="simple">
+<li><p>le tableau contient des chaînes de caractères.</p></li>
+<li><p>Ne peut être vide.</p></li>
+<li><p>Cardinalité : 1-n</p></li>
+</ul>
+<p>« creationDate » : date de création de la requête d’accès.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+<p>« readyDate » : date à laquelle la demande d’accès est devenue prête. Une demande d’accès est prête lorsque tous ses objets sont disponibles pour lecture immédiate depuis le disque.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« expirationDate » : date à laquelle la demande d’accès prête expirera. Une demande d’accès expire automatiquement après un délai configurable à partir du moment où elle devient prête.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« purgeDate » : date à laquelle la demande d’accès prête sera purgée de la base de données. Une demande d’accès est purgée automatiquement après un délai configurable à partir du moment où elle devient prête.</p>
+<ul class="simple">
+<li><p>Il s’agit d’une date au format ISO8601 AAAA-MM-JJ+ « T » +hh:mm:ss:[3 digits de millisecondes]</p></li>
+<li><p>Champ peuplé par la solution logicielle Vitam.</p></li>
+<li><p>Cardinalité : 0-1</p></li>
+</ul>
+<p>« unavailableArchiveIds » : liste des identifiants des archives actuellement indisponibles sur disque et dont la lecture depuis une bande est en cours.</p>
+<ul class="simple">
+<li><p>le tableau contient des chaînes de caractères.</p></li>
+<li><p>Cardinalité : 0-n</p></li>
+</ul>
+<p>_v »: version de la requête d’accès.</p>
+<ul class="simple">
+<li><p>Il s’agit d’un entier.</p></li>
+<li><p>Si le numéro est supérieur à 0, alors il s’agit du numéro de version de l’enregistrement.</p></li>
+<li><p>Cardinalité : 1-1</p></li>
+</ul>
+</section>
+</section>
+</section>
 <section id="annexe-1-valeurs-possibles-pour-le-champ-evtype-du-logbook-operation">
-<h2><span class="section-number">4.9. </span>Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation<a class="headerlink" href="#annexe-1-valeurs-possibles-pour-le-champ-evtype-du-logbook-operation" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">4.10. </span>Annexe 1 : Valeurs possibles pour le champ evType du LogBook Operation<a class="headerlink" href="#annexe-1-valeurs-possibles-pour-le-champ-evtype-du-logbook-operation" title="Lien permanent vers ce titre"></a></h2>
 <p>L’ensemble des étapes, tâches et traitements sont détaillés dans la
 documentation Modèle de workflow.</p>
 </section>
 <section id="annexe-2-valeurs-possibles-pour-le-champ-evtype-du-logbook-lifecycle">
-<h2><span class="section-number">4.10. </span>Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle<a class="headerlink" href="#annexe-2-valeurs-possibles-pour-le-champ-evtype-du-logbook-lifecycle" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">4.11. </span>Annexe 2 : Valeurs possibles pour le champ evType du LogBook LifeCycle<a class="headerlink" href="#annexe-2-valeurs-possibles-pour-le-champ-evtype-du-logbook-lifecycle" title="Lien permanent vers ce titre"></a></h2>
 <p>L’ensemble des étapes, tâches et traitements sont détaillées dans la
 documentation Modèle de workflow.</p>
 </section>
 <section id="annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus">
-<h2><span class="section-number">4.11. </span>Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)<a class="headerlink" href="#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">4.12. </span>Annexe 3: Valeurs possibles pour le champ evTypeProc (type de processus)<a class="headerlink" href="#annexe-3-valeurs-possibles-pour-le-champ-evtypeproc-type-de-processus" title="Lien permanent vers ce titre"></a></h2>
 <table class="colwidths-auto docutils align-default">
 <thead>
 <tr class="row-odd"><th class="text-left head"><p>Process Type</p></th>
@@ -7842,7 +8888,7 @@ documentation Modèle de workflow.</p>
 </table>
 </section>
 <section id="annexe-4-categories-de-regles-possibles">
-<h2><span class="section-number">4.12. </span>Annexe 4 : Catégories de règles possibles<a class="headerlink" href="#annexe-4-categories-de-regles-possibles" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">4.13. </span>Annexe 4 : Catégories de règles possibles<a class="headerlink" href="#annexe-4-categories-de-regles-possibles" title="Lien permanent vers ce titre"></a></h2>
 <table class="colwidths-auto docutils align-default">
 <thead>
 <tr class="row-odd"><th class="text-center head"><p>Prefixe (Peut être modifié)</p></th>
@@ -7883,7 +8929,7 @@ documentation Modèle de workflow.</p>
 </table>
 </section>
 <section id="annexe-5-valeurs-possibles-pour-le-champ-status-de-la-collection-accessionregisterdetail">
-<h2><span class="section-number">4.13. </span>Annexe 5 : Valeurs possibles pour le champ Status de la collection AccessionRegisterDetail<a class="headerlink" href="#annexe-5-valeurs-possibles-pour-le-champ-status-de-la-collection-accessionregisterdetail" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">4.14. </span>Annexe 5 : Valeurs possibles pour le champ Status de la collection AccessionRegisterDetail<a class="headerlink" href="#annexe-5-valeurs-possibles-pour-le-champ-status-de-la-collection-accessionregisterdetail" title="Lien permanent vers ce titre"></a></h2>
 <table class="colwidths-auto docutils align-default">
 <thead>
 <tr class="row-odd"><th class="text-center head"><p>Status type</p></th>
@@ -7904,7 +8950,7 @@ documentation Modèle de workflow.</p>
 </table>
 </section>
 <section id="annexe-6-valeurs-possibles-pour-le-champ-name-de-la-collection-vitamsequence">
-<h2><span class="section-number">4.14. </span>Annexe 6 : Valeurs possibles pour le champ Name de la collection VitamSequence<a class="headerlink" href="#annexe-6-valeurs-possibles-pour-le-champ-name-de-la-collection-vitamsequence" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">4.15. </span>Annexe 6 : Valeurs possibles pour le champ Name de la collection VitamSequence<a class="headerlink" href="#annexe-6-valeurs-possibles-pour-le-champ-name-de-la-collection-vitamsequence" title="Lien permanent vers ce titre"></a></h2>
 <table class="colwidths-auto docutils align-default">
 <thead>
 <tr class="row-odd"><th class="text-center head"><p>Prefixe</p></th>
@@ -7977,7 +9023,7 @@ documentation Modèle de workflow.</p>
 </table>
 </section>
 <section id="annexe-7-type-dindexation-des-chaines-de-caracteres-dans-elasticsearch-par-collection-et-par-champ">
-<h2><span class="section-number">4.15. </span>Annexe 7 : Type d’indexation des chaînes de caractères dans ElasticSearch par collection et par champ<a class="headerlink" href="#annexe-7-type-dindexation-des-chaines-de-caracteres-dans-elasticsearch-par-collection-et-par-champ" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">4.16. </span>Annexe 7 : Type d’indexation des chaînes de caractères dans ElasticSearch par collection et par champ<a class="headerlink" href="#annexe-7-type-dindexation-des-chaines-de-caracteres-dans-elasticsearch-par-collection-et-par-champ" title="Lien permanent vers ce titre"></a></h2>
 <p><strong>Collection AccessContract</strong></p>
 <table class="colwidths-auto docutils align-default">
 <thead>
@@ -9623,7 +10669,7 @@ documentation Modèle de workflow.</p>
 </table>
 </section>
 <section id="annexe-8-correspondances-des-champs-speciaux-dans-vitam">
-<h2><span class="section-number">4.16. </span>Annexe 8 : Correspondances des champs spéciaux dans Vitam<a class="headerlink" href="#annexe-8-correspondances-des-champs-speciaux-dans-vitam" title="Lien permanent vers ce titre"></a></h2>
+<h2><span class="section-number">4.17. </span>Annexe 8 : Correspondances des champs spéciaux dans Vitam<a class="headerlink" href="#annexe-8-correspondances-des-champs-speciaux-dans-vitam" title="Lien permanent vers ce titre"></a></h2>
 <p>Les champs dont le nom est préfixé d’un « _ » ne sont pas accessibles
 directement, une correspondance est nécessaire pour y accéder.</p>
 <p><strong>Collection AccessContract</strong></p>
