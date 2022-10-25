@@ -21,13 +21,13 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = u'Documentation utilisateur Vitam'
-copyright = u'2021, Programme Vitam'
+copyright = u'2022, Programme Vitam'
 author = u'Programme Vitam'
 
 # The short X.Y version
-version = u'5.0'
+version = u'6.rc'
 # The full version, including alpha/beta/rc tags
-release = u'5.0.0'
+release = u'6.rc.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -98,11 +98,11 @@ html_theme_options = {
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': False,
-    'navigation_depth': 4,
+    'navigation_depth': 7,
     'includehidden': True,
     'titles_only': False
 }
-html_title = 'Vitam-UI documentation'
+html_title = 'Vitam documentation fonctionnelle'
 html_logo = 'images/Vitam_Logo-CMJN.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -110,9 +110,9 @@ html_logo = 'images/Vitam_Logo-CMJN.png'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-#html_css_files = [
-#    'css/theme.css',
-#]
+html_css_files = [
+    'css/custom.css',
+]
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
@@ -127,7 +127,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Vitam-UIdoc'
+htmlhelp_basename = 'Vitam-doc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -154,7 +154,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Vitam-UI.tex', u'Vitam-UI Documentation',
+    (master_doc, 'Vitam.tex', u'Vitam documentation fonctionnelle',
      u'Programme Vitam', 'manual'),
 ]
 
@@ -164,7 +164,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'vitam-ui', u'Vitam-UI Documentation',
+    (master_doc, 'vitam', u'Vitam documentation fonctionnelle',
      [author], 1)
 ]
 
@@ -175,8 +175,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Vitam-UI', u'Vitam-UI Documentation',
-     author, 'Vitam-UI', 'One line description of project.',
+    (master_doc, 'Vitam', u'Vitam documentation fonctionnelle',
+     author, 'Programme Vitam', 'Vitam documentation fonctionnelle',
      'Miscellaneous'),
 ]
 
@@ -203,7 +203,7 @@ epub_exclude_files = ['search.html']
 extensions = [
    'sphinx.ext.autodoc',
    'sphinx_rtd_theme',
-   'sphinx_markdown_tables',
+#   'sphinx_markdown_tables',
    'myst_parser',
    'sphinx_multiversion',
 ]
@@ -211,7 +211,10 @@ extensions = [
 # Multi-version configuration
 smv_tag_whitelist = r'^v\d+\.\d+.*$|latest'  # all tags of form v*.*.x and latest
 # Whitelist pattern for branches (set to '' to ignore all branches)
-smv_branch_whitelist = ''
+smv_branch_whitelist = 'update|Update|^v.*'
 smv_released_pattern = r'v.*'
-smv_latest_version = 'v5.0'
-smv_remote_whitelist = None
+smv_latest_version = 'v6.rc'
+smv_remote_whitelist = r'^.*$'
+
+locale_dirs = ['locale/']
+gettext_compact = False
