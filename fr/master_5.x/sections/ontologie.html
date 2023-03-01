@@ -29,12 +29,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: white" >
-            <a href="../index.html">
-            <img src="../_static/Vitam_Logo-CMJN.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/Vitam_Logo-CMJN.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Rechercher docs" />
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -76,8 +80,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><span class="section-number">2. </span>Ontologie</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Ontologie</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/sections/ontologie.md.txt" rel="nofollow"> Afficher la source de la page</a>
       </li>
@@ -180,18 +184,18 @@ correspondant à un élément XML englobant un sous-élément XML
 </ul>
 <p>Exemple : ne sont pas présents dans l’ontologie les éléments XML <ManagementMetadata>, <StorageRule> et <AccessRule>. Les autres, qui contiennent des valeurs informationnelles, le sont.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ManagementMetadata&gt;</span>
-      <span class="nt">&lt;AcquisitionInformation&gt;</span>Versement<span class="nt">&lt;/AcquisitionInformation&gt;</span>
-      <span class="nt">&lt;LegalStatus&gt;</span>Public Archive<span class="nt">&lt;/LegalStatus&gt;</span>
-      <span class="nt">&lt;OriginatingAgencyIdentifier&gt;</span>RATP<span class="nt">&lt;/OriginatingAgencyIdentifier&gt;</span>
-      <span class="nt">&lt;SubmissionAgencyIdentifier&gt;</span>RATP<span class="nt">&lt;/SubmissionAgencyIdentifier&gt;</span>
-      <span class="nt">&lt;StorageRule&gt;</span>
-           <span class="nt">&lt;FinalAction&gt;</span>Copy<span class="nt">&lt;/FinalAction&gt;</span>
-      <span class="nt">&lt;/StorageRule&gt;</span>
-      <span class="nt">&lt;AccessRule&gt;</span>
-           <span class="nt">&lt;Rule&gt;</span>ACC-00002<span class="nt">&lt;/Rule&gt;</span>
-           <span class="nt">&lt;StartDate&gt;</span>2000-01-01<span class="nt">&lt;/StartDate&gt;</span>
-      <span class="nt">&lt;/AccessRule&gt;</span>
- <span class="nt">&lt;/ManagementMetadata&gt;</span>
+<span class="w">      </span><span class="nt">&lt;AcquisitionInformation&gt;</span>Versement<span class="nt">&lt;/AcquisitionInformation&gt;</span>
+<span class="w">      </span><span class="nt">&lt;LegalStatus&gt;</span>Public<span class="w"> </span>Archive<span class="nt">&lt;/LegalStatus&gt;</span>
+<span class="w">      </span><span class="nt">&lt;OriginatingAgencyIdentifier&gt;</span>RATP<span class="nt">&lt;/OriginatingAgencyIdentifier&gt;</span>
+<span class="w">      </span><span class="nt">&lt;SubmissionAgencyIdentifier&gt;</span>RATP<span class="nt">&lt;/SubmissionAgencyIdentifier&gt;</span>
+<span class="w">      </span><span class="nt">&lt;StorageRule&gt;</span>
+<span class="w">           </span><span class="nt">&lt;FinalAction&gt;</span>Copy<span class="nt">&lt;/FinalAction&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/StorageRule&gt;</span>
+<span class="w">      </span><span class="nt">&lt;AccessRule&gt;</span>
+<span class="w">           </span><span class="nt">&lt;Rule&gt;</span>ACC-00002<span class="nt">&lt;/Rule&gt;</span>
+<span class="w">           </span><span class="nt">&lt;StartDate&gt;</span>2000-01-01<span class="nt">&lt;/StartDate&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/AccessRule&gt;</span>
+<span class="w"> </span><span class="nt">&lt;/ManagementMetadata&gt;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -199,25 +203,25 @@ correspondant à un élément XML englobant un sous-élément XML
 à un élément JSON de type « objet ».</p></li>
 </ul>
 <p>Exemple : ne sont pas présents dans l’ontologie les éléments JSON _mgt, AccessRule, Rules, CustodialHistory. Les autres, qui contiennent des valeurs informationnelles, le sont.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>&quot;_mgt&quot;: {
-        &quot;AccessRule&quot;: {
-            &quot;Rules&quot;: [
-                {
-                    &quot;Rule&quot;: &quot;ACC-00001&quot;,
-                    &quot;StartDate&quot;: &quot;1914-01-01&quot;,
-                    &quot;EndDate&quot;: &quot;1914-01-01&quot;
-                }
-            ]
-        }
-    },
-    &quot;DescriptionLevel&quot;: &quot;Item&quot;,
-    &quot;Description&quot;: &quot;Cabinet de Michel Mercier : correspondances.&quot;,
-    &quot;CustodialHistory&quot;: {
-        &quot;CustodialHistoryItem&quot;: [
-            &quot;Fonds provenant des archives du cabinet du ministre Michel Mercier&quot;,
-            &quot;
-        ]
-    }
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>&quot;_mgt&quot;:<span class="w"> </span>{
+<span class="w">        </span>&quot;AccessRule&quot;:<span class="w"> </span>{
+<span class="w">            </span>&quot;Rules&quot;:<span class="w"> </span>[
+<span class="w">                </span>{
+<span class="w">                    </span>&quot;Rule&quot;:<span class="w"> </span>&quot;ACC-00001&quot;,
+<span class="w">                    </span>&quot;StartDate&quot;:<span class="w"> </span>&quot;1914-01-01&quot;,
+<span class="w">                    </span>&quot;EndDate&quot;:<span class="w"> </span>&quot;1914-01-01&quot;
+<span class="w">                </span>}
+<span class="w">            </span>]
+<span class="w">        </span>}
+<span class="w">    </span>},
+<span class="w">    </span>&quot;DescriptionLevel&quot;:<span class="w"> </span>&quot;Item&quot;,
+<span class="w">    </span>&quot;Description&quot;:<span class="w"> </span>&quot;Cabinet<span class="w"> </span>de<span class="w"> </span>Michel<span class="w"> </span>Mercier<span class="w"> </span>:<span class="w"> </span>correspondances.&quot;,
+<span class="w">    </span>&quot;CustodialHistory&quot;:<span class="w"> </span>{
+<span class="w">        </span>&quot;CustodialHistoryItem&quot;:<span class="w"> </span>[
+<span class="w">            </span>&quot;Fonds<span class="w"> </span>provenant<span class="w"> </span>des<span class="w"> </span>archives<span class="w"> </span>du<span class="w"> </span>cabinet<span class="w"> </span>du<span class="w"> </span>ministre<span class="w"> </span>Michel<span class="w"> </span>Mercier&quot;,
+<span class="w">            </span>&quot;
+<span class="w">        </span>]
+<span class="w">    </span>}
 </pre></div>
 </div>
 <p>En d’autres termes, l’ontologie <strong>référence seulement les vocabulaires
@@ -274,16 +278,16 @@ vocabulaires pouvant être utilisés par la solution logicielle Vitam. Ce
 référentiel est importé sous la forme d’un fichier JSON, contenant
 systématiquement l’ensemble des vocabulaires utilisés.</p>
 <p>Exemple : deux vocabulaires contenant uniquement les informations obligatoires pour être importés avec succès.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w"> </span><span class="nt">&quot;Identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Vocabulaire1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LONG&quot;</span><span class="w"></span>
-<span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w"> </span><span class="nt">&quot;Identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Vocabulaire2&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TEXT&quot;</span><span class="w"></span>
-<span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;Identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Vocabulaire1&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LONG&quot;</span>
+<span class="w"> </span><span class="p">},</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;Identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Vocabulaire2&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TEXT&quot;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 <p>Un vocabulaire donné doit nécessairement être décrit avec les
@@ -5095,6 +5099,7 @@ attendus de la solution logicielle Vitam.</p>
       <dd><a href="../../master/sections/ontologie.html">master</a></dd>
       <dd><a href="../../Update_of_MDD_for_6.rc_version/sections/ontologie.html">Update_of_MDD_for_6.rc_version</a></dd>
       <dd><a href="ontologie.html">master_5.x</a></dd>
+      <dd><a href="../../master_6.rc.x/sections/ontologie.html">master_6.rc.x</a></dd>
       <dd><a href="../../update_of_workflow_model_for_6.rc_version/sections/ontologie.html">update_of_workflow_model_for_6.rc_version</a></dd>
       <dd><a href="../../v5.0/sections/ontologie.html">v5.0</a></dd>
     </dl>
