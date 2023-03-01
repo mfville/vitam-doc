@@ -129,6 +129,7 @@ programme.</p>
 <h2><span class="section-number">2.3. </span>Présentation de la notion d’ontologie<a class="headerlink" href="#presentation-de-la-notion-dontologie" title="Lien permanent vers ce titre"></a></h2>
 <section id="quest-ce-quune-ontologie">
 <h3><span class="section-number">2.3.1. </span>Qu’est-ce qu’une ontologie ?<a class="headerlink" href="#quest-ce-quune-ontologie" title="Lien permanent vers ce titre"></a></h3>
+<p>Ceci est une modification</p>
 <p>L’ontologie référence l’<strong>ensemble des vocabulaires</strong> ou métadonnées
 acceptés dans la solution logicielle Vitam. Pour chacun de ces
 vocabulaires, elle définit un intitulé et un type d’indexation
@@ -394,25 +395,30 @@ concernés :</p></li>
 </tbody>
 </table>
 <p>Métadonnées descriptives   &lt;ObjectGroupExtensionAbstract&gt;         Métadonnées descriptives complémentaires</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                         &amp;lt;ArchiveUnitReferenceAbstract&amp;gt;         Requêtes permettant de gérer la récursivité et de pointer vers un objet-archives supposé être déjà géré par le SAE
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                         &lt;ArchiveUnitReferenceAbstract&gt;         Requêtes permettant de gérer la récursivité et de pointer vers un objet-archives supposé être déjà géré par le SAE
 </pre></div>
 </div>
 <p>Métadonnées de gestion     &lt;OtherManagementAbstract&gt;              Autres métadonnées de gestion</p>
 <hr class="docutils" />
-<ul class="simple">
+<ul>
 <li><p>Des extensions dont la définition n’est pas obligatoire pour que le
 schéma soit valide (extensions par redéfinition, de type OpenType).
 Leur type peut être défini selon les besoins des utilisateurs qui
 peuvent y mettre ce qu’ils veulent. Aucune vérification sur ces
 extensions ne pourra être faite lors des transactions tant que le
-type de ces extensions n’est pas défini. Sont concernés :</p></li>
-</ul>
+type de ces extensions n’est pas défini. Sont concernés :</p>
 <hr class="docutils" />
 <p><strong>Bloc concerné</strong>        <strong>Elément XML</strong>                               <strong>Signification / usage</strong>
-Noyau du schéma (main)   &lt;OrganizationDescriptiveMetadataType&gt;   Métadonnées descriptives pour une organisation
-&lt;SignatureType&gt;                         Signature utilisée lors des échanges de messages
-Métadonnées techniques   &lt;XXXTechnicalMetadataType&gt;              Métadonnées techniques essentielles correspondant à des fichiers de types texte, document, image, audio et vidéo
-&lt;DescriptiveTechnicalMetadataType&gt;      Autres métadonnées techniques</p>
+Noyau du schéma (main)   &lt;OrganizationDescriptiveMetadataType&gt;   Métadonnées descriptives pour une organisation</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   &lt;SignatureType&gt;                         Signature utilisée lors des échanges de messages
+</pre></div>
+</div>
+<p>Métadonnées techniques   &lt;XXXTechnicalMetadataType&gt;              Métadonnées techniques essentielles correspondant à des fichiers de types texte, document, image, audio et vidéo</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   &lt;DescriptiveTechnicalMetadataType&gt;      Autres métadonnées techniques
+</pre></div>
+</div>
+</li>
+</ul>
 <hr class="docutils" />
 <p>Ces extensions doivent être qualifiées d’origine « EXTERNAL » dans
 l’ontologie.</p>
@@ -544,17 +550,17 @@ aux statuts suivants :</p>
 <p>Succès       Opération réalisée sans rencontrer de problèmes particuliers.</p>
 <p>Échec        Sans journalisation :</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>           – ré-import d’un référentiel sous la forme d’un fichier qui n’est pas au format JSON ;
-           
+
            – import d’un référentiel dont au moins un des champs contient une injection HTML.
 
            Avec journalisation :
-           
+
            – ajout d’un vocabulaire dont l’identifiant est déjà utilisé par un autre vocabulaire de l’ontologie ;
-           
+
            – ajout d’un vocabulaire dont l’identifiant ne correspond pas aux règles imposées par la solution logicielle Vitam[^14] ;
-           
+
            – incompatibilité entre le nouveau et l’ancien type d’indexation ;
-           
+
            – suppression d’un vocabulaire utilisé dans un profil d’unité archivistique.
 </pre></div>
 </div>
@@ -727,14 +733,14 @@ solution logicielle Vitam.</p>
 <p><strong>Cette opération s’effectue uniquement sur le tenant
 d’administration.</strong></p>
 <p>Elle obéit à des règles strictes :</p>
-<ul class="simple">
+<ul>
 <li><p>un nouveau vocabulaire doit obligatoirement avoir une <strong>origine
 externe</strong>, à moins de correspondre à un vocabulaire nécessaire à la
 mise à jour du modèle de données géré par la solution logicielle
 Vitam ou engendré par la publication d’une nouvelle version du
 SEDA ;</p></li>
 <li><p>un nouveau vocabulaire doit détenir un <strong>identifiant</strong> :</p>
-<ul>
+<ul class="simple">
 <li><p>unique,</p></li>
 <li><p>ne commençant pas par un underscore (par exemple _bibref) ou un
 dièse (#bibref), qui sont des caractères réservés par la
@@ -750,7 +756,7 @@ moins, une <strong>collection</strong>. S’il s’agit d’un vocabulaire exter
 créé pour répondre à des besoins liés à l’entrée (par exemple, ajout
 d’extensions dans le bordereau de transfert), la collection à
 renseigner doit être :</p>
-<ul>
+<ul class="simple">
 <li><p>soit Unit si on ajoute des métadonnées descriptives aux unités
 archivistiques,</p></li>
 <li><p>soit ObjectGroup si on étend les métadonnées liées au groupe
@@ -759,29 +765,30 @@ d’objets techniques ;</p></li>
 </li>
 <li><p>un nouveau vocabulaire doit nécessairement avoir un <strong>type
 d’indexation</strong>. Les types d’indexation pris en charge par la
-solution logicielle Vitam sont :</p></li>
-</ul>
+solution logicielle Vitam sont :</p>
 <hr class="docutils" />
 <p><strong>Type d’indexation initiale</strong>   <strong>Signification</strong>   <strong>Valeur correspondante</strong>                                           <strong>Commentaires</strong></p>
 <p>TEXT                             Texte               Paris, anciennement appelée Lutèce, est la capitale de la France.   La recherche sur un vocabulaire de type TEXT est effectuée en mode « full text ».</p>
 <p>KEYWORD                          Mot-clé             Paris [Ville]                                                     La recherche sur un vocabulaire de type KEYWORD correspond à une recherche exacte.</p>
 <p>DATE                             Date                2016-10-12T16:28:40</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                   2018-06-06                                                          
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                               2018-06-06                                                          
 </pre></div>
 </div>
 <p>LONG                             Entier              9999</p>
 <p>DOUBLE                           Décimal             1.1111111</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                   20.00001                                                            
-                                                                                                                       
-                                                   3.0                                                                 
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                               20.00001                                                            
+
+                                               3.0                                                                 
 </pre></div>
 </div>
 <p>BOOLEAN                          Booléen             true</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                   false                                                               
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                               false                                                               
 </pre></div>
 </div>
 <p>GEO_POINT                       Géolocalisation     /                                                                   L’équipe Vitam n’a pas investigué sur les usages de ces deux types d’indexation.</p>
 <p>ENUM                             Énumération         /</p>
+</li>
+</ul>
 <hr class="docutils" />
 <p><strong>Points d’attention :</strong></p>
 <ul class="simple">
@@ -980,7 +987,7 @@ suivantes :</p>
 <p>Administrateur fonctionnel                   émet le souhait de supprimer un vocabulaire, <strong>externe</strong>, dans l’ontologie.                                                                                                     Non</p>
 <p>Administrateur fonctionnel                   vérifie au préalable si ce vocabulaire n’est pas utilisé par une unité archivistique ou un profil d’unité archivistique ;                                                       Oui</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                           -   si ce vocabulaire est utilisé par des unités archivistiques, procède à une mise à jour de ces unités archivistiques, afin de modifier l’utilisation ;                       
-                                                                                                                                                                                                                           
+
                                            -   si ce vocabulaire est utilisé par un profil d’unité archivistique, ôter la référence au profil d’unité archivistique dans l’(les) unité(s) archivistique(s) concernée(s).   
 </pre></div>
 </div>
@@ -1108,97 +1115,98 @@ l’ontologie.</p>
 <p>Étant donné les liens étroits de l’ontologie avec les profils d’unité
 archivistique, il est possible d’envisager d’associer pour chaque
 vocabulaire la liste des profils d’unité archivistique l’utilisant.</p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>[]{#__RefHeading___Toc12996_582479276 .anchor}Comment utiliser
-l’ontologie ?</p></li>
-</ol>
+l’ontologie ?</p>
 <hr class="docutils" />
 <p><strong>Intitulé</strong>                                                                                                 <strong>Description</strong>                                                                                                                                                                                                                                                                               <strong>Niveau de recommandation</strong></p>
 <p><strong>Administration de l’ontologie</strong></p>
 <p>Import ou modification de l’ontologie                                                                        Les opérations d’import et de mise à jour de l’ontologie s’effectuent obligatoirement sur le tenant d’administration.                                                                                                                                                                         Obligatoire</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           L’indexation des vocabulaires dans le moteur de recherche Elastic Search se fait tenant par tenant.                                                                                                                                                                                           
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       L’indexation des vocabulaires dans le moteur de recherche Elastic Search se fait tenant par tenant.                                                                                                                                                                                           
 </pre></div>
 </div>
 <p>Import initial de l’ontologie                                                                                Il est obligatoire d’importer l’ontologie lors de l’installation de la solution logicielle Vitam.                                                                                                                                                                                             Obligatoire</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Cette ontologie, fournie avec la solution logicielle Vitam, inclut par défaut l’ensemble des vocabulaires internes gérés par la solution.                                                                                                                                                     
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Cette ontologie, fournie avec la solution logicielle Vitam, inclut par défaut l’ensemble des vocabulaires internes gérés par la solution.                                                                                                                                                     
 </pre></div>
 </div>
 <p>Ajout d’un vocabulaire externe                                                                               La solution logicielle Vitam rend possible l’ajout d’un vocabulaire externe par un renvoi complet de l’ontologie depuis le tenant d’administration.                                                                                                                                           Recommandé</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Il peut s’agir d’un acte d’administration fonctionnelle, qui doit néanmoins être accompagné d’un acte d’exploitation visant à réindexer le nouveau vocabulaire dans le moteur de recherche Elastic Search.                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           Il faut veiller à ce que le vocabulaire présent dans l’ontologie et les mappings du moteur de recherche Elastic Search soient cohérents.                                                                                                                                                      
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           Exemple : si j’ajoute un vocabulaire sur les unités archivistiques, le mapping de la collection Unit Elastic Search devra être mise à jour.                                                                                                                                                   
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Il peut s’agir d’un acte d’administration fonctionnelle, qui doit néanmoins être accompagné d’un acte d’exploitation visant à réindexer le nouveau vocabulaire dans le moteur de recherche Elastic Search.                                                                                    
+
+                                                                                                       Il faut veiller à ce que le vocabulaire présent dans l’ontologie et les mappings du moteur de recherche Elastic Search soient cohérents.                                                                                                                                                      
+
+                                                                                                       Exemple : si j’ajoute un vocabulaire sur les unités archivistiques, le mapping de la collection Unit Elastic Search devra être mise à jour.                                                                                                                                                   
 </pre></div>
 </div>
 <p>Ajout d’un vocabulaire interne pour évolution du modèle de données ou évolution du SEDA                      La solution logicielle Vitam rend possible l’ajout d’un vocabulaire interne au moyen d’un acte d’exploitation, qui permet en outre de ne pas mettre à jour les vocabulaires externes du référentiel.                                                                                          Recommandé</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Cette opération ne peut avoir lieu qu’à deux occasions :                                                                                                                                                                                                                                      
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           -   évolution du modèle de données de la solution logicielle Vitam,                                                                                                                                                                                                                           
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           -   publication d’une nouvelle version du SEDA.                                                                                                                                                                                                                                               
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           Elle est alors initiée et réalisée par un administrateur technique, car elle nécessite en plus un acte d’exploitation technique sur le moteur de recherche Elastic Search (réindexation).                                                                                                     
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           En dehors de ces deux cas, il n’est pas recommandé d’ajouter un vocabulaire interne.                                                                                                                                                                                                          
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Cette opération ne peut avoir lieu qu’à deux occasions :                                                                                                                                                                                                                                      
+
+                                                                                                       -   évolution du modèle de données de la solution logicielle Vitam,                                                                                                                                                                                                                           
+
+                                                                                                       -   publication d’une nouvelle version du SEDA.                                                                                                                                                                                                                                               
+
+                                                                                                       Elle est alors initiée et réalisée par un administrateur technique, car elle nécessite en plus un acte d’exploitation technique sur le moteur de recherche Elastic Search (réindexation).                                                                                                     
+
+                                                                                                       En dehors de ces deux cas, il n’est pas recommandé d’ajouter un vocabulaire interne.                                                                                                                                                                                                          
 </pre></div>
 </div>
 <p>Modification de l’identifiant des vocabulaires internes                                                      Selon son paramétrage, la solution logicielle Vitam permet de modifier les vocabulaires internes de l’ontologie.                                                                                                                                                                              Interdit</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Néanmoins, il est interdit de modifier leur identifiant.                                                                                                                                                                                                                                      
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Néanmoins, il est interdit de modifier leur identifiant.                                                                                                                                                                                                                                      
 </pre></div>
 </div>
 <p>Modification du type d’indexation des vocabulaires internes par un administrateur fonctionnel                Selon son paramétrage, la solution logicielle Vitam permet de modifier le type d’indexation des vocabulaires internes de l’ontologie.                                                                                                                                                         Non recommandé</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Néanmoins, cette action pouvant avoir un impact sur l’indexation des enregistrements en base de données et devant être accompagnée d’un acte d’exploitation pour être effective, il n’est pas recommandé qu’un administrateur fonctionnel seul l’effectue.                                    
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Néanmoins, cette action pouvant avoir un impact sur l’indexation des enregistrements en base de données et devant être accompagnée d’un acte d’exploitation pour être effective, il n’est pas recommandé qu’un administrateur fonctionnel seul l’effectue.                                    
 </pre></div>
 </div>
 <p>Modification du type d’indexation des vocabulaires internes par un administrateur technique                  Selon son paramétrage, la solution logicielle Vitam permet de modifier le type d’indexation des vocabulaires internes de l’ontologie.                                                                                                                                                         Recommandé</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Mais cette action peut avoir un impact sur l’indexation des enregistrements en base de données et doit être accompagnée d’un acte d’exploitation pour être effective.                                                                                                                         
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           Il est recommandé que cet acte soit effectué par un administrateur technique, en accord avec un administrateur fonctionnel.                                                                                                                                                                   
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Mais cette action peut avoir un impact sur l’indexation des enregistrements en base de données et doit être accompagnée d’un acte d’exploitation pour être effective.                                                                                                                         
+
+                                                                                                       Il est recommandé que cet acte soit effectué par un administrateur technique, en accord avec un administrateur fonctionnel.                                                                                                                                                                   
 </pre></div>
 </div>
 <p>Modification du type d’indexation des vocabulaires externes par un administrateur fonctionnel                La modification du type d’indexation des vocabulaires externes est possible, mais obéit à des règles précises.                                                                                                                                                                                Non recommandé</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Cette action pouvant avoir un impact sur l’indexation des enregistrements en base de données et devant être accompagnée d’un acte d’exploitation pour être effective, il n’est pas recommandé qu’un administrateur fonctionnel seul l’effectue.                                               
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Cette action pouvant avoir un impact sur l’indexation des enregistrements en base de données et devant être accompagnée d’un acte d’exploitation pour être effective, il n’est pas recommandé qu’un administrateur fonctionnel seul l’effectue.                                               
 </pre></div>
 </div>
 <p>Suppression d’un vocabulaire externe inutilisé par un profil d’unité archivistique                           Si un vocabulaire externe n’est pas utilisé par un profil d’unité archivistique, il est possible de le supprimer de l’ontologie.                                                                                                                                                              Possible</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           *Point d’attention :* il est ensuite nécessaire de procéder à une suppression de ce vocabulaire dans le moteur de recherche Elastic Search au moyen d’une opération technique d’exploitation                                                                                                  
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       *Point d’attention :* il est ensuite nécessaire de procéder à une suppression de ce vocabulaire dans le moteur de recherche Elastic Search au moyen d’une opération technique d’exploitation                                                                                                  
 </pre></div>
 </div>
 <p>Paramétrage d’interdiction de la Suppression d’un vocabulaire interne par un administrateur fonctionnel      La solution logicielle Vitam rend possible la suppression d’un vocabulaire interne au moyen d’un paramétrage visant à forcer cette suppression.                                                                                                                                               Recommandé</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Néanmoins, il est recommandé d’activer le paramétrage technique interdisant cette suppression. En effet, un vocabulaire interne n’a pas vocation a être supprimé en production.                                                                                                               
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Néanmoins, il est recommandé d’activer le paramétrage technique interdisant cette suppression. En effet, un vocabulaire interne n’a pas vocation a être supprimé en production.                                                                                                               
 </pre></div>
 </div>
 <p>Suppression d’un vocabulaire interne par un administrateur fonctionnel                                       Il est interdit de supprimer un vocabulaire interne.                                                                                                                                                                                                                                          Interdit</p>
 <p>Suppression d’un vocabulaire interne pour évolution du modèle de données ou évolution du SEDA                La solution logicielle Vitam rend possible la suppression d’un vocabulaire interne au moyen d’un paramétrage visant à forcer cette suppression, qui permet en outre de ne pas mettre à jour les vocabulaires externes du référentiel.                                                         Recommandé</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Cette opération ne peut avoir lieu qu’à deux occasions :                                                                                                                                                                                                                                      
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           -   évolution du modèle de données de la solution logicielle Vitam,                                                                                                                                                                                                                           
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           -   publication d’une nouvelle version du SEDA.                                                                                                                                                                                                                                               
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           Elle est alors initiée et réalisée par un administrateur technique, car elle nécessite un acte d’exploitation technique sur le moteur de recherche Elastic Search (réindexation).                                                                                                             
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           En dehors de ces deux cas, il n’est pas recommandé de supprimer un vocabulaire interne.                                                                                                                                                                                                       
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Cette opération ne peut avoir lieu qu’à deux occasions :                                                                                                                                                                                                                                      
+
+                                                                                                       -   évolution du modèle de données de la solution logicielle Vitam,                                                                                                                                                                                                                           
+
+                                                                                                       -   publication d’une nouvelle version du SEDA.                                                                                                                                                                                                                                               
+
+                                                                                                       Elle est alors initiée et réalisée par un administrateur technique, car elle nécessite un acte d’exploitation technique sur le moteur de recherche Elastic Search (réindexation).                                                                                                             
+
+                                                                                                       En dehors de ces deux cas, il n’est pas recommandé de supprimer un vocabulaire interne.                                                                                                                                                                                                       
 </pre></div>
 </div>
 <p>Suppression d’un vocabulaire externe utilisé par un profil d’unité archivistique                             Si un vocabulaire externe est utilisé par un profil d’unité archivistique, il est interdit de le supprimer de l’ontologie.                                                                                                                                                                    Interdit</p>
 <p>Suppression d’un vocabulaire externe utilisé par un profil d’unité archivistique                             Si un vocabulaire externe est utilisé par un profil d’unité archivistique, la solution logicielle Vitam ne permet pas de le supprimer de l’ontologie.                                                                                                                                         Recommandé</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Si l’on souhaite vraiment le supprimer, il est alors conseiller de procéder comme suit :                                                                                                                                                                                                      
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           -   vérifier que le profil d’unité archivistique n’est pas utilisé par des unités archivistiques ;                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           -   le cas échéant, modifier le profil d’unité archivistique déclaré par ces unités archivistiques, l’objectif étant que le profil d’unité archivistique ne soit plus utilisé en accès ;                                                                                                      
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           -   modifier le profil d’unité archivistique et supprimer le vocabulaire externe ;                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                           -   supprimer le vocabulaire externe de l’ontologie.                                                                                                                                                                                                                                          
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                       Si l’on souhaite vraiment le supprimer, il est alors conseiller de procéder comme suit :                                                                                                                                                                                                      
+
+                                                                                                       -   vérifier que le profil d’unité archivistique n’est pas utilisé par des unités archivistiques ;                                                                                                                                                                                            
+
+                                                                                                       -   le cas échéant, modifier le profil d’unité archivistique déclaré par ces unités archivistiques, l’objectif étant que le profil d’unité archivistique ne soit plus utilisé en accès ;                                                                                                      
+
+                                                                                                       -   modifier le profil d’unité archivistique et supprimer le vocabulaire externe ;                                                                                                                                                                                                            
+
+                                                                                                       -   supprimer le vocabulaire externe de l’ontologie.                                                                                                                                                                                                                                          
 </pre></div>
 </div>
+</li>
+</ol>
 <p><strong>Entrée</strong></p>
 <p>Transfert d’un SIP déclarant un profil d’unité archivistique et contenant des vocabulaires externes          Le transfert d’un SIP déclarant un profil d’unité archivistique et comportant des extensions au SEDA nécessite en préalable les opérations suivantes :                                                                                                                                        Obligatoire</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           -   création des vocabulaires externes correspondant à ces extensions,                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                         
+
                                                                                                            -   création du profil d’unité archivistique.                                                                                                                                                                                                                                                 
 </pre></div>
 </div>
@@ -1214,7 +1222,7 @@ l’ontologie ?</p></li>
 <p>Utilisation de l’ontologie pour afficher les vocabulaires internes et externes dans l’IHM                    Dans les différentes IHM, il est recommandé de récupérer au moyen d’une requête la traduction des vocabulaires de l’ontologie, plutôt que d’afficher des intitulés en dur, afin de faciliter leur modification par un administrateur fonctionnel.                                             Recommandé</p>
 <p>Accès à l’ontologie par un administrateur fonctionnel                                                        Un administrateur fonctionnel peut avoir accès à l’ontologie et détenir des droits d’ajout et de modification de vocabulaires.                                                                                                                                                                Obligatoire</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                           Il est obligatoire que son intervention sur l’ontologie, **surtout sur l’indexation**, soit réalisée de concert avec l’administrateur technique.                                                                                                                                              
-                                                                                                                                                                                                                                                                                                                                                                                                         
+
                                                                                                            En outre, il est recommandé de lui interdire de supprimer de son propre chef des vocabulaires internes.                                                                                                                                                                                       
 </pre></div>
 </div>
