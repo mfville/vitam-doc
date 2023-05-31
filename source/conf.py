@@ -25,9 +25,9 @@ copyright = u'2022, Programme Vitam'
 author = u'Programme Vitam'
 
 # The short X.Y version
-version = u'6.rc'
+version = u'v6'
 # The full version, including alpha/beta/rc tags
-release = u'6.rc.0'
+release = u'6.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -213,7 +213,7 @@ smv_tag_whitelist = r'^v\d+\.\d+.*$|latest'  # all tags of form v*.*.x and lates
 # Whitelist pattern for branches (set to '' to ignore all branches)
 smv_branch_whitelist = 'update|Update|master|^v.*'
 smv_released_pattern = r'v.*'
-smv_latest_version = 'v6.rc'
+smv_latest_version = 'v6.0'
 smv_remote_whitelist = r'^.*$'
 
 locale_dirs = ['locale/']
