@@ -11,6 +11,7 @@ Documentation Vitam
    :numbered:
 
    sections/presentation_programme.md
+   sections/signature
    sections/ontologie.md
    sections/gel.md
    sections/modele_de_donnees.md
