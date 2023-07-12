@@ -73,7 +73,7 @@ définies dans les normes suivantes :
     dans le cadre de l’Union européenne ;
 -   NF Z 42‑013  : Archivage électronique, recommandations et exigences.
 
-La procédure s’effectue en deux temps : TURLUTUTU CHAPO POINTU
+La procédure s’effectue en deux temps :
 
 -   un gel des archives, suite à une demande émanant d’un service
     producteur dans le cadre d’un contexte particulier ;
