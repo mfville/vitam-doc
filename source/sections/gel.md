@@ -11,7 +11,7 @@ volumes limités dont la prise en charge leur était proposée. Cette
 situation évolue désormais rapidement et les acteurs du secteur public
 étatique doivent se mettre en capacité de traiter les volumes croissants
 d’archives numériques qui doivent être archivés, grâce à un saut
-technologique.
+technologique. TEST
 
 ### Présentation du document
 
@@ -55,7 +55,7 @@ Il peut intervenir à plusieurs occasions :
 
 Des pièces de dossiers sont alors gelées, sur demande, le temps de la
 procédure. Le gel permet ainsi d’éviter toute élimination malencontreuse
-d’archives.
+d’archives. TEST
 
 Les archives gelées peuvent être en outre soumises à des droits
 particuliers :
