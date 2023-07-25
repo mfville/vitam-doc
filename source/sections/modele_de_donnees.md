@@ -540,6 +540,24 @@ de l’initialisation de l’opération.
 
         -   Cardinalité 0-1.
 
+-   Sur la structure incluse d’une opération d’export DIP et d'export de SIP, pour l’étape STORE_MANIFEST,il contient un objet JSON composé des champs suivants :
+
+    -   SystemMessageDigest : empreinte du fichier ZIP correspondant au DIP ou au SIP de transfert.
+
+        -   Il s’agit d’une chaîne de caractères.
+
+		-   La valeur est calculée par la solution logicielle Vitam.
+		
+		-   Cardinalité 1-1.
+
+    -   SystemAlgorithm : algorithme utilisé pour réaliser l’empreinte du fichier correspondant correspondant au DIP ou au SIP de transfert.
+
+		-   Chaîne de caractères
+		
+		-   La valeur est calculée par la solution logicielle Vitam et est égale à "SHA-512".
+
+        -   Cardinalité 1-1.
+
 -   Cardinalité pour les structures incluantes : 1-1
 
 -   Cardinalité pour les structures incluses : 0-1
