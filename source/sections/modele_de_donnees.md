@@ -7191,6 +7191,26 @@ Un fichier d’import peut décrire plusieurs contrats.
             }
         ]
     },
+    "PersistentIdentifierPolicy": [
+      {
+        "PersistentIdentifierPolicyType": "ARK",
+        "PersistentIdentifierUnit": true,
+        "PersistentIdentifierAuthority": 12354,
+        "PersistentIdentifierUsages": [
+		
+          {
+            "UsageName": "BinaryMaster",
+            "InitialVersion": true,
+            "IntermediaryVersion": "LAST"
+          },
+          {
+            "UsageName": "Dissemination",
+            "InitialVersion": false,
+            "IntermediaryVersion": "NONE"
+          }
+        ]
+      }
+    ]
     "_tenant": 0,
     "_v": 0
 }
@@ -7322,7 +7342,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
     -   « Usages » : liste des usages définissant une politique de préservation spécifique.
 
-        -   Il s’agit d’un pouvant être vide.
+        -   Il s’agit d’un tableau d'objets pouvant être vide.
 
         -   Cardinalité : 0-1
 
@@ -7330,7 +7350,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
             -   «  UsageName » : nom de l’usage d’objet concerné.
 
-                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster, Dissemination, TextContent, Thumbnail, PhysicalMaster).
+                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster », « Dissemination », « TextContent », « Thumbnail », « PhysicalMaster ».
 
                 -   Cardinalité : 0-1
 
@@ -7347,6 +7367,64 @@ Un fichier d’import peut décrire plusieurs contrats.
                 -   Il s’agit d’une chaîne de caractères dont la la valeur peut être égale à « ALL », à « LAST » ou « NONE », ce dernier n’étant pas accepté pour les objets d’usage « BinaryMaster ».
 
                 -   Cardinalité : 0-1
+
+**« PersistentIdentifierPolicy » :** définition d’une stratégie d'identification pérenne pouvant être appliquée aux unités archivistiques et aux objets techniques de manière spécifique par type d’usage.
+
+-   Cardinalité : 0-1
+
+- 	Il s’agit d’un tableau d’objets.
+
+-   Chaque objet peut contenir les champs suivants :
+
+    -   « PersistentIdentifierPolicyType » : type d'identification pérenne utilisée.
+
+        -   Il s’agit d’une chaîne de caractères dont la valeur est égale à ARK.
+
+        -   Cardinalité : 1-1
+
+    -   « PersistentIdentifierUnit » : attribution d'une identification pérenne aux unités archivistiques associées à un groupe d'objets techniques.
+
+        -   Il s’agit d’un booléen.
+
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+        -   Cardinalité : 1-1
+	
+	-   « PersistentIdentifierAuthority » : autorité nommante associée à la stratégie d'identification pérenne.
+
+        -   Il s’agit d’un entier (5 ou 9 chiffres dans le cadre d'une identification pérenne).
+
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors la valeur est par défaut 0.
+
+        -   Cardinalité : 1-1
+
+    -   « PersistentIdentifierUsages » : liste des usages définissant une stratégie d'identification pérenne spécifique.
+
+        -   Il s’agit d’un tableau d'objets pouvant être vide.
+
+        -   Cardinalité : 1-1
+
+        -   Chaque objet peut contenir les champs suivants :
+
+            -   «  UsageName » : nom de l’usage d’objet concerné.
+
+                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster », « Dissemination », « TextContent », « Thumbnail », « PhysicalMaster ».
+
+                -   Cardinalité : 1-1
+
+            -   « InitialVersion » : attribution d'un identifiant pérenne à la version initiale des objets.
+
+                -   Il s’agit d’un booléen.
+
+                -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+                -   Cardinalité : 1-1
+
+            -   « IntermediaryVersion » : attribution d'un identifiant pérenne aux versions intermédiaires des objets.
+
+                -   Il s’agit d’une chaîne de caractères dont la la valeur peut être égale à « ALL », à « LAST » ou « NONE ».
+
+                -   Cardinalité : 1-1
 
 **« _tenant » :** identifiant du tenant.
 
