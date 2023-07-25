@@ -3735,7 +3735,7 @@ Deux documents sont créés à chaque fois qu'un scroll est effectué par tenant
 ```json
 {
     _id: 'aeaaaaaaaahp7qg2abuxiamcqikjbmaaaaaq',
-    Name: 'Scroll',
+    Name: 'ObjectsScrollNumber',
     _tenant: 1,
     Value: 3
 }
@@ -3753,7 +3753,9 @@ Deux documents sont créés à chaque fois qu'un scroll est effectué par tenant
 
 **« Name » :** intitulé de l'"instantané".
 
--   les valeurs possibles sont *Scroll* et *LastScrollRequestDate*.
+-   les valeurs possibles sont :
+	-	*UnitsScrollNumber* et *UnitsScrollDate* pour le scroll sur les unités archivistiques,
+	-	*ObjectsScrollNumber* et *ObjectsScrollDate* pour le scroll sur les groupes d'objets techniques.
 
 -    Champ peuplé par la solution logicielle Vitam.
 
@@ -3764,8 +3766,8 @@ Deux documents sont créés à chaque fois qu'un scroll est effectué par tenant
 **« Value » :** valeur calculée pour un "instantané" donné.
 
 -   les valeurs possibles sont :
-	-	pour un enregistrement dont le « Name » a pour valeur « Scroll » : un nombre correspondant au nombre de requêtes en mode "scroll" déjà opérées,
-	-	pour un enregistrement dont le « Name » a pour valeur « LastScrollRequestDate » : la date de dernière utilisation d'une requête en mode "scroll".
+	-	pour un enregistrement dont le « Name » a pour valeur « UnitsScrollNumber » ou « ObjectsScrollNumber » : un nombre correspondant au nombre de requêtes en mode "scroll" déjà opérées,
+	-	pour un enregistrement dont le « Name » a pour valeur « UnitsScrollDate » ou « ObjectsScrollDate » : la date de dernière utilisation d'une requête en mode "scroll".
 
 -    Champ peuplé par la solution logicielle Vitam.
 
