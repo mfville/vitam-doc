@@ -7211,6 +7211,30 @@ Un fichier d’import peut décrire plusieurs contrats.
             }
         ]
     },
+    "PersistentIdentifierPolicy": [
+      {
+        "PersistentIdentifierPolicyType": "ARK",
+        "PersistentIdentifierUnit": true,
+        "PersistentIdentifierAuthority": 12354,
+        "PersistentIdentifierUsages": [
+          {
+            "UsageName": "BinaryMaster",
+            "InitialVersion": true,
+            "IntermediaryVersion": "LAST"
+          },
+          {
+            "UsageName": "Dissemination",
+            "InitialVersion": false,
+            "IntermediaryVersion": "ALL"
+          },
+		  {
+            "UsageName": "Thumbnail",
+            "InitialVersion": true,
+            "IntermediaryVersion": "ALL"
+          }
+        ]
+      }
+    ],
     "_tenant": 0,
     "_v": 0
 }
@@ -7342,7 +7366,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
     -   « Usages » : liste des usages définissant une politique de préservation spécifique.
 
-        -   Il s’agit d’un pouvant être vide.
+        -   Il s’agit d’un tableau pouvant être vide.
 
         -   Cardinalité : 0-1
 
@@ -7350,7 +7374,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
             -   «  UsageName » : nom de l’usage d’objet concerné.
 
-                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster, Dissemination, TextContent, Thumbnail, PhysicalMaster).
+                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster », « Dissemination », « TextContent », « Thumbnail », « PhysicalMaster ».
 
                 -   Cardinalité : 0-1
 
@@ -7367,6 +7391,64 @@ Un fichier d’import peut décrire plusieurs contrats.
                 -   Il s’agit d’une chaîne de caractères dont la la valeur peut être égale à « ALL », à « LAST » ou « NONE », ce dernier n’étant pas accepté pour les objets d’usage « BinaryMaster ».
 
                 -   Cardinalité : 0-1
+
+**« PersistentIdentifierPolicy » :** définition d’une politique d'identification pérenne pouvant être appliquée aux unités archivistiques et objets techniques de manière spécifique par type d’usage.
+
+-   Cardinalité : 0-1
+
+-   Il s’agit d’un tableau d’objets.
+
+-   Chaque objet peut contenir les champs suivants :
+
+    -   « PersistentIdentifierPolicyType » : type d'identification pérenne utilisée.
+
+        -   Il s’agit d’une chaîne de caractères dont la valeur doit être égale à "ARK".
+
+        -   Cardinalité : 1-1
+	
+	-   « PersistentIdentifierUnit » : identification pérenne devant être appliquée pour les unités archivistiques associées à un groupe d'objets techniques.
+
+        -   Il s’agit d’un booléen.
+
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+        -   Cardinalité : 1-1
+
+    -   « PersistentIdentifierAuthority » : identification de l'autorité nommante.
+
+        -   Il s’agit d’un entier (5 ou 9 chiffres pour l'identification ARK).
+
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut égal à 0.
+
+        -   Cardinalité : 1-1
+
+    -   « PersistentIdentifierUsages » : liste des usages pour lesquels une stratégie d'identification pérenne doit être appliquée.
+
+        -   Il s’agit d’un tableau pouvant être vide.
+
+        -   Cardinalité : 1-1
+
+        -   Cet objet peut contenir les champs suivants :
+
+            -   «  UsageName » : nom de l’usage d’objet concerné.
+
+                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster », « Dissemination », « TextContent », « Thumbnail », « PhysicalMaster ».
+
+                -   Cardinalité : 0-1
+
+            -   « InitialVersion » : conservation de la valeur initiale des objets
+
+                -   Il s’agit d’un booléen.
+
+                -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+                -   Cardinalité : 1-1
+
+            -   « IntermediaryVersion » : conservation des versions intermédiaires des objets.
+
+                -   Il s’agit d’une chaîne de caractères dont la la valeur peut être égale à « ALL », à « LAST » ou « NONE ».
+
+                -   Cardinalité : 1-1
 
 **« _tenant » :** identifiant du tenant.
 
