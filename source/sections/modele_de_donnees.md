@@ -191,8 +191,7 @@ de certification.
 
 **« Status » :** statut du certificat.
 
--   Peut être « VALID » si le certificat est valide, « REVOKED » s’il
-    > est révoqué ou « EXPIRED » s’il est expiré.
+-   Peut être « VALID » si le certificat est valide, « REVOKED » s’il est révoqué ou « EXPIRED » s’il est expiré.
 
 -   Cardinalité : 1-1
 
@@ -267,8 +266,7 @@ de certification.
 
 **« Status » :** statut du certificat.
 
--   Peut être « VALID » si le certificat est valide, « REVOKED » s’il
-    > est révoqué ou « EXPIRED » s’il est expiré.
+-   Peut être « VALID » si le certificat est valide, « REVOKED » s’il est révoqué ou « EXPIRED » s’il est expiré.
 
 -   Cardinalité : 1-1
 
