@@ -918,11 +918,7 @@ Cette action n’est pas journalisée dans le journal des opérations.
     -   il n'est pas au format CSV ;
     -   il ne contient pas de séparateurs de champs.
 
-<<<<<<< Updated upstream
-~~~~    Si le fichier CSV est erroné, une erreur peut être renvoyée par l’API, le contenu du fichier CSV sera ignoré et seule l’arborescence bureautique sera téléchargée selon le comportement décrit dans la sous-section précédente.
-=======
 -    Si le fichier CSV est erroné, une erreur peut être renvoyée par l’API, le contenu du fichier CSV sera ignoré et seule l’arborescence bureautique sera téléchargée selon le comportement décrit dans la sous-section précédente.
->>>>>>> Stashed changes
 
 -   Aucun contrôle n’est effectué entre le nombre de répertoires et d’objets binaires présents dans l’arborescence bureautique et les éléments décrits dans le fichier .csv. Il est recommandé de veiller à ne pas ajouter de niveaux intermédiaires dans l’arborescence bureautique non référencés dans le fichier .csv, car ils seront automatiquement créés dans le module de collecte selon le comportement décrit dans la sous-section précédente.
 
