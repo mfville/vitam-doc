@@ -74,7 +74,7 @@ Il est possible d'ajouter dans le rapport, pour chaque unité archivistique, les
 - "#unitups" : unité(s) archivistique(s) parente(s),
 - "#originating_agency" : service producteur,
 - "#approximate_creation_date": date de création de l'unité archivistique,
-- "approximate_update_date" : date de dernière modification de l'unité archivistique,
+- "#approximate_update_date" : date de dernière modification de l'unité archivistique,
 - "FilePlanPosition" : position(s) dans le plan de classement, 
 - "SystemId": identifiant(s) du système,
 - "OriginatingSystemId": identifiant(s) du système d'origine,
