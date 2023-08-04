@@ -1561,30 +1561,47 @@ section 4.1.1.).
 La moulinette ReSIP permet d’importer une structure arborescente
 d’archives et/ou de fichiers sous la forme d’un fichier .csv.
 
+#### Paramétrage de l’import
+
+Afin de paramétrer pour traitement l’import d’une structure arborescente
+d’archives accompagnée d'un fichier .csv, il convient,
+dans le menu de la moulinette ReSIP, de cliquer sur l’action « Fichier »
+puis sur la sous-action « Préférences » (cf. copie d’écran ci-dessous).
+
+![](medias/resip/Pictures/100002010000033E000001BABB2A3FE9F42480D2.png)
+
+Le clic sur la sous-action « Préférences » ouvre une
+
+fenêtre de dialogue composée de cinq onglets. Le paramétrage de l’import
+est disponible dans l’onglet « Import » (cf. copie d’écran ci-dessous).
+![](medias/resip/Pictures/ID10.png)
+
+Il permet de :
+
+-   sélectionner via un menu déroulant l’encodage utilisé dans le
+    fichier .csv. Par défaut, l’encodage proposé est
+    « windows-1252 » ;
+-   préciser le séparateur utilisé dans le fichier .csv. Par défaut, le séparateur est un point-virgule.
+
 #### Présentation du fichier d’import
 
-Le fichier d’import prend la forme d’un fichier au format .csv composé
-de x colonnes :
+Le fichier d’import prend la forme d’un fichier au format .csv composé de x colonnes :
 
--   ID : identifiant unique de l’unité archivistique, définie par
-    l’utilisateur (colonne facultative) ;
--   ParentID : identifiant unique de l’unité archivistique parente,
-    définie par l’utilisateur (colonne facultative) ;
--   File : chemin relatif à partir de l’emplacement où est enregistré le
-    fichier .csv (colonne obligatoire) ;
--   DescriptionLevel : niveau de description de l’unité archivistique
-    (colonne obligatoire) ;
+-   ID : identifiant unique de l’unité archivistique, définie par l’utilisateur (colonne facultative) ;
+-   ParentID : identifiant unique de l’unité archivistique parente, définie par l’utilisateur (colonne facultative) ;
+-   File : chemin relatif à partir de l’emplacement où est enregistré le fichier .csv (colonne obligatoire) ;
+-	ObjectFiles : nom du fichier numérique ou chemin relatif à partir de l’emplacement où est enregistré le fichier (colonne facultative) ;
+-   DescriptionLevel : niveau de description de l’unité archivistique (colonne obligatoire) ;
 -   Title : intitulé de l’unité archivistique (colonne obligatoire) ;
--   toute colonne correspondant à un champ du standard SEDA (colonnes
-    facultatives).
+-   toute colonne correspondant à un champ du standard SEDA (colonnes facultatives).
 
-La colonne File, obligatoirement renseignée, peut seule être présente
+La colonne File, obligatoire, peut seule être présente
 dans le fichier .csv d’import, sans que les colonnes Id et ParentId le
 soient (cf. copie d’écran ci-dessous) :
 
 ![](medias/resip/Pictures/1000000000000527000002B96E7F91CABE72A149.png)
-Si les colonnes Id et ParentId sont présentes, le
-fichier d’import se présentera comme suit (cf. copie d’écran
+
+Si les colonnes Id et ParentId sont présentes, le fichier d’import se présentera comme suit (cf. copie d’écran
 ci-dessous) :
 
 ![](medias/resip/Pictures/10000201000004F1000002979B7C790D0DE92459.png)
@@ -1594,17 +1611,19 @@ ci-dessous) :
 -   l’ordre des premières colonnes ne doit pas être modifié ;
 -   une première ligne d’en-tête donnant le nom des colonnes doit être
     présente, chaque ligne décrivant ensuite une unité archivistique ;
--   Si les colonnes Id et ParentId sont présentes, l’identification
-    devra nécessairement commencer par un identifiant portant le chiffre
+-   Si les colonnes Id et ParentId sont présentes :
+
+	- 	l’identification devra nécessairement commencer par un identifiant portant le chiffre
     1 (ex. « ID01 »). Il est par ailleurs recommandé de :
 
-    -   respecter une identification par ordre croissant, sans rupture
+		-   respecter une identification par ordre croissant, sans rupture
         numéraire ;
-    -   employer des identifiants ne comportant ni caractère accentué,
+		-   employer des identifiants ne comportant ni caractère accentué,
         ni virgule, ni apostrophe, ni parenthèse, ni espace, ni slash,
         ni élément de ponctuation, ou tout autre caractère spécial. Ne
         sont recommandés que l’underscore et le tiret comme
         séparateurs ;
+	- la colonne File, obligatoire, peut être non renseignée.
 
 -   le séparateur entre les colonnes est par défaut le « ; » et
     l’encodage par défaut est « windows-1252 ». Ces paramètres peuvent
@@ -2529,8 +2548,6 @@ Une fois l’opération d’extraction achevée, la fenêtre de dialogue indique
 
 ***Nota bene***** :** le fichier conteneur  au format .pst, .eml, .msg, .mbox est supprimé de la structure d’arborescente d’archives.
 
-///////////////////////////////////////////////////////////////////////////////:
-
 #### Suppression d’unités archivistiques
 
 Afin de déplacer tout ou partie de la structure arborescente d’archives,
@@ -3391,7 +3408,8 @@ Peuvent être paramétrées :
     l’entrée, service versant de l’entrée) (onglets « Métadonnées
     globales » et « Métadonnées globales étendues ») (section 6.1.1.) ;
 -   les modalités de structuration du fichier XML correspondant au
-    manifeste (onglet « import/export ») (section 6.1.2.).
+    manifeste (onglet « import/export ») (section 6.1.2.);
+-   les modalités de structuration du fichier CSV décrivant les archives (onglet « import/export »).
 
 #### Paramétrage des métadonnées de l’en-tête et du bloc ManagementMetadata du manifeste
 
@@ -3480,10 +3498,11 @@ l’onglet « Export » (cf. copie d’écran ci-dessous) :
     défaut, l’option « Dernier » est sélectionnée ;
 -   la taille maximale de la chaîne de caractères correspondant aux
     répertoires, par défaut limitée à 32 caractères ;
+- 	la possibilité d'exporter des informations complémentaires relatives à la hiérarchie des archives et au nom des fichiers numériques (ID, ParentID, ObjectFiles);
 -   les métadonnées descriptives à exporter pour chaque unité
     archivistique.
 
-    ![](medias/resip/Pictures/1000020100000555000002D770FF995387F5CDBC.png)
+    ![](medias/resip/Pictures/ID09.png)
 
 Les paramètres saisis seront utilisés pour la réalisation de l’export de
 la structure arborescente d’archives en cours de traitement et du CSV.
