@@ -2508,6 +2508,29 @@ bouton d’action « Fermer » (cf. copie d’écran ci-dessous).
 .zip, .tar, .tarbz2 ou .targz2 est supprimé de la structure
 d’arborescente d’archives.
 
+#### Extraction des éléments contenus dans un fichier conteneur au format .pst, .eml, .msg, .mbox
+
+Afin d’extraire les éléments contenus dans un fichier conteneur au format .pst, .eml, .msg, .mbox, il convient, dans le panneau de visualisation et de modification de la structure arborescente d’archives, de :
+
+-   positionner le curseur sur le groupe d’objets correspondant au fichier conteneur au format .pst, .eml, .msg, .mbox dont les contenus doivent être extraits ;
+-   effectuer un clic-droit ;
+-   cliquer sur le bouton d’action « Remplacer par l'extraction des messages » pour extraire le contenu du fichier conteneur et le transformer en structure arborescente d’archives (cf. copie d’écran ci-dessous).
+
+    ![](medias/resip/Pictures/ID06.png)
+
+Le clic sur le bouton d’action « Remplacer par l'extraction des messages » lance une fenêtre de dialogue « Import » indiquant que l’opération d’extraction est lancée et permettant de suivre sa progression. Cette opération peut être annulée en cliquant sur le bouton d’action « Annuler » de la fenêtre de dialogue.
+
+![](medias/resip/Pictures/ID03.png)
+
+Une fois l’opération d’extraction achevée, la fenêtre de dialogue indique le nombre d’éléments extraits (unités archivistiques, groupes d’objets, objets binaires, objets physiques) ainsi que le temps qui a
+été nécessaire pour réaliser l’opération d’import. La structure arborescente d’archives est désormais consultable et traitable depuis le panneau de visualisation et de modification de la structure arborescente d’archives. La fenêtre de dialogue peut être fermée en cliquant sur le bouton d’action « Fermer » (cf. copie d’écran ci-dessous).
+
+![](medias/resip/Pictures/ID04.png)
+
+***Nota bene***** :** le fichier conteneur  au format .pst, .eml, .msg, .mbox est supprimé de la structure d’arborescente d’archives.
+
+///////////////////////////////////////////////////////////////////////////////:
+
 #### Suppression d’unités archivistiques
 
 Afin de déplacer tout ou partie de la structure arborescente d’archives,
