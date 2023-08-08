@@ -2319,6 +2319,14 @@ Le mapping est le suivant :
 
 -   Cardinalité : 1-1
 
+**« _managementContractId » :** contient l'identifiant du contrat de gestion.
+
+-   Il s’agit d’une chaîne de caractères.
+
+-   Ne peut être vide
+
+-   Cardinalité : 0-1
+
 **« _sps » :** services producteurs auxquels l’unité archivistique a été rattachée (au titre de leurs fonds symboliques)
 
 -   Il s’agit d’un tableau contenant les identifiants de tous les services producteurs référençant l’unité archivistique.
@@ -3513,6 +3521,14 @@ dans ce groupe d’objets.
         -   **« strategyId » :** identifiant de la stratégie de stockage.
 
             -   Il s’agit d’une chaîne de caractère.
+			
+**« _managementContractId » :** contient l'identifiant du contrat de gestion.
+
+	-   Il s’agit d’une chaîne de caractères.
+
+	-   Ne peut être vide
+
+	-   Cardinalité : 0-1
 
 **« _up » (unit up):** tableau identifiant les unités archivistiques
 représentées par ce groupe d’objets.
@@ -7086,19 +7102,19 @@ Par exemple : IC-007485. Si le référentiel est en position esclave, cet ident
 
 -   Cardinalité : 0-1
 
-    **« ManagementContractId » :** définition d’une stratégie de stockage dans le contrat d’entrée.
+**« ManagementContractId » :** définition d’une stratégie de stockage dans le contrat d’entrée.
 
 -   Il s’agit d’une chaîne de caractères, correspondant à l’identifiant du contrat de gestion associé au contrat d’entrée.
 
 -   Cardinalité : 0-1
 
-    **« ArchiveProfiles » :** profil(s) d’archivage associé(s) contrat d’entrée.
+**« ArchiveProfiles » :** profil(s) d’archivage associé(s) contrat d’entrée.
 
 -   Il s’agit d’un tableau pouvant contenir une à plusieurs chaînes de caractères, correspondant à l’identifiant de profil(s) d’archivage défini dans le référentiel des profils d’archivage.
 
 -   Cardinalité : 0-1
 
-    **« ComputeInheritedRulesAtIngest » :** paramètre permettant d’activer l’enregistrement automatique des règles de gestion héritées par une unité archivistique en base de données dans un champ spécifique.
+**« ComputeInheritedRulesAtIngest » :** paramètre permettant d’activer l’enregistrement automatique des règles de gestion héritées par une unité archivistique en base de données dans un champ spécifique.
 
 
 -   Il s’agit d’un booléen
@@ -7106,6 +7122,44 @@ Par exemple : IC-007485. Si le référentiel est en position esclave, cet ident
 -   Valeur par défaut : « false »
 
 -   Cardinalité : 1-1
+
+**« SignaturePolicy » :** paramétrage permettant d'activer un contrôle sur les documents signés électroniquement.
+
+-   Cardinalité : 0-1
+
+-   Cet objet peut contenir les champs suivants :
+
+    -   « SignedDocument » : option permettant de définir le comportement à propos des documents signés dans les SIP.
+
+        -   Il s’agit d’une chaîne de caractères.
+		
+		-   Peut avoir comme valeur : « ALLOWED » (la présence de documents signés est autorisée, mais pas requise), « ONLY » (la présence de documents signés est obligatoire), « FORBIDDEN » (la présence de documents signés n’est pas autorisée).
+
+        -   Cardinalité : 1-1
+
+    -   « NeedSignature » : option permettant de contrôler la présence d'une signature.
+
+        -   Il s’agit d’un booléen.
+		
+		-   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+        -   Cardinalité : 1-1
+		
+    -   « NeedTimestamp » : option permettant de contrôler la présence d'un horodatage.
+
+        -   Il s’agit d’un booléen.
+		
+		-   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+        -   Cardinalité : 1-1
+
+-   « NeedAdditionalProof » : option permettant de contrôler la présence de preuves complémentaires.
+
+        -   Il s’agit d’un booléen.
+		
+		-   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+        -   Cardinalité : 0-1
 
 **« _tenant » :** identifiant du tenant.
 
@@ -8329,13 +8383,27 @@ logicielle Vitam. Ces collections sont :
 
 -   AuditObjectGroup
 
+-   BulkUpdateUnitMetadataReport
+
+-   DeleteGotVersionsReport
+
 -   EliminationActionUnit
 
--   EliminationActionObjectGroup
+-   EvidenceAuditReport
 
--   InvalidUnit
+-   ExtractedMetadata
+
+-   InvalidUnits
 
 -   PreservationReport
+
+-   PurgeObjectGroup
+
+-   PurgeUnit
+
+-   TraceabilityReport
+
+-   TransferReplyUnit
 
 -   UpdateUnitReport
 
