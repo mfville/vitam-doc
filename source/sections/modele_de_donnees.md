@@ -191,8 +191,7 @@ de certification.
 
 **« Status » :** statut du certificat.
 
--   Peut être « VALID » si le certificat est valide, « REVOKED » s’il
-    > est révoqué ou « EXPIRED » s’il est expiré.
+-   Peut être « VALID » si le certificat est valide, « REVOKED » s’il est révoqué ou « EXPIRED » s’il est expiré.
 
 -   Cardinalité : 1-1
 
@@ -267,8 +266,7 @@ de certification.
 
 **« Status » :** statut du certificat.
 
--   Peut être « VALID » si le certificat est valide, « REVOKED » s’il
-    > est révoqué ou « EXPIRED » s’il est expiré.
+-   Peut être « VALID » si le certificat est valide, « REVOKED » s’il est révoqué ou « EXPIRED » s’il est expiré.
 
 -   Cardinalité : 1-1
 
@@ -537,6 +535,24 @@ de l’initialisation de l’opération.
         -   Reprend le champ LegalStatus du message ArchiveTransfer.
 
         -   Cardinalité 0-1.
+
+-   Sur la structure incluse d’une opération d’export DIP et d'export de SIP, pour l’étape STORE_MANIFEST,il contient un objet JSON composé des champs suivants :
+
+    -   SystemMessageDigest : empreinte du fichier ZIP correspondant au DIP ou au SIP de transfert.
+
+        -   Il s’agit d’une chaîne de caractères.
+
+		-   La valeur est calculée par la solution logicielle Vitam.
+		
+		-   Cardinalité 1-1.
+
+    -   SystemAlgorithm : algorithme utilisé pour réaliser l’empreinte du fichier correspondant correspondant au DIP ou au SIP de transfert.
+
+		-   Chaîne de caractères
+		
+		-   La valeur est calculée par la solution logicielle Vitam et est égale à "SHA-512".
+
+        -   Cardinalité 1-1.
 
 -   Cardinalité pour les structures incluantes : 1-1
 
@@ -2303,6 +2319,14 @@ Le mapping est le suivant :
 
 -   Cardinalité : 1-1
 
+**« _managementContractId » :** contient l'identifiant du contrat de gestion.
+
+-   Il s’agit d’une chaîne de caractères.
+
+-   Ne peut être vide
+
+-   Cardinalité : 0-1
+
 **« _sps » :** services producteurs auxquels l’unité archivistique a été rattachée (au titre de leurs fonds symboliques)
 
 -   Il s’agit d’un tableau contenant les identifiants de tous les services producteurs référençant l’unité archivistique.
@@ -3497,6 +3521,14 @@ dans ce groupe d’objets.
         -   **« strategyId » :** identifiant de la stratégie de stockage.
 
             -   Il s’agit d’une chaîne de caractère.
+			
+**« _managementContractId » :** contient l'identifiant du contrat de gestion.
+
+	-   Il s’agit d’une chaîne de caractères.
+
+	-   Ne peut être vide
+
+	-   Cardinalité : 0-1
 
 **« _up » (unit up):** tableau identifiant les unités archivistiques
 représentées par ce groupe d’objets.
@@ -3717,7 +3749,7 @@ Deux documents sont créés à chaque fois qu'un scroll est effectué par tenant
 ```json
 {
     _id: 'aeaaaaaaaahp7qg2abuxiamcqikjbmaaaaaq',
-    Name: 'Scroll',
+    Name: 'ObjectsScrollNumber',
     _tenant: 1,
     Value: 3
 }
@@ -3735,7 +3767,9 @@ Deux documents sont créés à chaque fois qu'un scroll est effectué par tenant
 
 **« Name » :** intitulé de l'"instantané".
 
--   les valeurs possibles sont *Scroll* et *LastScrollRequestDate*.
+-   les valeurs possibles sont :
+	-	*UnitsScrollNumber* et *UnitsScrollDate* pour le scroll sur les unités archivistiques,
+	-	*ObjectsScrollNumber* et *ObjectsScrollDate* pour le scroll sur les groupes d'objets techniques.
 
 -    Champ peuplé par la solution logicielle Vitam.
 
@@ -3746,8 +3780,8 @@ Deux documents sont créés à chaque fois qu'un scroll est effectué par tenant
 **« Value » :** valeur calculée pour un "instantané" donné.
 
 -   les valeurs possibles sont :
-	-	pour un enregistrement dont le « Name » a pour valeur « Scroll » : un nombre correspondant au nombre de requêtes en mode "scroll" déjà opérées,
-	-	pour un enregistrement dont le « Name » a pour valeur « LastScrollRequestDate » : la date de dernière utilisation d'une requête en mode "scroll".
+	-	pour un enregistrement dont le « Name » a pour valeur « UnitsScrollNumber » ou « ObjectsScrollNumber » : un nombre correspondant au nombre de requêtes en mode "scroll" déjà opérées,
+	-	pour un enregistrement dont le « Name » a pour valeur « UnitsScrollDate » ou « ObjectsScrollDate » : la date de dernière utilisation d'une requête en mode "scroll".
 
 -    Champ peuplé par la solution logicielle Vitam.
 
@@ -7068,19 +7102,19 @@ Par exemple : IC-007485. Si le référentiel est en position esclave, cet ident
 
 -   Cardinalité : 0-1
 
-    **« ManagementContractId » :** définition d’une stratégie de stockage dans le contrat d’entrée.
+**« ManagementContractId » :** définition d’une stratégie de stockage dans le contrat d’entrée.
 
 -   Il s’agit d’une chaîne de caractères, correspondant à l’identifiant du contrat de gestion associé au contrat d’entrée.
 
 -   Cardinalité : 0-1
 
-    **« ArchiveProfiles » :** profil(s) d’archivage associé(s) contrat d’entrée.
+**« ArchiveProfiles » :** profil(s) d’archivage associé(s) contrat d’entrée.
 
 -   Il s’agit d’un tableau pouvant contenir une à plusieurs chaînes de caractères, correspondant à l’identifiant de profil(s) d’archivage défini dans le référentiel des profils d’archivage.
 
 -   Cardinalité : 0-1
 
-    **« ComputeInheritedRulesAtIngest » :** paramètre permettant d’activer l’enregistrement automatique des règles de gestion héritées par une unité archivistique en base de données dans un champ spécifique.
+**« ComputeInheritedRulesAtIngest » :** paramètre permettant d’activer l’enregistrement automatique des règles de gestion héritées par une unité archivistique en base de données dans un champ spécifique.
 
 
 -   Il s’agit d’un booléen
@@ -7088,6 +7122,44 @@ Par exemple : IC-007485. Si le référentiel est en position esclave, cet ident
 -   Valeur par défaut : « false »
 
 -   Cardinalité : 1-1
+
+**« SignaturePolicy » :** paramétrage permettant d'activer un contrôle sur les documents signés électroniquement.
+
+-   Cardinalité : 0-1
+
+-   Cet objet peut contenir les champs suivants :
+
+    -   « SignedDocument » : option permettant de définir le comportement à propos des documents signés dans les SIP.
+
+        -   Il s’agit d’une chaîne de caractères.
+		
+		-   Peut avoir comme valeur : « ALLOWED » (la présence de documents signés est autorisée, mais pas requise), « ONLY » (la présence de documents signés est obligatoire), « FORBIDDEN » (la présence de documents signés n’est pas autorisée).
+
+        -   Cardinalité : 1-1
+
+    -   « NeedSignature » : option permettant de contrôler la présence d'une signature.
+
+        -   Il s’agit d’un booléen.
+		
+		-   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+        -   Cardinalité : 1-1
+		
+    -   « NeedTimestamp » : option permettant de contrôler la présence d'un horodatage.
+
+        -   Il s’agit d’un booléen.
+		
+		-   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+        -   Cardinalité : 1-1
+
+-   « NeedAdditionalProof » : option permettant de contrôler la présence de preuves complémentaires.
+
+        -   Il s’agit d’un booléen.
+		
+		-   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+        -   Cardinalité : 0-1
 
 **« _tenant » :** identifiant du tenant.
 
@@ -7191,6 +7263,26 @@ Un fichier d’import peut décrire plusieurs contrats.
             }
         ]
     },
+    "PersistentIdentifierPolicy": [
+      {
+        "PersistentIdentifierPolicyType": "ARK",
+        "PersistentIdentifierUnit": true,
+        "PersistentIdentifierAuthority": 12354,
+        "PersistentIdentifierUsages": [
+		
+          {
+            "UsageName": "BinaryMaster",
+            "InitialVersion": true,
+            "IntermediaryVersion": "LAST"
+          },
+          {
+            "UsageName": "Dissemination",
+            "InitialVersion": false,
+            "IntermediaryVersion": "NONE"
+          }
+        ]
+      }
+    ]
     "_tenant": 0,
     "_v": 0
 }
@@ -7322,7 +7414,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
     -   « Usages » : liste des usages définissant une politique de préservation spécifique.
 
-        -   Il s’agit d’un pouvant être vide.
+        -   Il s’agit d’un tableau d'objets pouvant être vide.
 
         -   Cardinalité : 0-1
 
@@ -7330,7 +7422,7 @@ Un fichier d’import peut décrire plusieurs contrats.
 
             -   «  UsageName » : nom de l’usage d’objet concerné.
 
-                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster, Dissemination, TextContent, Thumbnail, PhysicalMaster).
+                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster », « Dissemination », « TextContent », « Thumbnail », « PhysicalMaster ».
 
                 -   Cardinalité : 0-1
 
@@ -7347,6 +7439,64 @@ Un fichier d’import peut décrire plusieurs contrats.
                 -   Il s’agit d’une chaîne de caractères dont la la valeur peut être égale à « ALL », à « LAST » ou « NONE », ce dernier n’étant pas accepté pour les objets d’usage « BinaryMaster ».
 
                 -   Cardinalité : 0-1
+
+**« PersistentIdentifierPolicy » :** définition d’une stratégie d'identification pérenne pouvant être appliquée aux unités archivistiques et aux objets techniques de manière spécifique par type d’usage.
+
+-   Cardinalité : 0-1
+
+- 	Il s’agit d’un tableau d’objets.
+
+-   Chaque objet peut contenir les champs suivants :
+
+    -   « PersistentIdentifierPolicyType » : type d'identification pérenne utilisée.
+
+        -   Il s’agit d’une chaîne de caractères dont la valeur est égale à ARK.
+
+        -   Cardinalité : 1-1
+
+    -   « PersistentIdentifierUnit » : attribution d'une identification pérenne aux unités archivistiques associées à un groupe d'objets techniques.
+
+        -   Il s’agit d’un booléen.
+
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+        -   Cardinalité : 1-1
+	
+	-   « PersistentIdentifierAuthority » : autorité nommante associée à la stratégie d'identification pérenne.
+
+        -   Il s’agit d’un entier (5 ou 9 chiffres dans le cadre d'une identification pérenne).
+
+        -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors la valeur est par défaut 0.
+
+        -   Cardinalité : 1-1
+
+    -   « PersistentIdentifierUsages » : liste des usages définissant une stratégie d'identification pérenne spécifique.
+
+        -   Il s’agit d’un tableau d'objets pouvant être vide.
+
+        -   Cardinalité : 1-1
+
+        -   Chaque objet peut contenir les champs suivants :
+
+            -   «  UsageName » : nom de l’usage d’objet concerné.
+
+                -   Il s’agit d’une chaîne de caractères dont la valeur peut être égale à « BinaryMaster », « Dissemination », « TextContent », « Thumbnail », « PhysicalMaster ».
+
+                -   Cardinalité : 1-1
+
+            -   « InitialVersion » : attribution d'un identifiant pérenne à la version initiale des objets.
+
+                -   Il s’agit d’un booléen.
+
+                -   Si ce champ n’est pas défini lors de la création de l’enregistrement, alors il est par défaut false.
+
+                -   Cardinalité : 1-1
+
+            -   « IntermediaryVersion » : attribution d'un identifiant pérenne aux versions intermédiaires des objets.
+
+                -   Il s’agit d’une chaîne de caractères dont la la valeur peut être égale à « ALL », à « LAST » ou « NONE ».
+
+                -   Cardinalité : 1-1
 
 **« _tenant » :** identifiant du tenant.
 
@@ -8233,13 +8383,27 @@ logicielle Vitam. Ces collections sont :
 
 -   AuditObjectGroup
 
+-   BulkUpdateUnitMetadataReport
+
+-   DeleteGotVersionsReport
+
 -   EliminationActionUnit
 
--   EliminationActionObjectGroup
+-   EvidenceAuditReport
 
--   InvalidUnit
+-   ExtractedMetadata
+
+-   InvalidUnits
 
 -   PreservationReport
+
+-   PurgeObjectGroup
+
+-   PurgeUnit
+
+-   TraceabilityReport
+
+-   TransferReplyUnit
 
 -   UpdateUnitReport
 
