@@ -27,6 +27,7 @@ Documentation métier
    sections/modele_de_workflow.md
    sections/module_de_collecte.md
    sections/ontologie.md
+   sections/profil_archivage
    sections/services_prod.md
    sections/transfert.md
 
