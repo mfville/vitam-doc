@@ -29,7 +29,7 @@ Documentation métier
    sections/ontologie.md
    sections/preservation.md
    sections/profil_archivage
-   sections/règles_gestion.md
+   sections/regles_gestion.md
    sections/services_prod.md
    sections/transfert.md
 
