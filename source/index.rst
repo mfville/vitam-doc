@@ -23,12 +23,13 @@ Documentation métier
    sections/valeur_probante.md
    sections/eliminations.md
    sections/gel.md
+   sections/gestion_habilitations.md
    sections/modele_de_donnees.md
    sections/modele_de_workflow.md
    sections/module_de_collecte.md
    sections/ontologie.md
    sections/preservation.md
-   sections/profil_archivage
+   sections/profil_archivage.md
    sections/regles_gestion.md
    sections/services_prod.md
    sections/transfert.md
