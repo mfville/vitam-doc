@@ -3298,7 +3298,36 @@ La partie « ReportDetail » contient les détails de l’opération d’élim
         - DELETED : l’unité a effectivement été supprimée
     - « opi » : identifiant de l’opération d’entrée
     - « originatingAgency » : service producteur
-    - « objectIds » : identifiant du groupe d'objets techniques rattaché à l’unité archivistique
+	- pour une unité archivistique :
+		- « objectGroupId » : identifiant du groupe d'objets techniques rattaché à l’unité archivistique
+		- « PersistentIdentifier » : identifiant(s) pérenne(s) (facultatifs):
+			- « PersistentIdentifierType » : type d'identifiant pérenne
+			- « PersistentIdentifierOrigin » : origine de l'identifiant pérenne
+			- « PersistentIdentifierReference » : référence de l'identifiant pérenne
+			- « PersistentIdentifierContent » : identifiant pérenne
+		- « extraInfo » : informations supplémentaires (facultatives et configurables):
+			- « #version » : version,
+			- « #unitups » : unité(s) archivistique(s) parente(s),
+			- « #originating_agency » : service producteur,
+			- « #approximate_creation_date » : date de création,
+			- « #approximate_update_date » : date de dernière modification,
+			- « FilePlanPosition » : position(s) dans le plan de classement,
+			- « SystemId » : identifiant(s) système,
+			- « OriginatingSystemId » : identifiant(s) du système d’origine,
+			- « ArchivalAgencyArchiveUnitIdentifier » : identifiant(s) émanant du service d’archives,
+			- « OriginatingAgencyArchiveUnitIdentifier » : identifiant(s) émanant du service producteur,
+			- « TransferringAgencyArchiveUnitIdentifier » : identifiant(s) émanant du service responsable du transfert.
+	- pour un groupe d'objets techniques :
+		- « objectVersions » : informations relatives aux versions d'usages d'objets techniques :
+			- « id » : identifiant de l'objet technique
+			- « opi » : identifiant de l'opération d'entrée
+			- « size » : poids de l'objet technique
+			- « version » : usage et version de l'objet technique
+		- « PersistentIdentifier » : identifiant(s) pérenne(s) (facultatifs):
+			- « PersistentIdentifierType » : type d'identifiant pérenne
+			- « PersistentIdentifierOrigin » : origine de l'identifiant pérenne
+			- « PersistentIdentifierReference » : référence de l'identifiant pérenne
+			- « PersistentIdentifierContent » : identifiant pérenne
 
 Modification d’arborescence (Reclassification)
 -----
@@ -4889,7 +4918,7 @@ Le relevé de valeur probante est un fichier JSON généré par la solution logi
       "$projection" : { }
     },
     "usage" : "BinaryMaster",
-    "version" : "1",
+	"version" : "1",
     "includeDetachedSigningInformation" : false
   },
 
@@ -5185,11 +5214,11 @@ La deuxième partie « reportSummary » est constituée du résumé du rapport
 -  « reportType »: le type de rapport, ici PROBATIVE_VALUE
 -  « vitamResults » : la liste des valeurs de statut d’exécution sur chaque objet, ici OK, KO et WARNING, ainsi que le total
 
-La troisième partie « context » est constituée des éléments de requête qui permettent de connaître les critères de recherche et sélection des objets :
-- « dslQuery » : la requête DSL de définition des unités archivistiques cibles ;
-- « usage » : le type d’objets ciblés – via leur usage au sens de la solution logicielle Vitam, la plupart du temps BinaryMaster ;
-- « version » : la version des objets ciblés, la plupart du temps cela sera la version 1, mais dans le cas d’objets générés à l’occasion d’opérations de préservation, le numéro de version pourra être différent ;
-- « includeDetachedSigningInformation » : l'inclusion des documents associés à un contexte de signature détachée.
+La troisième partie « context » est constituée des éléments de requête qui permettent de connaître les critères de recherche et sélection des objets :
+- « dslQuery » : la requête DSL de définition des unités archivistiques cibles ;
+- « usage » : le type d’objets ciblés – via leur usage au sens de la solution logicielle Vitam, la plupart du temps BinaryMaster ;
+- « version » : la version des objets ciblés, la plupart du temps cela sera la version 1, mais dans le cas d’objets générés à l’occasion d’opérations de préservation, le numéro de version pourra être différent ;
+- « includeDetachedSigningInformation » : l'inclusion des documents associés à un contexte de signature détachée.
 
 La quatrième et dernière partie « reportEntries » rend compte des vérifications faites sur chaque objet binaire concerné, avec, pour chacun, un objet json contenant :
 -  « unitIds » : le tableau des unités archivistiques sélectionnées par la requête et contenant cet objet binaire (dans le cas général un seul) ;
@@ -5639,6 +5668,17 @@ La partie « ReportDetail » contient les détails de l’opération de suppre
 -  « detailType » : type de rapport="DELETE_GOT_VERSIONS"
 -  « objectGroupGlobal » : tableau pour chaque objet (version) à supprimer
 -  «  status » : résultat de suppression
--  «  deletedVersions » : tableau des versions à supprimer avec le détail de chaque version : id (id de GOT), DataObjectVersion, Size, strategyId, opi (ingest original ou préservation qui a crée le GOT) et opc 
+-  «  deletedVersions » : tableau des versions à supprimer avec le détail de chaque version : 
+	- « id » : identifiant technique de l'objet technique
+	- « DataObjectVersion » : usage et version de l'objet technique
+	- « Size » : poids de l'objet technique
+	- « strategyId » : identifiant de la stratégie de stockage
+	- « opi » : identifiant technique de l'opération à l'origine de la création de l'objet technique (ingest original ou préservation qui a crée le GOT) 
+	- « opc » : identifiant technique de l'opération courante
+	- « PersistentIdentifier » : identifiant(s) pérenne(s) (facultatifs):
+		- « PersistentIdentifierType » : type d'identifiant pérenne
+		- « PersistentIdentifierOrigin » : origine de l'identifiant pérenne
+		- « PersistentIdentifierReference » : référence de l'identifiant pérenne
+		- « PersistentIdentifierContent » : identifiant pérenne
 -  «  objectGroupId » : Id de l’objet groupe
 -  «  unitIds » : une liste des unités archivistiques associées à la version de GOT
