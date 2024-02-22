@@ -3323,11 +3323,11 @@ La partie « ReportDetail » contient les détails de l’opération d’élim
 			- « opi » : identifiant de l'opération d'entrée
 			- « size » : poids de l'objet technique
 			- « version » : usage et version de l'objet technique
-		- « PersistentIdentifier » : identifiant(s) pérenne(s) (facultatifs):
-			- « PersistentIdentifierType » : type d'identifiant pérenne
-			- « PersistentIdentifierOrigin » : origine de l'identifiant pérenne
-			- « PersistentIdentifierReference » : référence de l'identifiant pérenne
-			- « PersistentIdentifierContent » : identifiant pérenne
+			- « PersistentIdentifier » : identifiant(s) pérenne(s) (facultatifs):
+				- « PersistentIdentifierType » : type d'identifiant pérenne
+				- « PersistentIdentifierOrigin » : origine de l'identifiant pérenne
+				- « PersistentIdentifierReference » : référence de l'identifiant pérenne
+				- « PersistentIdentifierContent » : identifiant pérenne
 
 Modification d’arborescence (Reclassification)
 -----
@@ -3789,9 +3789,25 @@ La partie « ReportDetail » contient les détails de l’opération d’acqui
         - DELETED : l’unité a effectivement été supprimée
     - « opi » : identifiant de l’opération d’entrée
     - « originatingAgency » : service producteur
-    - « objectIds » : identifiant du groupe d’objets techniques rattaché à l’unité archivistique
-
-
+	- « archivalAgencyIdentifier » : service d'archives
+	- pour une unité archivistique :
+		- « objectGroupId » : identifiant du groupe d'objets techniques rattaché à l’unité archivistique
+		- « PersistentIdentifier » : identifiant(s) pérenne(s) (facultatifs):
+			- « PersistentIdentifierType » : type d'identifiant pérenne
+			- « PersistentIdentifierOrigin » : origine de l'identifiant pérenne
+			- « PersistentIdentifierReference » : référence de l'identifiant pérenne
+			- « PersistentIdentifierContent » : identifiant pérenne
+	- pour un groupe d'objets techniques :
+		- « objectVersions » : informations relatives aux versions d'usages d'objets techniques :
+			- « id » : identifiant de l'objet technique
+			- « opi » : identifiant de l'opération d'entrée
+			- « size » : poids de l'objet technique
+			- « version » : usage et version de l'objet technique
+			- « PersistentIdentifier » : identifiant(s) pérenne(s) (facultatifs):
+				- « PersistentIdentifierType » : type d'identifiant pérenne
+				- « PersistentIdentifierOrigin » : origine de l'identifiant pérenne
+				- « PersistentIdentifierReference » : référence de l'identifiant pérenne
+				- « PersistentIdentifierContent » : identifiant pérenne
 
 Restauration de métadonnées essentielles (Revert Essential Metadata)
 -----
