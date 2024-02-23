@@ -3287,9 +3287,9 @@ La partie « ReportSummary » c’est-à-dire le bloc situé sous la racine du
 - « extendedInfo » : partie libre où chaque type de rapport contient des informations qui lui est propre. Ici ce champ est vide. 
 
 La partie « ReportDetail » contient les détails de l’opération d’élimination effectuée sur chacune des unités archivistiques.<br>
-- « _id » : identifiant de l’unité archivistique ou de l’objet sur lequel l’action d’élimination s’est effectuée.
+- « _id » : identifiant de l’unité archivistique ou du groupe d'objets techniques sur lequel l’action d’élimination s’est effectuée.
 - « params » : informations sur l’unité archivistique ou le groupe d’objet
-    - « id » : identifiant de l’unité archivistique ou de l’objet
+    - « id » : identifiant de l’unité archivistique ou du groupe d'objets techniques
     - « type » : collection sur laquelle l’opération à été réalisée (UNIT ou OBJECTGROUP)
     - « status » : statut au regard de l’action d’élimination :
         - GLOBAL_STATUS_KEEP : unité archivistique non éliminable au regard des règles de gestion.
@@ -3328,6 +3328,7 @@ La partie « ReportDetail » contient les détails de l’opération d’élim
 				- « PersistentIdentifierOrigin » : origine de l'identifiant pérenne
 				- « PersistentIdentifierReference » : référence de l'identifiant pérenne
 				- « PersistentIdentifierContent » : identifiant pérenne
+		- « objectIds » : identifiant(s) du(des) objet(s) technique(s) dépendant du groupe d'objets techniques
 
 Modification d’arborescence (Reclassification)
 -----
@@ -3779,9 +3780,9 @@ La partie « ReportSummary » c’est-à-dire le bloc situé sous la racine du
 - « extendedInfo » : partie libre où chaque type de rapport contient des informations qui lui est propre. Ici ce champ est vide.
 
 La partie « ReportDetail » contient les détails de l’opération d’acquittement du transfert effectuée sur chacune des unités archivistiques.
-- « _id » : identifiant de l’unité archivistique ou de l’objet sur lequel l’action d’acquittement du transfert s’est effectuée.
-- « params » : informations sur l’unité archivistique ou le groupe d’objet
-    - « id » : identifiant de l’unité archivistique ou de l’objet
+- « _id » : identifiant de l’unité archivistique ou du groupe d'objets techniques sur lequel l’action d’acquittement du transfert s’est effectuée.
+- « params » : informations sur l’unité archivistique ou le groupe d’objets techniques
+    - « id » : identifiant de l’unité archivistique ou du groupe d'objets techniques
     - « type » : collection sur laquelle l’opération à été réalisée (UNIT ou OBJECTGROUP)
     - « status » : statut au regard de l’action d’acquittement du transfert :
         - ALREADY_IN_TRANSFER : unité archivistique ayant déjà subi une demande de transfert.
@@ -3808,6 +3809,7 @@ La partie « ReportDetail » contient les détails de l’opération d’acqui
 				- « PersistentIdentifierOrigin » : origine de l'identifiant pérenne
 				- « PersistentIdentifierReference » : référence de l'identifiant pérenne
 				- « PersistentIdentifierContent » : identifiant pérenne
+			- « objectIds » : identifiant(s) du(des) objet(s) technique(s) dépendant du groupe d'objets techniques
 
 Restauration de métadonnées essentielles (Revert Essential Metadata)
 -----
