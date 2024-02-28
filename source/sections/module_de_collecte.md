@@ -1443,6 +1443,19 @@ X-Tenant-Id: {{tenant}}
   ]
 }
 ```  
+Cette action provoque la mise à jour des unités archivistiques dans la base de données MongoDB, dans la collection « Unit » (base *MetadataCollect[^18]*).
+
+Lors de cette action, l’opération peut aboutir aux résultats suivants :
+
+| Statut       |  Motifs |
+|---|---|
+| Succès       |  Action réalisée sans rencontrer de problèmes particuliers. |
+| Échec        |  Le seuil de requête est dépassé. <br>Plusieurs unités archivistiques ont été trouvées. <br>Aucune unité archivistique n'a été trouvée. <br>Le format de la métadonnées à modifier n'est pas conforme au type d'indexation défini dans l'ontologie. |
+
+***Points d'attention***
+L'échec ne concerne pas l'action en général, mais est spécifique à une unité archivistique en particulier.
+
+Elle n’est pas journalisée dans le journal des opérations.
 
 ##### Suppression
 
