@@ -63,8 +63,9 @@ Une unité archivistique ou un lot d’archives peuvent être transférables san
     - les migrant vers un nouveau système d’archivage électronique.
 
 **Point d’attention :** 
-Après confirmation de la réception de ces archives par le système d’archivage électronique de destination, il faudra veiller à procéder à leur purge dans le système d’archivage électronique d’origine, afin que ne subsiste pas deux copies de ces archives dans deux systèmes différents. Cette purge est automatisable.  
-3.3.  Cas où l’utilisation de la fonctionnalité de transfert est déconseillée
+Après confirmation de la réception de ces archives par le système d’archivage électronique de destination, il faudra veiller à procéder à leur purge dans le système d’archivage électronique d’origine, afin que ne subsiste pas deux copies de ces archives dans deux systèmes différents. Cette purge est automatisable.
+
+### Cas où l’utilisation de la fonctionnalité de transfert est déconseillée
 La constitution d’un lot d’archives à transférer et la fonctionnalité de transfert doivent être utilisées lorsque l’on veut transmettre à la fois des archives et la responsabilité de leur conservation avec une traçabilité des événements ayant concerné ces archives dans le système d’archivage d’origine. Après acquittement du transfert, le lot d’archives est supprimé du système d’origine.  
 De fait, pour un transfert d’archives sans transfert de responsabilité, il est conseillé de recourir à la fonctionnalité de constitution d’un Dissemination Information Package (DIP) minimal ou complet qui permet de transmettre des archives (métadonnées et objets techniques) sans les supprimer ensuite du système d’origine.  
 Pour une simple transmission d’objet technique, il est conseillé d’utiliser la fonctionnalité de téléchargement d’un objet.  
@@ -217,7 +218,8 @@ Le système d’archivage électronique d’origine déclenche alors la purge de
 - détachement des groupes d’objets techniques rattachés à plusieurs unités archivistiques si une unité archivistique seule est purgée,
 - conservation des unités archivistiques, des groupes d’objets techniques et/ou des objets binaires qui ne sont pas référencés dans le message « ArchiveTransferReply »,
 - purge des unités archivistiques, des groupes d’objets techniques et/ou des objets binaires qui étaient identifiés comme étant déjà en cours de transfert,
-- purge des unités archivistiques si aucun des cas précédents ne s’applique. 
+- purge des unités archivistiques si aucun des cas précédents ne s’applique,
+- alimentation de la collection « PurgedPersistentIdentifier », si des unités archivistiques et/ou des objets techniques transférés avec succès étaient référencés par des identifiants pérennes et si cette action d'alimentation est activée. 
 
 Le statut de l’opération à l’issue de la mise en œuvre de la purge pourra être :
 - succès : toutes les unités archivistiques soumises ont été supprimées du système d’origine ;
