@@ -1453,7 +1453,11 @@ Lors de cette action, l’opération peut aboutir aux résultats suivants :
 | Échec        |  Le seuil de requête est dépassé. <br>Plusieurs unités archivistiques ont été trouvées. <br>Aucune unité archivistique n'a été trouvée. <br>Le format de la métadonnées à modifier n'est pas conforme au type d'indexation défini dans l'ontologie. |
 
 ***Points d'attention***
-L'échec ne concerne pas l'action en général, mais est spécifique à une unité archivistique en particulier.
+- L'échec ne concerne pas l'action en général, mais est spécifique à une unité archivistique en particulier.
+- La requête utilise le langage de requête DSL de type mise à jour unitaire de masse (BULK UPDATE) de la solution logicielle Vitam en entrée.
+- Le nombre de requêtes unitaires doit rester raisonnable, idéalement pas plus de 1000 par appel. Il est limité à un seuil maximum de 100 000 unités archivistiques par défaut. Ce seuil peut être redéfini dans la requête via le paramètre de seuil (threshold).
+
+Important : L'API est synchrone / bloquante, et peut prendre quelques instants.
 
 Elle n’est pas journalisée dans le journal des opérations.
 
