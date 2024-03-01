@@ -2687,6 +2687,7 @@ Liste des permissions qui peuvent être associées à :
 ||Supprime une transaction|transaction:id:delete|
 ||Charge les binaires en lot|transaction:zip:create|
 ||Créer une unité archivistique|transaction:unit:create|
+||Verser une archive arborescente ZIP à un projet de versement automatique sans transaction|createproject:id:zip:create|
 ||Récupère toutes les unités archivistiques|transaction:unit:read|
 ||Récupère les unités archivistiques d’une transaction|transaction:id:units|
 ||Récupère une unité archivistique|transaction:unit:id:read|
