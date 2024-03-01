@@ -2236,6 +2236,9 @@ Annexe 3 : Liste des points d’API
 |                   | Récupère la liste des projets de versement par critère de recherche | project:query:read | GET | project:query:read |
 |                   | Mise à jour d’un projet de versement | project:update        | PUT           | /collect-external/v1/projects  |
 |                   | Supprime un projet de versement   | project:id:delete        | DELETE        | /collect-external/v1/projects/{projectId}/ |
+|                   | Verser une archive arborescente ZIP à un projet de versement automatique sans transaction | project:id:zip:create | POST        | /collect-external/v1/projects/{projectId}/upload/ |
+
+
 |                   | Récupérer la liste des transactions du projet | project:id:transactions | GET |/collect-external/v1/projects/{projectId}/transactions/ |
 | transaction       | Création de la transaction        | transaction:create       | POST          | /collect-external/v1/projects/{projectId}/transactions/ |
 |                   | Mise à jour d’une transaction     | transaction:update       | PUT           | /collect-external/v1/transactions/ |
