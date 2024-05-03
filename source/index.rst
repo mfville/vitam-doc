@@ -70,8 +70,8 @@ Chantier préservation
    :numbered:
 
    sections/chantier_preservation_validation_format.md
-   sections/chantier_preservation_identification_format.md
-   sections/chantier_preservation_extraction_MD.md
+   sections/chantier_identification_format.md
+   sections/chantier_extraction_MD.md
 
 Vademecum
 =======
