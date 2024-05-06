@@ -124,7 +124,9 @@ L’opération peut aboutir aux résultats suivants :
 - L’opération de demande de transfert de transfert est en avertissement :
     - s’il n’y a pas d’objet technique concerné (statut « OBJECTS_LIST_EMPTY ») ;
     - si une unité archivistique a déjà fait l’objet d’une demande de transfert (message : {\"Reason\":\"unit [identifiant de l’unité archivistique] already in transfer\"} à la tâche « CREATE_MANIFEST ») ;
-- L’opération de demande de transfert de transfert sera en erreur si aucun des paramètres obligatoires n’est renseigné (message : {"Reason":"ArchivalAgreement parameter is required, OriginatingAgencyIdentifier parameter is required, ArchivalAgency parameter is required."} à la tâche « CREATE_MANIFEST »).  
+- L’opération de demande de transfert de transfert sera en erreur si :
+	- aucun des paramètres obligatoires n’est renseigné (message : {"Reason":"ArchivalAgreement parameter is required, OriginatingAgencyIdentifier parameter is required, ArchivalAgency parameter is required."} à la tâche « CREATE_MANIFEST »);
+	- l'export demandé en SEDA 2.1 d'un bordereau de transfert alors qu'il embarque des archives entrées en SEDA 2.2 et intégrant des champs ajoutés dans la version 2.2 du SEDA.
 
 Sont également disponibles :
 - Un rapport en JSONL qui récapitule la requête ciblant les unités archivistiques et liste les unités archivistiques effectivement prises en compte pour la constitution du paquet de transfert. Le statut de ces dernières peut être :
