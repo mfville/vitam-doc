@@ -391,6 +391,8 @@ La solution logicielle Vitam permet également de rechercher au-delà de 10 000 
 
 **Point d’attention :** le seuil de résultats supporté par le moteur d’indexation Elastic Search est de 10 000 unités archivistiques. Il est de fait recommandé d’utiliser des requêtes ne dépassant pas les 10 000 résultats.
 
+Il est également possible de rechercher des objets en fournissant leur identifiant pérenne en paramètre de recherche.
+
 L’affichage des groupes d’objets techniques est disponible :
 -  depuis l’IHM démo, et plus particulièrement le détail d’une unité archivistique de type « Standard » ;
 -  depuis l’APP de VitamUI «  Recherche et consultation des archives », et plus particulièrement le détail d’une unité archivistique de type « Standard ».
