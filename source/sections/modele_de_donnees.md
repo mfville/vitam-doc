@@ -3736,97 +3736,163 @@ Deux documents sont créés à chaque fois qu'un scroll est effectué par tenant
 
 #### Utilisation de la collection PurgedPersistentIdentifier
 
-La collection PurgedPersistentIdentifier conserve les identifiants pérennes des Archives Unitaires et des Objets Techniques qui ont été supprimés suite à des opérations d'élimination, de transfert, ou de suppression spécifique d'objets. Cette collection joue un rôle crucial dans la gestion de la traçabilité des archives éliminées ou transférées, en offrant la possibilité de reconstruire l'information sur ces éléments pour les opérations de sauvegarde et de restauration.
+La collection PurgedPersistentIdentifier conserve les identifiants pérennes des unités archivistiques et des objets techniques qui ont été supprimés suite à des opérations d'élimination, de transfert, ou de suppression spécifique d'objets. Cette collection joue un rôle crucial dans la gestion de la traçabilité des archives éliminées ou transférées, en offrant la possibilité de reconstruire l'information sur ces éléments pour les opérations de sauvegarde et de restauration.
 
-### Détail des champs
+#### Exemple de JSON stocké en base comprenant l’exhaustivité des champs
 
-- **« id » :** Identifiant unique de l'élément (AU ou Objet) concerné par la suppression.
+```json
+{
+    _id: 'aeaqaaaaaeeci65iabqykamny5hmb5yaaaba',
+    persistentIdentifier: [
+        {
+            PersistentIdentifierType: 'doi',
+            PersistentIdentifierOrigin: 'OriginatingAgency',
+            PersistentIdentifierReference: 'Identifier0',
+            PersistentIdentifierContent: 'doi:10.1522/cla.ada.con'
+        }
+    ],
+    _tenant: 1,
+    _v: 0,
+    type: 'Unit',
+    idObjectGroup: 'aebaaaaaaeeci65iabqykamny5hmb2qaaaaq',
+    archivalAgencyIdentifier: null,
+    opId: 'aeeaaaaaageci65iabusuamny5hvvkiaaaaq',
+    opType: 'ELIMINATION_ACTION',
+    opEndDate: '2024-02-20T16:18:05.961',
+    lastPersistentDate: '2024-02-20T16:30:00.210'
+}
+```
 
-- Champ peuplé par la solution logicielle Vitam.
+#### Détail des champs
+
+**« _id » :** identifiant unique de l'élément (unité archivistique ou objet technique) concerné par la suppression.
 
 - Il s’agit d’une chaîne de caractères.
 
+- Champ peuplé par la solution logicielle Vitam.
+
 - Cardinalité : 1-1.
 
-- **« tenant » :** Identifiant du tenant concerné par l'opération de suppression.
-
-- Champ peuplé par la solution logicielle Vitam.
+**« tenant » :** identifiant du tenant concerné par l'opération de suppression.
 
 - Il s’agit d’un entier.
 
-- Cardinalité : 1-1.
-
-- **« persistentIdentifiers » :** Liste des identifiants pérennes associés à l'élément purgé.
-
 - Champ peuplé par la solution logicielle Vitam.
 
-- Il s’agit d’une liste de d'objets.
+- Cardinalité : 1-1.
+
+**« persistentIdentifier » :** liste des identifiants pérennes associés à l'élément supprimé.
+
+- Il s’agit d’une liste de d'objets. Elle contient :
+
+    -   « PersistentIdentifierType » : type d'identifiant pérenne.
+
+        -   Il s’agit d’une chaîne de caractères.
+
+        -   Cardinalité : 1-1
+		
+    -   « PersistentIdentifierOrigin » : origine de l'identifiant pérenne.
+
+        -   Il s’agit d’une chaîne de caractères.
+
+        -   Cardinalité : 0-1
+		
+	-   « PersistentIdentifierReference » : référence de l'identifiant pérenne.
+
+        -   Il s’agit d’une chaîne de caractères.
+
+        -   Cardinalité : 0-1
+		
+	-   « PersistentIdentifierContent » : contenu de l'identifiant pérenne.
+
+        -   Il s’agit d’une chaîne de caractères.
+
+        -   Cardinalité : 1-1
+
+- Liste peuplée par la solution logicielle Vitam.
 
 - Cardinalité : 1-N.
 
-- **« version » :** version de l’enregistrement décrit.
-
-- Champ peuplé par la solution logicielle Vitam.
+**« _v » :** version de l’enregistrement décrit.
 
 - Il s’agit d’un entier.
 
+- Champ peuplé par la solution logicielle Vitam.
+
 - Cardinalité : 1-1.
 
-- **« type » :** Type de l'élément supprimé (AU ou Objet).
-
-- Champ peuplé par la solution logicielle Vitam.
+**« type » :** type de l'élément supprimé.
 
 - Il s’agit d’une chaîne de caractères.
 
+- Champ peuplé par la solution logicielle Vitam.
+
+- Ce champ peut avoir comme valeur : "Unit" ou "Object".
+
 - Cardinalité : 1-1.
 
-- **« operationId » :** Identifiant de l'opération ayant conduit à la suppression de l'élément.
-
-- Champ peuplé par la solution logicielle Vitam.
+**« idObjectGroup » :** identifiant du groupe d'objets techniques si l'élément est un objet.
 
 - Il s’agit d’une chaîne de caractères.
 
-- Cardinalité : 1-1.
-
-- **« operationType » :** Type de l'opération (Elimination, Suppression, ou Transfert).
+- Contient la valeur « null » si l'élément est une unité archivistique.
 
 - Champ peuplé par la solution logicielle Vitam.
-
-- Il s’agit d’une chaîne de caractères.
-
-- Cardinalité : 1-1.
-
-- **« operationLastPersistentDate » :** Date de la dernière persistance de l'opération.
-
-- Champ peuplé par la solution logicielle Vitam.
-
-- Il s’agit d’une chaîne de caractères au format date.
-
-- Cardinalité : 1-1.
-
-- **« objectGroupId » :** Identifiant du groupe d'objets si l'élément est un objet, vide sinon.
-
-- Champ peuplé par la solution logicielle Vitam.
-
-- Il s’agit d’une chaîne de caractères.
 
 - Cardinalité : 0-1.
 
-- **« archivalAgencyIdentifier » :** Identifiant de l'agence d'archives cible dans le cas d'un transfert.
-
-- Champ peuplé par la solution logicielle Vitam.
+**« archivalAgencyIdentifier » :** identifiant du service d'archives.
 
 - Il s’agit d’une chaîne de caractères.
 
+- Champ peuplé par la solution logicielle Vitam uniquement dans le cas d'une opération de transfert d'archives.
+
+- Correspond au champ ArchivalAgencyIdentifier défini dans le message ArchiveTransfer.
+
+- Contient la valeur « null » s'il s'agit d'une opération d'élimination ou de suppression d'objets.
+
 - Cardinalité : 0-1.
 
-- **« lastPersistentDate » :** Dernière date de persistance du document.
+**« opId » :** identifiant de l'opération ayant conduit à la suppression de l'élément.
+
+- Il s’agit d’une chaîne de caractères.
 
 - Champ peuplé par la solution logicielle Vitam.
 
-- Il s’agit d’une chaîne de caractères au format date.
+- Cardinalité : 1-1.
+
+**« opType » :** type de l'opération.
+
+- Il s’agit d’une chaîne de caractères.
+
+- Champ peuplé par la solution logicielle Vitam.
+
+- Peut contenir :
+	
+	- la valeur "ELIMINATION_ACTION" s'il s'agit d'une opération d'élimination,
+	
+	- la valeur "TRANSFER_REPLY" s'il s'agit d'une opération de transfert,
+
+	- la valeur "DELETE_GOT_VERSIONS" s'il s'agit d'une opération de suppression d'objets.
 
 - Cardinalité : 1-1.
+
+**« opEndDate » :** date de la dernière persistance de l'opération.
+
+- Il s’agit d’une chaîne de caractères au format date.
+
+- Champ peuplé par la solution logicielle Vitam.
+
+- Cardinalité : 1-1.
+
+**« lastPersistentDate » :** dernière date de persistance du document.
+
+- Il s’agit d’une chaîne de caractères au format date.
+
+- Champ peuplé par la solution logicielle Vitam.
+
+- Cardinalité : 1-1.
+
 
 Base metadataCollect
 --------------------
