@@ -11,8 +11,13 @@ Introduction
 |:----|:----:|:----:|
 |NF Z 44022 – MEDONA – Modélisation des données pour l’archivage|18/01/2014||
 |Standard d’échange de données pour l’archivage – SEDA – v. 2.1|06/2018||
-|Standard d’échange de données pour l’archivage – SEDA – v. 2.2|02/2022|Cette nouvelle version du SEDA est intégrée à la solution logicielle Vitam à partir de la V6.RC.|        
-
+|Standard d’échange de données pour l’archivage – SEDA – v. 2.2|02/2022|Cette nouvelle version du SEDA est intégrée à la solution logicielle Vitam à partir de la V6.RC.|
+|Standard d’échange de données pour l’archivage – SEDA – v. 2.3|06/2023||
+|[Vitam – Structuration des Submission Information Package (SIP)](./SIP.md)|||
+|Vitam – Documentation d’installation|||
+|Vitam – Documentation d’exploitation|||
+|[Vitam – Gestion de multiples stratégies de stockage ](./stockage.md)|||
+      
 
 ### Présentation du document
 
@@ -1473,10 +1478,13 @@ Il détermine une stratégie de stockage déterminée pour :
 -  les métadonnées correspondant aux groupes d’objets techniques,
 -  les objets binaires (fichiers numériques).
 
-Il définit également une politique de préservation des objets numériques de manière générique ou de manière spécifique.
+Il définit également :
+-  une politique de préservation des objets numériques de manière générique ou de manière spécifique,
+-  une stratégie d’identification pérenne.
 
 **Point d’attention :** 
-Au terme de la version 5.RC, les paramètres liés à la définition d’une politique de préservation ne sont qu’informatifs. En effet, ils ne sont actuellement pas applicables dans des workflows existants (opérations de préservation, opérations de suppression de versions d’objets à la demande).
+-  Au terme de la version 8.0, les paramètres liés à la définition d’une politique de préservation ne sont qu’informatifs. En effet, ils ne sont actuellement pas applicables dans des workflows existants (opérations de préservation, opérations de suppression de versions d’objets à la demande).
+-  Au terme de la version 8.0, la stratégie d’identification pérenne qu’il est possible de mettre en œuvre ne couvre que l’identification ARK.
 
 #### Formalisation
 
@@ -1496,7 +1504,7 @@ Un contrat de gestion donné doit obligatoirement comporter les informations sui
 - identifiant signifiant. Ce champ est obligatoire seulement s’il est généré par l’application à l’origine de sa création (Identifier). Si cet identifiant est généré par la solution logicielle Vitam, il n’est pas nécessaire de le renseigner dans le fichier JSON ;
 - nom du contrat (Name).
 
-D’autres informations, facultatives – une description (Description), un statut (Status), une date d’activation (ActivationDate) et de désactivation (DeactivationDate), une définition de la gestion du stockage (Storage) et de la politique de préservation (VersionRetentionPolicy) –  peuvent venir compléter ces informations.
+D’autres informations, facultatives – une description (Description), un statut (Status), une date d’activation (ActivationDate) et de désactivation (DeactivationDate), une définition de la gestion du stockage (Storage) et de la politique de préservation (VersionRetentionPolicy) et de la stratégie d’identification pérenne (PersistentIdentifierPolicy) –  peuvent venir compléter ces informations.
 
 À noter pour certaines d’entre elles que, si elles ne sont pas renseignées, la solution logicielle Vitam fournira automatiquement une valeur par défaut :
 -  valeur «  INACTIVE » pour le statut,
@@ -1523,6 +1531,7 @@ Le contrat de gestion est modélisé en JSON comme suit[^86] :
 |DeactivationDate|si le contrat est inactif, date de désactivation du contrat (champ facultatif).|
 |Storage|définition d’une stratégie de stockage (champ facultatif) pour :<br>-  les métadonnées correspondant aux unités archivistiques (UnitStrategy – champ facultatif) ;<br>-  les métadonnées correspondant aux groupes d’objets techniques (ObjectGroupStrategy – champ facultatif) ;<br>-  les métadonnées correspondant aux objets binaires (ObjectStrategy – champ facultatif).|
 |VersionRetentionPolicy|définition d’une politique de préservation (champ obligatoire) pour :<br>-  tous les usages :<br>-> conservation de la valeur initiale des objets (InitialVersion – champ obligatoire), dont la valeur est obligatoirement égale à « true » (valeur par défaut : « true » ;<br>-> conservation des versions intermédiaires des objets (IntermediaryVersion  – champ obligatoire), dont la valeur peut être égale à « ALL » ou à « LAST » (valeur par défaut : « LAST) ;<br>-  un usage en particulier (Usages – champ facultatif) :<br>-> nom de l’usage d’objet concerné (UsageName – champ facultatif), dont la valeur peut être égale à « BinaryMaster, Dissemination, TextContent, Thumbnail, PhysicalMaster) ;<br>-> conservation de la valeur initiale des objets (InitialVersion – champ facultatif), dont la valeur est obligatoirement égale à « true » pour les objets d’usage « BinaryMaster » ;<br>-> conservation des versions intermédiaires des objets (IntermediaryVersion  – champ facultatif), dont la valeur peut être égale à « ALL », à « LAST » ou « NONE », ce dernier n’étant pas accepté pour les objets d’usage « BinaryMaster ».|
+|PersistentIdentifierPolicy|définition d’une politique de préservation (champ obligatoire) pour :<br>-  un type d’identification pérenne, dont la valeur doit être égale à « ARK » (PersistentIdentifierPolicyType – champ obligatoire) ;<br>- une autorité nommante en particulier (PersistentIdentifierAuthority – champ facultatif), correspondant à un numéro de 5 ou 9 chiffres pour l’identification de type ARK. Si le contrat de gestion importé ne contient pas d’autorité nommante, la solution logicielle Vitam enregistre par défaut la valeur « 0 » ;<br>-  un périmètre donné :<br>-> les unités archivistiques associées à un groupe d’objets techniques, dont la valeur est égale à « true » ou « false » (PersistentIdentifierUnit – champ obligatoire). Si le contrat de gestion importé ne contient pas de valeur, la solution logicielle Vitam enregistre par défaut la valeur « false ».<br>-> un à plusieurs usage(s)  (PersistentIdentifierUsages – champ obligatoire, mais pouvant être vide) :<br>->>nom de l’usage d’objet concerné (UsageName – champ facultatif), dont la valeur peut être égale à « BinaryMaster, Dissemination, TextContent, Thumbnail, PhysicalMaster) ;<br>->> génération d’un identifiant pérenne pour la version initiale des objets (InitialVersion – champ obligatoire), dont la valeur est égale à « true » ou « false ». Si le contrat de gestion importé ne contient pas de valeur, la solution logicielle Vitam enregistre par défaut la valeur « false ».<br>->> génération d’un identifiant pérennes pour les versions intermédiaires des objets (IntermediaryVersion  – champ obligatoire), dont la valeur peut être égale à « ALL »,  « LAST » ou « NONE ».|
 
 La solution logicielle Vitam n’impose pas l’utilisation d’un contrat de gestion, en proposant une stratégie de stockage active par défaut.
 
@@ -1537,7 +1546,7 @@ Il est possible de réaliser les opérations présentées ci-dessous.
 Dans la solution logicielle Vitam, il est possible d’importer sur n’importe quel tenant 1 à n contrat(s) de gestion sous la forme d’un fichier JSON.
 Par cet import, 1 à n contrat(s) de gestion sont ajoutés au référentiel des contrats de gestion.
 
-Il est également possible de créer un contrat d’accès depuis l’APP VitamUI « Contrats de gestion ».
+Il est également possible de créer un contrat de gestion depuis l’APP VitamUI « Contrats de gestion ».
 
 Il s’agit d’une opération d’administration (« MASTERDATA »), tracée dans le journal des opérations du tenant sur lequel a eu lieu l’opération[^89].
 
@@ -1546,8 +1555,8 @@ Lors de cet import, l’opération peut aboutir aux statuts suivants :
 |Statut|Motifs|
 |:---|:---|
 |Succès|Opération réalisée sans rencontrer de problèmes particuliers.|
-|Échec[^90]|Sans journalisation :<br>- Import d’un référentiel sous la forme d’un fichier qui n’est pas au format JSON ;<br>- Import d’un référentiel sous la forme d’un fichier qui n’est pas correctement formaté au format JSON ;<br>- Import d’un référentiel dont au moins un des champs contient une injection HTML ;<br>- Import d’un contrat de gestion dont le champ « Status » ne contient pas de valeur ou contient une valeur ne correspondant ni à « ACTIVE », ni à « INACTIVE » ;<br>- Import d’un contrat de gestion dans lequel une valeur ne correspond pas au type d’indexation du champ défini dans l’ontologie (ex : valeur textuelle dans un champ de type « DATE »).|
-|Échec|Avec journalisation :<br>- import d’un contrat de gestion dont l’identifiant existe déjà dans le système sur un tenant en mode « esclave » ;<br>- import d’un fichier JSON dans lequel un contrat de gestion ne déclare pas d’identifiant[^91] ou d’intitulé ;<br>- import d’un contrat de gestion dans lequel un champ obligatoire ne contient pas de valeur. Il peut s’agir des champs : Identifier[^92] ou Name ;<br>- import d’un contrat de gestion qui déclare une(des) stratégie(s) de stockage non référencée(s) ou invalide(s) dans la solution logicielle Vitam ;<br>- import d’un contrat de gestion qui déclare un usage inconnu ou mal écrit dans la politique de préservation ;<br>- import d’un contrat de gestion qui demande la conservation d’aucune version intérmédiaire d’un objet d’usage « BinaryMaster » ;<br>- import d’un contrat de gestion qui demande la conservation d’aucune version intermédiare d’un objet d’usage « BinaryMaster ».|
+|Échec[^90]|Sans journalisation :<br>- Import d’un référentiel sous la forme d’un fichier qui n’est pas au format JSON ;<br>- Import d’un référentiel sous la forme d’un fichier qui n’est pas correctement formaté au format JSON ;<br>- Import d’un référentiel dont au moins un des champs contient une injection HTML ;<br>- Import d’un contrat de gestion dont le champ « Status » ne contient pas de valeur ou contient une valeur ne correspondant ni à « ACTIVE », ni à « INACTIVE » ;<br>- Import d’un contrat de gestion dans lequel une valeur ne correspond pas au type d’indexation du champ défini dans l’ontologie (ex : valeur textuelle dans un champ de type « DATE ») ou à la valeur attendue (ex : valeur autre que « ARK » pour le champ « PersistentIdentifierPolicyType »).|
+|Échec|Avec journalisation :<br>- import d’un contrat de gestion dont l’identifiant existe déjà dans le système sur un tenant en mode « esclave » ;<br>- import d’un fichier JSON dans lequel un contrat de gestion ne déclare pas d’identifiant[^91] ou d’intitulé ;<br>- import d’un contrat de gestion dans lequel un champ obligatoire ne contient pas de valeur. Il peut s’agir des champs : Identifier[^92] ou Name ;<br>- import d’un contrat de gestion qui déclare une(des) stratégie(s) de stockage non référencée(s) ou invalide(s) dans la solution logicielle Vitam ;<br>- import d’un contrat de gestion qui déclare un usage inconnu ou mal écrit dans la politique de préservation ou dans la stratégie d’identification pérenne ;<br>- import d’un contrat de gestion qui demande la conservation d’aucune version intermédiaire d’un objet d’usage « BinaryMaster » ;<br>- import d’un contrat de gestion qui définit une stratégie d’identification pérenne sans déclarer un champ obligatoire tel que : PersistentIdentifierPolicyType, PersistentIdentifierUsages, UsageName et IntermediaryVersion pour un usage donné.|
 
 **Point d’attention :** il est possible d’importer un référentiel complet, comprenant plusieurs items, en une seule fois. La solution logicielle Vitam ne comptabilisera qu’une seule opération, et ne prend pas en compte dans le journal des opérations la création unitaire des différents items compris dans le référentiel importé. Afin d’optimiser la traçabilité de la création des différents référentiels d’habilitations, il est donc recommandé de créer ces derniers un par un.
 
@@ -1564,9 +1573,13 @@ Les champs modifiables sont :
 Concernant les options contenues dans un contrat de gestion, il est possible de :
 -  ajouter, modifier ou supprimer une stratégie de stockage appliquées aux unités archivistiques (UnitStrategy) ;
 -  ajouter, modifier ou supprimer une stratégie de stockage appliquées aux groupes d’objets techniques (ObjectGroupStrategy) ;
--  ajouter, modifier ou supprimer une stratégie de stockage appliquées aux objets binaires (ObjectStrategy).
+-  ajouter, modifier ou supprimer une stratégie de stockage appliquées aux objets binaires (ObjectStrategy) ;
+-  ajouter, modifier ou supprimer une stratégie d’identification pérenne (PersistentIdentifierPolicy).
 
-**Point d’attention :** Le statut du contrat de gestion doit être « Actif » (« ACTIVE ») pour pouvoir appliquer la stratégie de stockage qu’il définit.
+**Point d’attention :** 
+-  Le statut du contrat de gestion doit être « Actif » (« ACTIVE ») pour pouvoir appliquer la stratégie de stockage qu’il définit.
+-  Il n'est pas possible de supprimer une stratégie de stockage ou une stratégie d'identification pérenne depuis l'APP VitamUI « Contrats de gestion ».
+
 Cette action provoque la création d’une nouvelle version du contrat de gestion modifié. Les différentes versions du référentiel font l’objet d’une sauvegarde sur les offres de stockage utilisées par la solution logicielle Vitam.
 
 Il s’agit d’une opération d’administration (« MASTERDATA »), tracée dans le journal des opérations du tenant sur lequel a eu lieu l’opération[^93].
@@ -1575,7 +1588,7 @@ Lors de cette mise à jour, l’opération peut aboutir aux statuts suivants :
 |Statut|Motifs|
 |:---|:---|
 |Succès|Opération réalisée sans rencontrer de problèmes particuliers.|
-|Échec[^94]|Avec journalisation :<br>- mise à jour d’un contrat de gestion dans lequel une valeur ne correspond pas au type d’indexation du champ défini dans l’ontologie (ex : valeur textuelle dans un champ de type « DATE ») ;<br>- mise à jour d’une valeur par une valeur ne correspondant pas à la valeur attendu par le champ (ex : dans le champ « Status », remplacement de la valeur « ACTIVE » par la valeur « TOTO » au lieu de « INACTIVE ») ;<br>- ajout d’une stratégie de stockage non référencée par la solution logicielle Vitam ;<br>- mise à jour de l’identifiant d’un contrat de gestion par un identifiant existant déjà dans le système sur un tenant en mode « esclave » ;<br>- ajout d’un usage inconnu ou mal écrit dans la politique de préservation ;<br>- modification d’un contrat de gestion qui demande la conservation d’aucune version intérmédiaire d’un objet d’usage « BinaryMaster » ;<br>- modification d’un contrat de gestion qui demande la conservation d’aucune version intermédiare d’un objet d’usage « BinaryMaster ».|
+|Échec[^94]|Avec journalisation :<br>- mise à jour d’un contrat de gestion dans lequel une valeur ne correspond pas au type d’indexation du champ défini dans l’ontologie (ex : valeur textuelle dans un champ de type « DATE ») ;<br>- mise à jour d’une valeur par une valeur ne correspondant pas à la valeur attendu par le champ (ex : dans le champ « Status », remplacement de la valeur « ACTIVE » par la valeur « TOTO » au lieu de « INACTIVE ») ;<br>- ajout d’une stratégie de stockage non référencée par la solution logicielle Vitam ;<br>- mise à jour de l’identifiant d’un contrat de gestion par un identifiant existant déjà dans le système sur un tenant en mode « esclave » ;<br>- ajout d’un usage inconnu ou mal écrit dans la politique de préservation ;<br>- modification d’un contrat de gestion qui demande la conservation d’aucune version intermédiaire d’un objet d’usage « BinaryMaster ».|
 
 ##### Activation / Désactivation
 
@@ -1620,9 +1633,13 @@ En revanche, quand on souhaite assurer un stockage particulier, différent de la
 -  d’accès (déporter sur des offres froides des objets binaires peu consultés et conserver les objets très consultés sur des offres chaudes),
 -  de contexte (tiers-archivage).
 
+La création d’un contrat de gestion s’avère également nécessaire si l’on souhaite définir une stratégie d’identification pérenne.
+
 La création de contrats de gestion peut intervenir à différents moments :
--  lors de l’initialisation de la plate-forme : si l’on souhaite mettre en place différents niveaux de service de stockage en définissant plusieurs stratégies de stockage, en plus de la stratégie par défaut, il est recommandé de créer des contrats de gestion utilisant ces différentes stratégies de stockage, correspondant à autant de niveaux de service ;
--  lors de l’intégration d’une nouvelle application requérant un stockage particulier, différent de la stratégie de stockage par défaut.
+-  lors de l’initialisation de la plate-forme : 
+	-  si l’on souhaite mettre en place différents niveaux de service de stockage en définissant plusieurs stratégies de stockage, en plus de la stratégie par défaut, il est recommandé de créer des contrats de gestion utilisant ces différentes stratégies de stockage, correspondant à autant de niveaux de service ;
+	-  si l’on souhaite définir une ou plusieurs stratégie(s) d’identification pérenne, il est nécessaire de créer au moins un contrat de gestion ;
+-  lors de l’intégration d’une nouvelle application requérant un stockage particulier, différent de la stratégie de stockage par défaut, ou requérant une identification pérenne spécifique pour ses archives.
 
 **Point d’attention :** Au terme de la version 5.RC, les paramètres liés à la définition d’une politique de préservation ne sont qu’informatifs. En effet, ils ne sont actuellement pas applicables dans des workflows existants (opérations de préservation, opérations de suppression de versions d’objets à la demande).
 La déclaration d’un contrat de gestion dans la solution logicielle Vitam relève d’une opération d’administration technico-fonctionnelle. Elle nécessite la configuration préalable d’une à plusieurs stratégie(s) de stockage.
@@ -2563,6 +2580,51 @@ Annexes
 			}
 			]
 		}
+	}
+```
+
+##### Avec stratégie d'identification pérenne
+
+```json
+	{
+		"Name": "MCWithIdentificationStrategy-1",
+		"Identifier": "MCWithIdentificationStrategy-1",
+		"Description": "Contrat de gestion avec politique d'identification : identification de l'unité archivistique, de la version courante + avant-dernière pour tous les usages sauf BinaryMaster où l'on identifie également la première",
+		"Status": "ACTIVE",
+		"PersistentIdentifierPolicy": [
+			{
+				"PersistentIdentifierPolicyType": "ARK",
+				"PersistentIdentifierUnit": true,
+				"PersistentIdentifierAuthority": 12354,
+				"PersistentIdentifierUsages": [
+					{
+						"UsageName": "BinaryMaster",
+						"InitialVersion": true,
+						"IntermediaryVersion": "LAST"
+					},
+					{
+						"UsageName": "Dissemination",
+						"InitialVersion": false,
+						"IntermediaryVersion": "NONE"
+					},
+					{
+						"UsageName": "Thumbnail",
+						"InitialVersion": false,
+						"IntermediaryVersion": "ALL"
+					},
+					{
+						"UsageName": "TextContent",
+						"InitialVersion": true,
+						"IntermediaryVersion": "LAST"
+					},
+					{
+						"UsageName": "PhysicalMaster",
+						"InitialVersion": false,
+						"IntermediaryVersion": "LAST"
+					}
+        ]
+      }
+    ]
 	}
 ```
 
