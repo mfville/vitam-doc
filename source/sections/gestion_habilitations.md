@@ -2068,6 +2068,36 @@ Exemple : message d’erreur sur la tâche de contrôle du contrat d’entrée.
 
 **Point d’attention :** Au terme de la version 5.RC, les paramètres liés à la définition d’une politique de préservation ne sont qu’informatifs. De facto, aucun contrôle n’est réalisé en entrée par rapport à cette politique.
 
+#### Options de génération automatique d'identifiants pérennes
+
+Le contrat d’entrée permet de générer un identifiant pérenne pour des unités archivistiques et/ou des objets techniques au moyen de la définition d’un contrat de gestion.
+
+Cette option est, de fait, paramétrée dans un contrat de gestion qui permet de déclarer une stratégie d'identification pérenne en définissant :
+-  un type d'identification pérenne,
+-  une autorité nommante,
+-  la cible de l'identification pérenne (unité archivistique et/ou objet technique).
+
+**Points d’attention :**
+-  Pour pouvoir associer un contrat de gestion à un contrat d’entrée, il va de soi que le contrat de gestion doit exister dans le système.
+-  Pour pouvoir être utilisé, un contrat de gestion doit définir une stratégie d'identification pérenne.
+-  Au terme de la version 8.0, la solution logicielle Vitam permet uniquement de définir une stratégie d'identification pérenne de type ARK.
+
+Dans le cadre du processus d’entrée d’un ensemble d’archives, suite à la réception d’un bordereau de transfert (message ArchiveTransfer du SEDA), à l’étape vérifiant que le contrat d’entrée déclaré dans le SIP (ArchivalAgreement) existe bien dans le référentiel des contrats d’entrée et est actif, la solution logicielle Vitam effectue également les tâches et traitements suivants pour les archives déclarant ce contrat d’entrée déclarant un contrat de gestion :
+-  vérification que le contrat de gestion est actif ;
+-  vérification que la stratégie de stockage définie dans le contrat de gestion existe.
+Lors de cette étape :
+-  Si le contrat de gestion est actif et si la stratégie qu’il déclare existe, la solution logicielle Vitam passera à la tâche ou traitement suivant, puis à l’étape suivante ;
+-  Si le contrat de gestion est inactif ou si la stratégie de stockage qu’il déclare n’existe pas, alors le transfert du SIP échouera à la tâche de vérification de la présence et du contrôle du contrat d’entrée.
+-  Si le contrat de gestion déclare une stratégie d'identification pérenne, la solution logicielle Vitam enregistrera automatiquement un identifiant pérenne dans les unités archivistiques et/ou les objets techniques en base de données.
+-  Si le contrat de gestion ne déclare pas de stratégie d'identification pérenne, la solution logicielle Vitam n'enregistrera pas d'identifiant pérenne dans les unités archivistiques et/ou les objets techniques en base de données.
+
+**Point d’attention :**
+-  L'enregistrement en base de données s'effectuera en fonction des paramètres définis dans le contrat de gestion et les éléments disponibles dans le SIP :
+	- Si la stratégie est de générer des identifiants sur les unités archivistiques, alors toutes les unités archivistiques associées à un groupe d'objets techniques seront dotées d'un identifiant pérenne,
+	- Si la stratégie est de générer des identifiants sur les objets, alors les objets ciblés dans un groupe d'objets techniques (pour un usage, aucune version, la première version, toutes les versions et/ou la dernière) seront dotés d'un identifiant pérenne,
+	- Si la stratégie est de générer des identifiants sur les objets et si le SIP ne contient pas d'objet technique, alors aucun identifiant pérenne ne sera généré ;
+-  La solution logicielle Vitam ne contrôle pas la présence d'identifiants pérennes dans les SIP versés. De facto, si un SIP contient des identifiants pérennes et si le contrat d'entrée dispose d'une stratégie d'identification pérenne, alors les archives ciblées disposeront de deux identifiants pérennes.
+
 #### Option de génération automatique des règles de gestion héritées
 
 Il est également possible d’enregistrer automatiquement les règles de gestion héritées par une unité archivistique en base de données, dans un champ spécifique, au moyen d’un paramétrage :
