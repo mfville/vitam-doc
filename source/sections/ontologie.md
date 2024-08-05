@@ -10,6 +10,8 @@ Introduction
 |:-----------:|:-----:|:-----:|
 |NF Z 44022 – MEDONA - Modélisation des données pour l’archivage|18/01/2014||
 |Standard d’échange de données pour l’archivage – SEDA – v. 2.1|06/2018||
+|Standard d’échange de données pour l’archivage – SEDA – v. 2.2|02/2022||
+|Standard d’échange de données pour l’archivage – SEDA – v. 2.3|06/2024||
 |[Vitam – Structuration des *Submission Information Package* (SIP)](./SIP.md)|||
 |[Vitam – Profils d’unité archivistique](./profil_unite_archivistique.md)||Ce document est complémentaire du présent document qui fait référence, ponctuellement, aux profils d’unité archivistique.|
 |[Vitam – Documentation d’exploitation](https://www.programmevitam.fr/ressources/DocCourante/html/exploitation_VitamUI/)|||
@@ -32,7 +34,7 @@ Il s’articule autour des axes suivants :
 - quelques conseils complémentaires de mise en œuvre.
 
 Le présent document décrit les fonctionnalités qui sont offertes par la
-solution logicielle Vitam au terme de la version 5.RC (septembre 2021).
+solution logicielle Vitam au terme de la version 8.0 (octobre 2024).
 Il a vocation a être amendé, complété et enrichi au fur et à mesure de
 la réalisation de la solution logicielle Vitam et des retours et
 commentaires formulés par les ministères porteurs et les partenaires du
@@ -69,7 +71,7 @@ Ces vocabulaires peuvent être utilisés pour décrire :
 -   0 à n scénario(s) de préservation,
 -   0 à n service(s) agent(s),
 -   0 à n unité(s) archivistique(s),
--   0 à n vocabulaire(s).
+-   0 à n vocabulaire(s) de l'ontologie et du schéma.
 
 Points d'attention :
 
