@@ -850,7 +850,7 @@ Base MasterData – collection Contrats de gestion (ManagementContract)
 L’ontologie a pour objectifs de :
 -  décrire les métadonnées utilisées dans la solution logicielle Vitam, quelle que soit la collection concernée et lister les collections et profils d’unités archivistiques (ArchiveUnitProfile) qui les utilisent ;
 -  garantir la cohérence de l’indexation des métadonnées entre les collections MongoDB et le moteur de recherche ElasticSearch ;
--  permettre à des administrateurs de créer des métadonnées supplémentaires à celles définies dans la norme NF Z 44‑022 et dans le Standard d’échanges de données pour l’archivage (SEDA), pour répondre à des besoins de description et de recherche d’archives prise en charge dans la solution logicielle Vitam.
+-  permettre à des administrateurs de créer des métadonnées supplémentaires à celles définies dans la norme NF Z 44-022 et dans le Standard d’échanges de données pour l’archivage (SEDA), pour répondre à des besoins de description et de recherche d’archives prise en charge dans la solution logicielle Vitam.
 
 ##### Exigences associées
 
@@ -942,6 +942,7 @@ L’identifiant du profil d’archivage permet de faire le lien avec le champ Ar
 Le profil d’archivage et sa description comprennent :
 -  des champs d’identification : identifiant du profil d’archivage, nom du profil d’archivage, description du profil d’archivage, date de création du profil d’archivage, date d’activation/désactivation du profil d’archivage, date de dernière mise à jour de la description du profil d’archivage ;
 -  le statut du profil d’archivage ;
+-  la version du SEDA utilisée par le profil d'archivage ;
 -  les profils d’unité archivistique (documents types) utilisés dans le profil ;
 -  les métadonnées de gestion applicables à l’ensemble du SIP ;
 -  la structure attendue du SIP ;
@@ -979,6 +980,7 @@ L’identifiant du profil d’unité archivistique ou document type permet de fa
 Le profil d’unité archivistique comprend :
 -  des champs d’identification : identifiant du profil, nom du profil, description du profil, date de création du profil, date d’activation/désactivation du profil, date de dernière mise à jour de la description du profil ;
 -  le statut du profil ;
+-  la version du SEDA utilisée par le profil d'unité archivistique ;
 -  les métadonnées de gestion applicables à l’unité archivistique ;
 -  la liste des champs obligatoires, qui ne doit pas être restrictive par rapport à ce qui est défini dans le Standard d’échanges de données pour l’archivage (SEDA) ;
 -  la liste des champs facultatifs, que ces champs existent actuellement dans l’ontologie définie dans le Standard d’échange de données pour l’archivage (SEDA) ou qu’ils nécessitent d’être ajoutés à cette ontologie ;
