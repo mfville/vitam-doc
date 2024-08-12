@@ -333,7 +333,7 @@ Lors de ce ré-import ou de cette mise à jour, l’opération peut aboutir aux 
 | --- | --- |
 | Succès | Opération réalisée sans rencontrer de problèmes particuliers. |
 | Échec  | Sans journalisation :<br>– ré-import d’un référentiel sous la forme d’un fichier qui n’est pas au format JSON ;<br>– import d’un référentiel dont au moins un des champs contient une injection HTML. |
-|        | Avec journalisation :<br>– ajout d’un vocabulaire dont l’identifiant est déjà utilisé par un autre vocabulaire de l’ontologie ;<br>– ajout d’un vocabulaire dont l’identifiant ne correspond pas aux règles imposées par la solution logicielle Vitam[^14] ;<br>– ajout d’un vocabulaire qui précise une taille de vocabulaire sans définir un type détaillé pour une chaîne de caractères ;<br>– incompatibilité entre le nouveau et l’ancien type d’indexation ;<br>– suppression d’un vocabulaire utilisé dans un profil d’unité archivistique ;<br>– suppression d’un vocabulaire utilisé dans le schéma. |
+|        | Avec journalisation :<br>– ajout d’un vocabulaire dont l’identifiant est déjà utilisé par un autre vocabulaire de l’ontologie ;<br>– ajout d’un vocabulaire dont l’identifiant ne correspond pas aux règles imposées par la solution logicielle Vitam[^14] ;<br>– ajout d’un vocabulaire qui précise une taille de vocabulaire sans définir un type détaillé pour une chaîne de caractères ;<br>– incompatibilité entre le nouveau et l’ancien type d’indexation ;<br>– incompatibilité entre le type d’indexation et le type détaillé d'indexation ;<br>– suppression d’un vocabulaire utilisé dans un profil d’unité archivistique ;<br>– suppression d’un vocabulaire utilisé dans le schéma. |
 
 Les différentes versions du référentiel font l’objet d’une sauvegarde sur les offres de stockage utilisées par la solution logicielle Vitam.
 
@@ -466,6 +466,20 @@ Elle obéit à des règles strictes :
 | BOOLEAN                    | Booléen         | true<br>false         | |                                                                 
 | GEO_POINT                  | Géolocalisation |  /                    | L’équipe Vitam n’a pas investigué sur les usages de ces deux types d’indexation.|
 | ENUM                       | Énumération     |  /                    | |
+
+-   un nouveau vocabulaire doit nécessairement avoir un **type d’indexation** compatible avec son type détaillé, si ce dernier est défini. Les compatibilités supportées par la solution logicielle Vitam sont :
+
+| Type d’indexation initiale | Compatibilité supportée | Compatibilité non supportée,<br>mais possible | Commentaires |
+|---|---|---|---|
+| TEXT                       | STRING                  | ENUM                    |  | 
+| KEYWORD                    | STRING                  | ENUM                    |  | 
+| DATE                       | DATETIME                | DATE                    |  |
+| LONG                       | LONG                    | /                       |  |
+| DOUBLE                     | DOUBLE                  | /                       |  |
+| BOOLEAN                    | BOOLEAN                 | /                       |  |
+| GEO_POINT                  | STRING                  | /                       | L’équipe Vitam n’a pas investigué sur les usages de ce type d’indexation.|
+| ENUM                       | ENUM                    | /                       | L’équipe Vitam n’a pas investigué sur les usages de ce type d’indexation. |
+
 
 **Points d’attention :**
 
