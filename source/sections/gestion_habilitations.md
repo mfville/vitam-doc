@@ -2821,12 +2821,9 @@ Liste des permissions qui peuvent être associées à :
 ||Télécharger un objet binaire|units:id:objects:read:binary|
 ||Télécharger un objet binaire avec l'identifiant pérenne d'une unité archivistique|objects:unitsbypersistentidentifier:id:objects:read:binary|
 ||Télécharger un objet binaire avec identifiant pérenne|objects:objectsbypersistentidentifier:id:read:binary|
-||Créer une demande d'accès à un objet persisté sur une offre froide (bande magnétique)|
-units:id:objects:accessrequests:create|
-||Vérifier l'état d'un ensemble de demandes d'accès sur une offre froide (bande magnétique)|
-accessrequests:check|
-||Supprimer une demande d'accès à un objet persisté sur une offre froide (bande magnétique)|
-accessrequests:remove|
+||Créer une demande d'accès à un objet persisté sur une offre froide (bande magnétique)|units:id:objects:accessrequests:create|
+||Vérifier l'état d'un ensemble de demandes d'accès sur une offre froide (bande magnétique)|accessrequests:check|
+||Supprimer une demande d'accès à un objet persisté sur une offre froide (bande magnétique)|accessrequests:remove|
 |DIP|Générer le DIP à partir d'un DSL|dipexport:create|
 ||Récupérer le DIP|dipexport:id:dip:read|
 |Journaux|Créer une opération externe|logbookoperations:create|

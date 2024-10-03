@@ -82,7 +82,7 @@ Il est possible d'ajouter dans le rapport, pour chaque unité archivistique, les
 - "OriginatingAgencyArchiveUnitIdentifier: identifiant(s) du service producteur,
 - "TransferringAgencyArchiveUnitIdentifier: identifiant(s) du service responsable du transfert.
 
-Point d’attention : Cette configuration n'inclut pas les identifiants pérennes. S'ils référencent une archives éliminées, ils seront systématiment enregistrés dans le rapport d'élimination.
+Point d’attention : Cette configuration n'inclut pas les identifiants pérennes. S'ils référencent une archive éliminée, ils seront systématiquement enregistrés dans le rapport d'élimination.
 
 Le fichier de configuration (vitam.conf) se présente comme suit (exemple fictif) :
 ```
